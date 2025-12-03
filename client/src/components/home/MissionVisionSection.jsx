@@ -2,7 +2,7 @@ import React from 'react';
 
 const MissionVisionSection = () => {
     return (
-        <section className="py-24 bg-secondary-50">
+        <section className="py-16 bg-secondary-50">
             <div className="container-custom">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
                     {/* Mission Card */}

@@ -1,6 +1,6 @@
 const AboutSection = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-16 lg:py-16 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side - Icon */}

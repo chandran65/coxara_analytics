@@ -2,7 +2,7 @@ import HeroSection from "../components/home/HeroSection";
 import AboutSection from "../components/home/AboutSection";
 import ServicesSection from "../components/home/ServicesSection";
 import IndustriesSection from "../components/home/IndustriesSection";
-import ClientTicker from "../components/home/ClientTicker";
+
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
 import MissionVisionSection from "../components/home/MissionVisionSection";
 import PlatformStudios from "../components/home/PlatformStudios";
@@ -13,9 +13,6 @@ const Home = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <HeroSection />
-
-      {/* Client Ticker - Trust Signal */}
-      <ClientTicker />
 
       {/* About Section */}
       <AboutSection />
@@ -36,7 +33,7 @@ const Home = () => {
       <ResourcesSection />
 
       {/* Why Choose Us - MathCo Style */}
-      <div className="py-24 bg-secondary-50">
+      <div className="py-16 bg-secondary-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>

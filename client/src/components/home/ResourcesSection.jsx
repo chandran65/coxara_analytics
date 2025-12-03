@@ -21,7 +21,7 @@ const resources = [
 
 const ResourcesSection = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-16 bg-white relative overflow-hidden">
             <div className="container-custom">
                 <div className="text-center mb-16">
                     <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20 mb-4">

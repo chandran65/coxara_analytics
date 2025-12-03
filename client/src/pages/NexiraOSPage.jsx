@@ -16,7 +16,7 @@ const NexiraOSPage = () => {
             <PlatformStudios />
 
             {/* Introduction Section */}
-            <section className="py-16 md:py-24">
+            <section className="py-16 md:py-16">
                 <div className="container-custom">
                     <div className="max-w-4xl mx-auto text-center mb-16">
                         <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
@@ -69,7 +69,7 @@ const NexiraOSPage = () => {
             </section>
 
             {/* How It Works Section */}
-            <section className="py-16 md:py-24 bg-secondary-50">
+            <section className="py-16 md:py-16 bg-secondary-50">
                 <div className="container-custom">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900 mb-4">
@@ -101,7 +101,7 @@ const NexiraOSPage = () => {
             </section>
 
             {/* Advanced Capabilities */}
-            <section className="py-16 md:py-24">
+            <section className="py-16 md:py-16">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -142,7 +142,7 @@ const NexiraOSPage = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-secondary-900 text-white text-center">
+            <section className="py-16 bg-secondary-900 text-white text-center">
                 <div className="container-custom">
                     <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">Ready to Optimize Your Marketing?</h2>
                     <p className="text-xl text-secondary-300 mb-10 max-w-2xl mx-auto">

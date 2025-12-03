@@ -44,7 +44,7 @@ const TeamPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* About Our Team Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-16">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
@@ -64,7 +64,7 @@ const TeamPage = () => {
         </section>
 
         {/* Founding Team Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-white via-primary-50/30 to-white relative overflow-hidden">
+        <section className="py-16 md:py-16 bg-gradient-to-br from-white via-primary-50/30 to-white relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl" />
@@ -100,7 +100,7 @@ const TeamPage = () => {
         </section>
 
         {/* Vertical Heads Section */}
-        <section className="py-16 md:py-24 relative">
+        <section className="py-16 md:py-16 relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900 mb-4">
@@ -123,7 +123,7 @@ const TeamPage = () => {
 
 
         {/* CTA Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-16">
           <div className="container-custom">
             <div className="bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-3xl p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]" />

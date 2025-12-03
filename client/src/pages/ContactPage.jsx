@@ -154,7 +154,7 @@ const ContactPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* Contact Form & Info Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-16">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Contact Form - Submit Your Queries */}
@@ -391,7 +391,7 @@ const ContactPage = () => {
         </section>
 
         {/* Map Section (Placeholder) */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-white via-primary-50/30 to-white">
+        <section className="py-16 md:py-16 bg-gradient-to-br from-white via-primary-50/30 to-white">
           <div className="container-custom">
             <div className="bg-secondary-100 rounded-3xl overflow-hidden shadow-xl h-96 flex items-center justify-center">
               <div className="text-center">

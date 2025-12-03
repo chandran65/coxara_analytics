@@ -87,7 +87,7 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-16 lg:py-16 bg-white">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
