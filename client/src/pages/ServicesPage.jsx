@@ -67,7 +67,7 @@ const ServicesPage = () => {
     },
     {
       id: "training",
-      title: "Corporate/academic Training",
+      title: "Enterprise Learning Program",
       icon: (
         <path
           strokeLinecap="round"
@@ -125,8 +125,8 @@ const ServicesPage = () => {
             key={service.id}
             id={service.id}
             className={`py-16 md:py-24 scroll-mt-20 ${index % 2 === 0
-                ? "bg-gradient-to-br from-white via-primary-50/30 to-white"
-                : "bg-white"
+              ? "bg-gradient-to-br from-white via-primary-50/30 to-white"
+              : "bg-white"
               }`}
           >
             <div className="container-custom">
