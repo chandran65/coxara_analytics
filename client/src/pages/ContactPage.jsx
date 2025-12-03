@@ -42,8 +42,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Email Us",
-      content: "contact@datascience.com",
-      link: "mailto:contact@datascience.com",
+      content: "contact@coxaraanalytics.com",
+      link: "mailto:contact@coxaraanalytics.com",
     },
     {
       icon: (
@@ -62,8 +62,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Call Us",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      content: "+91- 7010439447",
+      link: "tel:+917010439447",
     },
     {
       icon: (
@@ -88,8 +88,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Visit Us",
-      content: "123 Tech Street, Silicon Valley, CA 94025",
-      link: "https://maps.google.com",
+      content: "No.2, Bharathiyar Street, M.G.R. Nagar, West Tambarai, Tamil Nadu, India",
+      link: "https://www.google.com/maps/search/No.2,+Bharathiyar+Street+M.G.R.+Nagar+West+Tambaram+Chennai+-+600045+India/@12.9312062,80.1078992,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D,
     },
     {
       icon: (
