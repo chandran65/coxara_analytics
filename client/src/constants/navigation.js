@@ -10,14 +10,14 @@ export const navigationData = [
       { label: "Engineering Services", path: "/services#engineering" },
       { label: "Generative AI and Innovation", path: "/services#gen-ai" },
       { label: "Data Science Consulting", path: "/services#data-science" },
-      { label: "Corporate/academic Training", path: "/services#training" },
+      { label: "Enterprise Learning Program", path: "/services#training" },
     ],
   },
   {
     title: "Our Platform",
     path: "/products",
     items: [
-      { label: "NexiraOS - Coxara Enterprise-Grade, Agentic OS for Connected Intelligence", path: "/products/nexiraos" },
+      { label: "NexiraOS", path: "/products/nexiraos" },
     ],
   },
   {

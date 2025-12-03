@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const studios = [
     {
         id: "data-studio",
-        title: "Nexira OS Data Studio",
+        title: "Data Studio",
         tags: ["Connect", "Prepare", "Model", "Govern"],
         description:
             "Unify your data foundations with end-to-end pipelines, intelligent modeling frameworks, enterprise-quality governance, and accelerated data activation.",
@@ -15,7 +15,7 @@ const studios = [
     },
     {
         id: "experimentation-studio",
-        title: "Nexira OS Experimentation Studio",
+        title: "Experimentation Studio",
         tags: ["A/B Testing", "Causal Inference", "Uplift Modeling"],
         description:
             "Run experiments at scale, quantify true causal impact, and optimize product and business decisions with scientifically grounded uplift frameworks.",
@@ -27,7 +27,7 @@ const studios = [
     },
     {
         id: "forecasting-studio",
-        title: "Nexira OS Forecasting & Planning Studio",
+        title: "Forecasting & Planning Studio",
         tags: ["Demand", "Supply", "Scenario Planning", "Budgeting"],
         description:
             "Deliver highly accurate forecasts, simulate multi-scenario outcomes, and streamline planning cycles across demand, supply, and financial workflows.",
@@ -39,7 +39,7 @@ const studios = [
     },
     {
         id: "decision-automation",
-        title: "Nexira OS Decision Automation Studio",
+        title: "Decision Automation Studio",
         tags: ["Rules + ML", "Workflows", "Human-in-the-Loop"],
         description:
             "Deploy intelligent, governed decisions using hybrid rules + machine learning systems—complete with approval loops, monitoring, and auditability.",
@@ -52,7 +52,7 @@ const studios = [
     },
     {
         id: "domain-intelligence",
-        title: "Nexira OS Domain Intelligence Packs",
+        title: "Domain Intelligence Packs",
         tags: ["Prebuilt Industry Assets", "KPIs", "Accelerators"],
         description:
             "Jumpstart deployments with pre-configured analytics templates, domain-specific KPIs, and ready-made intelligence packs for industry verticals.",
