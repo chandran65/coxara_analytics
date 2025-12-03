@@ -177,37 +177,46 @@ const Navbar = () => {
                               "0 20px 60px -12px rgba(91, 48, 140, 0.25), 0 8px 16px -8px rgba(91, 48, 140, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 0.4)",
                           }}
                         >
-                          {navItem.items.map((item, index) => (
-                            <button
-                              key={item.path}
-                              onClick={() => handleNavClick(item)}
-                              className="group/item relative block w-full text-left px-5 py-3 text-secondary-900 hover:text-brand-purple font-medium transition-all duration-200 overflow-hidden"
-                              style={{
-                                animationDelay: `${index * 30}ms`,
-                              }}
-                            >
-                              <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/0 to-brand-accent/0 group-hover/item:from-brand-purple/8 group-hover/item:to-brand-accent/8 transition-all duration-300" />
-                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0 h-0 group-hover/item:w-1 group-hover/item:h-full bg-gradient-to-b from-brand-purple to-brand-accent transition-all duration-300" />
-                              <span className="relative flex items-center gap-2">
-                                <svg
-                                  className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                  />
-                                </svg>
-                                <span className="group-hover/item:translate-x-1 transition-transform duration-200">
-                                  {item.label}
+                          {navItem.items.map((item, index) =>
+                            item.isHeader ? (
+                              <div
+                                key={item.label}
+                                className="px-5 py-2 text-xs font-bold text-secondary-500 uppercase tracking-wider mt-2 first:mt-0"
+                              >
+                                {item.label}
+                              </div>
+                            ) : (
+                              <button
+                                key={item.path}
+                                onClick={() => handleNavClick(item)}
+                                className="group/item relative block w-full text-left px-5 py-3 text-secondary-900 hover:text-brand-purple font-medium transition-all duration-200 overflow-hidden"
+                                style={{
+                                  animationDelay: `${index * 30}ms`,
+                                }}
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/0 to-brand-accent/0 group-hover/item:from-brand-purple/8 group-hover/item:to-brand-accent/8 transition-all duration-300" />
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0 h-0 group-hover/item:w-1 group-hover/item:h-full bg-gradient-to-b from-brand-purple to-brand-accent transition-all duration-300" />
+                                <span className="relative flex items-center gap-2">
+                                  <svg
+                                    className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M9 5l7 7-7 7"
+                                    />
+                                  </svg>
+                                  <span className="group-hover/item:translate-x-1 transition-transform duration-200">
+                                    {item.label}
+                                  </span>
                                 </span>
-                              </span>
-                            </button>
-                          ))}
+                              </button>
+                            )
+                          )}
                         </div>
                       </div>
                     )}

@@ -8,10 +8,14 @@ export const navigationData = [
     path: "/company/team",
   },
   {
-    title: "AI Solutions & Data Analytics",
+    title: "Analytical Services",
     path: "/services",
     items: [
-      { label: "AI Solutions", path: "/services#gen-ai" },
+      { label: "AI Services", isHeader: true },
+      { label: "AI Strategy & Governance", path: "/services#ai-strategy" },
+      { label: "Agentic AI", path: "/services#agentic-ai" },
+      { label: "Coxara Lab", path: "/services#coxara-lab" },
+      { label: "Advanced Analytics", isHeader: true },
       { label: "Advanced Predictive Analytics", path: "/services#data-science" },
       { label: "Real-time Analytics", path: "/services#engineering" },
       { label: "Data Modelling", path: "/services#data-science" },
