@@ -21,7 +21,7 @@ export const footerData = {
   },
   product: {
     title: "Product",
-    links: [{ label: "BIKS", path: "/biks" }],
+    links: [{ label: "NexiraOS", path: "/products/nexiraos" }],
   },
   services: {
     title: "Services",
