@@ -69,15 +69,15 @@ const PlatformStudios = () => {
         <section className="py-24 bg-brand-light relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white to-transparent opacity-50" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-teal/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl" />
 
             <div className="container-custom relative z-10">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-3 py-1 bg-brand-teal/10 text-brand-teal font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-teal/20 mb-4">
+                    <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20 mb-4">
                         Our Services
                     </span>
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-dark mb-6">
-                        Nexira OS <span className="text-brand-teal">Platform Studios</span>
+                        Nexira OS <span className="text-brand-purple">Platform Studios</span>
                     </h2>
                     <p className="text-base md:text-lg text-secondary-600 max-w-3xl mx-auto leading-relaxed">
                         A comprehensive suite of intelligent studios designed to accelerate your data journey from raw inputs to automated decisions.
@@ -92,16 +92,16 @@ const PlatformStudios = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-secondary-100 hover:border-brand-teal/30 transition-all duration-300 relative overflow-hidden"
+                            className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-secondary-100 hover:border-brand-purple/30 transition-all duration-300 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-teal/5 to-transparent rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110" />
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-purple/5 to-transparent rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110" />
 
                             <div className="relative z-10">
-                                <div className="w-14 h-14 bg-brand-dark rounded-xl flex items-center justify-center text-brand-teal mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-14 h-14 bg-brand-dark rounded-xl flex items-center justify-center text-brand-accent mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
                                     {studio.icon}
                                 </div>
 
-                                <h3 className="text-xl font-bold text-brand-dark mb-4 group-hover:text-brand-teal transition-colors">
+                                <h3 className="text-xl font-bold text-brand-dark mb-4 group-hover:text-brand-purple transition-colors">
                                     {studio.title}
                                 </h3>
 
@@ -122,7 +122,7 @@ const PlatformStudios = () => {
 
                                 <a
                                     href={`/services#${studio.id}`}
-                                    className="inline-flex items-center text-brand-teal font-semibold hover:text-brand-dark transition-colors group/link"
+                                    className="inline-flex items-center text-brand-purple font-semibold hover:text-brand-dark transition-colors group/link"
                                 >
                                     Learn more
                                     <svg

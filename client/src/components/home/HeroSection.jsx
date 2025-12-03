@@ -38,7 +38,7 @@ const HeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "out" }}
                     >
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg">
                             Solving complex business problems with <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-light">
                                 Data and AI

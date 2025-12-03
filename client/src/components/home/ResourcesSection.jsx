@@ -62,7 +62,7 @@ const ResourcesSection = () => {
                                     {resource.description}
                                 </p>
                                 <div>
-                                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-teal hover:text-white transition-all duration-300">
+                                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300">
                                         {resource.cta}
                                         <svg
                                             className="w-4 h-4"
