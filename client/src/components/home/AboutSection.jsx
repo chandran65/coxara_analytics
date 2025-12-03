@@ -54,17 +54,17 @@ const AboutSection = () => {
           <div className="space-y-6 text-center lg:text-left">
             {/* Heading */}
             <div className="space-y-3">
-              <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20">
+              <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20">
                 About Us
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-secondary-900 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary-900 leading-tight">
                 Transforming Data Into{" "}
-                <span className="gradient-text">Business Value</span>
+                <span className="text-brand-purple">Business Value</span>
               </h2>
             </div>
 
-            {/* Paragraph Text - 3 Lines */}
-            <div className="space-y-4 text-lg md:text-xl text-secondary-600 leading-relaxed">
+            {/* Paragraph Text */}
+            <div className="space-y-4 text-base md:text-lg text-secondary-600 leading-relaxed">
               <p>
                 We are a team of passionate data scientists and machine learning
                 engineers dedicated to helping businesses unlock the full
@@ -83,28 +83,28 @@ const AboutSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
+            <div className="grid grid-cols-3 gap-8 pt-6 border-t border-secondary-100 mt-8">
               <div className="text-center lg:text-left">
-                <p className="text-3xl md:text-4xl font-display font-bold text-brand-purple">
+                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
                   500+
                 </p>
-                <p className="text-sm md:text-base text-secondary-600 font-medium">
+                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
                   Projects
                 </p>
               </div>
               <div className="text-center lg:text-left">
-                <p className="text-3xl md:text-4xl font-display font-bold text-brand-purple">
+                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
                   98%
                 </p>
-                <p className="text-sm md:text-base text-secondary-600 font-medium">
+                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
                   Success Rate
                 </p>
               </div>
               <div className="text-center lg:text-left">
-                <p className="text-3xl md:text-4xl font-display font-bold text-brand-purple">
+                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
                   50+
                 </p>
-                <p className="text-sm md:text-base text-secondary-600 font-medium">
+                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
                   Clients
                 </p>
               </div>

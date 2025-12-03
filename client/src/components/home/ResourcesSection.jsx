@@ -24,13 +24,13 @@ const ResourcesSection = () => {
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="container-custom">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
+                    <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20 mb-4">
                         Resources
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-brand-dark mb-6">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-dark mb-6">
                         Latest <span className="text-brand-purple">Insights</span>
                     </h2>
-                    <p className="text-lg text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-lg text-secondary-600 max-w-3xl mx-auto leading-relaxed">
                         Stay ahead of the curve with our latest research, whitepapers, and strategic guides.
                     </p>
                 </div>

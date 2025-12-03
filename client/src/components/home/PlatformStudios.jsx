@@ -73,13 +73,13 @@ const PlatformStudios = () => {
 
             <div className="container-custom relative z-10">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-brand-teal/10 text-brand-teal font-semibold text-sm rounded-full border border-brand-teal/20 mb-4">
+                    <span className="inline-block px-3 py-1 bg-brand-teal/10 text-brand-teal font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-teal/20 mb-4">
                         Our Services
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-brand-dark mb-6">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-dark mb-6">
                         Nexira OS <span className="text-brand-teal">Platform Studios</span>
                     </h2>
-                    <p className="text-lg text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-lg text-secondary-600 max-w-3xl mx-auto leading-relaxed">
                         A comprehensive suite of intelligent studios designed to accelerate your data journey from raw inputs to automated decisions.
                     </p>
                 </div>

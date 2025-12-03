@@ -91,14 +91,14 @@ const IndustriesSection = () => {
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
-          <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
+          <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20 mb-4">
             Industries We Serve
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-secondary-900 leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary-900 leading-tight mb-4">
             Expertise Across{" "}
-            <span className="gradient-text">Multiple Sectors</span>
+            <span className="text-brand-purple">Multiple Sectors</span>
           </h2>
-          <p className="text-lg md:text-xl text-secondary-600 leading-relaxed">
+          <p className="text-base md:text-lg text-secondary-600 leading-relaxed">
             Delivering tailored data science solutions that address unique
             challenges in diverse industries worldwide.
           </p>

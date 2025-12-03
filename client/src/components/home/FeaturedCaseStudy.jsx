@@ -10,12 +10,12 @@ const FeaturedCaseStudy = () => {
             <div className="container-custom relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <div className="w-full lg:w-1/2 space-y-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
                             <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                            <span className="text-sm font-medium text-brand-glow">Featured Case Study</span>
+                            <span className="text-xs font-medium text-brand-glow uppercase tracking-wider">Featured Case Study</span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight">
                             Revolutionizing <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-accent">Retail Analytics</span>
                         </h2>

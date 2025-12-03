@@ -40,11 +40,13 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-brand-purple font-semibold tracking-wider uppercase text-sm">Why Choose Us</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-secondary-900 mt-4 mb-6 leading-tight">
+              <span className="inline-block px-3 py-1 bg-brand-purple/10 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/20 mb-4">
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary-900 mb-6 leading-tight">
                 Empowering Business <br /> Through <span className="text-brand-purple">Innovation</span>
               </h2>
-              <p className="text-lg text-secondary-600 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-secondary-600 mb-8 leading-relaxed">
                 We bridge the gap between complex data and actionable insights. Our approach combines deep industry expertise with cutting-edge technology to deliver measurable value.
               </p>
 
