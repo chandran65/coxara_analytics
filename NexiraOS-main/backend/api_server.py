@@ -10,7 +10,11 @@ import numpy as np
 import json
 import os
 from datetime import datetime
-from mmm_engine import MarketingMixModel
+try:
+    from mmm_engine import MarketingMixModel
+except ImportError:
+    MarketingMixModel = None
+from mmm_simple import SimplifiedMMM
 import traceback
 
 app = Flask(__name__)
@@ -150,11 +154,24 @@ def train_model():
         df = pd.DataFrame(payload['data'])
         
         # Initialize model
-        mmm = MarketingMixModel(
-            adstock_type=config.get('adstock_type', 'geometric'),
-            saturation_type=config.get('saturation_type', 'hill'),
-            random_seed=42
-        )
+        # Use SimplifiedMMM if on Vercel or if PyMC is missing
+        use_simple = os.environ.get('VERCEL') or MarketingMixModel is None
+        
+        if not use_simple:
+            try:
+                mmm = MarketingMixModel(
+                    adstock_type=config.get('adstock_type', 'geometric'),
+                    saturation_type=config.get('saturation_type', 'hill'),
+                    random_seed=42
+                )
+            except ImportError:
+                use_simple = True
+        
+        if use_simple:
+            print("Using SimplifiedMMM (Ridge Regression)")
+            mmm = SimplifiedMMM()
+            # Map config to simple model params if needed
+            # For now, simple model uses defaults
         
         # Prepare data
         mmm.prepare_data(
@@ -165,27 +182,47 @@ def train_model():
         )
         
         # Build and fit model
-        mmm.build_model()
-        
-        # For demo purposes, use smaller MCMC settings
-        trace = mmm.fit(
-            draws=config.get('mcmc_draws', 500),  # Reduced for speed
-            tune=config.get('mcmc_tune', 500),
-            chains=config.get('mcmc_chains', 2)
-        )
+        if hasattr(mmm, 'build_model'):
+            mmm.build_model()
+            
+            # For demo purposes, use smaller MCMC settings
+            trace = mmm.fit(
+                draws=config.get('mcmc_draws', 500),  # Reduced for speed
+                tune=config.get('mcmc_tune', 500),
+                chains=config.get('mcmc_chains', 2)
+            )
+        else:
+            # Simple model fit
+            mmm.fit(
+                df=df,
+                kpi_col=config['kpi'],
+                media_cols=config['media_channels'],
+                control_cols=config.get('control_vars', [])
+            )
         
         # Store model
         active_models[experiment_id] = mmm
         
         # Calculate results
         contributions = mmm.get_channel_contributions()
-        roi = mmm.calculate_roi(df[config['media_channels']])
+        if hasattr(mmm, 'build_model'):
+             roi = mmm.calculate_roi(df[config['media_channels']])
+        else:
+             roi = mmm.calculate_roi()
         
         # Store results
+        summary_data = {}
+        if hasattr(mmm, 'summary'):
+            # Check if summary returns a DataFrame or Dict
+            s = mmm.summary()
+            summary_data = s.to_dict() if hasattr(s, 'to_dict') else s
+        elif hasattr(mmm, 'get_model_summary'):
+            summary_data = mmm.get_model_summary()
+
         model_results[experiment_id] = {
             'contributions': contributions.to_dict('records'),
             'roi': roi.to_dict('records'),
-            'summary': mmm.summary().to_dict(),
+            'summary': summary_data,
             'config': config,
             'trained_at': datetime.now().isoformat()
         }
@@ -262,9 +299,14 @@ def optimize_budget():
         
         # Simple optimization: allocate proportional to ROI
         # In production, use scipy.optimize or similar
-        roi_data = mmm.calculate_roi(
-            pd.DataFrame({ch: [1000] for ch in mmm.media_channels})  # Dummy spend
-        )
+        if hasattr(mmm, 'build_model'):
+            roi_data = mmm.calculate_roi(
+                pd.DataFrame({ch: [1000] for ch in mmm.media_channels})  # Dummy spend
+            )
+        else:
+            # SimplifiedMMM uses internal data for ROI, which might not be ideal for "what-if" optimization
+            # But for now, we just use the historical ROI
+            roi_data = mmm.calculate_roi()
         
         # Sort by ROI
         roi_data = roi_data.sort_values('roi', ascending=False)

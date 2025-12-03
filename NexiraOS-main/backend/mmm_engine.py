@@ -5,8 +5,15 @@ Implements Bayesian MMM with adstock and saturation effects
 
 import numpy as np
 import pandas as pd
-import pymc as pm
-import arviz as az
+try:
+    import pymc as pm
+    import arviz as az
+    HAS_PYMC = True
+except ImportError:
+    HAS_PYMC = False
+    pm = None
+    az = None
+
 from scipy.special import expit
 from typing import Dict, List, Optional, Tuple
 import warnings
@@ -189,6 +196,9 @@ class MarketingMixModel:
         """
         if self.data is None:
             raise ValueError("Data not prepared. Call prepare_data() first.")
+        
+        if not HAS_PYMC:
+            raise ImportError("PyMC is not installed. Cannot build Bayesian model.")
         
         with pm.Model() as model:
             # Data
