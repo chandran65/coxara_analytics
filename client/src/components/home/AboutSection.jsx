@@ -36,14 +36,14 @@ const AboutSection = () => {
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-bright/20 rounded-full blur-2xl" />
               </div>
 
-              {/* Floating badge */}
+              {/* Floating badge - Changed to Innovation Focus */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-6 py-4 border-2 border-brand-purple/20">
                 <div className="text-center">
                   <p className="text-3xl font-display font-bold text-brand-purple">
-                    10+
+                    AI
                   </p>
                   <p className="text-sm font-semibold text-secondary-600">
-                    Years Experience
+                    Native Approach
                   </p>
                 </div>
               </div>
@@ -58,55 +58,52 @@ const AboutSection = () => {
                 About Us
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary-900 leading-tight">
-                Transforming Data Into{" "}
-                <span className="text-brand-purple">Business Value</span>
+                Pioneering the Future of{" "}
+                <span className="text-brand-purple">Intelligent Enterprise</span>
               </h2>
             </div>
 
             {/* Paragraph Text */}
             <div className="space-y-4 text-base md:text-lg text-secondary-600 leading-relaxed">
               <p>
-                We are a team of passionate data scientists and machine learning
-                engineers dedicated to helping businesses unlock the full
-                potential of their data.
+                We are a new-age analytics firm born in the era of Generative AI.
+                Unlike traditional consultancies, we don't just analyze data; we build
+                intelligent systems that learn, adapt, and drive autonomous decision-making.
               </p>
               <p>
-                Our expertise spans across advanced analytics, predictive
-                modeling, and AI-driven solutions that deliver measurable
-                results and drive growth.
+                Our mission is to democratize access to advanced AI, enabling
+                businesses of all sizes to harness the power of predictive intelligence
+                and causal reasoning without the technical complexity.
               </p>
               <p>
-                With a proven track record of successful implementations, we
-                partner with organizations to transform complex data challenges
-                into strategic advantages.
+                We are building the operating system for the modern enterprise—where
+                data isn't just a report, but a dynamic engine of growth.
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-6 border-t border-secondary-100 mt-8">
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
-                  500+
-                </p>
-                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
-                  Projects
-                </p>
+            {/* Core Values / Features instead of Stats */}
+            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-secondary-100 mt-8">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-secondary-900">Innovation First</h4>
+                  <p className="text-sm text-secondary-600">Cutting-edge GenAI & ML solutions</p>
+                </div>
               </div>
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
-                  98%
-                </p>
-                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
-                  Success Rate
-                </p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-display font-bold text-brand-purple mb-1">
-                  50+
-                </p>
-                <p className="text-sm text-secondary-500 font-medium uppercase tracking-wide">
-                  Clients
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-secondary-900">Agile Delivery</h4>
+                  <p className="text-sm text-secondary-600">Rapid prototyping & deployment</p>
+                </div>
               </div>
             </div>
           </div>
