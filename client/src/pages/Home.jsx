@@ -1,4 +1,4 @@
-import HeroCarousel from "../components/home/HeroCarousel";
+import HeroSection from "../components/home/HeroSection";
 import AboutSection from "../components/home/AboutSection";
 import ServicesSection from "../components/home/ServicesSection";
 import IndustriesSection from "../components/home/IndustriesSection";
@@ -11,8 +11,8 @@ import ResourcesSection from "../components/home/ResourcesSection";
 const Home = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Carousel */}
-      <HeroCarousel />
+      {/* Hero Section */}
+      <HeroSection />
 
       {/* Client Ticker - Trust Signal */}
       <ClientTicker />
