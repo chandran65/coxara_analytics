@@ -89,7 +89,7 @@ const ContactPage = () => {
       ),
       title: "Visit Us",
       content: "No.2, Bharathiyar Street, M.G.R. Nagar, West Tambarai, Tamil Nadu, India",
-      link: "https://www.google.com/maps/search/No.2,+Bharathiyar+Street+M.G.R.+Nagar+West+Tambaram+Chennai+-+600045+India/@12.9312062,80.1078992,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D,
+      link: "https://www.google.com/maps/search/No.2,+Bharathiyar+Street+M.G.R.+Nagar+West+Tambaram+Chennai+-+600045+India/@12.9312062,80.1078992,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: (
