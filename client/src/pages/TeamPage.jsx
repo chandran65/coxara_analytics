@@ -5,19 +5,19 @@ const TeamPage = () => {
   const teamMembers = {
     founders: [
       {
-        name: "Sumithra M.G",
+        name: "M.G.S",
         designation: "Co-Founder & CEO",
         bio: "A visionary leader driving the democratization of advanced analytics. Dr. Sumithra combines deep technical expertise with strategic business acumen to transform enterprise data into predictive intelligence.",
         expertise: ["Decision Intelligence", "Strategic Leadership", "AI Automation"],
       },
       {
-        name: "Chandran V",
+        name: "Venkatesan C",
         designation: "Co-Founder & CTO",
         bio: "Leading the technological innovation behind our autonomous decision intelligence platform. Dr. Chandran specializes in building scalable, real-time AI architectures.",
         expertise: ["AI Architect", "Cloud Computing", "Tech Innovation"],
       },
       {
-        name: "Suriya M",
+        name: "Murugan S",
         designation: "Co-Founder & CFO",
         bio: "Expert in financial strategy and sustainable business growth. Dr. Suriya ensures operational excellence and drives measurable business impact through optimized resource allocation.",
         expertise: ["Financial Strategy", "Growth Optimization", "Business Operations"],
