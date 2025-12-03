@@ -8,9 +8,10 @@ export const navigationData = [
     path: "/company/team",
   },
   {
-    title: "Data & Analytics",
+    title: "AI Solutions & Data Analytics",
     path: "/services",
     items: [
+      { label: "AI Solutions", path: "/services#gen-ai" },
       { label: "Advanced Predictive Analytics", path: "/services#data-science" },
       { label: "Real-time Analytics", path: "/services#engineering" },
       { label: "Data Modelling", path: "/services#data-science" },
