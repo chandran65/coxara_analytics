@@ -19,10 +19,6 @@ export const footerData = {
       { label: "Banking", path: "/industries/banking" },
     ],
   },
-  product: {
-    title: "Product",
-    links: [{ label: "NexiraOS", path: "/products/nexiraos" }],
-  },
   services: {
     title: "Services",
     links: [

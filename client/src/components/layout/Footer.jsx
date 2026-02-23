@@ -329,22 +329,6 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <h3 className="text-white font-display font-semibold text-sm uppercase tracking-wider mb-4 mt-6">
-                {footerData.product.title}
-              </h3>
-              <ul className="space-y-3">
-                {footerData.product.links.map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      onClick={(e) => handleLinkClick(e, link.path)}
-                      className="text-secondary-300 hover:text-brand-accent transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div>

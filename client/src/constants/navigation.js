@@ -23,10 +23,6 @@ export const navigationData = [
     ],
   },
   {
-    title: "Product",
-    path: "/products/nexiraos",
-  },
-  {
     title: "Resources",
     path: "/resources",
     items: [

@@ -11,7 +11,6 @@ import SolutionsPage from "./pages/SolutionsPage";
 import BiksPage from "./pages/BiksPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
-import NexiraOSPage from "./pages/NexiraOSPage";
 import "./App.css";
 
 function App() {
@@ -41,9 +40,6 @@ function App() {
 
           {/* Resources Routes */}
           <Route path="resources" element={<ResourcesPage />} />
-
-          {/* Products Routes */}
-          <Route path="products/nexiraos" element={<NexiraOSPage />} />
 
           {/* AiImage Route */}
           <Route path="aiimage" element={<PlaceholderPage title="AiImage" />} />
