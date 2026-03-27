@@ -6,3 +6,5 @@ This repository contains the source code for the Coxara Analytics platform, incl
 
 - `NexiraOS-main/`: The main application code (Frontend + Backend).
 - `client/`: Additional client-side code.
+
+Updated.
