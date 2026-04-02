@@ -3,46 +3,43 @@ import { AnimatedSection } from "../ui";
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-secondary-950 via-secondary-900 to-secondary-950 text-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center_right,_rgba(109,40,217,0.12)_0%,_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(139,92,246,0.08)_0%,_transparent_50%)]" />
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+      {/* Subtle background */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.012] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+            "radial-gradient(circle at 1px 1px, #6D28D9 1px, transparent 0)",
+          backgroundSize: "48px 48px",
         }}
       />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
           <AnimatedSection direction="left" className="w-full lg:w-1/2">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-                <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
-                <span className="text-xs font-medium text-brand-light uppercase tracking-widest">
-                  Featured Case Study
-                </span>
-              </div>
+              <span className="badge">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
+                Featured Case Study
+              </span>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900 leading-tight">
                 Revolutionizing <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-accent">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent">
                   Retail Analytics
                 </span>
               </h2>
 
-              <p className="text-lg text-secondary-300 leading-relaxed max-w-xl">
+              <p className="text-lg text-secondary-500 leading-relaxed max-w-xl">
                 How we helped a global retail giant optimize their supply chain
                 and increase profitability by 25% using our predictive modeling
                 engine.
               </p>
 
-              <div className="grid grid-cols-2 gap-8 py-8 border-t border-white/10">
+              <div className="grid grid-cols-2 gap-8 py-8 border-t border-secondary-100">
                 <div>
-                  <p className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+                  <p className="text-4xl md:text-5xl font-display font-bold text-brand-purple mb-2">
                     25%
                   </p>
                   <p className="text-sm text-secondary-400 font-medium">
@@ -50,7 +47,7 @@ const FeaturedCaseStudy = () => {
                   </p>
                 </div>
                 <div>
-                  <p className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+                  <p className="text-4xl md:text-5xl font-display font-bold text-brand-purple mb-2">
                     10x
                   </p>
                   <p className="text-sm text-secondary-400 font-medium">
@@ -59,7 +56,7 @@ const FeaturedCaseStudy = () => {
                 </div>
               </div>
 
-              <button className="group flex items-center gap-3 text-white font-semibold hover:text-brand-accent transition-colors duration-300">
+              <button className="group flex items-center gap-3 text-brand-purple font-semibold hover:text-brand-accent transition-colors duration-300">
                 Read the full story
                 <svg
                   className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
@@ -85,10 +82,9 @@ const FeaturedCaseStudy = () => {
           >
             <div className="relative rounded-2xl overflow-hidden group">
               {/* Glow behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-brand-purple/20 to-brand-accent/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-brand-purple/10 to-brand-accent/10 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
 
-              <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                <div className="absolute inset-0 bg-brand-purple/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <div className="relative rounded-2xl overflow-hidden border border-secondary-100 shadow-xl shadow-secondary-200/30">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
                   alt="Data Analytics Dashboard"
@@ -96,13 +92,13 @@ const FeaturedCaseStudy = () => {
                 />
 
                 {/* Floating testimonial card */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-xl p-6 rounded-xl border border-white/20 z-20 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-medium text-sm leading-relaxed">
+                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-xl p-6 rounded-xl border border-secondary-100 shadow-lg z-20 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <p className="text-secondary-700 font-medium text-sm leading-relaxed">
                     "Coxara Analytics transformed how we view our data. The
                     insights were immediate and actionable."
                   </p>
-                  <p className="text-brand-accent text-sm mt-3 font-semibold">
-                    - CTO, Global Retailer
+                  <p className="text-brand-purple text-sm mt-3 font-semibold">
+                    — CTO, Global Retailer
                   </p>
                 </div>
               </div>

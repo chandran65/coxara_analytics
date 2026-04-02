@@ -1,5 +1,4 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import { footerData, socialMediaLinks } from "../../constants/footer";
 import {
   scrollToElement,
@@ -114,41 +113,6 @@ const Footer = () => {
       />
 
       <div className="container-custom relative z-10">
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative -mt-20 mb-16 rounded-2xl overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-90" />
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)",
-              backgroundSize: "40px 40px, 60px 60px",
-            }}
-          />
-          <div className="relative z-10 px-8 py-12 md:px-16 md:py-14 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
-                Ready to Transform Your Data?
-              </h3>
-              <p className="text-white/80 text-lg">
-                Let's build intelligent systems that drive real business value.
-              </p>
-            </div>
-            <Link
-              to="/company/contact"
-              className="shrink-0 px-8 py-4 bg-white text-brand-purple font-bold rounded-full hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-lg"
-            >
-              Get in Touch
-            </Link>
-          </div>
-        </motion.div>
-
         {/* Main Footer Content */}
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
@@ -243,20 +207,6 @@ const Footer = () => {
             <p className="text-secondary-500 text-sm">
               © {currentYear} COXARA Analytics. All rights reserved.
             </p>
-            <div className="flex items-center gap-8">
-              <Link
-                to="/privacy"
-                className="text-secondary-500 hover:text-white transition-colors text-sm"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                className="text-secondary-500 hover:text-white transition-colors text-sm"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </div>
