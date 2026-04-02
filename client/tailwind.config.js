@@ -37,9 +37,10 @@ export default {
           bright: "#D8B4FE",
           glow: "#E9D5FF",
           deep: "#4C1D95",
-          dark: "#0A1A3A",   // Deep Blue (User Requested)
-          teal: "#0BA8A1",   // Teal (User Requested)
-          light: "#F5F6FA",  // Cool Grey (User Requested)
+          vivid: "#7C3AED", // Vivid violet (used in VoiceCloningVisual)
+          dark: "#0A1A3A", // Deep Blue
+          teal: "#0BA8A1", // Teal
+          light: "#F5F6FA", // Cool Grey
           primary: "#2563EB", // Corporate Blue
           secondary: "#475569", // Slate Text
         },
@@ -49,20 +50,21 @@ export default {
         display: ["Outfit", "Inter", "sans-serif"], // Changed to Outfit for a more modern look if available, otherwise Inter
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%)',
-        'hero-light': 'linear-gradient(to right, #f8fafc, #e2e8f0)',
-        'card-gradient': 'linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%)',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "hero-gradient":
+          "linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%)",
+        "hero-light": "linear-gradient(to right, #f8fafc, #e2e8f0)",
+        "card-gradient": "linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%)",
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-out forwards",
         "slide-up": "slideUp 0.8s ease-out forwards",
         "slide-down": "slideDown 0.8s ease-out forwards",
         "scale-in": "scaleIn 0.5s ease-out forwards",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "marquee": "marquee 25s linear infinite",
-        "marquee2": "marquee2 25s linear infinite",
+        marquee: "marquee 25s linear infinite",
+        marquee2: "marquee2 25s linear infinite",
       },
       keyframes: {
         fadeIn: {

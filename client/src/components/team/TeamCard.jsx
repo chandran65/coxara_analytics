@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 
 const TeamCard = ({ member, isFounder = false }) => (
@@ -27,8 +26,7 @@ const TeamCard = ({ member, isFounder = false }) => (
         {/* Name and Designation */}
         <div className="w-full">
           <h3
-            className={`font - display font - bold text - secondary - 900 mb - 2 ${isFounder ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
-              } `}
+            className={`font-display font-bold text-secondary-900 mb-2 ${isFounder ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"}`}
           >
             {member.name}
           </h3>
