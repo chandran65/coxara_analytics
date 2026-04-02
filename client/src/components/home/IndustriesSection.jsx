@@ -1,5 +1,66 @@
-import { motion } from "framer-motion";
 import { AnimatedSection, SectionHeading } from "../ui";
+
+const FlipCard = ({ industry }) => {
+  return (
+    <div className="group [perspective:1200px] h-[280px]">
+      <div className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        {/* ===== FRONT FACE ===== */}
+        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.02] to-brand-accent/[0.01]" />
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
+
+          <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-5 shadow-lg shadow-brand-purple/20">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {industry.icon}
+              </svg>
+            </div>
+            <h3 className="text-xl font-display font-bold text-secondary-900">
+              {industry.title}
+            </h3>
+            <div className="mt-5 flex items-center gap-1.5 text-secondary-400 text-xs font-medium">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+              <span>Hover for details</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== BACK FACE ===== */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border border-brand-purple/25 bg-white shadow-2xl shadow-brand-purple/[0.08] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.05] to-brand-accent/[0.03]" />
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
+
+          <div className="relative z-10 h-full flex flex-col justify-between p-8">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {industry.icon}
+                  </svg>
+                </div>
+                <h3 className="text-lg font-display font-bold text-brand-purple">
+                  {industry.title}
+                </h3>
+              </div>
+              <p className="text-secondary-600 leading-relaxed text-sm">
+                {industry.description}
+              </p>
+            </div>
+
+            <span className="inline-flex items-center gap-2 text-brand-purple font-semibold text-sm mt-4 hover:gap-3 transition-all duration-300 cursor-pointer">
+              Explore Solutions
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const IndustriesSection = () => {
   const industries = [
@@ -115,55 +176,7 @@ const IndustriesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
           {industries.map((industry, index) => (
             <AnimatedSection key={industry.id} delay={index * 0.08}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3 }}
-                className="group relative h-full bg-white rounded-2xl p-8 border border-secondary-100 hover:border-brand-purple/30 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Icon */}
-                <div className="relative mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-purple to-brand-accent rounded-2xl shadow-lg shadow-brand-purple/15 group-hover:scale-110 transition-all duration-300">
-                    <svg
-                      className="w-7 h-7 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      {industry.icon}
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="relative">
-                  <h3 className="text-xl font-display font-bold text-secondary-900 mb-3 group-hover:text-brand-purple transition-colors duration-300">
-                    {industry.title}
-                  </h3>
-                  <p className="text-secondary-600 leading-relaxed mb-5">
-                    {industry.description}
-                  </p>
-
-                  <span className="inline-flex items-center gap-2 text-brand-purple font-semibold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <span>Explore Solutions</span>
-                    <svg
-                      className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </motion.div>
+              <FlipCard industry={industry} />
             </AnimatedSection>
           ))}
         </div>

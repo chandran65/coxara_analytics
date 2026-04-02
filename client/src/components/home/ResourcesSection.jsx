@@ -43,31 +43,38 @@ const ResourcesSection = () => {
           {resources.map((resource, index) => (
             <AnimatedSection key={resource.id} delay={index * 0.15}>
               <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3 }}
-                className="group relative h-[400px] md:h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative h-[400px] md:h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-brand-purple/[0.12] transition-all duration-400 border border-white/10 hover:border-brand-purple/30"
               >
+                {/* Image with enhanced zoom */}
                 <div className="absolute inset-0">
                   <img
                     src={resource.image}
                     alt={resource.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.08]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-950/95 via-secondary-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-950/95 via-secondary-950/50 to-secondary-950/10 group-hover:from-secondary-950/98 group-hover:via-secondary-950/60 transition-all duration-500" />
                 </div>
 
+                {/* Shimmer sweep */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20" />
+
                 <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-display font-bold text-white mb-4">
+                  <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-brand-purple-light transition-colors duration-300">
                     {resource.title}
                   </h3>
-                  <p className="text-secondary-300 mb-8 leading-relaxed max-w-md">
+                  <p className="text-secondary-300 mb-8 leading-relaxed max-w-md group-hover:text-secondary-200 transition-colors duration-300">
                     {resource.description}
                   </p>
                   <div>
-                    <button className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg">
+                    <button className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-brand-purple/20 hover:scale-105">
                       {resource.cta}
                       <svg
-                        className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform"
+                        className="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

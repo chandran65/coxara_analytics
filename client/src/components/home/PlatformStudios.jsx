@@ -9,19 +9,12 @@ const studios = [
     description:
       "Unify your data foundations with end-to-end pipelines, intelligent modeling frameworks, enterprise-quality governance, and accelerated data activation.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-        />
-      </svg>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+      />
     ),
   },
   {
@@ -31,19 +24,12 @@ const studios = [
     description:
       "Run experiments at scale, quantify true causal impact, and optimize product and business decisions with scientifically grounded uplift frameworks.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        />
-      </svg>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+      />
     ),
   },
   {
@@ -53,19 +39,12 @@ const studios = [
     description:
       "Deliver highly accurate forecasts, simulate multi-scenario outcomes, and streamline planning cycles across demand, supply, and financial workflows.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-        />
-      </svg>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+      />
     ),
   },
   {
@@ -75,12 +54,7 @@ const studios = [
     description:
       "Deploy intelligent, governed decisions using hybrid rules + machine learning systems—complete with approval loops, monitoring, and auditability.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -93,7 +67,7 @@ const studios = [
           strokeWidth={1.5}
           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
         />
-      </svg>
+      </>
     ),
   },
   {
@@ -103,22 +77,117 @@ const studios = [
     description:
       "Jumpstart deployments with pre-configured analytics templates, domain-specific KPIs, and ready-made intelligence packs for industry verticals.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-        />
-      </svg>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+      />
     ),
   },
 ];
+
+const FlipCard = ({ studio }) => {
+  return (
+    <div className="group [perspective:1200px] h-[320px]">
+      <div className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        {/* ===== FRONT FACE ===== */}
+        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
+          {/* Subtle gradient bg */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.02] to-brand-accent/[0.01]" />
+          {/* Bottom accent line */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
+
+          <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
+            {/* Icon */}
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-purple/20">
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {studio.icon}
+              </svg>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-display font-bold text-secondary-900 mb-4">
+              {studio.title}
+            </h3>
+
+            {/* Tags */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {studio.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-secondary-50 text-secondary-500 text-xs font-medium rounded-full border border-secondary-100"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Hover hint */}
+            <div className="mt-6 flex items-center gap-1.5 text-secondary-400 text-xs font-medium">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+              <span>Hover for details</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== BACK FACE ===== */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border border-brand-purple/25 bg-white shadow-2xl shadow-brand-purple/[0.08] overflow-hidden">
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.05] to-brand-accent/[0.03]" />
+          {/* Top accent line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
+
+          <div className="relative z-10 h-full flex flex-col justify-between p-8">
+            <div>
+              {/* Small icon + title row */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {studio.icon}
+                  </svg>
+                </div>
+                <h3 className="text-lg font-display font-bold text-brand-purple">
+                  {studio.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-secondary-600 leading-relaxed text-sm mb-5">
+                {studio.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5">
+                {studio.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 bg-brand-purple/5 text-brand-purple text-xs font-medium rounded-full border border-brand-purple/15"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <a
+              href={`/services#${studio.id}`}
+              className="inline-flex items-center gap-2 text-brand-purple font-semibold text-sm mt-4 hover:gap-3 transition-all duration-300"
+            >
+              Learn more
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const PlatformStudios = () => {
   return (
@@ -148,59 +217,7 @@ const PlatformStudios = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
           {studios.map((studio, index) => (
             <AnimatedSection key={studio.id} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3 }}
-                className="group relative h-full bg-white rounded-2xl p-8 border border-secondary-100 hover:border-brand-purple/30 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-purple/15 group-hover:scale-110 transition-transform duration-300">
-                    {studio.icon}
-                  </div>
-
-                  <h3 className="text-xl font-bold text-secondary-900 mb-4 group-hover:text-brand-purple transition-colors duration-300">
-                    {studio.title}
-                  </h3>
-
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {studio.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-secondary-50 text-secondary-500 text-xs font-medium rounded-full border border-secondary-100 group-hover:bg-brand-purple/5 group-hover:text-brand-purple group-hover:border-brand-purple/20 transition-colors duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="text-secondary-600 leading-relaxed mb-6">
-                    {studio.description}
-                  </p>
-
-                  <a
-                    href={`/services#${studio.id}`}
-                    className="inline-flex items-center text-brand-purple font-semibold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
-                  >
-                    Learn more
-                    <svg
-                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </motion.div>
+              <FlipCard studio={studio} />
             </AnimatedSection>
           ))}
         </div>

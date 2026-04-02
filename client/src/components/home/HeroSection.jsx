@@ -231,25 +231,105 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              initial="hidden"
+              animate="visible"
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-7 tracking-tight"
             >
-              Solving complex <br className="hidden sm:block" />
-              business problems <br className="hidden sm:block" />
-              with{" "}
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent">
+              {["Solving", "complex"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
+                  variants={{
+                    hidden: { opacity: 0, y: 40, rotateX: -40 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      rotateX: 0,
+                      transition: {
+                        duration: 0.6,
+                        delay: 0.1 + i * 0.08,
+                        ease: [0.16, 1, 0.3, 1],
+                      },
+                    },
+                  }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <br className="hidden sm:block" />
+              {["business", "problems"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
+                  variants={{
+                    hidden: { opacity: 0, y: 40, rotateX: -40 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      rotateX: 0,
+                      transition: {
+                        duration: 0.6,
+                        delay: 0.26 + i * 0.08,
+                        ease: [0.16, 1, 0.3, 1],
+                      },
+                    },
+                  }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <br className="hidden sm:block" />
+              <motion.span
+                className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: -40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    transition: {
+                      duration: 0.6,
+                      delay: 0.42,
+                      ease: [0.16, 1, 0.3, 1],
+                    },
+                  },
+                }}
+                whileHover={{ scale: 1.05, y: -2 }}
+              >
+                with
+              </motion.span>{" "}
+              <motion.span
+                className="relative inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: -40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    transition: {
+                      duration: 0.6,
+                      delay: 0.5,
+                      ease: [0.16, 1, 0.3, 1],
+                    },
+                  },
+                }}
+              >
+                <motion.span
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default"
+                  whileHover={{ scale: 1.08 }}
+                  style={{ display: "inline-block" }}
+                >
                   Data and AI
-                </span>
+                </motion.span>
                 <motion.span
                   className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple/0 via-brand-purple to-brand-purple/0 rounded-full"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1, delay: 0.8 }}
                 />
-              </span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
@@ -311,24 +391,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-secondary-400">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-secondary-300 flex items-start justify-center pt-1.5"
-        >
-          <div className="w-1 h-1.5 bg-secondary-400 rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

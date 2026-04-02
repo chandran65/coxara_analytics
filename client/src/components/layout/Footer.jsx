@@ -1,4 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import { footerData, socialMediaLinks } from "../../constants/footer";
 import {
   scrollToElement,
@@ -94,13 +95,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-secondary-950 text-secondary-100 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-secondary-800 to-secondary-900 text-secondary-100 overflow-hidden">
       {/* Subtle gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/50 to-transparent" />
 
       {/* Background decorative orbs */}
-      <div className="absolute top-20 -left-32 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 -right-32 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 -left-32 w-96 h-96 bg-brand-purple/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 -right-32 w-80 h-80 bg-brand-accent/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* Grid pattern overlay */}
       <div
@@ -115,9 +116,28 @@ const Footer = () => {
       <div className="container-custom relative z-10">
         {/* Main Footer Content */}
         <div className="py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8"
+          >
             {/* Brand Column */}
-            <div className="lg:col-span-2">
+            <motion.div
+              className="lg:col-span-2"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
               <Link to="/" className="inline-block group mb-6">
                 <img
                   src="/full-logo-Photoroom.png"
@@ -175,40 +195,90 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Link Columns */}
-            <FooterLinkColumn
-              title={footerData.company.title}
-              links={footerData.company.links}
-              handleLinkClick={handleLinkClick}
-            />
-            <FooterLinkColumn
-              title={footerData.industries.title}
-              links={footerData.industries.links}
-              handleLinkClick={handleLinkClick}
-            />
-            <FooterLinkColumn
-              title={footerData.services.title}
-              links={footerData.services.links}
-              handleLinkClick={handleLinkClick}
-            />
-            <FooterLinkColumn
-              title={footerData.solutions.title}
-              links={footerData.solutions.links}
-              handleLinkClick={handleLinkClick}
-            />
-          </div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              <FooterLinkColumn
+                title={footerData.company.title}
+                links={footerData.company.links}
+                handleLinkClick={handleLinkClick}
+              />
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              <FooterLinkColumn
+                title={footerData.industries.title}
+                links={footerData.industries.links}
+                handleLinkClick={handleLinkClick}
+              />
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              <FooterLinkColumn
+                title={footerData.services.title}
+                links={footerData.services.links}
+                handleLinkClick={handleLinkClick}
+              />
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              <FooterLinkColumn
+                title={footerData.solutions.title}
+                links={footerData.solutions.links}
+                handleLinkClick={handleLinkClick}
+              />
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-secondary-500 text-sm">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="border-t border-white/10 py-8"
+        >
+          <div className="flex items-center justify-center">
+            <p className="text-secondary-400 text-sm text-center">
               © {currentYear} COXARA Analytics. All rights reserved.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

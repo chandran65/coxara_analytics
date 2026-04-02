@@ -10,6 +10,46 @@ import {
   extractBasePath,
 } from "../../utils/scrollUtils";
 
+const iconMap = {
+  strategy: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  ),
+  agent: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  ),
+  lab: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+  ),
+  chart: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+  ),
+  realtime: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
+  ),
+  model: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+  ),
+  report: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+  ),
+  paper: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+  ),
+  thought: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+  ),
+};
+
+const NavItemIcon = ({ iconType }) => {
+  const iconPath = iconMap[iconType];
+  if (!iconPath) return null;
+  return (
+    <svg className="w-4.5 h-4.5 text-secondary-400 group-hover/item:text-brand-purple transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {iconPath}
+    </svg>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -180,47 +220,126 @@ const Navbar = () => {
                       />
                     </button>
 
-                    {/* Dropdown */}
+                    {/* Dropdown - Mega Menu */}
                     <AnimatePresence>
                       {activeDropdown === navItem.title && (
                         <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          initial={{ opacity: 0, y: 12, scale: 0.97 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.97 }}
                           transition={{
-                            duration: 0.2,
+                            duration: 0.25,
                             ease: [0.16, 1, 0.3, 1],
                           }}
-                          className="absolute top-full left-0 pt-3 z-50"
+                          className="absolute top-full right-0 pt-4 z-50"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <div className="min-w-[260px] bg-white rounded-2xl shadow-[0_20px_60px_-12px_rgba(109,40,217,0.15)] border border-secondary-100/80 py-2 overflow-hidden">
-                            {navItem.items.map((item, index) =>
-                              item.isHeader ? (
-                                <div
-                                  key={item.label}
-                                  className="px-5 pt-3 pb-1.5 text-[11px] font-bold text-secondary-400 uppercase tracking-wider first:pt-2"
+                          <div className="relative bg-white rounded-2xl shadow-[0_25px_60px_-12px_rgba(109,40,217,0.18)] border border-secondary-100/80 overflow-hidden">
+                            {/* Top accent gradient */}
+                            <div className="h-[2px] bg-gradient-to-r from-brand-purple via-brand-accent to-brand-purple" />
+
+                            <div className="p-2">
+                              {/* Group items by headers */}
+                              {(() => {
+                                const groups = [];
+                                let currentGroup = null;
+                                navItem.items.forEach((item) => {
+                                  if (item.isHeader) {
+                                    currentGroup = { header: item.label, items: [] };
+                                    groups.push(currentGroup);
+                                  } else if (currentGroup) {
+                                    currentGroup.items.push(item);
+                                  } else {
+                                    if (!groups.length) groups.push({ header: null, items: [] });
+                                    groups[0].items.push(item);
+                                  }
+                                });
+
+                                return (
+                                  <div className={`${groups.length > 1 ? 'grid grid-cols-2 gap-0 min-w-[520px]' : 'min-w-[280px]'}`}>
+                                    {groups.map((group, gi) => (
+                                      <div
+                                        key={group.header || gi}
+                                        className={`${
+                                          groups.length > 1 && gi > 0
+                                            ? 'border-l border-secondary-100/60'
+                                            : ''
+                                        } p-3`}
+                                      >
+                                        {group.header && (
+                                          <div className="flex items-center gap-2 px-3 pt-1 pb-3 mb-1">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-accent" />
+                                            <span className="text-[11px] font-bold text-secondary-400 uppercase tracking-wider">
+                                              {group.header}
+                                            </span>
+                                          </div>
+                                        )}
+                                        <div className="space-y-0.5">
+                                          {group.items.map((item, index) => (
+                                            <motion.button
+                                              key={item.path + index}
+                                              initial={{ opacity: 0, y: 6 }}
+                                              animate={{ opacity: 1, y: 0 }}
+                                              transition={{
+                                                delay: index * 0.04,
+                                                duration: 0.2,
+                                              }}
+                                              onClick={() => handleNavClick(item)}
+                                              className="group/item relative flex items-start gap-3 w-full text-left px-3 py-2.5 rounded-xl hover:bg-brand-purple/[0.04] transition-all duration-200"
+                                            >
+                                              {/* Icon */}
+                                              <div className="w-9 h-9 rounded-lg bg-secondary-50 group-hover/item:bg-brand-purple/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 mt-0.5">
+                                                <NavItemIcon iconType={item.icon} />
+                                              </div>
+                                              <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-semibold text-secondary-800 group-hover/item:text-brand-purple transition-colors duration-200">
+                                                  {item.label}
+                                                </div>
+                                                {item.description && (
+                                                  <div className="text-xs text-secondary-400 group-hover/item:text-secondary-500 mt-0.5 transition-colors duration-200 leading-relaxed">
+                                                    {item.description}
+                                                  </div>
+                                                )}
+                                              </div>
+                                              {/* Arrow */}
+                                              <svg
+                                                className="w-3.5 h-3.5 text-secondary-300 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200 mt-1 flex-shrink-0"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={2.5}
+                                              >
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                              </svg>
+                                            </motion.button>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                );
+                              })()}
+                            </div>
+
+                            {/* Footer CTA for services */}
+                            {navItem.path && (
+                              <div className="border-t border-secondary-100/60 px-5 py-3 bg-secondary-50/50">
+                                <button
+                                  onClick={() => handleNavClick(navItem)}
+                                  className="group/cta flex items-center gap-2 text-xs font-semibold text-secondary-500 hover:text-brand-purple transition-colors duration-200"
                                 >
-                                  {item.label}
-                                </div>
-                              ) : (
-                                <motion.button
-                                  key={item.path}
-                                  initial={{ opacity: 0, x: -8 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{
-                                    delay: index * 0.03,
-                                    duration: 0.2,
-                                  }}
-                                  onClick={() => handleNavClick(item)}
-                                  className="group/item relative flex items-center w-full text-left px-5 py-2.5 text-sm text-secondary-700 hover:text-brand-purple font-medium transition-all duration-200"
-                                >
-                                  <div className="absolute inset-y-0 left-0 w-0 group-hover/item:w-0.5 bg-brand-purple transition-all duration-200 rounded-r-full" />
-                                  <span className="group-hover/item:translate-x-1 transition-transform duration-200">
-                                    {item.label}
-                                  </span>
-                                </motion.button>
-                              ),
+                                  <span>View all {navItem.title.toLowerCase()}</span>
+                                  <svg
+                                    className="w-3.5 h-3.5 group-hover/cta:translate-x-0.5 transition-transform duration-200"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2.5}
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                  </svg>
+                                </button>
+                              </div>
                             )}
                           </div>
                         </motion.div>
