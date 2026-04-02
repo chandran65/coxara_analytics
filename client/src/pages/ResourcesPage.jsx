@@ -161,7 +161,7 @@ const ResourcesHero = () => {
                 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
                   specialWords.includes(word)
                     ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
-                    : "text-secondary-900"
+                    : "text-secondary-900" 
                 }`}
               >
                 {word}
