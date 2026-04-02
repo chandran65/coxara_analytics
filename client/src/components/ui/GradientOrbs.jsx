@@ -33,7 +33,9 @@ const GradientOrbs = ({ variant = "default", className = "" }) => {
   };
 
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div
+      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+    >
       {variants[variant] || variants.default}
     </div>
   );

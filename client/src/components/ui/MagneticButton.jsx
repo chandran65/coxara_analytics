@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 
-const MagneticButton = ({ children, className = "", strength = 0.3, ...props }) => {
+const MagneticButton = ({
+  children,
+  className = "",
+  strength = 0.3,
+  ...props
+}) => {
   const ref = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0 });
 

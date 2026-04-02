@@ -136,7 +136,9 @@ const Navbar = () => {
               <div
                 key={navItem.title}
                 className="relative"
-                onMouseEnter={() => navItem.items && handleDropdownEnter(navItem.title)}
+                onMouseEnter={() =>
+                  navItem.items && handleDropdownEnter(navItem.title)
+                }
                 onMouseLeave={() => navItem.items && handleDropdownLeave()}
               >
                 {navItem.items ? (
@@ -162,12 +164,18 @@ const Navbar = () => {
                         viewBox="0 0 24 24"
                         strokeWidth={2.5}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                       {/* Active indicator dot */}
                       <span
                         className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-purple transition-all duration-300 ${
-                          activeDropdown === navItem.title ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                          activeDropdown === navItem.title
+                            ? "opacity-100 scale-100"
+                            : "opacity-0 scale-0"
                         }`}
                       />
                     </button>
@@ -179,7 +187,10 @@ const Navbar = () => {
                           initial={{ opacity: 0, y: 8, scale: 0.96 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                          transition={{
+                            duration: 0.2,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
                           className="absolute top-full left-0 pt-3 z-50"
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -197,7 +208,10 @@ const Navbar = () => {
                                   key={item.path}
                                   initial={{ opacity: 0, x: -8 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: index * 0.03, duration: 0.2 }}
+                                  transition={{
+                                    delay: index * 0.03,
+                                    duration: 0.2,
+                                  }}
                                   onClick={() => handleNavClick(item)}
                                   className="group/item relative flex items-center w-full text-left px-5 py-2.5 text-sm text-secondary-700 hover:text-brand-purple font-medium transition-all duration-200"
                                 >
@@ -206,7 +220,7 @@ const Navbar = () => {
                                     {item.label}
                                   </span>
                                 </motion.button>
-                              )
+                              ),
                             )}
                           </div>
                         </motion.div>
@@ -232,8 +246,18 @@ const Navbar = () => {
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-purple text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Get in Touch</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
@@ -291,7 +315,11 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden fixed left-0 right-0 bg-white overflow-y-auto shadow-2xl border-t border-secondary-100"
-            style={{ top: safeNavHeight, maxHeight: `calc(100vh - ${safeNavHeight}px)`, zIndex: 1000 }}
+            style={{
+              top: safeNavHeight,
+              maxHeight: `calc(100vh - ${safeNavHeight}px)`,
+              zIndex: 1000,
+            }}
           >
             <div className="py-2 px-2">
               {navigationData.map((navItem, navIndex) => (
@@ -305,7 +333,9 @@ const Navbar = () => {
                     <div>
                       <div className="flex items-center">
                         <button
-                          onClick={() => navItem.path && handleNavClick(navItem)}
+                          onClick={() =>
+                            navItem.path && handleNavClick(navItem)
+                          }
                           className="flex-1 px-4 py-3.5 text-left text-secondary-800 font-medium text-sm"
                           disabled={!navItem.path}
                         >
@@ -319,14 +349,20 @@ const Navbar = () => {
                         >
                           <svg
                             className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${
-                              activeDropdown === navItem.title ? "rotate-180" : ""
+                              activeDropdown === navItem.title
+                                ? "rotate-180"
+                                : ""
                             }`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                             strokeWidth={2.5}
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -357,7 +393,7 @@ const Navbar = () => {
                                   >
                                     {item.label}
                                   </button>
-                                )
+                                ),
                               )}
                             </div>
                           </motion.div>
@@ -389,8 +425,18 @@ const Navbar = () => {
                   className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-brand-purple text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all duration-300"
                 >
                   Get in Touch
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </Link>
               </motion.div>

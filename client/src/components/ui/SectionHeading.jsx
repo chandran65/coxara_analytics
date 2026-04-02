@@ -17,7 +17,9 @@ const SectionHeading = ({
     <div className={`max-w-3xl mb-16 md:mb-20 ${alignClass[align]}`}>
       {badge && (
         <AnimatedSection delay={0}>
-          <span className={`badge mb-4 ${light ? "bg-white/10 text-white/90 border-white/20" : ""}`}>
+          <span
+            className={`badge mb-4 ${light ? "bg-white/10 text-white/90 border-white/20" : ""}`}
+          >
             {badge}
           </span>
         </AnimatedSection>

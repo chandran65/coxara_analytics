@@ -7,7 +7,9 @@ const CustomCursor = () => {
   const mouse = useRef({ x: -100, y: -100 });
   const dotPos = useRef({ x: -100, y: -100 });
   const ringPos = useRef({ x: -100, y: -100 });
-  const trailPositions = useRef(Array.from({ length: 5 }, () => ({ x: -100, y: -100 })));
+  const trailPositions = useRef(
+    Array.from({ length: 5 }, () => ({ x: -100, y: -100 })),
+  );
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -16,7 +18,9 @@ const CustomCursor = () => {
 
   useEffect(() => {
     // Detect touch device
-    const hasTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const hasTouch = window.matchMedia(
+      "(hover: none) and (pointer: coarse)",
+    ).matches;
     setIsTouchDevice(hasTouch);
     if (hasTouch) return;
 
@@ -68,8 +72,10 @@ const CustomCursor = () => {
       for (let i = 0; i < trailPositions.current.length; i++) {
         const prev = i === 0 ? dotPos.current : trailPositions.current[i - 1];
         const speed = 0.12 - i * 0.015;
-        trailPositions.current[i].x += (prev.x - trailPositions.current[i].x) * speed;
-        trailPositions.current[i].y += (prev.y - trailPositions.current[i].y) * speed;
+        trailPositions.current[i].x +=
+          (prev.x - trailPositions.current[i].x) * speed;
+        trailPositions.current[i].y +=
+          (prev.y - trailPositions.current[i].y) * speed;
       }
 
       if (dotRef.current) {
@@ -95,8 +101,14 @@ const CustomCursor = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
-      document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
-      document.documentElement.removeEventListener("mouseenter", handleMouseEnter);
+      document.documentElement.removeEventListener(
+        "mouseleave",
+        handleMouseLeave,
+      );
+      document.documentElement.removeEventListener(
+        "mouseenter",
+        handleMouseEnter,
+      );
       document.removeEventListener("mouseover", handleHoverStart);
       document.removeEventListener("mouseout", handleHoverEnd);
       if (rafId.current) cancelAnimationFrame(rafId.current);
