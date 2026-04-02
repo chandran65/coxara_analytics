@@ -4,27 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================
+   COXARA Analytics — Global Design System
+   Brand: Violet + White, Classic & Elegant
+   ========================================== */
+
 @layer base {
   * {
     @apply box-border;
   }
 
-  body {
-    @apply bg-white text-secondary-900 antialiased m-0 p-0 selection:bg-brand-purple selection:text-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-
   html {
     @apply scroll-smooth;
+    cursor: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  body {
+    @apply bg-white text-secondary-900 antialiased m-0 p-0 selection:bg-brand-purple/20 selection:text-brand-purple;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Inter', sans-serif;
+  }
+
+  a, button, [role="button"], input, textarea, select {
+    cursor: none;
   }
 }
 
@@ -34,19 +41,51 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-brand-purple to-brand-medium text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-brand-purple/25 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 relative overflow-hidden;
+    @apply relative px-8 py-4 bg-brand-purple text-white rounded-full font-semibold text-sm tracking-wide
+           transition-all duration-500 ease-out
+           hover:shadow-[0_8px_40px_-8px_rgba(109,40,217,0.5)] hover:scale-[1.02]
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-brand-purple/40 focus:ring-offset-2
+           overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-brand-medium to-brand-accent opacity-0 transition-opacity duration-500;
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-primary span {
+    @apply relative z-10;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-brand-purple border-2 border-brand-purple/20 rounded-lg font-medium transition-all duration-300 hover:border-brand-purple hover:bg-brand-purple/5 hover:shadow-lg hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2;
+    @apply px-8 py-4 bg-transparent text-brand-purple border border-brand-purple/30 rounded-full font-semibold text-sm tracking-wide
+           transition-all duration-500 ease-out
+           hover:bg-brand-purple hover:text-white hover:border-brand-purple hover:shadow-[0_8px_40px_-8px_rgba(109,40,217,0.4)]
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-brand-purple/40 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-semibold text-sm tracking-wide
+           transition-all duration-500 ease-out
+           hover:bg-white/20 hover:border-white/40;
   }
 
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-24 md:py-32 lg:py-40;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-brand-purple via-brand-medium to-brand-accent bg-clip-text text-transparent;
+  }
+
+  .gradient-text-subtle {
+    @apply bg-gradient-to-r from-brand-purple to-brand-medium bg-clip-text text-transparent;
   }
 
   .gradient-bg {
@@ -54,45 +93,98 @@
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl hover:shadow-brand-purple/10 hover:-translate-y-1;
+    @apply transition-all duration-500 hover:shadow-xl hover:shadow-brand-purple/10 hover:-translate-y-1;
   }
 
-  /* Glassmorphism effects */
-  .glass-navbar {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  }
-
-  .glass-card {
+  .glass {
     background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(109, 40, 217, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
   }
 
   .glass-dark {
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* Modern Card Styles */
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 rounded-3xl;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.1),
+      0 8px 40px -12px rgba(109,40,217,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  .glass-navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+  }
+
+  .neo-card {
+    @apply bg-white rounded-3xl transition-all duration-500 ease-out;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.04),
+      0 4px 24px -4px rgba(109,40,217,0.06);
+  }
+
+  .neo-card:hover {
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.06),
+      0 24px 64px -12px rgba(109,40,217,0.15);
+    transform: translateY(-4px);
+  }
+
   .modern-card {
-    @apply bg-white rounded-2xl border border-secondary-100 shadow-sm hover:shadow-xl hover:shadow-brand-purple/10 transition-all duration-300;
+    @apply bg-white rounded-2xl border border-secondary-100/80 transition-all duration-500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
   }
 
-  /* Animations */
+  .modern-card:hover {
+    @apply border-brand-purple/20;
+    box-shadow: 0 20px 60px -12px rgba(109,40,217,0.12);
+    transform: translateY(-2px);
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-[1px] rounded-3xl opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, #6D28D9, #8B5CF6, #C084FC, #8B5CF6, #6D28D9);
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+    z-index: -1;
+  }
+
+  .gradient-border:hover::before {
+    @apply opacity-100;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-brand-purple/8 text-brand-purple font-semibold text-xs uppercase tracking-wider rounded-full border border-brand-purple/15;
+  }
+
+  .reveal {
+    @apply opacity-0 translate-y-8;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
 
@@ -102,10 +194,79 @@
   }
 
   .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   }
 
   .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-brand-purple/20 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-purple/40;
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.noise-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  *, html, body, a, button, [role="button"], input, textarea, select {
+    cursor: auto !important;
   }
 }
