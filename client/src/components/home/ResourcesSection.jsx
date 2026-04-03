@@ -11,15 +11,6 @@ const resources = [
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
   },
-  {
-    id: "thought-leadership",
-    title: "Thought Leadership",
-    description:
-      "Perspectives on emerging trends, practical frameworks, and strategic guidance to help leaders navigate the AI-driven enterprise landscape.",
-    cta: "Explore Insights",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-  },
 ];
 
 const ResourcesSection = () => {
@@ -39,7 +30,7 @@ const ResourcesSection = () => {
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mt-16">
+        <div className="grid grid-cols-1 max-w-2xl mx-auto gap-8 lg:gap-10 mt-16">
           {resources.map((resource, index) => (
             <AnimatedSection key={resource.id} delay={index * 0.15}>
               <motion.div

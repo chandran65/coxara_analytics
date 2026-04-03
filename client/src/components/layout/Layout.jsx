@@ -5,15 +5,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { CustomCursor } from "../ui";
 
-/* Scroll to top instantly on route change */
-const RouteScrollToTop = () => {
-  const { pathname } = useLocation();
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
-
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
 
@@ -71,13 +62,31 @@ const ScrollProgress = () => {
 };
 
 const Layout = () => {
+  const location = useLocation();
+  const { pathname } = location;
+
+  /* Scroll instantly on route change — 'instant' overrides CSS scroll-smooth
+     so whileInView animations don't fire during the scroll sweep */
+  useLayoutEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <CustomCursor />
-      <RouteScrollToTop />
       <ScrollProgress />
       <Navbar />
-      <main className="flex-1 relative">
+      {/* key={pathname} forces a full remount so whileInView animations reset */}
+      <main className="flex-1 relative" key={pathname}>
         <Outlet />
       </main>
       <Footer />

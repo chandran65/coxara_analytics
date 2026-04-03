@@ -164,14 +164,16 @@ const Navbar = () => {
 
       if (sectionId) {
         if (location.pathname === basePath) {
-          setTimeout(() => scrollToElement(sectionId, safeNavHeight), 100);
+          // Same page – smooth scroll immediately
+          scrollToElement(sectionId, safeNavHeight);
         } else {
+          // Cross-page – navigate; Layout handles instant scroll to section
           navigate(item.path);
-          setTimeout(() => scrollToElement(sectionId, safeNavHeight), 300);
+          // Fine-tune with smooth scroll after content mounts
+          setTimeout(() => scrollToElement(sectionId, safeNavHeight), 450);
         }
       } else {
         navigate(item.path);
-        setTimeout(() => scrollToTop(), 100);
       }
     }
   };

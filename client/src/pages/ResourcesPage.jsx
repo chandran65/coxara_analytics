@@ -161,7 +161,7 @@ const ResourcesHero = () => {
                 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
                   specialWords.includes(word)
                     ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
-                    : "text-secondary-900" 
+                    : "text-secondary-900"
                 }`}
               >
                 {word}
@@ -231,40 +231,13 @@ const BlogCard = ({ post, index }) => {
         />
 
         {/* Image area */}
-        <div className="relative h-48 bg-gradient-to-br from-secondary-50 to-secondary-100/50 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0.5 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              className={`w-14 h-14 bg-gradient-to-br ${accent} rounded-xl flex items-center justify-center shadow-lg`}
-              style={{
-                boxShadow: "0 8px 24px rgba(109, 40, 217, 0.15)",
-              }}
-            >
-              <svg
-                className="w-7 h-7 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-            </motion.div>
-          </div>
-          {/* Decorative ring */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          >
-            <div className="w-28 h-28 border border-secondary-200/60 rounded-full" />
-          </motion.div>
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
           {/* Category pill */}
           <div className="absolute top-4 left-4 z-10">
@@ -348,6 +321,8 @@ const ResourcesPage = () => {
       excerpt:
         "Learn the fundamentals of data analytics and how to leverage data for better business decisions. This comprehensive guide covers key concepts, tools, and best practices.",
       author: "Data Analytics Team",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     },
     {
       id: 2,
@@ -358,6 +333,8 @@ const ResourcesPage = () => {
       excerpt:
         "Discover the essential KPIs that provide insights into your business health and performance. Learn how to measure, monitor, and optimize these critical metrics.",
       author: "Business Intelligence Team",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     },
     {
       id: 3,
@@ -368,6 +345,8 @@ const ResourcesPage = () => {
       excerpt:
         "Explore how artificial intelligence is revolutionizing business analytics. From predictive modeling to automated insights, discover what's next in AI-powered analytics.",
       author: "Research Team",
+      image:
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     },
     {
       id: 4,
@@ -378,6 +357,8 @@ const ResourcesPage = () => {
       excerpt:
         "Real-world examples of successful customer segmentation strategies. Learn how leading companies use data to understand and serve their customers better.",
       author: "Marketing Analytics Team",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
     },
     {
       id: 5,
@@ -388,6 +369,8 @@ const ResourcesPage = () => {
       excerpt:
         "Master the art of dashboard design with proven principles and techniques. Create visualizations that inform, engage, and drive action.",
       author: "UX & Analytics Team",
+      image:
+        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
     },
     {
       id: 6,
@@ -398,6 +381,8 @@ const ResourcesPage = () => {
       excerpt:
         "Navigate the complex landscape of data privacy regulations. Learn best practices for maintaining security while leveraging analytics.",
       author: "Compliance Team",
+      image:
+        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
     },
   ];
 

@@ -283,13 +283,462 @@ const ServicesHero = () => {
   );
 };
 
+/* ─────────────────────── Service-Specific Visuals ─────────────────────── */
+
+/* ── Engineering: IDE / Code-Editor Mockup ── */
+const EngineeringVisual = () => {
+  const codeLines = [
+    {
+      n: 1,
+      t: [
+        { v: "import", c: "text-purple-400" },
+        { v: " { Pipeline }", c: "text-blue-300" },
+        { v: " from ", c: "text-purple-400" },
+        { v: "'@coxara/core'", c: "text-amber-300" },
+      ],
+    },
+    {
+      n: 2,
+      t: [
+        { v: "import", c: "text-purple-400" },
+        { v: " { deploy }", c: "text-blue-300" },
+        { v: " from ", c: "text-purple-400" },
+        { v: "'@coxara/infra'", c: "text-amber-300" },
+      ],
+    },
+    { n: 3, t: [] },
+    {
+      n: 4,
+      t: [
+        { v: "const ", c: "text-purple-400" },
+        { v: "pipeline", c: "text-blue-200" },
+        { v: " = ", c: "text-slate-500" },
+        { v: "new ", c: "text-purple-400" },
+        { v: "Pipeline", c: "text-emerald-300" },
+        { v: "({", c: "text-slate-500" },
+      ],
+    },
+    {
+      n: 5,
+      t: [
+        { v: "  region", c: "text-blue-200" },
+        { v: ": ", c: "text-slate-500" },
+        { v: "'us-east-1'", c: "text-amber-300" },
+        { v: ",", c: "text-slate-500" },
+      ],
+    },
+    {
+      n: 6,
+      t: [
+        { v: "  scaling", c: "text-blue-200" },
+        { v: ": ", c: "text-slate-500" },
+        { v: "'auto'", c: "text-amber-300" },
+        { v: ",", c: "text-slate-500" },
+      ],
+    },
+    {
+      n: 7,
+      t: [
+        { v: "  monitoring", c: "text-blue-200" },
+        { v: ": ", c: "text-slate-500" },
+        { v: "true", c: "text-orange-300" },
+      ],
+    },
+    { n: 8, t: [{ v: "})", c: "text-slate-500" }] },
+    { n: 9, t: [] },
+    {
+      n: 10,
+      t: [
+        { v: "await ", c: "text-purple-400" },
+        { v: "deploy", c: "text-blue-200" },
+        { v: "(pipeline, {", c: "text-slate-500" },
+      ],
+    },
+    {
+      n: 11,
+      t: [
+        { v: "  env", c: "text-blue-200" },
+        { v: ": ", c: "text-slate-500" },
+        { v: "'production'", c: "text-amber-300" },
+      ],
+    },
+    { n: 12, t: [{ v: "})", c: "text-slate-500" }] },
+  ];
+
+  return (
+    <div className="h-72 relative select-none">
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1e1e2e] rounded-t-xl border-b border-white/5">
+        <div className="flex gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+        </div>
+        <span className="text-[10px] text-slate-500 ml-2 font-mono">
+          pipeline.config.ts
+        </span>
+        <span className="ml-auto text-[9px] text-slate-600 font-mono">
+          TypeScript
+        </span>
+      </div>
+      <div className="bg-[#1a1a2e] rounded-b-xl p-4 font-mono text-[11px] leading-[1.85] overflow-hidden h-[calc(100%-36px)]">
+        {codeLines.map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -8 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.055, duration: 0.3 }}
+            className="flex"
+          >
+            <span className="text-slate-700 w-7 text-right mr-4 flex-shrink-0">
+              {line.n}
+            </span>
+            <span className="whitespace-nowrap">
+              {line.t.map((tok, j) => (
+                <span key={j} className={tok.c}>
+                  {tok.v}
+                </span>
+              ))}
+            </span>
+          </motion.div>
+        ))}
+        <motion.span
+          className="inline-block w-[7px] h-[15px] bg-violet-400 ml-[44px] rounded-[1px]"
+          animate={{ opacity: [1, 1, 0, 0] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            times: [0, 0.49, 0.5, 1],
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+/* ── Gen AI: Chat Interface Mockup ── */
+const GenAIVisual = () => (
+  <div className="h-72 relative flex flex-col select-none">
+    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-secondary-100">
+      <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
+        <svg
+          className="w-3.5 h-3.5 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        </svg>
+      </div>
+      <span className="text-[11px] font-bold text-secondary-700">
+        Coxara AI Assistant
+      </span>
+      <div className="ml-auto flex items-center gap-1">
+        <motion.div
+          className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+        <span className="text-[9px] text-emerald-600 font-medium">Active</span>
+      </div>
+    </div>
+
+    <div className="flex-1 p-4 space-y-3 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.15 }}
+        className="flex justify-end"
+      >
+        <div className="bg-brand-purple text-white text-[11px] px-3.5 py-2 rounded-2xl rounded-br-md max-w-[80%] leading-relaxed">
+          Analyze our Q4 customer churn data
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.45 }}
+        className="flex justify-start gap-2"
+      >
+        <div className="w-5 h-5 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg
+            className="w-3 h-3 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+        </div>
+        <div className="bg-secondary-50 border border-secondary-100 text-secondary-700 text-[11px] px-3.5 py-2.5 rounded-2xl rounded-bl-md max-w-[85%] leading-relaxed">
+          Identified{" "}
+          <span className="font-semibold text-brand-purple">
+            3 key risk segments
+          </span>
+          . Segment A shows{" "}
+          <span className="font-semibold text-rose-500">
+            28% churn probability
+          </span>{" "}
+          driven by low engagement. Recommended actions: personalized
+          re-engagement campaigns and proactive outreach.
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.85 }}
+        className="flex justify-start gap-2"
+      >
+        <div className="w-5 h-5 rounded-md flex-shrink-0" />
+        <div className="bg-secondary-50 border border-secondary-100 px-4 py-2.5 rounded-2xl rounded-bl-md flex items-center gap-1.5">
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="w-1.5 h-1.5 rounded-full bg-brand-purple/50"
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.15 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </div>
+
+    <div className="px-4 pb-3">
+      <div className="flex items-center gap-2 px-3 py-2.5 bg-secondary-50 border border-secondary-100 rounded-xl">
+        <span className="text-[11px] text-secondary-400 flex-1">
+          Ask anything about your data…
+        </span>
+        <div className="w-6 h-6 bg-brand-purple rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg
+            className="w-3 h-3 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M5 12h14M12 5l7 7-7 7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Data Science: Dashboard Mockup ── */
+const DataScienceVisual = () => {
+  const bars = [42, 68, 55, 82, 60, 88, 72, 78, 50, 92, 65, 85];
+
+  return (
+    <div className="h-72 relative flex flex-col select-none">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-secondary-100">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-brand-purple" />
+          <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
+            Analytics Dashboard
+          </span>
+        </div>
+        <div className="flex gap-1">
+          {["1D", "1W", "1M", "1Y"].map((t, i) => (
+            <span
+              key={t}
+              className={`text-[9px] px-2 py-0.5 rounded-md font-medium ${i === 2 ? "bg-brand-purple text-white" : "text-secondary-400 bg-secondary-50"}`}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 px-4 pt-4 pb-2">
+        {[
+          { label: "Revenue", val: "$2.4M", change: "+12.5%" },
+          { label: "Users", val: "48.2K", change: "+8.3%" },
+          { label: "Conversion", val: "3.67%", change: "+2.1%" },
+        ].map((s, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 + i * 0.08 }}
+            className="text-center"
+          >
+            <div className="text-[9px] text-secondary-400 mb-0.5">
+              {s.label}
+            </div>
+            <div className="text-sm font-bold text-secondary-900 leading-none">
+              {s.val}
+            </div>
+            <div className="text-[9px] text-emerald-500 font-semibold mt-0.5">
+              {s.change}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="flex items-end gap-[5px] flex-1 px-4 pb-1">
+        {bars.map((h, i) => (
+          <motion.div
+            key={i}
+            className="flex-1 rounded-t bg-gradient-to-t from-brand-purple to-brand-accent/80"
+            initial={{ height: 0 }}
+            whileInView={{ height: `${h}%` }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.25 + i * 0.04,
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="flex justify-between px-4 pb-3 pt-1">
+        <span className="text-[8px] text-secondary-300">Jan</span>
+        <span className="text-[8px] text-secondary-300">Mar</span>
+        <span className="text-[8px] text-secondary-300">Jun</span>
+        <span className="text-[8px] text-secondary-300">Sep</span>
+        <span className="text-[8px] text-secondary-300">Dec</span>
+      </div>
+    </div>
+  );
+};
+
+/* ── Training: Learning Path Progress ── */
+const TrainingVisual = () => {
+  const milestones = [
+    {
+      title: "Data Fundamentals",
+      progress: 1,
+      emoji: "📊",
+      color: "from-violet-500 to-purple-500",
+    },
+    {
+      title: "Machine Learning",
+      progress: 0.85,
+      emoji: "🧠",
+      color: "from-purple-500 to-fuchsia-500",
+    },
+    {
+      title: "Deep Learning & AI",
+      progress: 0.6,
+      emoji: "⚡",
+      color: "from-fuchsia-500 to-pink-500",
+    },
+    {
+      title: "MLOps & Deployment",
+      progress: 0.35,
+      emoji: "🚀",
+      color: "from-indigo-500 to-violet-500",
+    },
+  ];
+
+  return (
+    <div className="h-72 relative flex flex-col select-none">
+      <div className="flex items-center gap-2 px-5 py-2.5 border-b border-secondary-100">
+        <div className="w-2 h-2 rounded-full bg-brand-purple" />
+        <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
+          Learning Path
+        </span>
+        <span className="ml-auto text-[9px] font-bold text-brand-purple bg-brand-purple/[0.07] px-2 py-0.5 rounded-full">
+          4 Modules
+        </span>
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center px-5 py-4 space-y-3.5">
+        {milestones.map((ms, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.15 + i * 0.1,
+              duration: 0.5,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="flex items-center gap-3"
+          >
+            <div
+              className={`w-9 h-9 bg-gradient-to-br ${ms.color} rounded-xl flex items-center justify-center text-base shadow-md flex-shrink-0`}
+            >
+              {ms.emoji}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-semibold text-secondary-800 truncate">
+                  {ms.title}
+                </span>
+                <span className="text-[9px] font-bold text-secondary-400 ml-2 tabular-nums">
+                  {Math.round(ms.progress * 100)}%
+                </span>
+              </div>
+              <div className="h-1.5 bg-secondary-100 rounded-full overflow-hidden">
+                <motion.div
+                  className={`h-full bg-gradient-to-r ${ms.color} rounded-full`}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${ms.progress * 100}%` }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.3 + i * 0.12,
+                    duration: 0.8,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.9, duration: 0.4 }}
+        className="mx-5 mb-4 flex items-center gap-2 px-3 py-2 bg-amber-50 border border-amber-200/50 rounded-xl"
+      >
+        <span className="text-sm">🏆</span>
+        <span className="text-[10px] font-bold text-amber-700">
+          4 Industry Certifications Available
+        </span>
+      </motion.div>
+    </div>
+  );
+};
+
 /* ─────────────────────── Animated Service Visual ─────────────────────── */
 const ServiceVisual = ({ service, index }) => {
   const isEven = index % 2 === 0;
+  const visualMap = {
+    engineering: <EngineeringVisual />,
+    "gen-ai": <GenAIVisual />,
+    "data-science": <DataScienceVisual />,
+    training: <TrainingVisual />,
+  };
 
   return (
     <div className="relative">
-      {/* Layered background shapes */}
+      {/* Tilted accent background */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8, rotate: isEven ? -6 : 6 }}
         whileInView={{ opacity: 1, scale: 1, rotate: isEven ? -3 : 3 }}
@@ -298,95 +747,15 @@ const ServiceVisual = ({ service, index }) => {
         className={`absolute inset-0 bg-gradient-to-br ${service.accentLight} rounded-3xl`}
       />
 
-      {/* Main visual container */}
+      {/* Main visual card */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-white rounded-3xl border border-secondary-100 shadow-lg shadow-secondary-200/20 p-10 md:p-14 overflow-hidden"
+        className="relative bg-white rounded-3xl border border-secondary-100 shadow-lg shadow-secondary-200/20 overflow-hidden"
       >
-        {/* Corner accent */}
-        <div
-          className={`absolute top-0 ${isEven ? "right-0" : "left-0"} w-32 h-32 bg-gradient-to-br ${service.accent} opacity-[0.06] rounded-full blur-2xl -translate-y-1/2 ${isEven ? "translate-x-1/2" : "-translate-x-1/2"}`}
-        />
-
-        {/* Decorative grid */}
-        <div
-          className="absolute inset-0 opacity-[0.02] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #6D28D9 1px, transparent 1px), linear-gradient(to bottom, #6D28D9 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-
-        {/* Central icon with orbit rings */}
-        <div className="relative flex items-center justify-center h-56">
-          {/* Outer orbit */}
-          <motion.div
-            className="absolute w-44 h-44 border border-dashed rounded-full opacity-20"
-            style={{
-              borderColor: index % 2 === 0 ? "#7C3AED" : "#C084FC",
-            }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          />
-          {/* Inner orbit */}
-          <motion.div
-            className="absolute w-28 h-28 border rounded-full opacity-15"
-            style={{
-              borderColor: index % 2 === 0 ? "#C084FC" : "#7C3AED",
-            }}
-            animate={{ rotate: -360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-
-          {/* Orbiting dots */}
-          {[0, 1, 2].map((dot) => (
-            <motion.div
-              key={dot}
-              className={`absolute w-2.5 h-2.5 rounded-full bg-gradient-to-br ${service.accent}`}
-              animate={{
-                rotate: 360,
-              }}
-              transition={{
-                duration: 12 + dot * 4,
-                repeat: Infinity,
-                ease: "linear",
-                delay: dot * 2,
-              }}
-              style={{
-                transformOrigin: `${22 + dot * 8}px 0px`,
-                opacity: 0.4 - dot * 0.1,
-              }}
-            />
-          ))}
-
-          {/* Central icon */}
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className={`relative z-10 w-20 h-20 bg-gradient-to-br ${service.accent} rounded-2xl flex items-center justify-center shadow-xl`}
-            style={{
-              boxShadow: "0 20px 40px rgba(109, 40, 217, 0.2)",
-            }}
-          >
-            <svg
-              className="w-10 h-10 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {service.icon}
-            </svg>
-          </motion.div>
-        </div>
-
-        {/* Service number */}
-        <div className="absolute bottom-6 right-8 text-7xl font-display font-black text-secondary-100/60 select-none pointer-events-none">
-          {service.num}
-        </div>
+        {visualMap[service.id]}
       </motion.div>
     </div>
   );
