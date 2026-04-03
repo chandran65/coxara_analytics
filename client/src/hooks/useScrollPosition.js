@@ -8,7 +8,7 @@ export const useScrollPosition = () => {
       setScrollPosition(globalThis.scrollY);
     };
 
-    globalThis.addEventListener("scroll", updatePosition);
+    globalThis.addEventListener("scroll", updatePosition, { passive: true });
     updatePosition();
 
     return () => globalThis.removeEventListener("scroll", updatePosition);

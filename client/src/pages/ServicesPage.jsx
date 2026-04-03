@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 /* ─────────────────────── Service Data ─────────────────────── */
 const services = [
@@ -119,21 +120,21 @@ const ServicesHero = () => {
     <section
       ref={heroRef}
       className="relative w-full overflow-hidden bg-gradient-to-br from-white via-secondary-50 to-white"
-      style={{ marginTop: "80px", minHeight: "calc(100vh - 80px)" }}
+      style={{ marginTop: "80px", minHeight: "min(calc(100vh - 80px), 700px)" }}
     >
       {/* Gradient blobs */}
       <motion.div
-        className="absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
+        className="absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px] hidden sm:block"
         animate={{ x: [0, -40, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
+        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px] hidden sm:block"
         animate={{ x: [0, 35, 0], y: [0, -25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
+        className="absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px] hidden sm:block"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -149,7 +150,7 @@ const ServicesHero = () => {
       />
 
       {/* Floating geometry */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden sm:block">
         <motion.div
           className="absolute top-[18%] right-[12%] w-32 h-32 border border-brand-purple/10 rounded-full"
           animate={{ rotate: 360 }}
@@ -193,8 +194,12 @@ const ServicesHero = () => {
 
       {/* Hero content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center px-6 py-24"
-        style={{ y: textY, opacity, minHeight: "calc(100vh - 80px)" }}
+        className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24"
+        style={{
+          y: textY,
+          opacity,
+          minHeight: "min(calc(100vh - 80px), 700px)",
+        }}
       >
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
@@ -215,7 +220,7 @@ const ServicesHero = () => {
           </motion.div>
 
           {/* Word-by-word title */}
-          <h1 className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-8 pb-1">
+          <h1 className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-1 sm:gap-y-2 mb-6 sm:mb-8 pb-1">
             {words.map((word, i) => (
               <motion.span
                 key={i}
@@ -241,7 +246,7 @@ const ServicesHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-10"
+            className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
             From data collection to actionable insights, we provide
             comprehensive analytics services that empower your business to make
@@ -265,13 +270,13 @@ const ServicesHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap justify-center gap-3 mt-12"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8 sm:mt-12 px-2 sm:px-0"
           >
             {services.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="px-5 py-2.5 rounded-full text-sm font-semibold border border-secondary-200 text-secondary-600 hover:border-brand-purple/40 hover:text-brand-purple hover:bg-brand-purple/[0.04] transition-all duration-300"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-secondary-200 text-secondary-600 hover:border-brand-purple/40 hover:text-brand-purple hover:bg-brand-purple/[0.04] transition-all duration-300"
               >
                 {s.title}
               </a>
@@ -366,8 +371,8 @@ const EngineeringVisual = () => {
   ];
 
   return (
-    <div className="h-72 relative select-none">
-      <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1e1e2e] rounded-t-xl border-b border-white/5">
+    <div className="min-h-[224px] sm:min-h-[288px] relative select-none flex flex-col">
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#1e1e2e] rounded-t-xl border-b border-white/5">
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
@@ -380,7 +385,7 @@ const EngineeringVisual = () => {
           TypeScript
         </span>
       </div>
-      <div className="bg-[#1a1a2e] rounded-b-xl p-4 font-mono text-[11px] leading-[1.85] overflow-hidden h-[calc(100%-36px)]">
+      <div className="bg-[#1a1a2e] rounded-b-xl p-3 sm:p-4 font-mono text-[10px] sm:text-[11px] leading-[1.85] overflow-hidden flex-1">
         {codeLines.map((line, i) => (
           <motion.div
             key={i}
@@ -418,8 +423,8 @@ const EngineeringVisual = () => {
 
 /* ── Gen AI: Chat Interface Mockup ── */
 const GenAIVisual = () => (
-  <div className="h-72 relative flex flex-col select-none">
-    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-secondary-100">
+  <div className="min-h-[224px] sm:min-h-[288px] relative flex flex-col select-none">
+    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
       <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
         <svg
           className="w-3.5 h-3.5 text-white"
@@ -548,8 +553,8 @@ const DataScienceVisual = () => {
   const bars = [42, 68, 55, 82, 60, 88, 72, 78, 50, 92, 65, 85];
 
   return (
-    <div className="h-72 relative flex flex-col select-none">
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-secondary-100">
+    <div className="min-h-[224px] sm:min-h-[288px] relative flex flex-col select-none">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-brand-purple" />
           <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
@@ -595,7 +600,7 @@ const DataScienceVisual = () => {
         ))}
       </div>
 
-      <div className="flex items-end gap-[5px] flex-1 px-4 pb-1">
+      <div className="flex items-end gap-[5px] h-24 sm:h-32 px-4 pb-1">
         {bars.map((h, i) => (
           <motion.div
             key={i}
@@ -653,8 +658,8 @@ const TrainingVisual = () => {
   ];
 
   return (
-    <div className="h-72 relative flex flex-col select-none">
-      <div className="flex items-center gap-2 px-5 py-2.5 border-b border-secondary-100">
+    <div className="min-h-[224px] sm:min-h-[288px] relative flex flex-col select-none">
+      <div className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="w-2 h-2 rounded-full bg-brand-purple" />
         <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
           Learning Path
@@ -737,11 +742,11 @@ const ServiceVisual = ({ service, index }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative py-2">
       {/* Tilted accent background */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotate: isEven ? -6 : 6 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: isEven ? -3 : 3 }}
+        initial={{ opacity: 0, scale: 0.8, rotate: isEven ? -4 : 4 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: isEven ? -2 : 2 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`absolute inset-0 bg-gradient-to-br ${service.accentLight} rounded-3xl`}
@@ -766,7 +771,10 @@ const ServiceSection = ({ service, index }) => {
   const isEven = index % 2 === 0;
 
   return (
-    <section id={service.id} className="scroll-mt-24 py-24 md:py-32 relative">
+    <section
+      id={service.id}
+      className="scroll-mt-24 py-16 sm:py-20 md:py-32 relative"
+    >
       {/* Subtle background for alternating sections */}
       {!isEven && (
         <div className="absolute inset-0 bg-gradient-to-b from-secondary-50/50 via-secondary-50/30 to-transparent pointer-events-none" />
@@ -779,7 +787,7 @@ const ServiceSection = ({ service, index }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-3 sm:gap-4 mb-10 sm:mb-16"
         >
           <span
             className={`text-sm font-bold bg-gradient-to-r ${service.accent} bg-clip-text text-transparent tracking-wider`}
@@ -794,20 +802,20 @@ const ServiceSection = ({ service, index }) => {
           </span>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-center">
           {/* Content side */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+            initial={{ opacity: 0, x: isEven ? -20 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className={isEven ? "" : "lg:order-2"}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900 mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900 mb-4 sm:mb-6 leading-tight">
               {service.title}
             </h2>
 
-            <p className="text-lg text-secondary-500 leading-relaxed mb-10">
+            <p className="text-base sm:text-lg text-secondary-500 leading-relaxed mb-8 sm:mb-10">
               {service.description}
             </p>
 
@@ -849,122 +857,130 @@ const ServiceSection = ({ service, index }) => {
 };
 
 /* ─────────────────────── Overview Cards Strip ─────────────────────── */
-const OverviewStrip = () => (
-  <section className="py-20 bg-white relative overflow-hidden">
-    {/* Background accent */}
-    <div className="absolute inset-0 bg-gradient-to-b from-secondary-50/40 to-white pointer-events-none" />
+const OverviewStrip = () => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
-    <div className="container-custom relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center mb-14"
-      >
-        <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
-          <span className="text-sm font-semibold text-brand-purple tracking-wide">
-            End-to-End Analytics
-          </span>
-        </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900">
-          Four Pillars of{" "}
-          <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
-            Excellence
-          </span>
-        </h2>
-      </motion.div>
+  return (
+    <section className="py-14 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary-50/40 to-white pointer-events-none" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((service, idx) => (
-          <motion.a
-            key={service.id}
-            href={`#${service.id}`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              delay: idx * 0.1,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group relative bg-white rounded-2xl border border-secondary-100 p-7 h-full overflow-hidden shadow-sm hover:shadow-xl hover:shadow-secondary-200/30 transition-shadow duration-300"
+      <div className="container-custom relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10 sm:mb-14"
+        >
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
+            <span className="text-sm font-semibold text-brand-purple tracking-wide">
+              End-to-End Analytics
+            </span>
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900">
+            Four Pillars of{" "}
+            <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
+              Excellence
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {services.map((service, idx) => (
+            <motion.a
+              key={service.id}
+              href={`#${service.id}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: idx * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              {/* Top accent line */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.accent} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
-              />
-
-              {/* Number */}
-              <span
-                className={`text-xs font-bold bg-gradient-to-r ${service.accent} bg-clip-text text-transparent tracking-wider mb-4 block`}
+              <motion.div
+                {...(isTouchDevice
+                  ? { whileTap: { scale: 0.97 } }
+                  : { whileHover: { y: -8 } })}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group relative bg-white rounded-2xl border border-secondary-100 p-6 sm:p-7 h-full overflow-hidden shadow-sm hover:shadow-xl hover:shadow-secondary-200/30 transition-shadow duration-300"
               >
-                {service.num}
-              </span>
+                {/* Top accent line */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.accent} ${isTouchDevice ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"} transition-transform duration-500 origin-left`}
+                />
 
-              {/* Icon */}
-              <div
-                className={`w-12 h-12 bg-gradient-to-br ${service.accent} rounded-xl flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                {/* Number */}
+                <span
+                  className={`text-xs font-bold bg-gradient-to-r ${service.accent} bg-clip-text text-transparent tracking-wider mb-4 block`}
                 >
-                  {service.icon}
-                </svg>
-              </div>
+                  {service.num}
+                </span>
 
-              {/* Title */}
-              <h3 className="text-lg font-display font-bold text-secondary-900 mb-2 group-hover:text-brand-purple transition-colors duration-300">
-                {service.title}
-              </h3>
-
-              {/* Excerpt */}
-              <p className="text-sm text-secondary-500 leading-relaxed line-clamp-2">
-                {service.description}
-              </p>
-
-              {/* Arrow */}
-              <div className="mt-5 flex items-center text-brand-purple opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <span className="text-sm font-semibold">Explore</span>
-                <svg
-                  className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                {/* Icon */}
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${service.accent} rounded-xl flex items-center justify-center text-white mb-5 shadow-md ${isTouchDevice ? "" : "group-hover:scale-110 group-hover:rotate-3"} transition-all duration-300`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </motion.div>
-          </motion.a>
-        ))}
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    {service.icon}
+                  </svg>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-display font-bold text-secondary-900 mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                  {service.title}
+                </h3>
+
+                {/* Excerpt */}
+                <p className="text-sm text-secondary-500 leading-relaxed line-clamp-2">
+                  {service.description}
+                </p>
+
+                {/* Arrow */}
+                <div
+                  className={`mt-5 flex items-center text-brand-purple ${isTouchDevice ? "opacity-100" : "opacity-0 group-hover:opacity-100"} transition-all duration-300`}
+                >
+                  <span className="text-sm font-semibold">Explore</span>
+                  <svg
+                    className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+              </motion.div>
+            </motion.a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ─────────────────────── CTA Section ─────────────────────── */
 const CTASection = () => (
-  <section className="py-24 md:py-32">
+  <section className="py-16 sm:py-20 md:py-32">
     <div className="container-custom">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-3xl p-10 md:p-16 lg:p-20 text-center text-white shadow-2xl overflow-hidden"
+        className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-16 lg:p-20 text-center text-white shadow-2xl overflow-hidden"
       >
         {/* Background decorations */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
@@ -972,28 +988,28 @@ const CTASection = () => (
 
         {/* Floating shapes */}
         <motion.div
-          className="absolute top-10 left-10 w-24 h-24 border border-white/10 rounded-full"
+          className="absolute top-10 left-10 w-24 h-24 border border-white/10 rounded-full hidden sm:block"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-16 h-16 border border-white/10 rounded-lg rotate-45"
+          className="absolute bottom-10 right-10 w-16 h-16 border border-white/10 rounded-lg rotate-45 hidden sm:block"
           animate={{ rotate: [45, 405] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-5 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-5 leading-tight">
             Let's Build Your Analytics Solution
           </h2>
-          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
             Partner with us to unlock the full potential of your data and drive
             measurable business outcomes.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <Link
               to="/company/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-purple rounded-full font-bold text-base shadow-lg shadow-black/10 hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-brand-purple rounded-full font-bold text-sm sm:text-base shadow-lg shadow-black/10 hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               Get Started
               <svg
@@ -1012,7 +1028,7 @@ const CTASection = () => (
             </Link>
             <Link
               to="/resources"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white border border-white/20 rounded-full font-bold text-base hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 text-white border border-white/20 rounded-full font-bold text-sm sm:text-base hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
             >
               Explore Resources
             </Link>

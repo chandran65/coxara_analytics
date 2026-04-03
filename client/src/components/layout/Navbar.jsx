@@ -194,7 +194,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${
         isScrolled
           ? "py-3 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
           : "py-5 bg-white/60 backdrop-blur-md border-b border-transparent"
@@ -522,41 +522,32 @@ const Navbar = () => {
                 >
                   {navItem.items ? (
                     <div>
-                      <div className="flex items-center">
-                        <button
-                          onClick={() =>
-                            navItem.path && handleNavClick(navItem)
-                          }
-                          className="flex-1 px-4 py-3.5 text-left text-secondary-800 font-medium text-sm"
-                          disabled={!navItem.path}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleDropdown(navItem.title);
+                        }}
+                        className="flex items-center w-full px-4 py-3.5 text-left text-secondary-800 font-medium text-sm"
+                        aria-expanded={activeDropdown === navItem.title}
+                        aria-label={`Toggle ${navItem.title} menu`}
+                      >
+                        <span className="flex-1">{navItem.title}</span>
+                        <svg
+                          className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${
+                            activeDropdown === navItem.title ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2.5}
                         >
-                          {navItem.title}
-                        </button>
-                        <button
-                          onClick={() => toggleDropdown(navItem.title)}
-                          className="px-4 py-3.5"
-                          aria-expanded={activeDropdown === navItem.title}
-                          aria-label={`Toggle ${navItem.title} menu`}
-                        >
-                          <svg
-                            className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${
-                              activeDropdown === navItem.title
-                                ? "rotate-180"
-                                : ""
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2.5}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </button>
-                      </div>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
 
                       <AnimatePresence>
                         {activeDropdown === navItem.title && (
@@ -568,6 +559,15 @@ const Navbar = () => {
                             className="overflow-hidden"
                           >
                             <div className="pl-4 pb-2 space-y-0.5">
+                              {navItem.path && (
+                                <button
+                                  key="view-all"
+                                  onClick={() => handleNavClick(navItem)}
+                                  className="block w-full text-left px-4 py-2.5 text-sm font-semibold text-brand-purple rounded-lg hover:bg-brand-purple/5 transition-all duration-200"
+                                >
+                                  View All {navItem.title}
+                                </button>
+                              )}
                               {navItem.items.map((item) =>
                                 item.isHeader ? (
                                   <p
