@@ -5,10 +5,11 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 /* ─── Animated floating dots background ─── */
 const FloatingGrid = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
       {Array.from({ length: 12 }, (_, i) => {
         const x = 5 + Math.random() * 90;
@@ -55,21 +56,21 @@ const ContactHero = () => {
     <section
       ref={heroRef}
       className="relative w-full overflow-hidden bg-gradient-to-br from-white via-secondary-50 to-white"
-      style={{ marginTop: "80px", minHeight: "calc(100vh - 80px)" }}
+      style={{ marginTop: "80px", minHeight: "min(calc(100vh - 80px), 700px)" }}
     >
       {/* Soft gradient blobs */}
       <motion.div
-        className="absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
+        className="hidden sm:block absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
         animate={{ x: [0, -40, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
+        className="hidden sm:block absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
         animate={{ x: [0, 35, 0], y: [0, -25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
+        className="hidden sm:block absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -85,7 +86,7 @@ const ContactHero = () => {
       />
 
       {/* Floating geometry */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="hidden sm:block absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-[18%] right-[12%] w-32 h-32 border border-brand-purple/10 rounded-full"
           animate={{ rotate: 360 }}
@@ -131,8 +132,12 @@ const ContactHero = () => {
 
       {/* Hero content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center px-6 py-24"
-        style={{ y: textY, opacity, minHeight: "calc(100vh - 80px)" }}
+        className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24"
+        style={{
+          y: textY,
+          opacity,
+          minHeight: "min(calc(100vh - 80px), 700px)",
+        }}
       >
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
@@ -220,6 +225,7 @@ const FormField = ({ label, required, children, delay = 0 }) => (
 
 /* ─── Main Contact Page ─── */
 const ContactPage = () => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -353,9 +359,9 @@ const ContactPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* ─── Form + Contact Info ─── */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
+        <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
           {/* Section background decorations */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="hidden sm:block absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/10 to-transparent" />
             <motion.div
               className="absolute top-[20%] right-[-8%] w-[30vw] h-[30vw] rounded-full bg-brand-purple/[0.03] blur-[80px]"
@@ -400,10 +406,10 @@ const ContactPage = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
               {/* ─── Contact Form (3 cols) ─── */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -600,7 +606,7 @@ const ContactPage = () => {
 
               {/* ─── Contact Info Cards (2 cols) ─── */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{
@@ -623,7 +629,9 @@ const ContactPage = () => {
                     }}
                   >
                     <motion.div
-                      whileHover={{ y: -3, scale: 1.01 }}
+                      {...(isTouchDevice
+                        ? { whileTap: { scale: 0.98 } }
+                        : { whileHover: { y: -3, scale: 1.01 } })}
                       transition={{
                         type: "spring",
                         stiffness: 300,
@@ -633,7 +641,7 @@ const ContactPage = () => {
                     >
                       {/* Top accent line */}
                       <div
-                        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${info.accent} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
+                        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${info.accent} ${isTouchDevice ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"} transition-transform duration-500 origin-left`}
                       />
 
                       <div className="flex items-start gap-4">
@@ -710,8 +718,12 @@ const ContactPage = () => {
                           href={social.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          whileHover={{ scale: 1.15, y: -2 }}
-                          whileTap={{ scale: 0.9 }}
+                          {...(isTouchDevice
+                            ? { whileTap: { scale: 0.9 } }
+                            : {
+                                whileHover: { scale: 1.15, y: -2 },
+                                whileTap: { scale: 0.9 },
+                              })}
                           className="w-10 h-10 rounded-xl bg-white border border-secondary-100 flex items-center justify-center text-secondary-400 hover:bg-gradient-to-br hover:from-brand-purple hover:to-brand-accent hover:text-white hover:border-transparent shadow-sm hover:shadow-md transition-all duration-200"
                           aria-label={social.name}
                         >

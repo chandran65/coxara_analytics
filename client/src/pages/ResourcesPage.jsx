@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 /* ─── Hero Section ─── */
 const ResourcesHero = () => {
@@ -18,21 +19,21 @@ const ResourcesHero = () => {
     <section
       ref={heroRef}
       className="relative w-full overflow-hidden bg-gradient-to-br from-white via-secondary-50 to-white"
-      style={{ marginTop: "80px", minHeight: "calc(100vh - 80px)" }}
+      style={{ marginTop: "80px", minHeight: "min(calc(100vh - 80px), 700px)" }}
     >
       {/* Soft gradient blobs */}
       <motion.div
-        className="absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
+        className="hidden sm:block absolute top-[-15%] right-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
         animate={{ x: [0, -40, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
+        className="hidden sm:block absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
         animate={{ x: [0, 35, 0], y: [0, -25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
+        className="hidden sm:block absolute top-[40%] left-[50%] w-[20vw] h-[20vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -48,7 +49,7 @@ const ResourcesHero = () => {
       />
 
       {/* Floating geometry */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="hidden sm:block absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-[18%] right-[12%] w-32 h-32 border border-brand-purple/10 rounded-full"
           animate={{ rotate: 360 }}
@@ -91,7 +92,7 @@ const ResourcesHero = () => {
       </div>
 
       {/* Floating SVG dots */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
         <svg
           className="absolute inset-0 w-full h-full"
           preserveAspectRatio="none"
@@ -125,8 +126,12 @@ const ResourcesHero = () => {
 
       {/* Hero content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center px-6 py-24"
-        style={{ y: textY, opacity, minHeight: "calc(100vh - 80px)" }}
+        className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24"
+        style={{
+          y: textY,
+          opacity,
+          minHeight: "min(calc(100vh - 80px), 700px)",
+        }}
       >
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
@@ -199,6 +204,7 @@ const ResourcesHero = () => {
 
 /* ─── Blog Card ─── */
 const BlogCard = ({ post, index }) => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
   const categoryColors = {
     Tutorial: "from-violet-500 to-purple-400",
     "Best Practices": "from-indigo-500 to-violet-400",
@@ -221,13 +227,15 @@ const BlogCard = ({ post, index }) => {
       }}
     >
       <motion.div
-        whileHover={{ y: -6 }}
+        {...(isTouchDevice
+          ? { whileTap: { scale: 0.98 } }
+          : { whileHover: { y: -6 } })}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className="group bg-white rounded-2xl border border-secondary-100 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-secondary-200/30 transition-shadow duration-300 h-full flex flex-col relative"
       >
         {/* Top accent line */}
         <div
-          className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10`}
+          className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent} ${isTouchDevice ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"} transition-transform duration-500 origin-left z-10`}
         />
 
         {/* Image area */}
@@ -284,7 +292,7 @@ const BlogCard = ({ post, index }) => {
             </div>
 
             <motion.span
-              whileHover={{ x: 3 }}
+              {...(isTouchDevice ? {} : { whileHover: { x: 3 } })}
               className="text-brand-purple font-bold text-xs flex items-center gap-1 cursor-pointer"
             >
               Read
@@ -394,9 +402,9 @@ const ResourcesPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* ─── Filter + Featured ─── */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
+        <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
           {/* Section bg decorations */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="hidden sm:block absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/10 to-transparent" />
             <motion.div
               className="absolute top-[15%] right-[-5%] w-[28vw] h-[28vw] rounded-full bg-brand-purple/[0.025] blur-[80px]"
@@ -452,7 +460,7 @@ const ResourcesPage = () => {
             </motion.div>
 
             {/* Blog grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {blogPosts.map((post, i) => (
                 <BlogCard key={post.id} post={post} index={i} />
               ))}
@@ -461,7 +469,7 @@ const ResourcesPage = () => {
         </section>
 
         {/* ─── Newsletter Section ─── */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-secondary-50/50 via-white to-secondary-50/50">
+        <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden bg-gradient-to-br from-secondary-50/50 via-white to-secondary-50/50">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary-200/50 to-transparent" />
             <div
@@ -480,7 +488,7 @@ const ResourcesPage = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative bg-white rounded-3xl border border-secondary-100 shadow-xl shadow-secondary-200/20 p-10 md:p-16 lg:p-20 text-center overflow-hidden"
+              className="relative bg-white rounded-2xl sm:rounded-3xl border border-secondary-100 shadow-xl shadow-secondary-200/20 p-6 sm:p-10 md:p-16 lg:p-20 text-center overflow-hidden"
             >
               {/* Corner gradients */}
               <div className="absolute top-0 right-0 w-60 h-60 bg-gradient-to-bl from-brand-purple/[0.05] to-transparent pointer-events-none" />
