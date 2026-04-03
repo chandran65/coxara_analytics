@@ -60,20 +60,6 @@ export const navigationData = [
   {
     title: "Resources",
     path: "/resources",
-    items: [
-      {
-        label: "Whitepapers",
-        path: "/resources#whitepapers",
-        description: "Technical deep-dives and research papers",
-        icon: "paper",
-      },
-      {
-        label: "Thought Leadership",
-        path: "/resources#thought-leadership",
-        description: "Strategic insights from industry experts",
-        icon: "thought",
-      },
-    ],
   },
   {
     title: "Contact",

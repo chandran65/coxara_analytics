@@ -124,30 +124,6 @@ const TeamCard = ({ member, index = 0 }) => {
               <div
                 className={`w-10 h-[2px] bg-gradient-to-r ${accent.from} ${accent.to} rounded-full mb-5 opacity-40`}
               />
-
-              {/* Hint to flip */}
-              <div className="flex items-center gap-2 text-secondary-400">
-                <span className="text-xs font-medium">Hover to know more</span>
-                <motion.svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  animate={{ rotateY: [0, 180, 360] }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </motion.svg>
-              </div>
             </div>
 
             {/* Bottom shimmer bar */}

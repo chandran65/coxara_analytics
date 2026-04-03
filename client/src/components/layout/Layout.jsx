@@ -1,9 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { CustomCursor } from "../ui";
+
+/* Scroll to top instantly on route change */
+const RouteScrollToTop = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -65,6 +74,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <CustomCursor />
+      <RouteScrollToTop />
       <ScrollProgress />
       <Navbar />
       <main className="flex-1 relative">

@@ -127,24 +127,6 @@ const FlipCard = ({ studio }) => {
                 </span>
               ))}
             </div>
-
-            {/* Hover hint */}
-            <div className="mt-6 flex items-center gap-1.5 text-secondary-400 text-xs font-medium">
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-                />
-              </svg>
-              <span>Hover for details</span>
-            </div>
           </div>
         </div>
 

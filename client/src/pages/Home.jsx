@@ -122,10 +122,7 @@ const Home = () => {
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: idx * 0.12 }}
+                      initial={{ opacity: 1, x: 0 }}
                       whileHover={{ x: 6, scale: 1.01 }}
                       className="group relative flex items-start gap-4 p-5 rounded-xl border border-secondary-100 hover:border-brand-purple/25 bg-white hover:shadow-lg hover:shadow-brand-purple/[0.06] transition-all duration-300 overflow-hidden cursor-default"
                     >
