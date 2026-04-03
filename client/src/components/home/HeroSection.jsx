@@ -166,6 +166,8 @@ const HeroVisual = () => {
         {outerNodes.map((n, i) => (
           <motion.circle
             key={`p-${i}`}
+            cx={n.x}
+            cy={n.y}
             r="0.65"
             fill="#A78BFA"
             filter="url(#hero-blr)"
@@ -189,6 +191,8 @@ const HeroVisual = () => {
           .map((n, i) => (
             <motion.circle
               key={`p2-${i}`}
+              cx={cx + (n.x - cx) * 0.3}
+              cy={cy + (n.y - cy) * 0.3}
               r="0.45"
               fill="#C084FC"
               animate={{

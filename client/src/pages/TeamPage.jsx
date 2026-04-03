@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { AnimatedSection, SectionHeading } from "../components/ui";
 import TeamCard from "../components/team/TeamCard";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 /* ─── Orbiting node network background ─── */
 const OrbitalNetwork = () => {
@@ -97,21 +98,21 @@ const TeamHero = () => {
     <section
       ref={heroRef}
       className="relative w-full overflow-hidden bg-gradient-to-br from-white via-secondary-50 to-white"
-      style={{ marginTop: "80px", minHeight: "calc(100vh - 80px)" }}
+      style={{ marginTop: "80px", minHeight: "min(calc(100vh - 80px), 700px)" }}
     >
       {/* Soft gradient blobs */}
       <motion.div
-        className="absolute top-[-15%] left-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px]"
+        className="absolute top-[-15%] left-[-5%] w-[55vw] h-[55vw] rounded-full bg-brand-purple/[0.06] blur-[100px] hidden sm:block"
         animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] right-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px]"
+        className="absolute bottom-[-10%] right-[-5%] w-[45vw] h-[45vw] rounded-full bg-brand-accent/[0.05] blur-[90px] hidden sm:block"
         animate={{ x: [0, -35, 0], y: [0, -25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[40%] left-[50%] w-[25vw] h-[25vw] rounded-full bg-brand-glow/[0.04] blur-[70px]"
+        className="absolute top-[40%] left-[50%] w-[25vw] h-[25vw] rounded-full bg-brand-glow/[0.04] blur-[70px] hidden sm:block"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -127,7 +128,7 @@ const TeamHero = () => {
       />
 
       {/* Floating geometry — light accents */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden sm:block">
         <motion.div
           className="absolute top-[14%] left-[8%] w-36 h-36 border border-brand-purple/10 rounded-full"
           animate={{ rotate: 360 }}
@@ -172,8 +173,12 @@ const TeamHero = () => {
 
       {/* Hero content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center px-6 py-24"
-        style={{ y: textY, opacity, minHeight: "calc(100vh - 80px)" }}
+        className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24"
+        style={{
+          y: textY,
+          opacity,
+          minHeight: "min(calc(100vh - 80px), 700px)",
+        }}
       >
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
@@ -194,7 +199,7 @@ const TeamHero = () => {
           </motion.div>
 
           {/* Word-by-word title */}
-          <h1 className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-8">
+          <h1 className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-1 sm:gap-y-2 mb-6 sm:mb-8">
             {words.map((word, i) => (
               <motion.span
                 key={i}
@@ -244,6 +249,7 @@ const TeamHero = () => {
   );
 };
 const TeamPage = () => {
+  const isMobile = useMediaQuery("(hover: none) and (pointer: coarse)");
   const allMembers = [
     {
       name: "M.G.S",
@@ -291,8 +297,10 @@ const TeamPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* About Our Team Section */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
-          <OrbitalNetwork />
+        <section className="py-16 sm:py-20 md:py-28 relative overflow-hidden">
+          <div className="hidden sm:block">
+            <OrbitalNetwork />
+          </div>
           <div className="container-custom relative z-10">
             <SectionHeading
               badge="About Our Team"
@@ -343,7 +351,9 @@ const TeamPage = () => {
               ].map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.15}>
                   <motion.div
-                    whileHover={{ y: -6, scale: 1.03, rotateX: 2 }}
+                    {...(isMobile
+                      ? { whileTap: { scale: 0.97 } }
+                      : { whileHover: { y: -6, scale: 1.03, rotateX: 2 } })}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="group text-center p-6 rounded-2xl bg-white border border-secondary-100 hover:border-brand-purple/20 shadow-sm hover:shadow-xl hover:shadow-brand-purple/[0.08] transition-all duration-300 relative overflow-hidden"
                   >
@@ -373,10 +383,10 @@ const TeamPage = () => {
         </section>
 
         {/* Team Members Section — single unified grid */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-secondary-50 via-white to-secondary-50 relative overflow-hidden">
+        <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-br from-secondary-50 via-white to-secondary-50 relative overflow-hidden">
           {/* Background decoration */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-purple/[0.03] rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-accent/[0.03] rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-purple/[0.03] rounded-full blur-3xl hidden sm:block" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-accent/[0.03] rounded-full blur-3xl hidden sm:block" />
           <div
             className="absolute inset-0 opacity-[0.015] pointer-events-none"
             style={{
@@ -394,7 +404,7 @@ const TeamPage = () => {
               description="The architects behind our vision — combining strategic leadership, technical depth, and operational excellence to drive transformative outcomes."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto px-1 sm:px-0">
               {allMembers.map((member, index) => (
                 <AnimatedSection
                   key={member.name}
@@ -410,14 +420,14 @@ const TeamPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-28">
+        <section className="py-16 sm:py-20 md:py-28">
           <div className="container-custom">
             <AnimatedSection>
-              <div className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-3xl p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl overflow-hidden">
+              <div className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
                 <motion.div
-                  className="absolute -top-20 -right-20 w-64 h-64 border border-white/10 rounded-full"
+                  className="absolute -top-20 -right-20 w-64 h-64 border border-white/10 rounded-full hidden sm:block"
                   animate={{ rotate: 360 }}
                   transition={{
                     duration: 30,
@@ -426,7 +436,7 @@ const TeamPage = () => {
                   }}
                 />
                 <motion.div
-                  className="absolute -bottom-16 -left-16 w-48 h-48 border border-white/10 rounded-full"
+                  className="absolute -bottom-16 -left-16 w-48 h-48 border border-white/10 rounded-full hidden sm:block"
                   animate={{ rotate: -360 }}
                   transition={{
                     duration: 25,
@@ -435,25 +445,26 @@ const TeamPage = () => {
                   }}
                 />
                 {/* Floating particles */}
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 rounded-full bg-white/30"
-                    style={{
-                      left: `${15 + i * 18}%`,
-                      top: `${20 + (i % 3) * 25}%`,
-                    }}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.2, 0.6, 0.2],
-                    }}
-                    transition={{
-                      duration: 3 + i * 0.5,
-                      repeat: Infinity,
-                      delay: i * 0.4,
-                    }}
-                  />
-                ))}
+                {!isMobile &&
+                  [...Array(5)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-1 rounded-full bg-white/30"
+                      style={{
+                        left: `${15 + i * 18}%`,
+                        top: `${20 + (i % 3) * 25}%`,
+                      }}
+                      animate={{
+                        y: [0, -20, 0],
+                        opacity: [0.2, 0.6, 0.2],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.5,
+                        repeat: Infinity,
+                        delay: i * 0.4,
+                      }}
+                    />
+                  ))}
 
                 <div className="relative z-10">
                   <motion.h2
@@ -461,7 +472,7 @@ const TeamPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-3 sm:mb-4"
                   >
                     Join Our Team
                   </motion.h2>
@@ -470,7 +481,7 @@ const TeamPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto"
+                    className="text-base sm:text-lg md:text-xl text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto"
                   >
                     Be part of a team that&apos;s shaping the future of data
                     science and AI.

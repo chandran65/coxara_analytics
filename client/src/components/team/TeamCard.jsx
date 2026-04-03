@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const TeamCard = ({ member, index = 0 }) => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
+  const [isFlipped, setIsFlipped] = useState(false);
   const accents = [
     {
       from: "from-violet-600",
@@ -47,8 +51,17 @@ const TeamCard = ({ member, index = 0 }) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       className="group h-full [perspective:1200px]"
+      onClick={() => isTouchDevice && setIsFlipped(!isFlipped)}
     >
-      <div className="relative w-full h-full min-h-[380px] [transform-style:preserve-3d] transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:[transform:rotateY(180deg)]">
+      <div
+        className={`relative w-full h-full min-h-[340px] sm:min-h-[380px] [transform-style:preserve-3d] transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          isTouchDevice
+            ? isFlipped
+              ? "[transform:rotateY(180deg)]"
+              : ""
+            : "group-hover:[transform:rotateY(180deg)]"
+        }`}
+      >
         {/* ═══════ FRONT FACE ═══════ */}
         <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden">
           {/* Card shell */}
@@ -124,11 +137,22 @@ const TeamCard = ({ member, index = 0 }) => {
               <div
                 className={`w-10 h-[2px] bg-gradient-to-r ${accent.from} ${accent.to} rounded-full mb-5 opacity-40`}
               />
+
+              {/* Tap hint for touch devices */}
+              {isTouchDevice && (
+                <p className="text-xs text-secondary-400 animate-pulse">
+                  Tap to explore →
+                </p>
+              )}
             </div>
 
             {/* Bottom shimmer bar */}
             <div
-              className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent.from} ${accent.to} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
+              className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent.from} ${accent.to} ${
+                isTouchDevice
+                  ? "scale-x-100 opacity-60"
+                  : "scale-x-0 group-hover:scale-x-100"
+              } transition-transform duration-500 origin-left`}
             />
           </div>
         </div>

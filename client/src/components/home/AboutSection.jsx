@@ -15,7 +15,7 @@ const AbstractVisual = () => {
   return (
     <div className="relative w-full aspect-square max-w-md mx-auto lg:mx-0 select-none">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 to-brand-accent/5 rounded-full blur-[80px] scale-110" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 to-brand-accent/5 rounded-full blur-[80px] scale-110 hidden sm:block" />
 
       {/* Central rotating hexagonal mesh */}
       <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
@@ -242,7 +242,7 @@ const AboutSection = () => {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side - Abstract Visual */}
-          <AnimatedSection direction="left">
+          <AnimatedSection direction="left" className="hidden sm:block">
             <AbstractVisual />
           </AnimatedSection>
 

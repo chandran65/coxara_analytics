@@ -578,7 +578,7 @@ const Navbar = () => {
                                   </p>
                                 ) : (
                                   <button
-                                    key={item.path}
+                                    key={item.label}
                                     onClick={() => handleNavClick(item)}
                                     className="block w-full text-left px-4 py-2.5 text-sm text-secondary-600 hover:text-brand-purple rounded-lg hover:bg-brand-purple/5 transition-all duration-200"
                                   >

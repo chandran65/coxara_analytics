@@ -343,6 +343,8 @@ const Home = () => {
                     return (
                       <motion.circle
                         key={`particle-${i}`}
+                        cx={200 + rx * Math.cos((i * Math.PI) / 4)}
+                        cy={200 + ry * Math.sin((i * Math.PI) / 4)}
                         r="3"
                         fill="#8B5CF6"
                         opacity="0.35"

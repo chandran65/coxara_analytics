@@ -81,7 +81,7 @@ const Layout = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col relative">
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
