@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { footerData, socialMediaLinks } from "../../constants/footer";
 import {
   scrollToElement,
-  scrollToTop,
   extractSectionId,
   extractBasePath,
 } from "../../utils/scrollUtils";
@@ -81,16 +80,18 @@ const Footer = () => {
 
     if (sectionId) {
       if (location.pathname === basePath) {
+        // Same page – smooth scroll immediately
         scrollToElement(sectionId, 80);
       } else {
+        // Cross-page – navigate first, Layout handles instant scroll,
+        // then fine-tune with smooth scroll after content mounts
         navigate(path);
-        setTimeout(() => {
-          scrollToElement(sectionId, 80);
-        }, 300);
+        setTimeout(() => scrollToElement(sectionId, 80), 450);
       }
     } else {
+      // Non-hash link – just navigate; Layout's useLayoutEffect
+      // handles instant scroll-to-top on pathname change
       navigate(path);
-      scrollToTop();
     }
   };
 

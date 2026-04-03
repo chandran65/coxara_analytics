@@ -3,11 +3,10 @@ export const footerData = {
     title: "Company",
     links: [
       { label: "Home", path: "/" },
-      { label: "About Us", path: "/company/about" },
-      { label: "Team", path: "/company/team" },
-      { label: "Careers", path: "/company/careers" },
-      { label: "Contact Us", path: "/company/contact" },
+      { label: "Meet Our People", path: "/company/team" },
+      { label: "Analytical Services", path: "/services" },
       { label: "Resources", path: "/resources" },
+      { label: "Contact", path: "/company/contact" },
     ],
   },
   industries: {
