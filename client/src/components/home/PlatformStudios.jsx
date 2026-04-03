@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { AnimatedSection, SectionHeading } from "../ui";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const studios = [
   {
@@ -87,10 +89,18 @@ const studios = [
   },
 ];
 
-const FlipCard = ({ studio }) => {
+const FlipCard = ({ studio, isTouchDevice }) => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <div className="group [perspective:1200px] h-[320px]">
-      <div className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div
+      className="group [perspective:1200px] h-[320px]"
+      onClick={isTouchDevice ? () => setFlipped((f) => !f) : undefined}
+    >
+      <div
+        className={`relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] ${!isTouchDevice ? "group-hover:[transform:rotateY(180deg)]" : ""}`}
+        style={flipped ? { transform: "rotateY(180deg)" } : undefined}
+      >
         {/* ===== FRONT FACE ===== */}
         <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
           {/* Subtle gradient bg */}
@@ -127,6 +137,12 @@ const FlipCard = ({ studio }) => {
                 </span>
               ))}
             </div>
+
+            {isTouchDevice && (
+              <p className="mt-4 text-[10px] text-secondary-400 font-medium tracking-wide">
+                Tap to explore →
+              </p>
+            )}
           </div>
         </div>
 
@@ -202,6 +218,8 @@ const FlipCard = ({ studio }) => {
 };
 
 const PlatformStudios = () => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
+
   return (
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       {/* Subtle dot pattern */}
@@ -229,7 +247,7 @@ const PlatformStudios = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
           {studios.map((studio, index) => (
             <AnimatedSection key={studio.id} delay={index * 0.1}>
-              <FlipCard studio={studio} />
+              <FlipCard studio={studio} isTouchDevice={isTouchDevice} />
             </AnimatedSection>
           ))}
         </div>

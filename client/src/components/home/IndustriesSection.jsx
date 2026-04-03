@@ -1,9 +1,19 @@
+import { useState } from "react";
 import { AnimatedSection, SectionHeading } from "../ui";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
-const FlipCard = ({ industry }) => {
+const FlipCard = ({ industry, isTouchDevice }) => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <div className="group [perspective:1200px] h-[280px]">
-      <div className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div
+      className="group [perspective:1200px] h-[280px]"
+      onClick={isTouchDevice ? () => setFlipped((f) => !f) : undefined}
+    >
+      <div
+        className={`relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] ${!isTouchDevice ? "group-hover:[transform:rotateY(180deg)]" : ""}`}
+        style={flipped ? { transform: "rotateY(180deg)" } : undefined}
+      >
         {/* ===== FRONT FACE ===== */}
         <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.02] to-brand-accent/[0.01]" />
@@ -23,6 +33,12 @@ const FlipCard = ({ industry }) => {
             <h3 className="text-xl font-display font-bold text-secondary-900">
               {industry.title}
             </h3>
+
+            {isTouchDevice && (
+              <p className="mt-3 text-[10px] text-secondary-400 font-medium tracking-wide">
+                Tap to explore →
+              </p>
+            )}
           </div>
         </div>
 
@@ -77,6 +93,8 @@ const FlipCard = ({ industry }) => {
 };
 
 const IndustriesSection = () => {
+  const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
+
   const industries = [
     {
       id: 1,
@@ -190,7 +208,7 @@ const IndustriesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
           {industries.map((industry, index) => (
             <AnimatedSection key={industry.id} delay={index * 0.08}>
-              <FlipCard industry={industry} />
+              <FlipCard industry={industry} isTouchDevice={isTouchDevice} />
             </AnimatedSection>
           ))}
         </div>

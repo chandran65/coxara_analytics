@@ -24,7 +24,14 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return (
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0
+    );
+  });
   const [cursorVariant, setCursorVariant] = useState("default");
   const rafId = useRef(null);
 
@@ -94,11 +101,18 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    const hasTouch = window.matchMedia(
-      "(hover: none) and (pointer: coarse)",
-    ).matches;
+    const hasTouch =
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
     setIsTouchDevice(hasTouch);
     if (hasTouch) return;
+
+    /* Fallback: if a touch event fires, disable cursor immediately */
+    const handleTouchStart = () => {
+      setIsTouchDevice(true);
+      cleanup();
+    };
 
     const handleMouseMove = (e) => {
       prevMouse.current = { ...mouse.current };
@@ -124,6 +138,7 @@ const CustomCursor = () => {
     document.documentElement.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseover", handleHoverStart);
     document.addEventListener("mouseout", handleHoverEnd);
+    document.addEventListener("touchstart", handleTouchStart, { once: true });
 
     const animate = () => {
       /* ── position interpolation ── */
@@ -182,7 +197,7 @@ const CustomCursor = () => {
 
     rafId.current = requestAnimationFrame(animate);
 
-    return () => {
+    function cleanup() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
@@ -196,8 +211,11 @@ const CustomCursor = () => {
       );
       document.removeEventListener("mouseover", handleHoverStart);
       document.removeEventListener("mouseout", handleHoverEnd);
+      document.removeEventListener("touchstart", handleTouchStart);
       if (rafId.current) cancelAnimationFrame(rafId.current);
-    };
+    }
+
+    return cleanup;
   }, [handleHoverStart, handleHoverEnd, spawnParticles]);
 
   if (isTouchDevice) return null;

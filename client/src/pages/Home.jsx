@@ -66,7 +66,7 @@ const Home = () => {
         />
 
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
             <AnimatedSection direction="left">
               <div>
                 <SectionHeading

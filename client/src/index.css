@@ -337,3 +337,18 @@
     cursor: auto !important;
   }
 }
+
+/* Fallback for any touch-capable device (tablets with stylus etc.) */
+@media (pointer: coarse) {
+  *,
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    cursor: auto !important;
+  }
+}

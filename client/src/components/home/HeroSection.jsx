@@ -15,7 +15,7 @@ const HeroVisual = () => {
   });
 
   return (
-    <div className="relative w-full aspect-square max-w-[520px] mx-auto select-none">
+    <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[420px] md:max-w-[520px] mx-auto select-none">
       {/* ── Layer 0 · Ambient glows ── */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] h-[65%] rounded-full pointer-events-none"
@@ -292,7 +292,7 @@ const HeroVisual = () => {
 
       {/* Card 1 — Revenue bar chart · top-right */}
       <motion.div
-        className="absolute top-[2%] right-[-2%] bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
+        className="absolute top-[2%] right-[-2%] hidden sm:block bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
         style={{ width: 144 }}
         animate={{ y: [-4, 7, -4] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -343,7 +343,7 @@ const HeroVisual = () => {
 
       {/* Card 2 — AI Accuracy donut · bottom-left */}
       <motion.div
-        className="absolute bottom-[5%] left-[-4%] bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
+        className="absolute bottom-[5%] left-[-4%] hidden sm:block bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
         style={{ width: 130 }}
         animate={{ y: [5, -6, 5] }}
         transition={{
@@ -402,7 +402,7 @@ const HeroVisual = () => {
 
       {/* Card 3 — Predictions sparkline · mid-right */}
       <motion.div
-        className="absolute top-[46%] right-[-6%] bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
+        className="absolute top-[46%] right-[-6%] hidden sm:block bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-secondary-200/40 border border-secondary-100/80 p-3.5 z-20"
         style={{ width: 140 }}
         animate={{ y: [-3, 8, -3] }}
         transition={{
@@ -464,7 +464,7 @@ const HeroVisual = () => {
 
       {/* Card 4 — Live data badge · top-left area */}
       <motion.div
-        className="absolute top-[18%] left-[-1%] bg-white/90 backdrop-blur-xl rounded-xl shadow-lg shadow-secondary-200/30 border border-secondary-100/80 px-3 py-2 z-20"
+        className="absolute top-[18%] left-[-1%] hidden sm:block bg-white/90 backdrop-blur-xl rounded-xl shadow-lg shadow-secondary-200/30 border border-secondary-100/80 px-3 py-2 z-20"
         animate={{ y: [3, -5, 3] }}
         transition={{
           duration: 5,
@@ -526,7 +526,7 @@ const HeroVisual = () => {
       ].map(({ i, label, bg, txt }) => (
         <motion.div
           key={`lbl-${i}`}
-          className={`absolute z-10 px-2 py-0.5 ${bg} rounded-full border border-secondary-100/60 shadow-sm`}
+          className={`absolute z-10 hidden sm:block px-2 py-0.5 ${bg} rounded-full border border-secondary-100/60 shadow-sm`}
           style={{
             left: `${outerNodes[i].x}%`,
             top: `${outerNodes[i].y}%`,
@@ -589,9 +589,9 @@ const HeroSection = () => {
       <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-brand-accent/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10 pt-28 pb-16 md:pt-36 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           {/* Content */}
-          <div className="order-2 lg:order-1">
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -607,7 +607,7 @@ const HeroSection = () => {
             <motion.h1
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-7 tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-6 sm:mb-7 tracking-tight"
             >
               {["Solving", "complex"].map((word, i) => (
                 <motion.span
@@ -710,7 +710,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-10"
+              className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
               We are an AI-native consulting firm helping enterprises build
               intelligent systems, automate decisions, and drive measurable
@@ -721,11 +721,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4"
             >
               <button
                 onClick={() => navigate("/company/contact")}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10">Start Your Journey</span>
@@ -746,7 +746,7 @@ const HeroSection = () => {
 
               <button
                 onClick={() => navigate("/services")}
-                className="group px-8 py-4 border border-secondary-200 text-secondary-700 text-base font-semibold rounded-full hover:border-brand-purple/30 hover:text-brand-purple hover:bg-brand-purple/[0.03] transition-all duration-300"
+                className="group px-8 py-4 border border-secondary-200 text-secondary-700 text-base font-semibold rounded-full hover:border-brand-purple/30 hover:text-brand-purple hover:bg-brand-purple/[0.03] transition-all duration-300 text-center"
               >
                 Explore Services
               </button>
@@ -755,7 +755,7 @@ const HeroSection = () => {
 
           {/* Animated Visual */}
           <motion.div
-            className="order-1 lg:order-2"
+            className=""
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}

@@ -275,7 +275,7 @@ const AboutSection = () => {
               </div>
 
               {/* Core Values */}
-              <div className="grid grid-cols-2 gap-5 pt-8 border-t border-secondary-100 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 border-t border-secondary-100 mt-8">
                 {[
                   {
                     title: "Innovation First",

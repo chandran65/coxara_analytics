@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const AnimatedSection = ({
   children,
@@ -9,6 +10,12 @@ const AnimatedSection = ({
   once = true,
   amount = 0.15,
 }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
+
   const directions = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },
