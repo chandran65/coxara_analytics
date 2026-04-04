@@ -11,7 +11,6 @@ import SolutionsPage from "./pages/SolutionsPage";
 import BiksPage from "./pages/BiksPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
-import "./App.css";
 
 function App() {
   return (
@@ -43,6 +42,17 @@ function App() {
 
           {/* AiImage Route */}
           <Route path="aiimage" element={<PlaceholderPage title="AiImage" />} />
+
+          {/* 404 - catch-all */}
+          <Route
+            path="*"
+            element={
+              <PlaceholderPage
+                title="Page Not Found"
+                description="The page you're looking for doesn't exist."
+              />
+            }
+          />
         </Route>
       </Routes>
     </Router>

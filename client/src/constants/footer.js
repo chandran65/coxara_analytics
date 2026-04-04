@@ -3,59 +3,42 @@ export const footerData = {
     title: "Company",
     links: [
       { label: "Home", path: "/" },
-      { label: "About Us", path: "/company/about" },
-      { label: "Team", path: "/company/team" },
-      { label: "Careers", path: "/company/careers" },
-      { label: "Contact Us", path: "/company/contact" },
-      { label: "Blog", path: "/company/blog" },
+      { label: "Meet Our People", path: "/company/team" },
+      { label: "Analytical Services", path: "/services" },
+      { label: "Resources", path: "/resources" },
+      { label: "Contact", path: "/company/contact" },
     ],
   },
   industries: {
     title: "Industries",
     links: [
-      { label: "Retail & FMCG", path: "/industries/retail-fmcg" },
-      { label: "Hospitality", path: "/industries/hospitality" },
-      { label: "Healthcare", path: "/industries/healthcare" },
-      { label: "Banking", path: "/industries/banking" },
+      { label: "Retail & FMCG", path: "/industries" },
+      { label: "Hospitality", path: "/industries" },
+      { label: "Healthcare", path: "/industries" },
+      { label: "Banking", path: "/industries" },
     ],
   },
   services: {
     title: "Services",
     links: [
-      { label: "Sales Analytics", path: "/services/sales-analytics" },
-      { label: "Marketing Analytics", path: "/services/marketing-analytics" },
-      { label: "HR Analytics", path: "/services/hr-analytics" },
-      { label: "Customer Analytics", path: "/services/customer-analytics" },
+      { label: "AI Strategy & Governance", path: "/services#gen-ai" },
       {
-        label: "Supply Chain & Inventory Management",
-        path: "/services/supply-chain",
+        label: "Advanced Predictive Analytics",
+        path: "/services#data-science",
       },
+      { label: "Real-time Analytics", path: "/services#engineering" },
+      { label: "Enterprise Training", path: "/services#training" },
+      { label: "Data Science Consulting", path: "/services#data-science" },
     ],
   },
   solutions: {
     title: "Solutions",
     links: [
-      {
-        label: "Key Performance Indicators",
-        path: "/solutions/key-performance-indicators",
-      },
-      {
-        label: "Customer Segmentation",
-        path: "/solutions/customer-segmentation",
-      },
-      {
-        label: "Return On Investment",
-        path: "/solutions/return-on-investment",
-      },
-      {
-        label: "Competition Analysis",
-        path: "/solutions/competition-analysis",
-      },
-      { label: "Forecasting", path: "/solutions/forecasting" },
-      {
-        label: "Analytics Everywhere",
-        path: "/solutions/analytics-everywhere",
-      },
+      { label: "Supply Chain Analytics", path: "/solutions" },
+      { label: "Financial Analytics", path: "/solutions" },
+      { label: "HR Analytics", path: "/solutions" },
+      { label: "Marketing Analytics", path: "/solutions" },
+      { label: "Risk Analytics", path: "/solutions" },
     ],
   },
 };

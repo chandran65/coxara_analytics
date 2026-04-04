@@ -29,7 +29,6 @@ const CareersPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: Implement form submission logic
-    console.log("Application submitted:", formData);
   };
   const openPositions = [
     {
