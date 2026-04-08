@@ -15,8 +15,8 @@ const FlipCard = ({ industry, isTouchDevice }) => {
         style={flipped ? { transform: "rotateY(180deg)" } : undefined}
       >
         {/* ===== FRONT FACE ===== */}
-        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.02] to-brand-accent/[0.01]" />
+        <div className="absolute inset-0 [backface-visibility:hidden] rounded-3xl glow-card-static overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-brand-accent/[0.02]" />
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
           <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
@@ -43,7 +43,7 @@ const FlipCard = ({ industry, isTouchDevice }) => {
         </div>
 
         {/* ===== BACK FACE ===== */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border border-brand-purple/25 bg-white shadow-2xl shadow-brand-purple/[0.08] overflow-hidden">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl glow-card-static border-brand-purple/20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.05] to-brand-accent/[0.03]" />
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
@@ -183,7 +183,7 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-32 glass-section relative overflow-hidden">
       {/* Subtle background */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -193,6 +193,9 @@ const IndustriesSection = () => {
           backgroundSize: "48px 48px",
         }}
       />
+      {/* Color-bleed orbs */}
+      <div className="absolute top-1/3 -right-24 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-24 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <AnimatedSection>

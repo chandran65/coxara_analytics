@@ -15,10 +15,10 @@ const resources = [
 
 const ResourcesSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-secondary-50 relative overflow-hidden">
+    <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <AnimatedSection>
@@ -36,7 +36,7 @@ const ResourcesSection = () => {
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative h-[400px] md:h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-brand-purple/[0.12] transition-all duration-400 border border-white/10 hover:border-brand-purple/30"
+                className="group relative h-[400px] md:h-[480px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-brand-purple/[0.12] transition-all duration-400 border border-white/30 hover:border-brand-purple/30"
               >
                 {/* Image with enhanced zoom */}
                 <div className="absolute inset-0">
