@@ -758,9 +758,9 @@ const HeroSection = ({ isActive = true }) => {
             </motion.div>
           </div>
 
-          {/* Animated Visual */}
+          {/* Animated Visual — hidden on mobile to prevent scroll jank */}
           <motion.div
-            className=""
+            className="hidden lg:block"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}

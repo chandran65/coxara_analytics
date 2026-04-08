@@ -773,11 +773,24 @@ const ServiceSection = ({ service, index }) => {
   return (
     <section
       id={service.id}
-      className="scroll-mt-24 py-16 sm:py-20 md:py-32 relative"
+      className={`scroll-mt-24 py-16 sm:py-20 md:py-32 ${isEven ? 'glass-section' : 'glass-section-alt'}`}
     >
       {/* Subtle background for alternating sections */}
       {!isEven && (
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary-50/50 via-secondary-50/30 to-transparent pointer-events-none" />
+        <>
+          {/* Dot pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.012] pointer-events-none"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, #6D28D9 1px, transparent 0)",
+              backgroundSize: "48px 48px",
+            }}
+          />
+          {/* Blur orbs */}
+          <div className="absolute top-0 right-0 w-[30vw] h-[30vw] bg-brand-purple/[0.04] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-brand-accent/[0.03] rounded-full blur-[100px] pointer-events-none" />
+        </>
       )}
 
       <div className="container-custom relative z-10">
@@ -861,9 +874,7 @@ const OverviewStrip = () => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
   return (
-    <section className="py-14 sm:py-16 md:py-20 bg-white relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary-50/40 to-white pointer-events-none" />
+    <section className="glass-section py-14 sm:py-16 md:py-20">
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -905,7 +916,7 @@ const OverviewStrip = () => {
                   ? { whileTap: { scale: 0.97 } }
                   : { whileHover: { y: -8 } })}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative bg-white rounded-2xl border border-secondary-100 p-6 sm:p-7 h-full overflow-hidden shadow-sm hover:shadow-xl hover:shadow-secondary-200/30 transition-shadow duration-300"
+                className="glow-card group relative rounded-2xl p-6 sm:p-7 h-full overflow-hidden"
               >
                 {/* Top accent line */}
                 <div
@@ -973,7 +984,7 @@ const OverviewStrip = () => {
 
 /* ─────────────────────── CTA Section ─────────────────────── */
 const CTASection = () => (
-  <section className="py-16 sm:py-20 md:py-32">
+  <section className="glass-section py-16 sm:py-20 md:py-32">
     <div className="container-custom">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -1042,7 +1053,7 @@ const CTASection = () => (
 /* ─────────────────────── Page ─────────────────────── */
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <ServicesHero />
       <OverviewStrip />
       {services.map((service, index) => (

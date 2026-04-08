@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import HeroSection from "../components/home/HeroSection";
 import AboutSection from "../components/home/AboutSection";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import IndustriesSection from "../components/home/IndustriesSection";
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
 import MissionVisionSection from "../components/home/MissionVisionSection";
@@ -12,8 +13,7 @@ import { AnimatedSection, SectionHeading } from "../components/ui";
 
 const Home = () => {
   const navigate = useNavigate();
-
-  /* ── Pause hero animations once scrolled past ── */
+    const isDesktop = useMediaQuery("(min-width: 1024px)");
   const [heroActive, setHeroActive] = useState(true);
   useEffect(() => {
     const onScroll = () => {
@@ -30,8 +30,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section — sticky: stays fixed while content scrolls over */}
-      <div className="sticky top-0 z-0">
+{/* Hero Section — sticky on desktop only; static on mobile to prevent scroll jank */}
+        <div className={isDesktop ? "sticky top-0 z-0" : "relative z-0"}>
         <HeroSection isActive={heroActive} />
       </div>
 
