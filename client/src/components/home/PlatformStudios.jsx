@@ -102,10 +102,8 @@ const FlipCard = ({ studio, isTouchDevice }) => {
         style={flipped ? { transform: "rotateY(180deg)" } : undefined}
       >
         {/* ===== FRONT FACE ===== */}
-        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl border border-secondary-100 bg-white shadow-sm overflow-hidden">
-          {/* Subtle gradient bg */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.02] to-brand-accent/[0.01]" />
-          {/* Bottom accent line */}
+        <div className="absolute inset-0 [backface-visibility:hidden] rounded-3xl glow-card-static overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-brand-accent/[0.02]" />
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
           <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
@@ -147,7 +145,7 @@ const FlipCard = ({ studio, isTouchDevice }) => {
         </div>
 
         {/* ===== BACK FACE ===== */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border border-brand-purple/25 bg-white shadow-2xl shadow-brand-purple/[0.08] overflow-hidden">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl glow-card-static border-brand-purple/20 overflow-hidden">
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.05] to-brand-accent/[0.03]" />
           {/* Top accent line */}
@@ -221,7 +219,7 @@ const PlatformStudios = () => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-32 glass-section relative overflow-hidden">
       {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
@@ -231,8 +229,8 @@ const PlatformStudios = () => {
           backgroundSize: "40px 40px",
         }}
       />
-      <div className="absolute top-0 left-0 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <AnimatedSection>

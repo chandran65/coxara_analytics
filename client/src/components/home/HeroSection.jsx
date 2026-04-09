@@ -573,12 +573,13 @@ const HeroVisual = () => {
   );
 };
 
-const HeroSection = () => {
+const HeroSection = ({ isActive = true }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white">
-      {/* Subtle dot pattern */}
+    <section
+      className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white"
+    >  {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.018] pointer-events-none"
         style={{
@@ -589,8 +590,8 @@ const HeroSection = () => {
       />
 
       {/* Soft decorative blurs */}
-      <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-brand-purple/[0.04] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-brand-accent/[0.03] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-5%] w-80 h-80 bg-brand-purple/[0.05] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-72 h-72 bg-brand-accent/[0.04] rounded-full blur-[50px] pointer-events-none" />
 
       <div className="container-custom relative z-10 pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -757,14 +758,14 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Animated Visual */}
+          {/* Animated Visual — hidden on mobile to prevent scroll jank */}
           <motion.div
-            className=""
+            className="hidden lg:block"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <HeroVisual />
+            {isActive && <HeroVisual />}
           </motion.div>
         </div>
       </div>

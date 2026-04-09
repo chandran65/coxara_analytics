@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { AnimatedSection, SectionHeading } from "../ui";
 
 /* ── Abstract Geometric Visual (About) ── */
@@ -227,8 +228,11 @@ const AbstractVisual = () => {
 };
 
 const AboutSection = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { amount: 0.1, margin: "200px" });
+
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 glass-section relative overflow-hidden">
       {/* Subtle background pattern */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -238,12 +242,15 @@ const AboutSection = () => {
           backgroundSize: "48px 48px",
         }}
       />
+      {/* Color-bleed orbs */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side - Abstract Visual */}
           <AnimatedSection direction="left" className="hidden sm:block">
-            <AbstractVisual />
+            {isInView && <AbstractVisual />}
           </AnimatedSection>
 
           {/* Right Side - Content */}
@@ -312,12 +319,13 @@ const AboutSection = () => {
                 ].map((val, i) => (
                   <motion.div
                     key={i}
-                    className={`group relative flex items-start gap-3 p-4 rounded-xl border border-secondary-100 ${val.hoverBorder} bg-white hover:shadow-lg ${val.hoverShadow} transition-all duration-300 overflow-hidden cursor-default`}
+                    className={`group relative flex items-start gap-3 p-4 rounded-2xl glow-card-static overflow-hidden cursor-default`}
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.5 + i * 0.15 }}
                     whileHover={{ y: -3, scale: 1.02 }}
+                    style={{ willChange: "opacity, transform" }}
                   >
                     {/* Hover gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />

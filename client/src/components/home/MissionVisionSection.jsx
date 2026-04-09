@@ -1,21 +1,9 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { AnimatedSection } from "../ui";
 
 const MissionVisionSection = () => {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const orbY1 = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const orbY2 = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 md:py-32 bg-secondary-50 relative overflow-hidden"
-    >
+    <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
       {/* Background decorations */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -25,14 +13,8 @@ const MissionVisionSection = () => {
           backgroundSize: "48px 48px",
         }}
       />
-      <motion.div
-        style={{ y: orbY1 }}
-        className="absolute top-0 left-0 w-96 h-96 bg-brand-purple/[0.04] rounded-full blur-[100px] pointer-events-none"
-      />
-      <motion.div
-        style={{ y: orbY2 }}
-        className="absolute bottom-0 right-0 w-80 h-80 bg-brand-accent/[0.03] rounded-full blur-[80px] pointer-events-none"
-      />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -41,7 +23,7 @@ const MissionVisionSection = () => {
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full p-8 md:p-10 rounded-2xl border border-secondary-200/80 bg-white overflow-hidden group shadow-sm hover:shadow-2xl hover:shadow-brand-purple/[0.08] hover:border-brand-purple/20 transition-all duration-500"
+              className="relative h-full p-8 md:p-10 rounded-3xl glow-card overflow-hidden group transition-all duration-500"
             >
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] via-transparent to-brand-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -99,10 +81,10 @@ const MissionVisionSection = () => {
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full p-8 md:p-10 rounded-2xl border border-secondary-200/80 bg-white overflow-hidden group shadow-sm hover:shadow-2xl hover:shadow-brand-accent/[0.08] hover:border-brand-accent/20 transition-all duration-500"
+              className="relative h-full p-8 md:p-10 rounded-3xl glow-card overflow-hidden group transition-all duration-500"
             >
               {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/[0.03] via-transparent to-brand-purple/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/[0.03] via-transparent to-brand-purple/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
 
               {/* Animated shimmer effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">

@@ -9,3 +9,4 @@ export { default as SolutionsPage } from "./SolutionsPage";
 export { default as BiksPage } from "./BiksPage";
 export { default as ResourcesPage } from "./ResourcesPage";
 export { default as PlaceholderPage } from "./PlaceholderPage";
+export { default as ProductsPage } from "./ProductsPage";

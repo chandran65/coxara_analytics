@@ -295,9 +295,9 @@ const TeamPage = () => {
       <TeamHero />
 
       {/* Main Content */}
-      <div id="page-content" className="bg-white">
+      <div id="page-content">
         {/* About Our Team Section */}
-        <section className="py-16 sm:py-20 md:py-28 relative overflow-hidden">
+        <section className="glass-section py-16 sm:py-20 md:py-28">
           <div className="hidden sm:block">
             <OrbitalNetwork />
           </div>
@@ -355,7 +355,7 @@ const TeamPage = () => {
                       ? { whileTap: { scale: 0.97 } }
                       : { whileHover: { y: -6, scale: 1.03, rotateX: 2 } })}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="group text-center p-6 rounded-2xl bg-white border border-secondary-100 hover:border-brand-purple/20 shadow-sm hover:shadow-xl hover:shadow-brand-purple/[0.08] transition-all duration-300 relative overflow-hidden"
+                    className="glow-card group text-center p-6 rounded-2xl relative overflow-hidden"
                   >
                     {/* Shimmer sweep */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
@@ -383,18 +383,19 @@ const TeamPage = () => {
         </section>
 
         {/* Team Members Section — single unified grid */}
-        <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-br from-secondary-50 via-white to-secondary-50 relative overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-purple/[0.03] rounded-full blur-3xl hidden sm:block" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-accent/[0.03] rounded-full blur-3xl hidden sm:block" />
+        <section className="glass-section-alt py-16 sm:py-20 md:py-28">
+          {/* Dot pattern */}
           <div
-            className="absolute inset-0 opacity-[0.015] pointer-events-none"
+            className="absolute inset-0 opacity-[0.012] pointer-events-none"
             style={{
               backgroundImage:
                 "radial-gradient(circle at 1px 1px, #6D28D9 1px, transparent 0)",
               backgroundSize: "48px 48px",
             }}
           />
+          {/* Blur orbs */}
+          <div className="absolute top-0 right-0 w-[30vw] h-[30vw] bg-brand-purple/[0.04] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-brand-accent/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
           <div className="container-custom relative z-10">
             <SectionHeading
@@ -420,7 +421,7 @@ const TeamPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-20 md:py-28">
+        <section className="glass-section py-16 sm:py-20 md:py-28">
           <div className="container-custom">
             <AnimatedSection>
               <div className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl overflow-hidden">

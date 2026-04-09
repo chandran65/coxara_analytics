@@ -47,7 +47,7 @@ const SocialIcon = ({ icon }) => {
 
 const FooterLinkColumn = ({ title, links, handleLinkClick }) => (
   <div>
-    <h3 className="text-white font-display font-semibold text-sm uppercase tracking-wider mb-6 relative inline-block">
+    <h3 className="text-secondary-800 font-display font-semibold text-sm uppercase tracking-wider mb-6 relative inline-block">
       {title}
       <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-brand-purple to-brand-accent rounded-full" />
     </h3>
@@ -57,7 +57,7 @@ const FooterLinkColumn = ({ title, links, handleLinkClick }) => (
           <Link
             to={link.path}
             onClick={(e) => handleLinkClick(e, link.path)}
-            className="group/link text-secondary-400 hover:text-white transition-all duration-300 text-sm flex items-center gap-2"
+            className="group/link text-secondary-500 hover:text-brand-purple transition-all duration-300 text-sm flex items-center gap-2"
           >
             <span className="w-0 group-hover/link:w-2 h-px bg-brand-accent transition-all duration-300" />
             {link.label}
@@ -96,20 +96,20 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-secondary-800 to-secondary-900 text-secondary-100 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-[#F5F0FF] via-[#F8F5FF] to-[#F0EAFF] text-secondary-700 overflow-hidden">
       {/* Subtle gradient top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
 
-      {/* Background decorative orbs */}
-      <div className="absolute top-20 -left-32 w-96 h-96 bg-brand-purple/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 -right-32 w-80 h-80 bg-brand-accent/8 rounded-full blur-3xl pointer-events-none" />
+      {/* Background decorative orbs — soft violet */}
+      <div className="absolute top-20 -left-32 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-20 -right-32 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
       {/* Grid pattern overlay */}
       <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            "linear-gradient(rgba(109,40,217,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,.06) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -143,10 +143,10 @@ const Footer = () => {
                 <img
                   src="/full-logo-Photoroom.png"
                   alt="COXARA Analytics"
-                  className="h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 brightness-0 invert opacity-90 group-hover:opacity-100"
+                  className="h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                 />
               </Link>
-              <p className="text-secondary-400 text-sm leading-relaxed mb-8 max-w-xs">
+              <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
                 Transforming data into actionable insights with cutting-edge
                 analytics and machine learning solutions.
               </p>
@@ -159,7 +159,7 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-purple hover:border-brand-purple flex items-center justify-center text-secondary-400 hover:text-white transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 rounded-xl bg-brand-purple/10 border border-brand-purple/15 hover:bg-brand-purple hover:border-brand-purple flex items-center justify-center text-secondary-500 hover:text-white transition-all duration-300 hover:scale-110"
                     aria-label={social.name}
                   >
                     <SocialIcon icon={social.icon} />
@@ -272,10 +272,10 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="border-t border-white/10 py-8"
+          className="border-t border-brand-purple/10 py-8"
         >
           <div className="flex items-center justify-center">
-            <p className="text-secondary-400 text-sm text-center">
+            <p className="text-secondary-500 text-sm text-center">
               © {currentYear} COXARA Analytics. All rights reserved.
             </p>
           </div>

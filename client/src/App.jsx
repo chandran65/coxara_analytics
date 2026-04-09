@@ -11,6 +11,7 @@ import SolutionsPage from "./pages/SolutionsPage";
 import BiksPage from "./pages/BiksPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
 
           {/* Solutions Routes */}
           <Route path="solutions" element={<SolutionsPage />} />
+
+          {/* Products Routes */}
+          <Route path="products" element={<ProductsPage />} />
 
           {/* BIKS Routes */}
           <Route path="biks" element={<BiksPage />} />
