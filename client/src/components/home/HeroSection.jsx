@@ -682,7 +682,7 @@ const HeroSection = ({ isActive = true }) => {
             >
               <span className="badge">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-                AI-Native Consulting
+                AI-Powered Platform
               </span>
             </motion.div>
 
@@ -691,7 +691,7 @@ const HeroSection = ({ isActive = true }) => {
               animate="visible"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-6 sm:mb-7 tracking-tight"
             >
-              {["Solving", "complex"].map((word, i) => (
+              {["Modernize", "systems,"].map((word, i) => (
                 <motion.span
                   key={i}
                   className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
@@ -714,7 +714,7 @@ const HeroSection = ({ isActive = true }) => {
                 </motion.span>
               ))}
               <br className="hidden sm:block" />
-              {["business", "problems"].map((word, i) => (
+              {["automate", "operations"].map((word, i) => (
                 <motion.span
                   key={i}
                   className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
@@ -754,7 +754,7 @@ const HeroSection = ({ isActive = true }) => {
                 }}
                 whileHover={{ scale: 1.05, y: -2 }}
               >
-                with
+                and
               </motion.span>{" "}
               <motion.span
                 className="relative inline-block"
@@ -773,11 +773,11 @@ const HeroSection = ({ isActive = true }) => {
                 }}
               >
                 <motion.span
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default"
-                  whileHover={{ scale: 1.08 }}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default pb-1.5"
+                  whileHover={{ scale: 1.05 }}
                   style={{ display: "inline-block" }}
                 >
-                  Data and AI
+                  activate data 2X faster
                 </motion.span>
                 <motion.span
                   className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple/0 via-brand-purple to-brand-purple/0 rounded-full"
@@ -794,9 +794,7 @@ const HeroSection = ({ isActive = true }) => {
               transition={{ duration: 0.8, delay: 0.25 }}
               className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
-              We are an AI-native consulting firm helping enterprises build
-              intelligent systems, automate decisions, and drive measurable
-              value at scale.
+              Empower your enterprise with AI-driven automation, AIOps, and edge intelligence. Transform business operations with scalable, secure AI-first solutions.
             </motion.p>
 
             <motion.div
@@ -810,7 +808,7 @@ const HeroSection = ({ isActive = true }) => {
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Start Your Journey</span>
+                <span className="relative z-10">Explore Platform</span>
                 <svg
                   className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
                   fill="none"

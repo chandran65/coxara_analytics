@@ -2,6 +2,27 @@ export const navigationData = [
   {
     title: "About",
     path: "/company/about",
+    items: [
+      { label: "Company", isHeader: true },
+      {
+        label: "About Us",
+        path: "/company/about",
+        description: "Our mission, vision, and core values",
+        icon: "strategy", // placeholder icon
+      },
+      {
+        label: "Meet Our People",
+        path: "/company/team",
+        description: "The leadership team and experts behind Coxara",
+        icon: "agent",
+      },
+      {
+        label: "Careers",
+        path: "/company/careers",
+        description: "Join our team of data and AI innovators",
+        icon: "trendup",
+      },
+    ],
   },
   {
     title: "Products",

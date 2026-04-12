@@ -3,6 +3,8 @@ export const footerData = {
     title: "Company",
     links: [
       { label: "About", path: "/company/about" },
+      { label: "Meet Our People", path: "/company/team" },
+      { label: "Careers", path: "/company/careers" },
       { label: "Products", path: "/products" },
       { label: "Services", path: "/services" },
       { label: "Resource Hub", path: "/resources" },
