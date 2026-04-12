@@ -139,11 +139,11 @@ const Footer = () => {
                 },
               }}
             >
-              <Link to="/" className="inline-block group mb-6">
+              <Link to="/" className="inline-block group mb-4 overflow-hidden" style={{ width: '200px' }}>
                 <img
                   src="/geometric_c_nodes.png"
                   alt="COXARA Analytics"
-                  className="h-32 sm:h-40 w-auto object-contain mix-blend-multiply transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100 -ml-6 -my-8"
+                  className="w-full h-auto object-contain mix-blend-multiply transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                 />
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
