@@ -260,7 +260,7 @@ const Navbar = () => {
             }}
           >
             <motion.img
-              src="/full-logo-Photoroom.png"
+              src="/geometric_c_nodes.png"
               alt="COXARA Analytics"
               className={`w-auto object-contain transition-all duration-500 ${
                 isScrolled ? "h-9" : "h-10 sm:h-11"
