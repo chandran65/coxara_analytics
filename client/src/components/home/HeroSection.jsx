@@ -9,8 +9,8 @@ const FloatingGrid = () => (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
       {Array.from({ length: 15 }, (_, i) => {
         // Pseudo-random but deterministic based on index for rendering
-        const x = 5 + (i * 7) % 90;
-        const y = 5 + (i * 11) % 90;
+        const x = 5 + ((i * 7) % 90);
+        const y = 5 + ((i * 11) % 90);
         return (
           <motion.circle
             key={i}
@@ -612,9 +612,7 @@ const HeroSection = ({ isActive = true }) => {
   const navigate = useNavigate();
 
   return (
-    <section
-      className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white"
-    >
+    <section className="relative w-full h-screen max-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white">
       {/* Animated gradient orbs */}
       <motion.div
         className="absolute top-[-10%] right-[10%] w-[40vw] h-[40vw] bg-brand-purple/[0.08] rounded-full blur-[100px] pointer-events-none"
@@ -670,7 +668,7 @@ const HeroSection = ({ isActive = true }) => {
         />
       </div>
 
-      <div className="container-custom relative z-10 pt-32 pb-16 md:pt-44 md:pb-24">
+      <div className="container-custom relative z-10 pt-28 pb-8 md:pt-36 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           {/* Content */}
           <div>
@@ -689,7 +687,7 @@ const HeroSection = ({ isActive = true }) => {
             <motion.h1
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-display font-light text-secondary-900 leading-[1.1] mb-6 sm:mb-8 tracking-wide"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-display font-light text-secondary-900 leading-[1.15] mb-6 sm:mb-8 tracking-wide"
             >
               We are building the{" "}
               <span className="relative inline-block pb-2 mt-4 font-normal text-brand-purple">
@@ -704,7 +702,9 @@ const HeroSection = ({ isActive = true }) => {
               transition={{ duration: 0.8, delay: 0.25 }}
               className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal"
             >
-              Where data isn't just a report, but a dynamic engine of growth. Empower your enterprise with AI-driven automation and intelligent velocity.
+              Where data isn't just a report, but a dynamic engine of growth.
+              Empower your enterprise with AI-driven automation and intelligent
+              velocity.
             </motion.p>
 
             <motion.div
@@ -732,38 +732,6 @@ const HeroSection = ({ isActive = true }) => {
                   />
                 </svg>
               </button>
-            </motion.div>
-
-            {/* CoreOps Signature Feature Cards */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mt-auto"
-            >
-              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-white flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-brand-purple/[0.08] flex items-center justify-center text-brand-purple flex-shrink-0">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-secondary-900 font-semibold mb-1 text-[15px]">Innovation First</h4>
-                  <p className="text-secondary-500 text-sm leading-snug">Cutting-edge GenAI & ML solutions</p>
-                </div>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-white flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-brand-accent/[0.08] flex items-center justify-center text-brand-accent flex-shrink-0">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-secondary-900 font-semibold mb-1 text-[15px]">Agile Delivery</h4>
-                  <p className="text-secondary-500 text-sm leading-snug">Rapid prototyping & deployment</p>
-                </div>
-              </div>
             </motion.div>
           </div>
 

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatedSection, SectionHeading } from "../ui";
 
@@ -14,6 +15,8 @@ const resources = [
 ];
 
 const ResourcesSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
       {/* Background elements */}
@@ -62,7 +65,10 @@ const ResourcesSection = () => {
                     {resource.description}
                   </p>
                   <div>
-                    <button className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-brand-purple/20 hover:scale-105">
+                    <button
+                      onClick={() => navigate("/resources")}
+                      className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-brand-purple/20 hover:scale-105"
+                    >
                       {resource.cta}
                       <svg
                         className="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"

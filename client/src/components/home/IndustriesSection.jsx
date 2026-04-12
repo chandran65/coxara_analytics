@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AnimatedSection, SectionHeading } from "../ui";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
@@ -19,10 +20,10 @@ const FlipCard = ({ industry, isTouchDevice }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-brand-accent/[0.02]" />
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
-          <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-5 shadow-lg shadow-brand-purple/20">
+          <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-4 shadow-lg shadow-brand-purple/20">
               <svg
-                className="w-8 h-8"
+                className="w-7 h-7"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -30,7 +31,7 @@ const FlipCard = ({ industry, isTouchDevice }) => {
                 {industry.icon}
               </svg>
             </div>
-            <h3 className="text-xl font-display font-bold text-secondary-900">
+            <h3 className="text-lg font-display font-bold text-secondary-900">
               {industry.title}
             </h3>
 
@@ -47,44 +48,23 @@ const FlipCard = ({ industry, isTouchDevice }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.05] to-brand-accent/[0.03]" />
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
-          <div className="relative z-10 h-full flex flex-col justify-between p-8">
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {industry.icon}
-                  </svg>
-                </div>
-                <h3 className="text-lg font-display font-bold text-brand-purple">
-                  {industry.title}
-                </h3>
-              </div>
-              <p className="text-secondary-600 leading-relaxed text-sm">
-                {industry.description}
-              </p>
-            </div>
-
-            <span className="inline-flex items-center gap-2 text-brand-purple font-semibold text-sm mt-4 hover:gap-3 transition-all duration-300 cursor-pointer">
-              Explore Solutions
+          <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0 mb-4">
               <svg
-                className="w-4 h-4"
+                className="w-4.5 h-4.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+                {industry.icon}
               </svg>
-            </span>
+            </div>
+            <h3 className="text-base font-display font-bold text-brand-purple mb-3">
+              {industry.title}
+            </h3>
+            <p className="text-secondary-600 leading-relaxed text-[13px]">
+              {industry.description}
+            </p>
           </div>
         </div>
       </div>
@@ -93,6 +73,7 @@ const FlipCard = ({ industry, isTouchDevice }) => {
 };
 
 const IndustriesSection = () => {
+  const navigate = useNavigate();
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
   const industries = [
@@ -223,8 +204,11 @@ const IndustriesSection = () => {
               Don't see your industry? We work with businesses across all
               sectors.
             </p>
-            <button className="btn-primary px-8 py-4 text-lg font-semibold">
-              Discuss Your Project
+            <button
+              onClick={() => navigate("/company/contact")}
+              className="btn-primary px-8 py-4 text-lg font-semibold"
+            >
+              <span>Discuss Your Project</span>
             </button>
           </div>
         </AnimatedSection>

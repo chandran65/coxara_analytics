@@ -488,7 +488,7 @@ const TeamPage = () => {
                     science and AI.
                   </motion.p>
                   <motion.a
-                    href="/company/careers"
+                    href="/company/contact"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -496,7 +496,7 @@ const TeamPage = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-purple font-bold rounded-full hover:shadow-2xl transition-all duration-300"
                   >
-                    <span>View Open Positions</span>
+                    <span>Get in Touch</span>
                     <svg
                       className="w-5 h-5"
                       fill="none"

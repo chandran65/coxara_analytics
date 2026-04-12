@@ -35,26 +35,26 @@ const ClientTicker = () => {
       </div>
 
       <div className="relative flex overflow-x-hidden group">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-16 px-8">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 sm:gap-16 px-4 sm:px-8">
           {[...clients, ...clients, ...clients].map((client, index) => (
             <div
               key={`ticker-a-${client.name}-${index}`}
               className="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
             >
-              <span className="text-2xl font-display font-bold text-secondary-400 hover:text-brand-purple transition-colors">
+              <span className="text-lg sm:text-2xl font-display font-bold text-secondary-400 hover:text-brand-purple transition-colors">
                 {client.name}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-16 px-8">
+        <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-8 sm:gap-16 px-4 sm:px-8">
           {[...clients, ...clients, ...clients].map((client, index) => (
             <div
               key={`ticker-b-${client.name}-${index}`}
               className="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
             >
-              <span className="text-2xl font-display font-bold text-secondary-400 hover:text-brand-purple transition-colors">
+              <span className="text-lg sm:text-2xl font-display font-bold text-secondary-400 hover:text-brand-purple transition-colors">
                 {client.name}
               </span>
             </div>

@@ -27,6 +27,46 @@ const iconMap = {
       d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
     />
   ),
+  building: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.8}
+      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+    />
+  ),
+  users: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.8}
+      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+    />
+  ),
+  code: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.8}
+      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+    />
+  ),
+  sparkle: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.8}
+      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+    />
+  ),
+  compass: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.8}
+      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+    />
+  ),
   lab: (
     <path
       strokeLinecap="round"
@@ -262,18 +302,20 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${isScrolled
-        ? "py-3 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
-        : "py-5 bg-white/60 backdrop-blur-md border-b border-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${
+        isScrolled
+          ? "py-3 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
+          : "py-5 bg-white/60 backdrop-blur-md border-b border-transparent"
+      }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className={`flex-shrink-0 flex items-center group relative z-10 overflow-hidden rounded-md ${isScrolled ? "h-12 w-56" : "h-14 w-72"
-              }`}
+            className={`flex-shrink-0 flex items-center group relative z-10 ${
+              isScrolled ? "h-14 w-auto" : "h-16 w-auto"
+            }`}
             onClick={() => {
               setIsOpen(false);
               setActiveDropdown(null);
@@ -282,7 +324,7 @@ const Navbar = () => {
             <motion.img
               src="/geometric_c_nodes.png"
               alt="COXARA Analytics Logo"
-              className="absolute left-[-1.5%] top-1/2 -translate-y-1/2 w-[110%] max-w-none h-auto mix-blend-multiply pointer-events-none"
+              className="h-full w-auto object-contain mix-blend-multiply pointer-events-none"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             />
@@ -306,238 +348,245 @@ const Navbar = () => {
                         e.stopPropagation();
                         if (navItem.path) handleNavClick(navItem);
                       }}
-                      className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${activeDropdown === navItem.title
-                        ? "text-brand-purple"
-                        : "text-secondary-600 hover:text-secondary-900"
-                        }`}
-                    >
-                        <span>{navItem.title}</span>
-                        <svg
-                          className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === navItem.title ? "rotate-180" : ""
-                            }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2.5}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        {/* Active indicator dot */}
-                        <span
-                          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-purple transition-all duration-300 ${activeDropdown === navItem.title
-                            ? "opacity-100 scale-100"
-                            : "opacity-0 scale-0"
-                            }`}
-                        />
-                      </button>
-
-                      {/* Dropdown - Mega Menu */}
-                      <AnimatePresence>
-                        {activeDropdown === navItem.title && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 12, scale: 0.97 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                            transition={{
-                              duration: 0.25,
-                              ease: [0.16, 1, 0.3, 1],
-                            }}
-                            className="absolute top-full right-0 pt-4 z-50"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <div className="relative bg-white rounded-2xl shadow-[0_25px_60px_-12px_rgba(109,40,217,0.18)] border border-secondary-100/80 overflow-hidden">
-                              {/* Top accent gradient */}
-                              <div className="h-[2px] bg-gradient-to-r from-brand-purple via-brand-accent to-brand-purple" />
-
-                              <div className="p-2">
-                                {/* Group items by headers */}
-                                {(() => {
-                                  const groups = [];
-                                  let currentGroup = null;
-                                  navItem.items.forEach((item) => {
-                                    if (item.isHeader) {
-                                      currentGroup = {
-                                        header: item.label,
-                                        items: [],
-                                      };
-                                      groups.push(currentGroup);
-                                    } else if (currentGroup) {
-                                      currentGroup.items.push(item);
-                                    } else {
-                                      if (!groups.length)
-                                        groups.push({ header: null, items: [] });
-                                      groups[0].items.push(item);
-                                    }
-                                  });
-
-                                  return (
-                                    <div
-                                      className={`${groups.length > 1 ? "grid grid-cols-2 gap-0 min-w-[520px]" : "min-w-[280px]"}`}
-                                    >
-                                      {groups.map((group, gi) => (
-                                        <div
-                                          key={group.header || gi}
-                                          className={`${groups.length > 1 && gi > 0
-                                            ? "border-l border-secondary-100/60"
-                                            : ""
-                                            } p-3`}
-                                        >
-                                          {group.header && (
-                                            <div className="flex items-center gap-2 px-3 pt-1 pb-3 mb-1">
-                                              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-accent" />
-                                              <span className="text-[11px] font-bold text-secondary-400 uppercase tracking-wider">
-                                                {group.header}
-                                              </span>
-                                            </div>
-                                          )}
-                                          <div className="space-y-0.5">
-                                            {group.items.map((item, index) => (
-                                              <motion.button
-                                                key={item.path + index}
-                                                initial={{ opacity: 0, y: 6 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{
-                                                  delay: index * 0.04,
-                                                  duration: 0.2,
-                                                }}
-                                                onClick={() =>
-                                                  handleNavClick(item)
-                                                }
-                                                className="group/item relative flex items-start gap-3 w-full text-left px-3 py-2.5 rounded-xl hover:bg-brand-purple/[0.04] transition-all duration-200"
-                                              >
-                                                {/* Icon */}
-                                                <div className="w-9 h-9 rounded-lg bg-secondary-50 group-hover/item:bg-brand-purple/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 mt-0.5">
-                                                  <NavItemIcon
-                                                    iconType={item.icon}
-                                                  />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                  <div className="text-sm font-semibold text-secondary-800 group-hover/item:text-brand-purple transition-colors duration-200">
-                                                    {item.label}
-                                                  </div>
-                                                  {item.description && (
-                                                    <div className="text-xs text-secondary-400 group-hover/item:text-secondary-500 mt-0.5 transition-colors duration-200 leading-relaxed">
-                                                      {item.description}
-                                                    </div>
-                                                  )}
-                                                </div>
-                                                {/* Arrow */}
-                                                <svg
-                                                  className="w-3.5 h-3.5 text-secondary-300 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200 mt-1 flex-shrink-0"
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  viewBox="0 0 24 24"
-                                                  strokeWidth={2.5}
-                                                >
-                                                  <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M9 5l7 7-7 7"
-                                                  />
-                                                </svg>
-                                              </motion.button>
-                                            ))}
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  );
-                                })()}
-                              </div>
-
-                              {/* Footer CTA for services */}
-                              {navItem.path && (
-                                <div className="border-t border-secondary-100/60 px-5 py-3 bg-secondary-50/50">
-                                  <button
-                                    onClick={() => handleNavClick(navItem)}
-                                    className="group/cta flex items-center gap-2 text-xs font-semibold text-secondary-500 hover:text-brand-purple transition-colors duration-200"
-                                  >
-                                    <span>
-                                      View all {navItem.title.toLowerCase()}
-                                    </span>
-                                    <svg
-                                      className="w-3.5 h-3.5 group-hover/cta:translate-x-0.5 transition-transform duration-200"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      viewBox="0 0 24 24"
-                                      strokeWidth={2.5}
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                      />
-                                    </svg>
-                                  </button>
-                                </div>
-                              )}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      to={navItem.path}
-                      className="relative px-4 py-2.5 text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-all duration-300 rounded-full group"
+                      className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${
+                        activeDropdown === navItem.title
+                          ? "text-brand-purple"
+                          : "text-secondary-600 hover:text-secondary-900"
+                      }`}
                     >
                       <span>{navItem.title}</span>
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-4 h-0.5 bg-brand-purple rounded-full transition-all duration-300" />
-                    </Link>
-                  )}
-                </div>
-              ))}
+                      <svg
+                        className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                          activeDropdown === navItem.title ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      {/* Active indicator dot */}
+                      <span
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-purple transition-all duration-300 ${
+                          activeDropdown === navItem.title
+                            ? "opacity-100 scale-100"
+                            : "opacity-0 scale-0"
+                        }`}
+                      />
+                    </button>
 
-              {/* CTA Button */}
-              <div className="ml-4">
-                <Link
-                  to="/company/contact"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-purple text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <span>Get in Touch</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    {/* Dropdown - Mega Menu */}
+                    <AnimatePresence>
+                      {activeDropdown === navItem.title && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 12, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                          transition={{
+                            duration: 0.25,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="absolute top-full right-0 pt-4 z-50"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="relative bg-white rounded-2xl shadow-[0_25px_60px_-12px_rgba(109,40,217,0.18)] border border-secondary-100/80 overflow-hidden">
+                            {/* Top accent gradient */}
+                            <div className="h-[2px] bg-gradient-to-r from-brand-purple via-brand-accent to-brand-purple" />
+
+                            <div className="p-2">
+                              {/* Group items by headers */}
+                              {(() => {
+                                const groups = [];
+                                let currentGroup = null;
+                                navItem.items.forEach((item) => {
+                                  if (item.isHeader) {
+                                    currentGroup = {
+                                      header: item.label,
+                                      items: [],
+                                    };
+                                    groups.push(currentGroup);
+                                  } else if (currentGroup) {
+                                    currentGroup.items.push(item);
+                                  } else {
+                                    if (!groups.length)
+                                      groups.push({ header: null, items: [] });
+                                    groups[0].items.push(item);
+                                  }
+                                });
+
+                                return (
+                                  <div
+                                    className={`${groups.length > 1 ? "grid grid-cols-2 gap-0 min-w-[520px]" : "min-w-[280px]"}`}
+                                  >
+                                    {groups.map((group, gi) => (
+                                      <div
+                                        key={group.header || gi}
+                                        className={`${
+                                          groups.length > 1 && gi > 0
+                                            ? "border-l border-secondary-100/60"
+                                            : ""
+                                        } p-3`}
+                                      >
+                                        {group.header && (
+                                          <div className="flex items-center gap-2 px-3 pt-1 pb-3 mb-1">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-accent" />
+                                            <span className="text-[11px] font-bold text-secondary-400 uppercase tracking-wider">
+                                              {group.header}
+                                            </span>
+                                          </div>
+                                        )}
+                                        <div className="space-y-0.5">
+                                          {group.items.map((item, index) => (
+                                            <motion.button
+                                              key={item.path + index}
+                                              initial={{ opacity: 0, y: 6 }}
+                                              animate={{ opacity: 1, y: 0 }}
+                                              transition={{
+                                                delay: index * 0.04,
+                                                duration: 0.2,
+                                              }}
+                                              onClick={() =>
+                                                handleNavClick(item)
+                                              }
+                                              className="group/item relative flex items-start gap-3 w-full text-left px-3 py-2.5 rounded-xl hover:bg-brand-purple/[0.04] transition-all duration-200"
+                                            >
+                                              {/* Icon */}
+                                              <div className="w-9 h-9 rounded-lg bg-secondary-50 group-hover/item:bg-brand-purple/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 mt-0.5">
+                                                <NavItemIcon
+                                                  iconType={item.icon}
+                                                />
+                                              </div>
+                                              <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-semibold text-secondary-800 group-hover/item:text-brand-purple transition-colors duration-200">
+                                                  {item.label}
+                                                </div>
+                                                {item.description && (
+                                                  <div className="text-xs text-secondary-400 group-hover/item:text-secondary-500 mt-0.5 transition-colors duration-200 leading-relaxed">
+                                                    {item.description}
+                                                  </div>
+                                                )}
+                                              </div>
+                                              {/* Arrow */}
+                                              <svg
+                                                className="w-3.5 h-3.5 text-secondary-300 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200 mt-1 flex-shrink-0"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={2.5}
+                                              >
+                                                <path
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                  d="M9 5l7 7-7 7"
+                                                />
+                                              </svg>
+                                            </motion.button>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                );
+                              })()}
+                            </div>
+
+                            {/* Footer CTA for services */}
+                            {navItem.path && (
+                              <div className="border-t border-secondary-100/60 px-5 py-3 bg-secondary-50/50">
+                                <button
+                                  onClick={() => handleNavClick(navItem)}
+                                  className="group/cta flex items-center gap-2 text-xs font-semibold text-secondary-500 hover:text-brand-purple transition-colors duration-200"
+                                >
+                                  <span>
+                                    View all {navItem.title.toLowerCase()}
+                                  </span>
+                                  <svg
+                                    className="w-3.5 h-3.5 group-hover/cta:translate-x-0.5 transition-transform duration-200"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2.5}
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <Link
+                    to={navItem.path}
+                    className="relative px-4 py-2.5 text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-all duration-300 rounded-full group"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
+                    <span>{navItem.title}</span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-4 h-0.5 bg-brand-purple rounded-full transition-all duration-300" />
+                  </Link>
+                )}
               </div>
-            </div>
+            ))}
 
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-secondary-50 transition-colors"
-              aria-label="Toggle menu"
-              aria-expanded={isOpen}
-            >
-              <div className="w-5 h-4 flex flex-col justify-between">
-                <span
-                  className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${isOpen ? "rotate-45 translate-y-[7px]" : ""
-                    }`}
-                />
-                <span
-                  className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 ${isOpen ? "opacity-0 scale-0" : "opacity-100"
-                    }`}
-                />
-                <span
-                  className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${isOpen ? "-rotate-45 -translate-y-[7px]" : ""
-                    }`}
-                />
-              </div>
-            </button>
+            {/* CTA Button */}
+            <div className="ml-4">
+              <Link
+                to="/company/contact"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-purple text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Get in Touch</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-secondary-50 transition-colors"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+          >
+            <div className="w-5 h-4 flex flex-col justify-between">
+              <span
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${
+                  isOpen ? "rotate-45 translate-y-[7px]" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 ${
+                  isOpen ? "opacity-0 scale-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${
+                  isOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                }`}
+              />
+            </div>
+          </button>
         </div>
       </div>
 
@@ -591,8 +640,9 @@ const Navbar = () => {
                       >
                         <span className="flex-1">{navItem.title}</span>
                         <svg
-                          className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${activeDropdown === navItem.title ? "rotate-180" : ""
-                            }`}
+                          className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${
+                            activeDropdown === navItem.title ? "rotate-180" : ""
+                          }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

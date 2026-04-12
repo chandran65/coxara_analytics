@@ -3,7 +3,6 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useState, useEffect, useLayoutEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { CustomCursor } from "../ui";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -82,7 +81,6 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col relative">
-      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       {/* key={pathname} forces a full remount so whileInView animations reset */}
