@@ -256,22 +256,20 @@ const Navbar = () => {
             className={`flex-shrink-0 flex items-center group relative z-10 ${
               isScrolled ? "h-10 w-40" : "h-12 w-48"
             }`}
-            onClick={() => {
+             onClick={() => {
               setIsOpen(false);
               setActiveDropdown(null);
             }}
           >
-            <motion.div
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] sm:w-[280px] pointer-events-none"
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] sm:w-[280px] pointer-events-none">
+              <motion.img
                 src="/geometric_c_nodes.png"
                 alt="COXARA Analytics"
-                className="w-full h-auto mix-blend-multiply pointer-events-auto"
+                className="w-full h-auto mix-blend-multiply pointer-events-auto origin-left"
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.3 }}
               />
-            </motion.div>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
