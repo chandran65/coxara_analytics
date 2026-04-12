@@ -139,14 +139,12 @@ const Footer = () => {
                 },
               }}
             >
-              <Link to="/" className="inline-block group mb-8 relative h-14 w-56">
-                <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-[320px]">
-                  <img
-                    src="/geometric_c_nodes.png"
-                    alt="COXARA Analytics"
-                    className="w-full h-auto mix-blend-multiply opacity-90 transition-transform duration-300 group-hover:scale-105 group-hover:opacity-100 origin-left"
-                  />
-                </div>
+              <Link to="/" className="inline-block group mb-8 relative overflow-hidden rounded-md h-12 w-56">
+                <img
+                  src="/geometric_c_nodes.png"
+                  alt="COXARA Analytics"
+                  className="absolute left-[-2%] top-1/2 -translate-y-1/2 w-[160%] max-w-none h-auto mix-blend-multiply opacity-95 transition-transform duration-300 group-hover:scale-105 group-hover:opacity-100 origin-left"
+                />
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
                 Transforming data into actionable insights with cutting-edge
