@@ -242,31 +242,29 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${isScrolled
           ? "py-3 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
           : "py-5 bg-white/60 backdrop-blur-md border-b border-transparent"
-      }`}
+        }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className={`flex-shrink-0 flex items-center group relative z-10 overflow-hidden rounded-md ${
-              isScrolled ? "h-8 w-36" : "h-10 w-48"
-            }`}
-             onClick={() => {
+            className={`flex-shrink-0 flex items-center group relative z-10 overflow-hidden rounded-md ${isScrolled ? "h-8 w-36" : "h-10 w-48"
+              }`}
+            onClick={() => {
               setIsOpen(false);
               setActiveDropdown(null);
             }}
           >
             <motion.img
               src="/geometric_c_nodes.png"
-              alt="COXARA Analytics"
-              className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-[160%] max-w-none h-auto mix-blend-multiply origin-left pointer-events-auto"
+              alt="COXARA Analytics Logo"
+              className="h-10 w-auto object-contain pointer-events-auto"
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
             />
           </Link>
 
@@ -288,17 +286,15 @@ const Navbar = () => {
                         e.stopPropagation();
                         if (navItem.path) handleNavClick(navItem);
                       }}
-                      className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${
-                        activeDropdown === navItem.title
+                      className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${activeDropdown === navItem.title
                           ? "text-brand-purple"
                           : "text-secondary-600 hover:text-secondary-900"
-                      }`}
+                        }`}
                     >
                       <span>{navItem.title}</span>
                       <svg
-                        className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                          activeDropdown === navItem.title ? "rotate-180" : ""
-                        }`}
+                        className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === navItem.title ? "rotate-180" : ""
+                          }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -312,11 +308,10 @@ const Navbar = () => {
                       </svg>
                       {/* Active indicator dot */}
                       <span
-                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-purple transition-all duration-300 ${
-                          activeDropdown === navItem.title
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-purple transition-all duration-300 ${activeDropdown === navItem.title
                             ? "opacity-100 scale-100"
                             : "opacity-0 scale-0"
-                        }`}
+                          }`}
                       />
                     </button>
 
@@ -366,11 +361,10 @@ const Navbar = () => {
                                     {groups.map((group, gi) => (
                                       <div
                                         key={group.header || gi}
-                                        className={`${
-                                          groups.length > 1 && gi > 0
+                                        className={`${groups.length > 1 && gi > 0
                                             ? "border-l border-secondary-100/60"
                                             : ""
-                                        } p-3`}
+                                          } p-3`}
                                       >
                                         {group.header && (
                                           <div className="flex items-center gap-2 px-3 pt-1 pb-3 mb-1">
@@ -511,19 +505,16 @@ const Navbar = () => {
           >
             <div className="w-5 h-4 flex flex-col justify-between">
               <span
-                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${
-                  isOpen ? "rotate-45 translate-y-[7px]" : ""
-                }`}
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${isOpen ? "rotate-45 translate-y-[7px]" : ""
+                  }`}
               />
               <span
-                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 ${
-                  isOpen ? "opacity-0 scale-0" : "opacity-100"
-                }`}
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 ${isOpen ? "opacity-0 scale-0" : "opacity-100"
+                  }`}
               />
               <span
-                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${
-                  isOpen ? "-rotate-45 -translate-y-[7px]" : ""
-                }`}
+                className={`block h-0.5 bg-secondary-800 rounded-full transition-all duration-300 origin-center ${isOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                  }`}
               />
             </div>
           </button>
@@ -581,9 +572,8 @@ const Navbar = () => {
                       >
                         <span className="flex-1">{navItem.title}</span>
                         <svg
-                          className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${
-                            activeDropdown === navItem.title ? "rotate-180" : ""
-                          }`}
+                          className={`w-4 h-4 text-secondary-400 transition-transform duration-300 ${activeDropdown === navItem.title ? "rotate-180" : ""
+                            }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

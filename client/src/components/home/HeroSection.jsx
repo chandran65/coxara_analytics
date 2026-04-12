@@ -691,124 +691,33 @@ const HeroSection = ({ isActive = true }) => {
               animate="visible"
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-display font-light text-secondary-900 leading-[1.1] mb-6 sm:mb-8 tracking-wide"
             >
-              {["Modernize", "systems,"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
-                  variants={{
-                    hidden: { opacity: 0, y: 40, rotateX: -40 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      rotateX: 0,
-                      transition: {
-                        duration: 0.6,
-                        delay: 0.1 + i * 0.08,
-                        ease: [0.16, 1, 0.3, 1],
-                      },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-              <br className="hidden sm:block" />
-              {["automate", "operations"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
-                  variants={{
-                    hidden: { opacity: 0, y: 40, rotateX: -40 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      rotateX: 0,
-                      transition: {
-                        duration: 0.6,
-                        delay: 0.26 + i * 0.08,
-                        ease: [0.16, 1, 0.3, 1],
-                      },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-              <br className="hidden sm:block" />
-              <motion.span
-                className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
-                variants={{
-                  hidden: { opacity: 0, y: 40, rotateX: -40 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    transition: {
-                      duration: 0.6,
-                      delay: 0.42,
-                      ease: [0.16, 1, 0.3, 1],
-                    },
-                  },
-                }}
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                and
-              </motion.span>{" "}
-              <motion.span
-                className="relative inline-block"
-                variants={{
-                  hidden: { opacity: 0, y: 40, rotateX: -40 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    transition: {
-                      duration: 0.6,
-                      delay: 0.5,
-                      ease: [0.16, 1, 0.3, 1],
-                    },
-                  },
-                }}
-              >
-                <motion.span
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default pb-1.5"
-                  whileHover={{ scale: 1.05 }}
-                  style={{ display: "inline-block" }}
-                >
-                  activate data 2X faster
-                </motion.span>
-                <motion.span
-                  className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple/0 via-brand-purple to-brand-purple/0 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                />
-              </motion.span>
+              We are building the{" "}
+              <span className="relative inline-block pb-2 mt-4 font-normal text-brand-purple">
+                operating system
+              </span>{" "}
+              for the modern enterprise
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10"
+              className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal"
             >
-              Empower your enterprise with AI-driven automation, AIOps, and edge intelligence. Transform business operations with scalable, secure AI-first solutions.
+              Where data isn't just a report, but a dynamic engine of growth. Empower your enterprise with AI-driven automation and intelligent velocity.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 mb-14"
             >
               <button
                 onClick={() => navigate("/company/contact")}
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Explore Platform</span>
+                <span className="relative z-10">Get in Touch</span>
                 <svg
                   className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
                   fill="none"
@@ -823,13 +732,38 @@ const HeroSection = ({ isActive = true }) => {
                   />
                 </svg>
               </button>
+            </motion.div>
 
-              <button
-                onClick={() => navigate("/services")}
-                className="group px-8 py-4 border border-secondary-200 text-secondary-700 text-base font-semibold rounded-full hover:border-brand-purple/30 hover:text-brand-purple hover:bg-brand-purple/[0.03] transition-all duration-300 text-center"
-              >
-                Explore Services
-              </button>
+            {/* CoreOps Signature Feature Cards */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mt-auto"
+            >
+              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-white flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div className="w-12 h-12 rounded-2xl bg-brand-purple/[0.08] flex items-center justify-center text-brand-purple flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-secondary-900 font-semibold mb-1 text-[15px]">Innovation First</h4>
+                  <p className="text-secondary-500 text-sm leading-snug">Cutting-edge GenAI & ML solutions</p>
+                </div>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-white flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div className="w-12 h-12 rounded-2xl bg-brand-accent/[0.08] flex items-center justify-center text-brand-accent flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-secondary-900 font-semibold mb-1 text-[15px]">Agile Delivery</h4>
+                  <p className="text-secondary-500 text-sm leading-snug">Rapid prototyping & deployment</p>
+                </div>
+              </div>
             </motion.div>
           </div>
 
