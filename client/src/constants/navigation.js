@@ -1,7 +1,7 @@
 export const navigationData = [
   {
-    title: "Home",
-    path: "/",
+    title: "About",
+    path: "/company/about",
   },
   {
     title: "Meet Our People",

@@ -169,11 +169,10 @@ const ContactHero = () => {
                   delay: 0.3 + i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
-                  specialWords.includes(word)
-                    ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
-                    : "text-secondary-900"
-                }`}
+                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${specialWords.includes(word)
+                  ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
+                  : "text-secondary-900"
+                  }`}
               >
                 {word}
               </motion.span>
@@ -253,10 +252,9 @@ const ContactPage = () => {
   };
 
   const inputClass = (field) =>
-    `w-full px-4 py-3.5 rounded-xl border-2 bg-white text-secondary-900 placeholder:text-secondary-300 transition-all duration-300 outline-none ${
-      focusedField === field
-        ? "border-brand-purple shadow-[0_0_0_3px_rgba(124,58,237,0.1)]"
-        : "border-secondary-200 hover:border-secondary-300"
+    `w-full px-4 py-3.5 rounded-xl border-2 bg-white text-secondary-900 placeholder:text-secondary-300 transition-all duration-300 outline-none ${focusedField === field
+      ? "border-brand-purple shadow-[0_0_0_3px_rgba(124,58,237,0.1)]"
+      : "border-secondary-200 hover:border-secondary-300"
     }`;
 
   const contactInfo = [
@@ -270,8 +268,8 @@ const ContactPage = () => {
         />
       ),
       title: "Email Us",
-      content: "contact@coxaraanalytics.com",
-      link: "mailto:contact@coxaraanalytics.com",
+      content: "director@coxara.co.in",
+      link: "mailto:director@coxara.co.in",
       accent: "from-violet-600 to-purple-400",
     },
     {
@@ -307,8 +305,8 @@ const ContactPage = () => {
       ),
       title: "Visit Us",
       content:
-        "No.2, Bharathiyar Street, M.G.R. Nagar, West Tambaram, Tamil Nadu, India",
-      link: "https://www.google.com/maps/search/No.2,+Bharathiyar+Street+M.G.R.+Nagar+West+Tambaram+Chennai+-+600045+India/@12.9312062,80.1078992,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D",
+        "No:58,Marudhar Town, Phase-II, Perumalpattu, Tiruvallur-602024",
+      link: "https://maps.app.goo.gl/PMnRPv8DVY8Cx6FP7",
       accent: "from-purple-600 to-fuchsia-400",
     },
     {
@@ -707,9 +705,9 @@ const ContactPage = () => {
                           {...(isTouchDevice
                             ? { whileTap: { scale: 0.9 } }
                             : {
-                                whileHover: { scale: 1.15, y: -2 },
-                                whileTap: { scale: 0.9 },
-                              })}
+                              whileHover: { scale: 1.15, y: -2 },
+                              whileTap: { scale: 0.9 },
+                            })}
                           className="w-10 h-10 rounded-xl bg-white border border-secondary-100 flex items-center justify-center text-secondary-400 hover:bg-gradient-to-br hover:from-brand-purple hover:to-brand-accent hover:text-white hover:border-transparent shadow-sm hover:shadow-md transition-all duration-200"
                           aria-label={social.name}
                         >

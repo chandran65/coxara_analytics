@@ -190,9 +190,9 @@ const Footer = () => {
                     />
                   </svg>
                   <div>
-                    <p>No.2, Bharathiyar Street</p>
-                    <p>M.G.R. Nagar, West Tambaram</p>
-                    <p>Chennai - 600045, India</p>
+                    <p>N0.58,Marudhar Town, Phase-II</p>
+                    <p>Perumalpattu</p>
+                    <p>Tiruvallur - 602024</p>
                   </div>
                 </div>
               </div>
