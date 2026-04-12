@@ -15,8 +15,8 @@ const PageHero = ({ title, subtitle, backgroundImage }) => {
     <div
       className="relative w-full overflow-hidden bg-secondary-900"
       style={{
-        marginTop: "80px",
-        height: "calc(100vh - 80px)",
+        paddingTop: "80px",
+        minHeight: "100vh",
       }}
     >
       {/* Background Image */}

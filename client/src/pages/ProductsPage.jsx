@@ -1,4 +1,4 @@
-import { useRef } from "react";
+﻿import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
@@ -317,775 +317,590 @@ const ProductsHero = () => {
     </section>
   );
 };
-
 /* ─────────────────────── Product-Specific Visuals ─────────────────────── */
 
-/* ── 1. Data Studio: Dark Terminal / ETL Monitor ── */
+/* ── 1. Answers to Decisions: Natural Language Query → Insight Flow ── */
 const DataStudioVisual = () => {
-  const logs = [
-    { time: "12:04:01", src: "S3", tgt: "Snowflake", rows: "2.4M", status: "ok" },
-    { time: "12:04:03", src: "Kafka", tgt: "Delta Lake", rows: "890K", status: "ok" },
-    { time: "12:04:05", src: "Postgres", tgt: "BigQuery", rows: "1.1M", status: "ok" },
-    { time: "12:04:06", src: "API", tgt: "Redis", rows: "340K", status: "warn" },
-    { time: "12:04:08", src: "MongoDB", tgt: "Warehouse", rows: "3.2M", status: "ok" },
-  ];
+  const queryText = "Show me revenue trends by region for Q4";
 
   return (
-    <div className="min-h-[260px] sm:min-h-[320px] relative flex flex-col select-none">
-      {/* Terminal chrome */}
+    <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
+      {/* Header */}
       <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#0f0f1a] border-b border-white/5">
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
-        <span className="text-[10px] text-slate-500 ml-2 font-mono">
-          coresight-context-bridge
-        </span>
+        <span className="text-[10px] text-slate-500 ml-2 font-mono">coresight-query-engine</span>
         <span className="ml-auto text-[9px] font-mono text-emerald-400 flex items-center gap-1">
-          <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
+          <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
           LIVE
         </span>
       </div>
 
-      {/* Terminal body */}
-      <div className="bg-[#0f0f1a] flex-1 p-3 sm:p-4 font-mono text-[10px] sm:text-[11px] overflow-hidden">
-        {/* Schema diagram */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mb-3 text-slate-600"
-        >
-          <span className="text-violet-400">$</span> coresight data status --live
-        </motion.div>
-
-        {/* table header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.25 }}
-          className="flex gap-2 text-[9px] text-slate-600 mb-1.5 border-b border-slate-800 pb-1"
-        >
-          <span className="w-[60px]">TIME</span>
-          <span className="w-[52px]">SOURCE</span>
-          <span className="text-slate-700">→</span>
-          <span className="w-[62px]">TARGET</span>
-          <span className="flex-1 text-right">ROWS</span>
-          <span className="w-[28px] text-right">ST</span>
-        </motion.div>
-
-        {logs.map((log, i) => (
+      <div className="bg-[#0f0f1a] flex-1 p-4 font-mono text-[10px] sm:text-[11px] overflow-hidden relative">
+        {/* Floating particle background */}
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.35 + i * 0.1, duration: 0.3 }}
-            className="flex gap-2 items-center py-[3px] text-[9px] sm:text-[10px]"
-          >
-            <span className="w-[60px] text-slate-600 tabular-nums">{log.time}</span>
-            <span className="w-[52px] text-cyan-400 truncate">{log.src}</span>
-            <motion.span
-              className="text-violet-400"
-              animate={{ opacity: [0.4, 1, 0.4] }}
-              transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
-            >
-              →
-            </motion.span>
-            <span className="w-[62px] text-amber-300 truncate">{log.tgt}</span>
-            <span className="flex-1 text-right text-slate-300 tabular-nums">{log.rows}</span>
-            <span className={`w-[28px] text-right font-bold ${log.status === "ok" ? "text-emerald-400" : "text-amber-400"}`}>
-              {log.status === "ok" ? "✓" : "⚠"}
-            </span>
-          </motion.div>
+            className="absolute w-1 h-1 rounded-full bg-violet-500/20"
+            animate={{
+              x: [Math.random() * 200, Math.random() * 200, Math.random() * 200],
+              y: [Math.random() * 200, Math.random() * 200, Math.random() * 200],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{ duration: 4 + i * 0.8, repeat: Infinity, delay: i * 0.5 }}
+            style={{ left: `${i * 15}%`, top: `${i * 12}%` }}
+          />
         ))}
 
-        {/* Summary line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.0 }}
-          className="mt-3 pt-2 border-t border-slate-800"
-        >
-          <span className="text-emerald-400">✓</span>
-          <span className="text-slate-500 ml-2">
-            7.93M rows synced · 5 pipelines ·
-          </span>
-          <span className="text-emerald-400 ml-1">all healthy</span>
+        {/* Query input with typing cursor */}
+        <motion.div initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }} className="mb-4 px-3 py-2.5 bg-violet-500/10 border border-violet-500/20 rounded-lg relative">
+          <span className="text-violet-400 text-[9px] font-bold block mb-1">USER QUERY</span>
+          <div className="flex items-center">
+            <motion.span
+              className="text-slate-300 text-[11px]"
+              initial={{ width: 0 }}
+              whileInView={{ width: "auto" }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
+              style={{ overflow: "hidden", whiteSpace: "nowrap", display: "inline-block" }}
+            >
+              "{queryText}"
+            </motion.span>
+            <motion.span
+              className="text-violet-400 text-[13px] ml-0.5"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+            >|</motion.span>
+          </div>
         </motion.div>
 
-        {/* Blinking cursor */}
-        <div className="mt-2 flex items-center">
-          <span className="text-violet-400">$</span>
-          <motion.span
-            className="inline-block w-[7px] h-[13px] bg-violet-400 ml-2 rounded-[1px]"
-            animate={{ opacity: [1, 1, 0, 0] }}
-            transition={{ duration: 1, repeat: Infinity, times: [0, 0.49, 0.5, 1] }}
+        {/* Animated pipeline with scanning beam effect */}
+        <div className="relative">
+          {/* Scanning beam */}
+          <motion.div
+            className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-violet-500 to-transparent z-10"
+            initial={{ top: 0, opacity: 0 }}
+            whileInView={{ top: [0, 180], opacity: [0, 1, 1, 0] }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.5, duration: 1.5, ease: "easeInOut" }}
           />
+
+          {[
+            { label: "Context Layer", icon: "🧠", status: "done", detail: "Mapping KPIs, business rules, metrics...", color: "border-blue-500/30" },
+            { label: "Query Engine", icon: "⚡", status: "done", detail: "SELECT region, SUM(revenue)...", color: "border-amber-500/30" },
+            { label: "Validation", icon: "🛡️", status: "done", detail: "Schema check · Row count: 24,891 ✓", color: "border-emerald-500/30" },
+            { label: "Insight", icon: "📊", status: "active", detail: "APAC +23% · EMEA +8% · NA -2%", color: "border-violet-500/30" },
+          ].map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 + i * 0.25, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-center gap-3 mb-2.5"
+            >
+              <motion.div
+                className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs border ${step.color} ${step.status === "active" ? "bg-violet-500/20 ring-1 ring-violet-400/50" : "bg-slate-800/60"}`}
+                whileInView={step.status === "active" ? { scale: [1, 1.15, 1] } : {}}
+                viewport={{ once: true }}
+                transition={{ delay: 1.5, duration: 0.6, repeat: step.status === "active" ? Infinity : 0, repeatDelay: 2 }}
+              >
+                {step.icon}
+              </motion.div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className={`text-[9px] font-bold ${step.status === "active" ? "text-violet-400" : "text-slate-500"}`}>{step.label}</span>
+                  {step.status === "done" && (
+                    <motion.span className="text-emerald-400 text-[9px]" initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8 + i * 0.25, type: "spring", stiffness: 400 }}>✓</motion.span>
+                  )}
+                  {step.status === "active" && (
+                    <motion.div className="flex gap-0.5" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity }}>
+                      {[0, 1, 2].map((d) => (
+                        <motion.div key={d} className="w-1 h-1 rounded-full bg-violet-400" animate={{ scale: [0.5, 1, 0.5] }} transition={{ duration: 0.6, repeat: Infinity, delay: d * 0.15 }} />
+                      ))}
+                    </motion.div>
+                  )}
+                </div>
+                <span className={`text-[9px] block truncate ${step.status === "active" ? "text-slate-300" : "text-slate-600"}`}>{step.detail}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Animated result bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.8, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-3 pt-2.5 border-t border-slate-800"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <motion.span
+              className="text-emerald-400"
+              animate={{ rotate: [0, 360] }}
+              transition={{ delay: 2, duration: 0.5, ease: "easeOut" }}
+            >✓</motion.span>
+            <span className="text-slate-500">Decision ready · </span>
+            <motion.span
+              className="text-emerald-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 2.1 }}
+            >0.8s latency</motion.span>
+          </div>
+          {/* Mini bar chart for results */}
+          <div className="flex items-end gap-1.5 h-6">
+            {[{ region: "APAC", v: 23, c: "bg-violet-500" }, { region: "EMEA", v: 8, c: "bg-indigo-500" }, { region: "NA", v: 2, c: "bg-slate-600" }].map((r, i) => (
+              <motion.div key={i} className="flex-1 flex flex-col items-center gap-0.5" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.2 + i * 0.1 }}>
+                <motion.div
+                  className={`w-full ${r.c} rounded-sm`}
+                  initial={{ height: 0 }}
+                  whileInView={{ height: `${Math.max(r.v * 0.8, 4)}px` }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 2.3 + i * 0.12, duration: 0.5, ease: "easeOut" }}
+                />
+                <span className="text-[7px] text-slate-500">{r.region}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-/* ── 2. Experimentation Studio: Split-Screen A/B Lab with Bell Curves ── */
-const ExperimentationVisual = () => (
-  <div className="min-h-[260px] sm:min-h-[320px] relative flex flex-col select-none">
-    {/* Lab header */}
-    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
-      <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
-        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      </div>
-      <span className="text-[11px] font-bold text-secondary-700">
-        Experiment Lab
-      </span>
-      <div className="ml-auto flex items-center gap-1">
-        <motion.div
-          className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-          animate={{ scale: [1, 1.3, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        <span className="text-[9px] text-emerald-600 font-medium">Running</span>
-      </div>
-    </div>
-
-    {/* Split-screen A vs B phone mockups */}
-    <div className="flex-1 p-4">
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        {/* Control */}
-        <motion.div
-          initial={{ opacity: 0, x: -15 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="relative"
-        >
-          <div className="text-[9px] font-bold text-secondary-400 uppercase tracking-wider mb-2 text-center">
-            Control (A)
-          </div>
-          <div className="bg-secondary-50 border border-secondary-200 rounded-xl p-3 space-y-2">
-            <div className="h-2.5 bg-secondary-200 rounded-full w-3/4" />
-            <div className="h-2.5 bg-secondary-200 rounded-full w-full" />
-            <div className="h-7 bg-secondary-300 rounded-lg mt-2" />
-            <div className="h-2.5 bg-secondary-200 rounded-full w-1/2 mx-auto" />
-          </div>
-          <div className="text-center mt-2">
-            <span className="text-lg font-bold text-secondary-600">3.2%</span>
-            <div className="text-[8px] text-secondary-400">conversion</div>
-          </div>
-        </motion.div>
-
-        {/* Variant */}
-        <motion.div
-          initial={{ opacity: 0, x: 15 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.35, duration: 0.5 }}
-          className="relative"
-        >
-          <div className="text-[9px] font-bold text-fuchsia-500 uppercase tracking-wider mb-2 text-center">
-            Variant (B)
-          </div>
-          <div className="bg-fuchsia-50/50 border border-fuchsia-200 rounded-xl p-3 space-y-2">
-            <div className="h-2.5 bg-fuchsia-200 rounded-full w-full" />
-            <div className="h-7 bg-gradient-to-r from-fuchsia-300 to-purple-300 rounded-lg" />
-            <div className="h-2.5 bg-fuchsia-200 rounded-full w-3/4" />
-            <div className="h-2.5 bg-fuchsia-200 rounded-full w-1/2 mx-auto" />
-          </div>
-          <div className="text-center mt-2">
-            <span className="text-lg font-bold text-fuchsia-600">5.1%</span>
-            <div className="text-[8px] text-fuchsia-400">conversion</div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* SVG Bell Curves overlapping */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6, duration: 0.6 }}
-        className="relative h-16 sm:h-20"
-      >
-        <svg viewBox="0 0 200 50" className="w-full h-full" preserveAspectRatio="none">
-          {/* Control distribution */}
-          <motion.path
-            d="M10,48 Q40,48 60,40 Q80,10 100,5 Q120,10 140,40 Q160,48 190,48"
-            fill="none"
-            stroke="#a1a1aa"
-            strokeWidth="1.5"
-            strokeDasharray="3,3"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          />
-          <motion.path
-            d="M10,48 Q40,48 60,40 Q80,10 100,5 Q120,10 140,40 Q160,48 190,48"
-            fill="url(#controlFill)"
-            opacity="0.15"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.15 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.2 }}
-          />
-          {/* Variant distribution (shifted right, taller) */}
-          <motion.path
-            d="M30,48 Q55,48 75,38 Q95,5 120,2 Q145,5 165,38 Q185,48 200,48"
-            fill="none"
-            stroke="#d946ef"
-            strokeWidth="1.5"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-          />
-          <motion.path
-            d="M30,48 Q55,48 75,38 Q95,5 120,2 Q145,5 165,38 Q185,48 200,48"
-            fill="url(#variantFill)"
-            opacity="0.15"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.15 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.4 }}
-          />
-          <defs>
-            <linearGradient id="controlFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#a1a1aa" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-            <linearGradient id="variantFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#d946ef" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="absolute bottom-0 left-0 right-0 flex justify-between px-2 text-[8px]">
-          <span className="text-secondary-400 flex items-center gap-1">
-            <span className="w-3 h-[2px] bg-secondary-400 inline-block" style={{ borderBottom: "2px dashed #a1a1aa", height: 0 }} />
-            Control
-          </span>
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.5 }}
-            className="text-fuchsia-500 font-bold"
-          >
-            +59% uplift ↑
-          </motion.span>
-          <span className="text-fuchsia-500 flex items-center gap-1">
-            <span className="w-3 h-[2px] bg-fuchsia-500 inline-block" />
-            Variant
-          </span>
-        </div>
-      </motion.div>
-
-      {/* Confidence meter */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 1.2, duration: 0.4 }}
-        className="mt-3 flex items-center gap-3 px-3 py-2 bg-emerald-50 border border-emerald-200/50 rounded-xl"
-      >
-        <div className="flex-1">
-          <div className="text-[9px] text-emerald-700 font-bold mb-1">
-            Statistical Confidence
-          </div>
-          <div className="h-2 bg-emerald-100 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: "95.2%" }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
-        </div>
-        <span className="text-sm font-bold text-emerald-600 tabular-nums">95.2%</span>
-      </motion.div>
-    </div>
-  </div>
-);
-
-/* ── 3. Forecasting Studio: SVG Line Chart with Confidence Band ── */
-const ForecastingVisual = () => {
-  // Actual & forecast data normalized 0-100 for SVG
-  const actualPts = [
-    [0, 68], [20, 55], [40, 62], [60, 48], [80, 52], [100, 44], [120, 38], [140, 32],
+/* ── 2. Business Context: Semantic Knowledge Graph ── */
+const ExperimentationVisual = () => {
+  const nodes = [
+    { x: 120, y: 55, label: "Revenue", color: "#8B5CF6", size: 20 },
+    { x: 45, y: 25, label: "COGS", color: "#a78bfa", size: 14 },
+    { x: 200, y: 30, label: "Margin", color: "#c084fc", size: 14 },
+    { x: 35, y: 100, label: "Region", color: "#7c3aed", size: 14 },
+    { x: 195, y: 105, label: "Channel", color: "#a78bfa", size: 14 },
+    { x: 120, y: 140, label: "Product", color: "#6d28d9", size: 16 },
   ];
-  const forecastPts = [
-    [140, 32], [160, 26], [180, 22], [200, 18], [220, 14], [240, 10],
-  ];
-  const toPath = (pts) => pts.map((p, i) => `${i === 0 ? "M" : "L"}${p[0]},${p[1]}`).join(" ");
-  const actualPath = toPath(actualPts);
-  const forecastPath = toPath(forecastPts);
-  // Confidence band (upper/lower)
-  const upper = forecastPts.map(([x, y]) => [x, y - 8]);
-  const lower = [...forecastPts].reverse().map(([x, y]) => [x, y + 8]);
-  const bandPath = `M${upper[0][0]},${upper[0][1]} ${upper.map(p => `L${p[0]},${p[1]}`).join(" ")} ${lower.map(p => `L${p[0]},${p[1]}`).join(" ")} Z`;
+  const edges = [[0,1],[0,2],[0,3],[0,4],[0,5],[5,3],[5,4],[1,2]];
 
   return (
-    <div className="min-h-[260px] sm:min-h-[320px] relative flex flex-col select-none">
+    <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
+        <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
+          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          </svg>
+        </div>
+        <span className="text-[11px] font-bold text-secondary-700">Business Context Graph</span>
+        <div className="ml-auto flex items-center gap-1">
+          <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ scale: [1, 1.4, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+          <span className="text-[9px] text-emerald-600 font-medium">Mapped</span>
+        </div>
+      </div>
+
+      <div className="flex-1 relative p-3">
+        {/* Metrics strip with count-up animation */}
+        <div className="flex gap-2 mb-3">
+          {[{ l: "Entities", v: "142", icon: "◉" }, { l: "Relations", v: "318", icon: "⟷" }, { l: "Rules", v: "56", icon: "⚡" }].map((m, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 10, scale: 0.8 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 + i * 0.1, type: "spring", stiffness: 300 }} className="flex-1 text-center py-1.5 bg-purple-50 border border-purple-100 rounded-lg group hover:bg-purple-100/60 transition-colors duration-300">
+              <div className="text-[10px] font-bold text-purple-700">{m.icon} {m.v}</div>
+              <div className="text-[7px] text-purple-400">{m.l}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* SVG Knowledge Graph */}
+        <svg viewBox="0 0 240 170" className="w-full h-auto">
+          <defs>
+            <radialGradient id="nodeGlow">
+              <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+            </radialGradient>
+            <filter id="graphBlur">
+              <feGaussianBlur stdDeviation="2" />
+            </filter>
+          </defs>
+
+          {/* Glow behind central node */}
+          <motion.circle cx={nodes[0].x} cy={nodes[0].y} r="35" fill="url(#nodeGlow)"
+            animate={{ r: [30, 40, 30], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+
+          {/* Edges with animated gradient stroke */}
+          {edges.map(([a, b], i) => (
+            <motion.line
+              key={i}
+              x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
+              stroke="#c4b5fd" strokeWidth="1.5"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 0.5 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 + i * 0.08, duration: 0.6 }}
+            />
+          ))}
+
+          {/* Multiple animated pulses traveling along different paths */}
+          {[[0,5,3], [0,2,4], [1,0,5]].map((path, pi) => (
+            <motion.circle key={pi} r="2.5" fill="#8B5CF6"
+              animate={{
+                cx: path.map(i => nodes[i].x),
+                cy: path.map(i => nodes[i].y),
+                opacity: [0, 1, 1, 0],
+              }}
+              transition={{ duration: 3, repeat: Infinity, delay: pi * 1.2, ease: "easeInOut" }}
+            />
+          ))}
+
+          {/* Nodes with hover glow */}
+          {nodes.map((n, i) => (
+            <motion.g key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + i * 0.12, type: "spring", stiffness: 200, damping: 10 }}
+            >
+              {/* Outer glow ring for central node */}
+              {i === 0 && (
+                <motion.circle cx={n.x} cy={n.y} r={n.size + 3} fill="none" stroke="#a78bfa" strokeWidth="1"
+                  animate={{ r: [n.size + 3, n.size + 6, n.size + 3], opacity: [0.4, 0.1, 0.4] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
+                />
+              )}
+              <circle cx={n.x} cy={n.y} r={n.size} fill="white" stroke={n.color} strokeWidth="2.5" />
+              <text x={n.x} y={n.y + 1} textAnchor="middle" fill={n.color} fontSize={i === 0 ? "8" : "7"} fontWeight="700" dominantBaseline="middle">{n.label}</text>
+            </motion.g>
+          ))}
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+/* ── 3. Data Backed Insights: Audit Trail / Lineage Visualization ── */
+const ForecastingVisual = () => {
+  const trail = [
+    { step: "Data Source", detail: "Snowflake · orders_v2", icon: "🗄️", color: "bg-blue-500", ring: "ring-blue-200" },
+    { step: "Transformation", detail: "Aggregated by region, filtered Q4", icon: "⚙️", color: "bg-violet-500", ring: "ring-violet-200" },
+    { step: "Validation", detail: "Row count: 24,891 · Schema ✓", icon: "✅", color: "bg-emerald-500", ring: "ring-emerald-200" },
+    { step: "Computation", detail: "revenue = SUM(unit_price × qty)", icon: "🧮", color: "bg-purple-500", ring: "ring-purple-200" },
+    { step: "Output", detail: "APAC: $4.2M · EMEA: $3.1M · NA: $5.8M", icon: "📊", color: "bg-brand-purple", ring: "ring-brand-glow" },
+  ];
+
+  return (
+    <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
       <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-gradient-to-br from-brand-purple to-brand-accent rounded-lg flex items-center justify-center">
             <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <span className="text-[11px] font-bold text-secondary-700">
-            Demand Forecast
-          </span>
+          <span className="text-[11px] font-bold text-secondary-700">Data Lineage Trace</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          {["Optimistic", "Base", "Conservative"].map((s, i) => (
-            <span
-              key={s}
-              className={`text-[8px] px-2 py-0.5 rounded-md font-medium ${i === 1 ? "bg-brand-purple text-white" : "text-secondary-400 bg-secondary-50 border border-secondary-100"}`}
-            >
-              {s}
-            </span>
-          ))}
-        </div>
+        <motion.span
+          className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.2, type: "spring", stiffness: 300 }}
+        >Verified ✓</motion.span>
       </div>
 
-      {/* KPI row */}
-      <div className="grid grid-cols-4 gap-2 px-4 pt-3 pb-1">
-        {[
-          { label: "Next Qtr", val: "72K", icon: "📈" },
-          { label: "MAPE", val: "5.8%", icon: "🎯" },
-          { label: "Trend", val: "↑ Bull", icon: "📊" },
-          { label: "Intervals", val: "±8%", icon: "📐" },
-        ].map((s, i) => (
+      <div className="flex-1 p-4 relative">
+        {/* Animated vertical timeline line */}
+        <motion.div
+          className="absolute left-[26px] top-4 w-[2px] bg-gradient-to-b from-blue-300 via-violet-300 to-purple-400"
+          initial={{ height: 0 }}
+          whileInView={{ height: "calc(100% - 2rem)" }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
+        />
+
+        {trail.map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -15, filter: "blur(3px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 + i * 0.06 }}
-            className="text-center px-1 py-1.5 bg-secondary-50/50 rounded-lg"
+            transition={{ delay: 0.2 + i * 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative flex items-start gap-3 mb-3.5 last:mb-0 group"
           >
-            <div className="text-xs mb-0.5">{s.icon}</div>
-            <div className="text-[10px] font-bold text-secondary-900 leading-none">{s.val}</div>
-            <div className="text-[7px] text-secondary-400 mt-0.5">{s.label}</div>
+            <motion.div
+              className={`relative z-10 w-7 h-7 ${item.color} rounded-full flex items-center justify-center text-[11px] shadow-sm flex-shrink-0 ring-2 ${item.ring}`}
+              whileInView={i === trail.length - 1 ? { scale: [1, 1.2, 1] } : {}}
+              viewport={{ once: true }}
+              transition={{ delay: 1.0, duration: 0.5, repeat: i === trail.length - 1 ? Infinity : 0, repeatDelay: 3 }}
+            >
+              {item.icon}
+            </motion.div>
+            <motion.div
+              className="flex-1 min-w-0 bg-secondary-50/50 border border-secondary-100 rounded-lg px-3 py-2 hover:bg-secondary-50 hover:border-secondary-200 transition-all duration-300 hover:shadow-sm"
+              whileHover={{ x: 3 }}
+            >
+              <div className="flex items-center gap-2">
+                <div className="text-[10px] font-bold text-secondary-800">{item.step}</div>
+                {i < trail.length - 1 && (
+                  <motion.div className="text-[8px] text-emerald-500 font-medium" initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 + i * 0.18, type: "spring" }}>
+                    pass ✓
+                  </motion.div>
+                )}
+              </div>
+              <div className="text-[9px] text-secondary-500 truncate">{item.detail}</div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
+    </div>
+  );
+};
 
-      {/* SVG line chart */}
-      <div className="flex-1 px-3 py-2 relative">
-        <svg viewBox="-5 -2 255 85" className="w-full h-full" preserveAspectRatio="none">
+/* ── 4. Proactive Intelligence: Anomaly Detection Dashboard ── */
+const DecisionVisual = () => {
+  const dataPoints = [40, 42, 38, 41, 39, 43, 40, 78, 42, 39, 41, 37, 40, 44, 38, 41];
+  const threshold = 55;
+
+  return (
+    <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
+        <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center">
+          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </div>
+        <span className="text-[11px] font-bold text-secondary-700">Anomaly Monitor</span>
+        <motion.span className="ml-auto text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full flex items-center gap-1"
+          animate={{ opacity: [1, 0.5, 1], scale: [1, 1.03, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <motion.span className="w-1.5 h-1.5 rounded-full bg-rose-500" animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity }} />
+          1 Alert
+        </motion.span>
+      </div>
+
+      <div className="flex-1 p-3 sm:p-4">
+        {/* Alert card with shake animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: -10 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          className="mb-3 px-3 py-2.5 bg-rose-50 border border-rose-200 rounded-xl relative overflow-hidden"
+        >
+          {/* Animated shine effect */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-rose-100/50 to-transparent"
+            animate={{ x: [-200, 300] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+          />
+          <div className="relative flex items-center gap-2 mb-1">
+            <motion.span className="text-[10px]" animate={{ rotate: [0, -15, 15, 0] }} transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}>🚨</motion.span>
+            <span className="text-[10px] font-bold text-rose-700">Spike Detected — Server Latency</span>
+          </div>
+          <span className="relative text-[9px] text-rose-500">Value 78ms exceeded threshold 55ms at 14:32 UTC</span>
+        </motion.div>
+
+        {/* Sparkline with anomaly highlight */}
+        <svg viewBox="0 0 240 80" className="w-full h-20 sm:h-24" preserveAspectRatio="none">
           {/* Grid lines */}
-          {[20, 40, 60].map((y) => (
-            <line key={y} x1="0" y1={y} x2="240" y2={y} stroke="#f1f5f9" strokeWidth="0.5" />
-          ))}
-
-          {/* Confidence band */}
-          <motion.path
-            d={bandPath}
-            fill="#8B5CF6"
-            opacity="0"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-          />
-
-          {/* Actual line */}
-          <motion.path
-            d={actualPath}
-            fill="none"
-            stroke="#6D28D9"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          {/* Data points on actual */}
-          {actualPts.map(([x, y], i) => (
-            <motion.circle
-              key={`ac-${i}`}
-              cx={x}
-              cy={y}
-              r="3"
-              fill="white"
-              stroke="#6D28D9"
-              strokeWidth="2"
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 + i * 0.08 }}
+          {[0, 20, 40, 60, 80].map((y) => (
+            <motion.line key={y} x1="0" y1={y} x2="240" y2={y} stroke="#f1f5f9" strokeWidth="0.5"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
             />
           ))}
 
-          {/* Forecast line (dashed) */}
-          <motion.path
-            d={forecastPath}
-            fill="none"
-            stroke="#8B5CF6"
-            strokeWidth="2"
-            strokeDasharray="6,4"
-            strokeLinecap="round"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          {/* Threshold area */}
+          <motion.rect x="0" y="0" width="240" height={80 - threshold} fill="#fef2f2" opacity="0.3"
+            initial={{ opacity: 0 }} whileInView={{ opacity: 0.3 }} viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
           />
 
-          {/* Forecast points */}
-          {forecastPts.slice(1).map(([x, y], i) => (
-            <motion.circle
-              key={`fc-${i}`}
-              cx={x}
-              cy={y}
-              r="2.5"
-              fill="#8B5CF6"
-              opacity="0.6"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.2 + i * 0.1 }}
+          {/* Threshold line */}
+          <motion.line x1="0" y1={80 - threshold} x2="240" y2={80 - threshold} stroke="#fca5a5" strokeWidth="1" strokeDasharray="4,4" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.8 }} />
+          <motion.text x="2" y={80 - threshold - 3} fill="#ef4444" fontSize="7" fontWeight="600" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
+            threshold
+          </motion.text>
+
+          {/* Area under the line */}
+          <motion.path
+            d={`M0,${80 - dataPoints[0]} ${dataPoints.map((v, i) => `L${(i / (dataPoints.length - 1)) * 240},${80 - v}`).join(" ")} L240,80 L0,80 Z`}
+            fill="url(#areaGradient)" initial={{ opacity: 0 }} whileInView={{ opacity: 0.15 }}
+            viewport={{ once: true }} transition={{ delay: 1.5 }}
+          />
+          <defs>
+            <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#6D28D9" />
+              <stop offset="100%" stopColor="#6D28D9" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* Data line */}
+          <motion.polyline
+            points={dataPoints.map((v, i) => `${(i / (dataPoints.length - 1)) * 240},${80 - v}`).join(" ")}
+            fill="none" stroke="#6D28D9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
+          />
+
+          {/* Data point dots */}
+          {dataPoints.map((v, i) => (
+            <motion.circle key={i} cx={(i / (dataPoints.length - 1)) * 240} cy={80 - v} r="2" fill={i === 7 ? "#ef4444" : "#6D28D9"} stroke="white" strokeWidth="1"
+              initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+              transition={{ delay: 0.5 + i * 0.05, type: "spring" }}
             />
           ))}
 
-          {/* Divider line at handoff point */}
-          <motion.line
-            x1="140" y1="0" x2="140" y2="80"
-            stroke="#6D28D9"
-            strokeWidth="0.5"
-            strokeDasharray="3,3"
-            opacity="0.3"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.9 }}
+          {/* Anomaly highlight */}
+          <motion.circle cx={(7 / 15) * 240} cy={80 - 78} r="8" fill="none" stroke="#ef4444" strokeWidth="2"
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1.8, type: "spring" }}
+          />
+          {/* Ripple */}
+          <motion.circle cx={(7 / 15) * 240} cy={80 - 78} r="5" fill="none" stroke="#ef4444" strokeWidth="1"
+            animate={{ r: [5, 18], opacity: [0.6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
           />
         </svg>
 
-        {/* Labels */}
-        <div className="absolute bottom-1 left-4 text-[8px] text-secondary-400">Jan '25</div>
-        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-brand-purple font-bold bg-brand-purple/5 px-2 py-0.5 rounded">
-          ← Actual | Forecast →
+        {/* KPI row with animated counters */}
+        <div className="grid grid-cols-3 gap-2 mt-3">
+          {[
+            { label: "Anomalies (24h)", val: "1", color: "text-rose-600", bg: "bg-rose-50" },
+            { label: "Avg Latency", val: "40ms", color: "text-emerald-600", bg: "bg-emerald-50" },
+            { label: "Uptime", val: "99.97%", color: "text-indigo-600", bg: "bg-indigo-50" },
+          ].map((s, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 8, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.8 + i * 0.1, type: "spring", stiffness: 200 }}
+              className={`text-center py-2 ${s.bg} rounded-xl border border-secondary-100`}
+            >
+              <div className={`text-[11px] font-bold ${s.color}`}>{s.val}</div>
+              <div className="text-[7px] text-secondary-400 mt-0.5">{s.label}</div>
+            </motion.div>
+          ))}
         </div>
-        <div className="absolute bottom-1 right-4 text-[8px] text-secondary-400">Jun '26</div>
-      </div>
-
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-4 px-4 pb-3 pt-0">
-        <span className="flex items-center gap-1 text-[8px] text-secondary-500">
-          <span className="w-4 h-[2px] bg-brand-purple rounded inline-block" /> Historical
-        </span>
-        <span className="flex items-center gap-1 text-[8px] text-secondary-500">
-          <span className="w-4 h-[2px] bg-brand-accent rounded inline-block" style={{ borderBottom: "2px dashed #8B5CF6", height: 0 }} /> Forecast
-        </span>
-        <span className="flex items-center gap-1 text-[8px] text-secondary-500">
-          <span className="w-3 h-2 bg-brand-purple/10 rounded inline-block" /> CI Band
-        </span>
       </div>
     </div>
   );
 };
 
-/* ── 4. Decision Automation: Visual Flowchart with Branching ── */
-const DecisionVisual = () => (
-  <div className="min-h-[260px] sm:min-h-[320px] relative flex flex-col select-none">
-    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
-      <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center">
-        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0" />
-        </svg>
-      </div>
-      <span className="text-[11px] font-bold text-secondary-700">
-        Decision Flow Builder
-      </span>
-      <span className="ml-auto text-[9px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
-        ⚡ Automated
-      </span>
-    </div>
-
-    {/* SVG Flowchart */}
-    <div className="flex-1 flex items-center justify-center p-4">
-      <svg viewBox="0 0 260 220" className="w-full max-w-[280px] h-auto">
-        {/* Connection lines (draw first, behind nodes) */}
-        {/* Trigger → ML Model */}
-        <motion.line
-          x1="130" y1="28" x2="130" y2="58"
-          stroke="#c4b5fd" strokeWidth="2"
-          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }} transition={{ delay: 0.5, duration: 0.3 }}
-        />
-        {/* ML Model → Decision diamond */}
-        <motion.line
-          x1="130" y1="82" x2="130" y2="108"
-          stroke="#c4b5fd" strokeWidth="2"
-          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.3 }}
-        />
-        {/* Diamond → left (Reject) */}
-        <motion.polyline
-          points="112,130 60,130 60,160"
-          fill="none" stroke="#fca5a5" strokeWidth="2"
-          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }} transition={{ delay: 1.2, duration: 0.3 }}
-        />
-        {/* Diamond → right (Approve) */}
-        <motion.polyline
-          points="148,130 200,130 200,160"
-          fill="none" stroke="#86efac" strokeWidth="2"
-          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }} transition={{ delay: 1.2, duration: 0.3 }}
-        />
-
-        {/* Animated pulse traveling down the flow */}
-        <motion.circle
-          cx="130" cy="0" r="4" fill="#8B5CF6"
-          animate={{ cy: [18, 70, 120, 200, 200], cx: [130, 130, 130, 200, 200], opacity: [1, 1, 1, 1, 0] }}
-          transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
-        />
-
-        {/* 1. Trigger node (rounded rect) */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-        >
-          <rect x="80" y="4" width="100" height="24" rx="12" fill="#6D28D9" />
-          <text x="130" y="20" textAnchor="middle" fill="white" fontSize="9" fontWeight="700">
-            ▶ New Request
-          </text>
-        </motion.g>
-
-        {/* 2. ML Model node (rect) */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.55, duration: 0.4 }}
-        >
-          <rect x="75" y="58" width="110" height="24" rx="6" fill="white" stroke="#8B5CF6" strokeWidth="1.5" />
-          <text x="130" y="74" textAnchor="middle" fill="#6D28D9" fontSize="9" fontWeight="600">
-            🧠 ML Risk Score
-          </text>
-        </motion.g>
-
-        {/* 3. Decision diamond */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9, duration: 0.4 }}
-        >
-          <polygon points="130,108 148,130 130,152 112,130" fill="white" stroke="#8B5CF6" strokeWidth="1.5" />
-          <text x="130" y="134" textAnchor="middle" fill="#6D28D9" fontSize="8" fontWeight="700">
-            Score?
-          </text>
-        </motion.g>
-
-        {/* Labels on branches */}
-        <motion.text
-          x="78" y="145" textAnchor="middle" fill="#ef4444" fontSize="7" fontWeight="700"
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: true }} transition={{ delay: 1.3 }}
-        >
-          {"< 0.5"}
-        </motion.text>
-        <motion.text
-          x="182" y="145" textAnchor="middle" fill="#22c55e" fontSize="7" fontWeight="700"
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: true }} transition={{ delay: 1.3 }}
-        >
-          {"≥ 0.5"}
-        </motion.text>
-
-        {/* 4a. Reject (left) */}
-        <motion.g
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.4, duration: 0.4 }}
-        >
-          <rect x="20" y="160" width="80" height="24" rx="6" fill="#fef2f2" stroke="#fca5a5" strokeWidth="1.5" />
-          <text x="60" y="176" textAnchor="middle" fill="#dc2626" fontSize="9" fontWeight="600">
-            ✋ Review
-          </text>
-        </motion.g>
-
-        {/* 4b. Approve (right) */}
-        <motion.g
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.4, duration: 0.4 }}
-        >
-          <rect x="160" y="160" width="80" height="24" rx="6" fill="#f0fdf4" stroke="#86efac" strokeWidth="1.5" />
-          <text x="200" y="176" textAnchor="middle" fill="#16a34a" fontSize="9" fontWeight="600">
-            ✓ Approve
-          </text>
-        </motion.g>
-
-        {/* Bottom: Approve → Execute */}
-        <motion.line
-          x1="200" y1="184" x2="200" y2="202"
-          stroke="#86efac" strokeWidth="2"
-          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }} transition={{ delay: 1.7, duration: 0.2 }}
-        />
-        <motion.g
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.8, duration: 0.4 }}
-        >
-          <rect x="165" y="202" width="70" height="18" rx="9" fill="#16a34a" />
-          <text x="200" y="214" textAnchor="middle" fill="white" fontSize="8" fontWeight="700">
-            🚀 Execute
-          </text>
-        </motion.g>
-      </svg>
-    </div>
-
-    {/* Stats bar */}
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 2.0, duration: 0.4 }}
-      className="flex items-center justify-between mx-4 mb-3 px-3 py-2 bg-indigo-50 border border-indigo-200/50 rounded-xl"
-    >
-      <span className="text-[9px] font-bold text-indigo-700">Today</span>
-      <div className="flex gap-3">
-        <span className="text-[9px] text-indigo-600">
-          <span className="font-bold">248</span> auto-approved
-        </span>
-        <span className="text-[9px] text-amber-600">
-          <span className="font-bold">12</span> flagged
-        </span>
-      </div>
-    </motion.div>
-  </div>
-);
-
-/* ── 5. Domain Intelligence: Hexagonal Grid of Industry Packs ── */
+/* ── 5. Enterprise Ready: Security Architecture Diagram ── */
 const DomainIntelVisual = () => {
-  const packs = [
-    { name: "Retail", emoji: "🛒", kpis: 24, color: "from-rose-100 to-pink-100", border: "border-rose-200" },
-    { name: "Healthcare", emoji: "🏥", kpis: 18, color: "from-sky-100 to-blue-100", border: "border-sky-200" },
-    { name: "Finance", emoji: "💰", kpis: 31, color: "from-amber-100 to-yellow-100", border: "border-amber-200" },
-    { name: "Manufact.", emoji: "🏭", kpis: 22, color: "from-emerald-100 to-green-100", border: "border-emerald-200" },
-    { name: "Telecom", emoji: "📡", kpis: 16, color: "from-violet-100 to-purple-100", border: "border-violet-200" },
-    { name: "Energy", emoji: "⚡", kpis: 20, color: "from-orange-100 to-red-100", border: "border-orange-200" },
+  const layers = [
+    { label: "Role-Based Access", icon: "🔐", items: ["Admin", "Analyst", "Viewer"], color: "from-violet-100 to-purple-100", border: "border-violet-200", iconBg: "bg-violet-500" },
+    { label: "Data Governance", icon: "🛡️", items: ["Encryption", "Audit Log", "Masking"], color: "from-indigo-100 to-blue-100", border: "border-indigo-200", iconBg: "bg-indigo-500" },
+    { label: "Deployment", icon: "☁️", items: ["Cloud", "On-Prem", "Hybrid"], color: "from-fuchsia-100 to-pink-100", border: "border-fuchsia-200", iconBg: "bg-fuchsia-500" },
   ];
 
   return (
-    <div className="min-h-[260px] sm:min-h-[320px] relative flex flex-col select-none">
+    <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
       <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="w-6 h-6 bg-gradient-to-br from-fuchsia-500 to-pink-500 rounded-lg flex items-center justify-center">
           <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
         </div>
-        <span className="text-[11px] font-bold text-secondary-700">
-          Intelligence Packs
-        </span>
-        <span className="ml-auto text-[9px] font-bold text-fuchsia-600 bg-fuchsia-50 px-2 py-0.5 rounded-full">
-          6 Verticals
-        </span>
+        <span className="text-[11px] font-bold text-secondary-700">Enterprise Architecture</span>
+        <motion.span
+          className="ml-auto text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >SOC 2 Compliant</motion.span>
       </div>
 
-      {/* Honeycomb-style grid */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4 gap-2">
-        {/* Row 1 — 3 packs */}
-        <div className="flex gap-2 sm:gap-3">
-          {packs.slice(0, 3).map((pack, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className={`w-[72px] h-[82px] sm:w-[80px] sm:h-[90px] bg-gradient-to-br ${pack.color} ${pack.border} border rounded-2xl flex flex-col items-center justify-center gap-1 hover:scale-105 transition-transform duration-200`}
-              style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
-            >
-              <span className="text-xl sm:text-2xl">{pack.emoji}</span>
-              <span className="text-[8px] sm:text-[9px] font-bold text-secondary-700 leading-none">{pack.name}</span>
-              <span className="text-[7px] text-secondary-500">{pack.kpis} KPIs</span>
-            </motion.div>
-          ))}
-        </div>
-        {/* Row 2 — 3 packs (offset for honeycomb) */}
-        <div className="flex gap-2 sm:gap-3 -mt-3">
-          {packs.slice(3, 6).map((pack, i) => (
-            <motion.div
-              key={i + 3}
-              initial={{ opacity: 0, scale: 0.5, rotate: 10 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.45 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className={`w-[72px] h-[82px] sm:w-[80px] sm:h-[90px] bg-gradient-to-br ${pack.color} ${pack.border} border rounded-2xl flex flex-col items-center justify-center gap-1 hover:scale-105 transition-transform duration-200`}
-              style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
-            >
-              <span className="text-xl sm:text-2xl">{pack.emoji}</span>
-              <span className="text-[8px] sm:text-[9px] font-bold text-secondary-700 leading-none">{pack.name}</span>
-              <span className="text-[7px] text-secondary-500">{pack.kpis} KPIs</span>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Central connecting pulse */}
+      <div className="flex-1 p-4 space-y-3 relative">
+        {/* Floating shield animation behind layers */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9 }}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          className="absolute right-4 top-4 w-16 h-16 opacity-[0.04]"
+          animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
+          transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, scale: { duration: 3, repeat: Infinity } }}
         >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-brand-purple">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </motion.div>
+
+        {/* Security layers with staggered entrance */}
+        {layers.map((layer, i) => (
           <motion.div
-            className="w-3 h-3 rounded-full bg-fuchsia-400/30"
-            animate={{ scale: [1, 2.5, 1], opacity: [0.4, 0, 0.4] }}
-            transition={{ duration: 2.5, repeat: Infinity }}
+            key={i}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20, rotateY: 15 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 + i * 0.18, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className={`bg-gradient-to-r ${layer.color} ${layer.border} border rounded-xl p-3 relative overflow-hidden group hover:shadow-md transition-shadow duration-300`}
+          >
+            {/* Shimmer on hover */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+            />
+            <div className="relative flex items-center gap-2 mb-2">
+              <motion.div
+                className={`w-6 h-6 ${layer.iconBg} rounded-md flex items-center justify-center text-[11px] shadow-sm`}
+                whileInView={{ rotate: [0, -5, 5, 0] }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + i * 0.18, duration: 0.4 }}
+              >
+                {layer.icon}
+              </motion.div>
+              <span className="text-[10px] font-bold text-secondary-800">{layer.label}</span>
+              <motion.div className="ml-auto w-2 h-2 rounded-full bg-emerald-400"
+                initial={{ scale: 0 }} whileInView={{ scale: 1 }}
+                viewport={{ once: true }} transition={{ delay: 0.8 + i * 0.18, type: "spring" }}
+              />
+            </div>
+            <div className="relative flex gap-1.5">
+              {layer.items.map((item, j) => (
+                <motion.span
+                  key={j}
+                  initial={{ opacity: 0, scale: 0.7, y: 5 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + i * 0.18 + j * 0.1, type: "spring", stiffness: 200 }}
+                  className="text-[9px] px-2.5 py-1 bg-white/80 backdrop-blur-sm rounded-md font-medium text-secondary-600 border border-white shadow-sm hover:bg-white hover:border-secondary-200 transition-all duration-200"
+                >
+                  {item}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Animated status bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1 }}
+          className="flex items-center justify-between px-3 py-2 bg-emerald-50 border border-emerald-200/50 rounded-xl overflow-hidden relative"
+        >
+          {/* Progress shimmer */}
+          <motion.div
+            className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-emerald-400 to-emerald-300"
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2, duration: 1.5, ease: "easeOut" }}
           />
+          <span className="text-[9px] font-bold text-emerald-700 flex items-center gap-1">
+            <motion.span animate={{ rotate: [0, 360] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}>🔒</motion.span>
+            All Systems Secure
+          </span>
+          <div className="flex gap-2">
+            <span className="text-[9px] text-emerald-600"><b>256-bit</b> AES</span>
+            <span className="text-[9px] text-emerald-600"><b>99.99%</b> uptime</span>
+          </div>
         </motion.div>
       </div>
-
-      {/* Bottom stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 1.0, duration: 0.4 }}
-        className="flex items-center justify-between mx-4 mb-3 px-3 py-2 bg-fuchsia-50 border border-fuchsia-200/50 rounded-xl"
-      >
-        <span className="text-[10px] font-bold text-fuchsia-700 flex items-center gap-1">
-          📦 Marketplace
-        </span>
-        <div className="flex gap-2">
-          <span className="text-[9px] text-fuchsia-600"><b>131</b> KPIs</span>
-          <span className="text-[9px] text-fuchsia-600"><b>48</b> Templates</span>
-          <span className="text-[9px] text-fuchsia-600"><b>6</b> Verticals</span>
-        </div>
-      </motion.div>
     </div>
   );
 };
-
-/* ─────────────────────── Animated Product Visual ─────────────────────── */
+/* ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ Animated Product Visual ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 const ProductVisual = ({ product, index }) => {
   const isEven = index % 2 === 0;
   const visualMap = {
@@ -1118,7 +933,7 @@ const ProductVisual = ({ product, index }) => {
   );
 };
 
-/* ─────────────────────── Product Section ─────────────────────── */
+/* ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ Product Section ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 const ProductSection = ({ product, index }) => {
   const isEven = index % 2 === 0;
 
@@ -1236,7 +1051,7 @@ const ProductSection = ({ product, index }) => {
   );
 };
 
-/* ─────────────────────── Overview Cards Strip ─────────────────────── */
+/* ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ Overview Cards Strip ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 const OverviewStrip = () => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
@@ -1338,7 +1153,7 @@ const OverviewStrip = () => {
   );
 };
 
-/* ─────────────────────── CTA Section ─────────────────────── */
+/* ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ CTA Section ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 const CTASection = () => (
   <section className="glass-section py-16 sm:py-20 md:py-32">
     <div className="container-custom">
@@ -1394,7 +1209,7 @@ const CTASection = () => (
   </section>
 );
 
-/* ─────────────────────── Page ─────────────────────── */
+/* ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ Page ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 const ProductsPage = () => {
   return (
     <div className="min-h-screen">

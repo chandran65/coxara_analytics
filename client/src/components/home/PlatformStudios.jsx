@@ -22,7 +22,12 @@ const studios = [
   {
     id: "gen-ai",
     title: "Generative AI",
-    tags: ["Report Generation", "Document Analysis", "RAG Pipelines", "Assistants"],
+    tags: [
+      "Report Generation",
+      "Document Analysis",
+      "RAG Pipelines",
+      "Assistants",
+    ],
     description:
       "Solve complex business problems using the power of AI—trained directly on your company's proprietary data for rapid intelligence.",
     icon: (
@@ -37,7 +42,12 @@ const studios = [
   {
     id: "data-science",
     title: "Advanced Machine Learning",
-    tags: ["Predictive Analytics", "Forecasting", "Pattern Recognition", "Risk"],
+    tags: [
+      "Predictive Analytics",
+      "Forecasting",
+      "Pattern Recognition",
+      "Risk",
+    ],
     description:
       "Transform petabytes of raw data into strategic assets through precise predictive and prescriptive analytics tuned for your workflow.",
     icon: (
@@ -52,7 +62,12 @@ const studios = [
   {
     id: "training",
     title: "AI Consulting",
-    tags: ["Readiness Audits", "Roadmap Planning", "Risk Mitigation", "Governance"],
+    tags: [
+      "Readiness Audits",
+      "Roadmap Planning",
+      "Risk Mitigation",
+      "Governance",
+    ],
     description:
       "Future-proof your business with AI-first strategies. We provide readiness audits and deliver comprehensive roadmaps.",
     icon: (
@@ -71,7 +86,7 @@ const FlipCard = ({ studio, isTouchDevice }) => {
 
   return (
     <div
-      className="group [perspective:1200px] h-[320px]"
+      className="group [perspective:1200px] h-[340px] sm:h-[350px]"
       onClick={isTouchDevice ? () => setFlipped((f) => !f) : undefined}
     >
       <div
@@ -83,11 +98,11 @@ const FlipCard = ({ studio, isTouchDevice }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-brand-accent/[0.02]" />
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
-          <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
+          <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center">
             {/* Icon */}
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-purple/20">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white mb-5 shadow-lg shadow-brand-purple/20">
               <svg
-                className="w-8 h-8"
+                className="w-7 h-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -97,7 +112,7 @@ const FlipCard = ({ studio, isTouchDevice }) => {
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-display font-bold text-secondary-900 mb-4">
+            <h3 className="text-lg font-display font-bold text-secondary-900 mb-3">
               {studio.title}
             </h3>
 
@@ -128,13 +143,13 @@ const FlipCard = ({ studio, isTouchDevice }) => {
           {/* Top accent line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple to-brand-accent" />
 
-          <div className="relative z-10 h-full flex flex-col justify-between p-8">
+          <div className="relative z-10 h-full flex flex-col justify-between p-6">
             <div>
               {/* Small icon + title row */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-purple to-brand-accent flex items-center justify-center text-white shadow-md shadow-brand-purple/15 flex-shrink-0">
                   <svg
-                    className="w-5 h-5"
+                    className="w-4.5 h-4.5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -142,13 +157,13 @@ const FlipCard = ({ studio, isTouchDevice }) => {
                     {studio.icon}
                   </svg>
                 </div>
-                <h3 className="text-lg font-display font-bold text-brand-purple">
+                <h3 className="text-base font-display font-bold text-brand-purple">
                   {studio.title}
                 </h3>
               </div>
 
               {/* Description */}
-              <p className="text-secondary-600 leading-relaxed text-sm mb-5">
+              <p className="text-secondary-600 leading-relaxed text-[13px] mb-4">
                 {studio.description}
               </p>
 
