@@ -267,41 +267,38 @@ const Navbar = () => {
               setActiveDropdown(null);
             }}
           >
-            <div className="flex items-center h-16">
-              <Link to="/">
-                <motion.img
-                  src="/geometric_c_nodes.png"
-                  alt="COXARA Analytics Logo"
-                  className="h-10 w-auto object-contain"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.25 }}
-                />
-              </Link>
-            </div>
+            <motion.img
+              src="/geometric_c_nodes.png"
+              alt="COXARA Analytics Logo"
+              className="h-full w-auto object-contain pointer-events-auto"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            />
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navigationData.map((navItem) => (
-                <div
-                  key={navItem.title}
-                  className="relative"
-                  onMouseEnter={() =>
-                    navItem.items && handleDropdownEnter(navItem.title)
-                  }
-                  onMouseLeave={() => navItem.items && handleDropdownLeave()}
-                >
-                  {navItem.items ? (
-                    <>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (navItem.path) handleNavClick(navItem);
-                        }}
-                        className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${activeDropdown === navItem.title
-                          ? "text-brand-purple"
-                          : "text-secondary-600 hover:text-secondary-900"
-                          }`}
-                      >
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navigationData.map((navItem) => (
+              <div
+                key={navItem.title}
+                className="relative"
+                onMouseEnter={() =>
+                  navItem.items && handleDropdownEnter(navItem.title)
+                }
+                onMouseLeave={() => navItem.items && handleDropdownLeave()}
+              >
+                {navItem.items ? (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (navItem.path) handleNavClick(navItem);
+                      }}
+                      className={`group relative px-4 py-2.5 text-sm font-medium transition-all duration-300 flex items-center gap-1.5 rounded-full ${activeDropdown === navItem.title
+                        ? "text-brand-purple"
+                        : "text-secondary-600 hover:text-secondary-900"
+                        }`}
+                    >
                         <span>{navItem.title}</span>
                         <svg
                           className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === navItem.title ? "rotate-180" : ""
