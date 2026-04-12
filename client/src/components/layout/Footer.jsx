@@ -141,7 +141,7 @@ const Footer = () => {
             >
               <Link to="/" className="inline-block group mb-6">
                 <img
-                  src="/full-logo-Photoroom.png"
+                  src="/geometric_c_nodes.png"
                   alt="COXARA Analytics"
                   className="h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                 />
