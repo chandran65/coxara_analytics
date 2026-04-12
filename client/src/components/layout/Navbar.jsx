@@ -270,7 +270,7 @@ const Navbar = () => {
             <motion.img
               src="/geometric_c_nodes.png"
               alt="COXARA Analytics Logo"
-              className="h-full w-auto object-contain pointer-events-auto"
+              className="absolute left-[-2%] top-1/2 -translate-y-1/2 w-[160%] max-w-none h-auto mix-blend-multiply pointer-events-none"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             />
