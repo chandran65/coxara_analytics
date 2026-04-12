@@ -272,7 +272,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            className={`flex-shrink-0 flex items-center group relative z-10 ${isScrolled ? "h-14 w-60" : "h-16 w-64"
+            className={`flex-shrink-0 flex items-center group relative z-10 overflow-hidden rounded-md ${isScrolled ? "h-12 w-56" : "h-14 w-72"
               }`}
             onClick={() => {
               setIsOpen(false);
@@ -282,7 +282,7 @@ const Navbar = () => {
             <motion.img
               src="/geometric_c_nodes.png"
               alt="COXARA Analytics Logo"
-              className="h-full w-full object-contain mix-blend-multiply pointer-events-none"
+              className="absolute left-[-1.5%] top-1/2 -translate-y-1/2 w-[110%] max-w-none h-auto mix-blend-multiply pointer-events-none"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             />
