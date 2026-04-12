@@ -670,7 +670,7 @@ const HeroSection = ({ isActive = true }) => {
         />
       </div>
 
-      <div className="container-custom relative z-10 pt-28 pb-16 md:pt-36 md:pb-24">
+      <div className="container-custom relative z-10 pt-32 pb-16 md:pt-44 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           {/* Content */}
           <div>

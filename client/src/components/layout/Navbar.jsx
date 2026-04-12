@@ -180,6 +180,18 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // Handle window resize — close mobile menu if switching to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useLayoutEffect(() => {
     if (navRef.current) {
       setNavHeight(navRef.current.getBoundingClientRect().height);
@@ -552,11 +564,10 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed left-0 right-0 bg-white overflow-y-auto shadow-2xl border-t border-secondary-100"
+            className="lg:hidden fixed left-0 right-0 bg-white overflow-y-auto shadow-2xl border-t border-secondary-100 z-[1000]"
             style={{
               top: safeNavHeight,
               maxHeight: `calc(100vh - ${safeNavHeight}px)`,
-              zIndex: 1000,
             }}
           >
             <div className="py-2 px-2">
