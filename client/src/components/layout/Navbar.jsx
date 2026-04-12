@@ -262,8 +262,8 @@ const Navbar = () => {
             <motion.img
               src="/geometric_c_nodes.png"
               alt="COXARA Analytics"
-              className={`w-auto object-contain transition-all duration-500 ${
-                isScrolled ? "h-9" : "h-10 sm:h-11"
+              className={`w-auto mix-blend-multiply object-contain transition-all duration-500 origin-left ${
+                isScrolled ? "h-20 -my-5" : "h-28 sm:h-32 -my-8 sm:-my-10 -ml-4"
               }`}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
