@@ -143,7 +143,7 @@ const Footer = () => {
                 <img
                   src="/geometric_c_nodes.png"
                   alt="COXARA Analytics"
-                  className="h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  className="h-24 sm:h-32 w-auto object-contain mix-blend-multiply transition-all duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100 -ml-6 -my-8"
                 />
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
