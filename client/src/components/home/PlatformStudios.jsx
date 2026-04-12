@@ -236,7 +236,7 @@ const PlatformStudios = () => {
         <AnimatedSection>
           <SectionHeading
             badge="Our Services"
-            title="Nexira OS"
+            title="Coxara CoreSight"
             highlight="Platform Studios"
             description="A comprehensive suite of intelligent studios designed to accelerate your data journey from raw inputs to automated decisions."
           />
