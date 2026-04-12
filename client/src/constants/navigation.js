@@ -4,11 +4,45 @@ export const navigationData = [
     path: "/company/about",
   },
   {
-    title: "Meet Our People",
-    path: "/company/team",
+    title: "Products",
+    path: "/products",
+    items: [
+      { label: "Data & Modeling", isHeader: true },
+      {
+        label: "Data Studio",
+        path: "/products#data-studio",
+        description: "End-to-end pipelines, modeling & governance",
+        icon: "database",
+      },
+      {
+        label: "Domain Intelligence Packs",
+        path: "/products#domain-intelligence",
+        description: "Pre-built industry analytics & KPIs",
+        icon: "cube",
+      },
+      { label: "Experimentation & Planning", isHeader: true },
+      {
+        label: "Experimentation Studio",
+        path: "/products#experimentation-studio",
+        description: "A/B testing, causal inference & uplift",
+        icon: "beaker",
+      },
+      {
+        label: "Forecasting & Planning Studio",
+        path: "/products#forecasting-studio",
+        description: "ML-powered forecasts & scenario planning",
+        icon: "trendup",
+      },
+      {
+        label: "Decision Automation Studio",
+        path: "/products#decision-automation",
+        description: "Hybrid rules + ML decision engine",
+        icon: "cog",
+      },
+    ],
   },
   {
-    title: "Analytical Services",
+    title: "Services",
     path: "/services",
     items: [
       { label: "AI Services", isHeader: true },
@@ -58,49 +92,11 @@ export const navigationData = [
     ],
   },
   {
-    title: "Products",
-    path: "/products",
-    items: [
-      { label: "Data & Modeling", isHeader: true },
-      {
-        label: "Data Studio",
-        path: "/products#data-studio",
-        description: "End-to-end pipelines, modeling & governance",
-        icon: "database",
-      },
-      {
-        label: "Domain Intelligence Packs",
-        path: "/products#domain-intelligence",
-        description: "Pre-built industry analytics & KPIs",
-        icon: "cube",
-      },
-      { label: "Experimentation & Planning", isHeader: true },
-      {
-        label: "Experimentation Studio",
-        path: "/products#experimentation-studio",
-        description: "A/B testing, causal inference & uplift",
-        icon: "beaker",
-      },
-      {
-        label: "Forecasting & Planning Studio",
-        path: "/products#forecasting-studio",
-        description: "ML-powered forecasts & scenario planning",
-        icon: "trendup",
-      },
-      {
-        label: "Decision Automation Studio",
-        path: "/products#decision-automation",
-        description: "Hybrid rules + ML decision engine",
-        icon: "cog",
-      },
-    ],
-  },
-  {
-    title: "Resources",
+    title: "Resource Hub",
     path: "/resources",
   },
   {
-    title: "Contact",
+    title: "Contact Us",
     path: "/company/contact",
   },
 ];

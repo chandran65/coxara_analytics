@@ -2,6 +2,41 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 /* ══════════════════════════════════════════════════════════════════
+   Animated Background Elements
+   ═══════════════════════════════════════════════════════════════════ */
+const FloatingGrid = () => (
+  <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
+    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+      {Array.from({ length: 15 }, (_, i) => {
+        // Pseudo-random but deterministic based on index for rendering
+        const x = 5 + (i * 7) % 90;
+        const y = 5 + (i * 11) % 90;
+        return (
+          <motion.circle
+            key={i}
+            cx={`${x}%`}
+            cy={`${y}%`}
+            r={1.5 + (i % 3)}
+            fill="#7C3AED"
+            initial={{ opacity: 0.15 }}
+            animate={{
+              opacity: [0.1, 0.4, 0.1],
+              cy: [`${y}%`, `${y - 3}%`, `${y}%`],
+            }}
+            transition={{
+              duration: 4 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut",
+            }}
+          />
+        );
+      })}
+    </svg>
+  </div>
+);
+
+/* ══════════════════════════════════════════════════════════════════
    Premium Data-Intelligence Network Visual
    ═══════════════════════════════════════════════════════════════════ */
 const HeroVisual = () => {
@@ -579,7 +614,28 @@ const HeroSection = ({ isActive = true }) => {
   return (
     <section
       className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white"
-    >  {/* Subtle dot pattern */}
+    >
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-[-10%] right-[10%] w-[40vw] h-[40vw] bg-brand-purple/[0.08] rounded-full blur-[100px] pointer-events-none"
+        animate={{
+          x: [0, 50, 0, -50, 0],
+          y: [0, 30, -30, 0, 0],
+          scale: [1, 1.1, 0.9, 1.1, 1],
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] bg-brand-accent/[0.06] rounded-full blur-[90px] pointer-events-none"
+        animate={{
+          x: [0, -40, 0, 40, 0],
+          y: [0, -40, 40, 0, 0],
+          scale: [1, 1.15, 0.95, 1.05, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.018] pointer-events-none"
         style={{
@@ -589,9 +645,30 @@ const HeroSection = ({ isActive = true }) => {
         }}
       />
 
-      {/* Soft decorative blurs */}
-      <div className="absolute top-[-10%] right-[-5%] w-80 h-80 bg-brand-purple/[0.05] rounded-full blur-[60px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-5%] w-72 h-72 bg-brand-accent/[0.04] rounded-full blur-[50px] pointer-events-none" />
+      <FloatingGrid />
+
+      {/* Floating geometry */}
+      <div className="hidden sm:block absolute inset-0 pointer-events-none">
+        <motion.div
+          className="absolute top-[20%] left-[5%] w-32 h-32 border border-brand-purple/10 rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute top-[20%] left-[5%] w-32 h-32 border border-brand-accent/8 rounded-full"
+          style={{ borderStyle: "dashed" }}
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute bottom-[20%] right-[40%] w-16 h-16 border border-brand-purple/10 rotate-45 rounded-sm"
+          animate={{ rotate: [45, 405], scale: [1, 1.1, 1] }}
+          transition={{
+            rotate: { duration: 35, repeat: Infinity, ease: "linear" },
+            scale: { duration: 8, repeat: Infinity },
+          }}
+        />
+      </div>
 
       <div className="container-custom relative z-10 pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
