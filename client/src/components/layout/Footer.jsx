@@ -140,11 +140,11 @@ const Footer = () => {
               }}
             >
               <Link to="/" className="inline-block group mb-8 relative h-14 w-56">
-                <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-[320px] transition-transform duration-300 group-hover:scale-105">
+                <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-[320px]">
                   <img
                     src="/geometric_c_nodes.png"
                     alt="COXARA Analytics"
-                    className="w-full h-auto mix-blend-multiply opacity-90 group-hover:opacity-100"
+                    className="w-full h-auto mix-blend-multiply opacity-90 transition-transform duration-300 group-hover:scale-105 group-hover:opacity-100 origin-left"
                   />
                 </div>
               </Link>
