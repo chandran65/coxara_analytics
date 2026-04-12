@@ -5,85 +5,62 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const studios = [
   {
-    id: "data-studio",
-    title: "Data Studio",
-    tags: ["Connect", "Prepare", "Model", "Govern"],
+    id: "engineering",
+    title: "Custom AI Development",
+    tags: ["Custom Models", "Security", "AI Pipelines", "Scale"],
     description:
-      "Unify your data foundations with end-to-end pipelines, intelligent modeling frameworks, enterprise-quality governance, and accelerated data activation.",
+      "Build scalable, compliant AI solutions with custom foundation models and generative features designed securely for your enterprise.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
       />
     ),
   },
   {
-    id: "experimentation-studio",
-    title: "Experimentation Studio",
-    tags: ["A/B Testing", "Causal Inference", "Uplift Modeling"],
+    id: "gen-ai",
+    title: "Generative AI",
+    tags: ["Report Generation", "Document Analysis", "RAG Pipelines", "Assistants"],
     description:
-      "Run experiments at scale, quantify true causal impact, and optimize product and business decisions with scientifically grounded uplift frameworks.",
+      "Solve complex business problems using the power of AI—trained directly on your company's proprietary data for rapid intelligence.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+        d="M13 10V3L4 14h7v7l9-11h-7z"
       />
     ),
   },
   {
-    id: "forecasting-studio",
-    title: "Forecasting & Planning Studio",
-    tags: ["Demand", "Supply", "Scenario Planning", "Budgeting"],
+    id: "data-science",
+    title: "Advanced Machine Learning",
+    tags: ["Predictive Analytics", "Forecasting", "Pattern Recognition", "Risk"],
     description:
-      "Deliver highly accurate forecasts, simulate multi-scenario outcomes, and streamline planning cycles across demand, supply, and financial workflows.",
+      "Transform petabytes of raw data into strategic assets through precise predictive and prescriptive analytics tuned for your workflow.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
       />
     ),
   },
   {
-    id: "decision-automation",
-    title: "Decision Automation Studio",
-    tags: ["Rules + ML", "Workflows", "Human-in-the-Loop"],
+    id: "training",
+    title: "AI Consulting",
+    tags: ["Readiness Audits", "Roadmap Planning", "Risk Mitigation", "Governance"],
     description:
-      "Deploy intelligent, governed decisions using hybrid rules + machine learning systems—complete with approval loops, monitoring, and auditability.",
-    icon: (
-      <>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </>
-    ),
-  },
-  {
-    id: "domain-intelligence",
-    title: "Domain Intelligence Packs",
-    tags: ["Prebuilt Industry Assets", "KPIs", "Accelerators"],
-    description:
-      "Jumpstart deployments with pre-configured analytics templates, domain-specific KPIs, and ready-made intelligence packs for industry verticals.",
+      "Future-proof your business with AI-first strategies. We provide readiness audits and deliver comprehensive roadmaps.",
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
       />
     ),
   },
@@ -236,13 +213,13 @@ const PlatformStudios = () => {
         <AnimatedSection>
           <SectionHeading
             badge="Our Services"
-            title="Coxara CoreSight"
-            highlight="Platform Studios"
-            description="A comprehensive suite of intelligent studios designed to accelerate your data journey from raw inputs to automated decisions."
+            title="Core Enterprise"
+            highlight="AI Services"
+            description="A comprehensive suite of intelligent solutions designed to accelerate your data journey from raw inputs to automated decisions."
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16">
           {studios.map((studio, index) => (
             <AnimatedSection key={studio.id} delay={index * 0.1}>
               <FlipCard studio={studio} isTouchDevice={isTouchDevice} />
