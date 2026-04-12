@@ -23,24 +23,20 @@ export const footerData = {
   services: {
     title: "Services",
     links: [
-      { label: "AI Strategy & Governance", path: "/services#gen-ai" },
-      {
-        label: "Advanced Predictive Analytics",
-        path: "/services#data-science",
-      },
-      { label: "Real-time Analytics", path: "/services#engineering" },
-      { label: "Enterprise Training", path: "/services#training" },
-      { label: "Data Science Consulting", path: "/services#data-science" },
+      { label: "Custom AI Development", path: "/services#engineering" },
+      { label: "Generative AI", path: "/services#gen-ai" },
+      { label: "Advanced Machine Learning", path: "/services#data-science" },
+      { label: "AI Consulting", path: "/services#training" },
     ],
   },
   solutions: {
-    title: "Solutions",
+    title: "Platforms",
     links: [
-      { label: "Supply Chain Analytics", path: "/solutions" },
-      { label: "Financial Analytics", path: "/solutions" },
-      { label: "HR Analytics", path: "/solutions" },
-      { label: "Marketing Analytics", path: "/solutions" },
-      { label: "Risk Analytics", path: "/solutions" },
+      { label: "Data Studio", path: "/products#data-studio" },
+      { label: "Experimentation Studio", path: "/products#experimentation-studio" },
+      { label: "Forecasting Studio", path: "/products#forecasting-studio" },
+      { label: "Decision Automation", path: "/products#decision-automation" },
+      { label: "Domain Intelligence", path: "/products#domain-intelligence" },
     ],
   },
 };
