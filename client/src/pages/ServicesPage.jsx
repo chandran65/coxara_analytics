@@ -8,15 +8,15 @@ const services = [
   {
     id: "engineering",
     num: "01",
-    title: "Engineering Services",
+    title: "Custom AI Development",
     description:
-      "Build robust, scalable, and high-performance software solutions. From full-stack development to cloud architecture, we engineer systems that drive business success.",
+      "Build scalable, compliant AI solutions with custom foundation models and generative features designed specifically for your enterprise workflows.",
     benefits: [
-      "Custom software and application development",
-      "Cloud infrastructure and migration (AWS, Azure, GCP)",
-      "Microservices architecture and API design",
-      "Legacy system modernization",
-      "DevOps and CI/CD automation",
+      "Custom foundation model fine-tuning",
+      "Enterprise-grade security and compliance",
+      "Generative features integration at scale",
+      "End-to-end AI pipeline architecture",
+      "Seamless legacy system modernization",
     ],
     icon: (
       <path
@@ -32,15 +32,15 @@ const services = [
   {
     id: "gen-ai",
     num: "02",
-    title: "Generative AI and Innovation",
+    title: "Generative AI",
     description:
-      "Harness the power of Generative AI to revolutionize your business. We help you implement LLMs, RAG pipelines, and AI agents to automate workflows and create new value.",
+      "Solve complex business problems using the power of AI—trained directly on your company's proprietary data. Accelerate creation using data-driven intelligence.",
     benefits: [
-      "Custom LLM fine-tuning and deployment",
-      "RAG (Retrieval-Augmented Generation) implementation",
-      "AI agent development for process automation",
-      "Generative design and content creation tools",
-      "AI strategy and innovation workshops",
+      "Automated report and creative content generation",
+      "Knowledge discovery and document analysis",
+      "Retrieval-Augmented Generation (RAG) pipelines",
+      "Natural language business assistants",
+      "Automated design and workflow orchestration",
     ],
     icon: (
       <path
@@ -56,15 +56,15 @@ const services = [
   {
     id: "data-science",
     num: "03",
-    title: "Data Science Consulting",
+    title: "Advanced Machine Learning",
     description:
-      "Transform your data into a strategic asset. Our expert consultants help you navigate the complexities of data analytics, from strategy formulation to model deployment.",
+      "Transform petabytes of raw data into strategic assets through precise predictive and prescriptive analytics tuned for your specific industry.",
     benefits: [
-      "Data strategy and roadmap development",
-      "Advanced predictive modeling and forecasting",
-      "Customer segmentation and behavior analysis",
-      "Marketing mix modeling (MMM) and attribution",
-      "Data governance and quality assurance",
+      "Predictive diagnosis and patient analytics",
+      "Demand forecasting and trend prediction",
+      "Smart automation for financial workflows",
+      "Real-time pattern recognition and anomaly detection",
+      "Risk forecasting and fraud detection",
     ],
     icon: (
       <path
@@ -80,15 +80,15 @@ const services = [
   {
     id: "training",
     num: "04",
-    title: "Enterprise Learning Program",
+    title: "AI Consulting",
     description:
-      "Empower your workforce and students with cutting-edge skills. We provide comprehensive training programs in data science, AI, and engineering tailored to your needs.",
+      "Future-proof your business with AI-first strategies. We provide readiness audits, identify high-value use cases, and deliver comprehensive roadmaps for transformation.",
     benefits: [
-      "Customized corporate upskilling programs",
-      "Hands-on workshops for AI and Machine Learning",
-      "Executive training on Data & AI strategy",
-      "Academic curriculum development and delivery",
-      "Mentorship and project-based learning",
+      "Enterprise AI readiness audits and workshops",
+      "High-value AI use case identification",
+      "Data strategy and infrastructure planning",
+      "Change management and technical upskilling",
+      "Risk mitigation and AI governance frameworks",
     ],
     icon: (
       <path
