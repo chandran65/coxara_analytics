@@ -2,13 +2,68 @@ export const navigationData = [
   {
     title: "About",
     path: "/company/about",
+    items: [
+      { label: "Company", isHeader: true },
+      {
+        label: "About Us",
+        path: "/company/about",
+        description: "Our mission, vision, and core values",
+        icon: "strategy", // placeholder icon
+      },
+      {
+        label: "Meet Our People",
+        path: "/company/team",
+        description: "The leadership team and experts behind Coxara",
+        icon: "agent",
+      },
+      {
+        label: "Careers",
+        path: "/company/careers",
+        description: "Join our team of data and AI innovators",
+        icon: "trendup",
+      },
+    ],
   },
   {
-    title: "Meet Our People",
-    path: "/company/team",
+    title: "Products",
+    path: "/products",
+    items: [
+      { label: "Data & Modeling", isHeader: true },
+      {
+        label: "Data Studio",
+        path: "/products#data-studio",
+        description: "End-to-end pipelines, modeling & governance",
+        icon: "database",
+      },
+      {
+        label: "Domain Intelligence Packs",
+        path: "/products#domain-intelligence",
+        description: "Pre-built industry analytics & KPIs",
+        icon: "cube",
+      },
+      { label: "Experimentation & Planning", isHeader: true },
+      {
+        label: "Experimentation Studio",
+        path: "/products#experimentation-studio",
+        description: "A/B testing, causal inference & uplift",
+        icon: "beaker",
+      },
+      {
+        label: "Forecasting & Planning Studio",
+        path: "/products#forecasting-studio",
+        description: "ML-powered forecasts & scenario planning",
+        icon: "trendup",
+      },
+      {
+        label: "Decision Automation Studio",
+        path: "/products#decision-automation",
+        description: "Hybrid rules + ML decision engine",
+        icon: "cog",
+      },
+    ],
   },
   {
-    title: "Analytical Services",
+    title: "Services",
     path: "/services",
     items: [
       { label: "AI Services", isHeader: true },
@@ -58,49 +113,11 @@ export const navigationData = [
     ],
   },
   {
-    title: "Products",
-    path: "/products",
-    items: [
-      { label: "Data & Modeling", isHeader: true },
-      {
-        label: "Data Studio",
-        path: "/products#data-studio",
-        description: "End-to-end pipelines, modeling & governance",
-        icon: "database",
-      },
-      {
-        label: "Domain Intelligence Packs",
-        path: "/products#domain-intelligence",
-        description: "Pre-built industry analytics & KPIs",
-        icon: "cube",
-      },
-      { label: "Experimentation & Planning", isHeader: true },
-      {
-        label: "Experimentation Studio",
-        path: "/products#experimentation-studio",
-        description: "A/B testing, causal inference & uplift",
-        icon: "beaker",
-      },
-      {
-        label: "Forecasting & Planning Studio",
-        path: "/products#forecasting-studio",
-        description: "ML-powered forecasts & scenario planning",
-        icon: "trendup",
-      },
-      {
-        label: "Decision Automation Studio",
-        path: "/products#decision-automation",
-        description: "Hybrid rules + ML decision engine",
-        icon: "cog",
-      },
-    ],
-  },
-  {
-    title: "Resources",
+    title: "Resource Hub",
     path: "/resources",
   },
   {
-    title: "Contact",
+    title: "Contact Us",
     path: "/company/contact",
   },
 ];

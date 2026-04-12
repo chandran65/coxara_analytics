@@ -2,6 +2,41 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 /* ══════════════════════════════════════════════════════════════════
+   Animated Background Elements
+   ═══════════════════════════════════════════════════════════════════ */
+const FloatingGrid = () => (
+  <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
+    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+      {Array.from({ length: 15 }, (_, i) => {
+        // Pseudo-random but deterministic based on index for rendering
+        const x = 5 + (i * 7) % 90;
+        const y = 5 + (i * 11) % 90;
+        return (
+          <motion.circle
+            key={i}
+            cx={`${x}%`}
+            cy={`${y}%`}
+            r={1.5 + (i % 3)}
+            fill="#7C3AED"
+            initial={{ opacity: 0.15 }}
+            animate={{
+              opacity: [0.1, 0.4, 0.1],
+              cy: [`${y}%`, `${y - 3}%`, `${y}%`],
+            }}
+            transition={{
+              duration: 4 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut",
+            }}
+          />
+        );
+      })}
+    </svg>
+  </div>
+);
+
+/* ══════════════════════════════════════════════════════════════════
    Premium Data-Intelligence Network Visual
    ═══════════════════════════════════════════════════════════════════ */
 const HeroVisual = () => {
@@ -579,7 +614,28 @@ const HeroSection = ({ isActive = true }) => {
   return (
     <section
       className="relative w-full min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary-50/30 to-white"
-    >  {/* Subtle dot pattern */}
+    >
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-[-10%] right-[10%] w-[40vw] h-[40vw] bg-brand-purple/[0.08] rounded-full blur-[100px] pointer-events-none"
+        animate={{
+          x: [0, 50, 0, -50, 0],
+          y: [0, 30, -30, 0, 0],
+          scale: [1, 1.1, 0.9, 1.1, 1],
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] bg-brand-accent/[0.06] rounded-full blur-[90px] pointer-events-none"
+        animate={{
+          x: [0, -40, 0, 40, 0],
+          y: [0, -40, 40, 0, 0],
+          scale: [1, 1.15, 0.95, 1.05, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.018] pointer-events-none"
         style={{
@@ -589,9 +645,30 @@ const HeroSection = ({ isActive = true }) => {
         }}
       />
 
-      {/* Soft decorative blurs */}
-      <div className="absolute top-[-10%] right-[-5%] w-80 h-80 bg-brand-purple/[0.05] rounded-full blur-[60px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-5%] w-72 h-72 bg-brand-accent/[0.04] rounded-full blur-[50px] pointer-events-none" />
+      <FloatingGrid />
+
+      {/* Floating geometry */}
+      <div className="hidden sm:block absolute inset-0 pointer-events-none">
+        <motion.div
+          className="absolute top-[20%] left-[5%] w-32 h-32 border border-brand-purple/10 rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute top-[20%] left-[5%] w-32 h-32 border border-brand-accent/8 rounded-full"
+          style={{ borderStyle: "dashed" }}
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute bottom-[20%] right-[40%] w-16 h-16 border border-brand-purple/10 rotate-45 rounded-sm"
+          animate={{ rotate: [45, 405], scale: [1, 1.1, 1] }}
+          transition={{
+            rotate: { duration: 35, repeat: Infinity, ease: "linear" },
+            scale: { duration: 8, repeat: Infinity },
+          }}
+        />
+      </div>
 
       <div className="container-custom relative z-10 pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -605,7 +682,7 @@ const HeroSection = ({ isActive = true }) => {
             >
               <span className="badge">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-                AI-Native Consulting
+                AI-Powered Platform
               </span>
             </motion.div>
 
@@ -614,7 +691,7 @@ const HeroSection = ({ isActive = true }) => {
               animate="visible"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-6 sm:mb-7 tracking-tight"
             >
-              {["Solving", "complex"].map((word, i) => (
+              {["Modernize", "systems,"].map((word, i) => (
                 <motion.span
                   key={i}
                   className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
@@ -637,7 +714,7 @@ const HeroSection = ({ isActive = true }) => {
                 </motion.span>
               ))}
               <br className="hidden sm:block" />
-              {["business", "problems"].map((word, i) => (
+              {["automate", "operations"].map((word, i) => (
                 <motion.span
                   key={i}
                   className="inline-block mr-[0.3em] hover:text-brand-purple transition-colors duration-300 cursor-default"
@@ -677,7 +754,7 @@ const HeroSection = ({ isActive = true }) => {
                 }}
                 whileHover={{ scale: 1.05, y: -2 }}
               >
-                with
+                and
               </motion.span>{" "}
               <motion.span
                 className="relative inline-block"
@@ -696,11 +773,11 @@ const HeroSection = ({ isActive = true }) => {
                 }}
               >
                 <motion.span
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default"
-                  whileHover={{ scale: 1.08 }}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent cursor-default pb-1.5"
+                  whileHover={{ scale: 1.05 }}
                   style={{ display: "inline-block" }}
                 >
-                  Data and AI
+                  activate data 2X faster
                 </motion.span>
                 <motion.span
                   className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-purple/0 via-brand-purple to-brand-purple/0 rounded-full"
@@ -717,9 +794,7 @@ const HeroSection = ({ isActive = true }) => {
               transition={{ duration: 0.8, delay: 0.25 }}
               className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
-              We are an AI-native consulting firm helping enterprises build
-              intelligent systems, automate decisions, and drive measurable
-              value at scale.
+              Empower your enterprise with AI-driven automation, AIOps, and edge intelligence. Transform business operations with scalable, secure AI-first solutions.
             </motion.p>
 
             <motion.div
@@ -733,7 +808,7 @@ const HeroSection = ({ isActive = true }) => {
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Start Your Journey</span>
+                <span className="relative z-10">Explore Platform</span>
                 <svg
                   className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
                   fill="none"

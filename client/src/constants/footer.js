@@ -4,9 +4,11 @@ export const footerData = {
     links: [
       { label: "About", path: "/company/about" },
       { label: "Meet Our People", path: "/company/team" },
-      { label: "Analytical Services", path: "/services" },
-      { label: "Resources", path: "/resources" },
-      { label: "Contact", path: "/company/contact" },
+      { label: "Careers", path: "/company/careers" },
+      { label: "Products", path: "/products" },
+      { label: "Services", path: "/services" },
+      { label: "Resource Hub", path: "/resources" },
+      { label: "Contact Us", path: "/company/contact" },
     ],
   },
   industries: {
