@@ -689,7 +689,7 @@ const HeroSection = ({ isActive = true }) => {
             <motion.h1
               initial="hidden"
               animate="visible"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-display font-bold text-secondary-900 leading-[1.08] mb-6 sm:mb-7 tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-display font-light text-secondary-900 leading-[1.1] mb-6 sm:mb-8 tracking-wide"
             >
               {["Modernize", "systems,"].map((word, i) => (
                 <motion.span
