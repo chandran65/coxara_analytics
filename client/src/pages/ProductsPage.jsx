@@ -8,16 +8,15 @@ const products = [
   {
     id: "data-studio",
     num: "01",
-    title: "Data Studio",
-    subtitle: "Connect · Prepare · Model · Govern",
+    title: "From Answers to Decisions",
+    subtitle: "Actionable Insights · Context-Aware",
     description:
-      "Unify your data foundations with end-to-end pipelines, intelligent modeling frameworks, enterprise-quality governance, and accelerated data activation.",
+      "CoreSight doesn't just answer questions - it drives decisions. Go beyond “what happened” to why it happened and what to do next. Designed for leaders who need clarity, not queries.",
     features: [
-      "End-to-end data pipeline orchestration",
-      "Intelligent data modeling frameworks",
-      "Enterprise-grade data governance",
-      "Automated data quality monitoring",
-      "Accelerated data activation & cataloging",
+      "Context-aware reasoning layer",
+      "Understands complex business logic",
+      "No manual SQL or data prep required",
+      "Multi-step analytical queries",
     ],
     icon: (
       <path
@@ -33,16 +32,15 @@ const products = [
   {
     id: "experimentation-studio",
     num: "02",
-    title: "Experimentation Studio",
-    subtitle: "A/B Testing · Causal Inference · Uplift Modeling",
+    title: "Built for Business Context",
+    subtitle: "Custom Models · Semantic AI",
     description:
-      "Run experiments at scale, quantify true causal impact, and optimize product and business decisions with scientifically grounded uplift frameworks.",
+      "CoreSight speaks your business language, not generic AI responses. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
     features: [
-      "Multi-variant A/B testing engine",
-      "Causal inference & counterfactual analysis",
-      "Uplift modeling for targeted interventions",
-      "Bayesian optimization for experiment design",
-      "Real-time experiment monitoring dashboards",
+      "Dedicated Context Layer",
+      "Captures custom business rules",
+      "Continuously learns from enterprise data",
+      "Eliminates metric ambiguity",
     ],
     icon: (
       <path
@@ -58,16 +56,15 @@ const products = [
   {
     id: "forecasting-studio",
     num: "03",
-    title: "Forecasting & Planning Studio",
-    subtitle: "Demand · Supply · Scenario Planning · Budgeting",
+    title: "Data Backed Insights",
+    subtitle: "Verifiable · Traceable · Auditable",
     description:
-      "Deliver highly accurate forecasts, simulate multi-scenario outcomes, and streamline planning cycles across demand, supply, and financial workflows.",
+      "Confidently present AI-driven insights in leadership meetings. No black-box answers. No hallucinated numbers - only verifiable results backed by traceable data logic.",
     features: [
-      "ML-powered demand & supply forecasting",
-      "Multi-scenario simulation engine",
-      "Automated budget planning workflows",
-      "Seasonal pattern recognition",
-      "Collaborative planning dashboards",
+      "Direct querying of live data",
+      "No data replication or duplication",
+      "Deterministic analytics",
+      "End-to-end data lineage",
     ],
     icon: (
       <path
@@ -83,16 +80,15 @@ const products = [
   {
     id: "decision-automation",
     num: "04",
-    title: "Decision Automation Studio",
-    subtitle: "Rules + ML · Workflows · Human-in-the-Loop",
+    title: "Proactive Intelligence",
+    subtitle: "Anomaly Detection · Foresight",
     description:
-      "Deploy intelligent, governed decisions using hybrid rules + machine learning systems—complete with approval loops, monitoring, and auditability.",
+      "CoreSight surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes to move from hindsight to foresight.",
     features: [
-      "Hybrid rules + ML decision engine",
-      "Human-in-the-loop approval workflows",
-      "Real-time decision monitoring & audit trails",
-      "Low-code workflow builder",
-      "A/B testing for decision policies",
+      "Embedded anomaly detection",
+      "Trend analysis across enterprise KPIs",
+      "Insight-driven dashboards",
+      "Automated alerts for emerging risks",
     ],
     icon: (
       <>
@@ -116,16 +112,15 @@ const products = [
   {
     id: "domain-intelligence",
     num: "05",
-    title: "Domain Intelligence Packs",
-    subtitle: "Prebuilt Industry Assets · KPIs · Accelerators",
+    title: "Enterprise-Ready by Design",
+    subtitle: "Secure · Scalable · Compliant",
     description:
-      "Jumpstart deployments with pre-configured analytics templates, domain-specific KPIs, and ready-made intelligence packs for industry verticals.",
+      "CoreSight integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
     features: [
-      "Pre-configured industry analytics templates",
-      "Domain-specific KPI libraries",
-      "Ready-made intelligence packs",
-      "Customizable accelerator frameworks",
-      "Plug-and-play data connectors",
+      "Secure, permission-aware data access",
+      "Role-based access controls",
+      "Enterprise-grade performance",
+      "Deploy on Cloud, on-prem, or hybrid",
     ],
     icon: (
       <path
@@ -150,8 +145,8 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Nexira OS", "Platform", "Studios"];
-  const specialWords = ["Nexira OS"];
+  const words = ["Coxara", "CoreSight", "Enterprise", "Co-Pilot"];
+  const specialWords = ["CoreSight"];
 
   return (
     <section
@@ -252,7 +247,7 @@ const ProductsHero = () => {
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              Product Suite
+              Enterprise AI
             </span>
           </motion.div>
 
@@ -285,8 +280,7 @@ const ProductsHero = () => {
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
-            A comprehensive suite of intelligent studios designed to accelerate
-            your data journey—from raw inputs to automated decisions.
+            Say goodbye to fragmented tools and data guesswork. CoreSight is Coxara's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
           </motion.p>
 
           {/* Decorative divider */}
@@ -346,7 +340,7 @@ const DataStudioVisual = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
         <span className="text-[10px] text-slate-500 ml-2 font-mono">
-          nexira-etl-monitor
+          coresight-context-bridge
         </span>
         <span className="ml-auto text-[9px] font-mono text-emerald-400 flex items-center gap-1">
           <motion.div
@@ -368,7 +362,7 @@ const DataStudioVisual = () => {
           transition={{ delay: 0.1 }}
           className="mb-3 text-slate-600"
         >
-          <span className="text-violet-400">$</span> nexira pipeline status --live
+          <span className="text-violet-400">$</span> coresight data status --live
         </motion.div>
 
         {/* table header */}
@@ -1259,13 +1253,13 @@ const OverviewStrip = () => {
         >
           <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              Complete Suite
+              AI Co-Pilot
             </span>
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900">
-            Five Studios of{" "}
+            The Enterprise AI{" "}
             <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
-              Intelligence
+              Co-Pilot
             </span>
           </h2>
         </motion.div>
@@ -1374,7 +1368,7 @@ const CTASection = () => (
             Ready to Transform Your Data Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Explore how Nexira OS Platform Studios can accelerate your analytics
+            Explore how Coxara CoreSight can accelerate your analytics
             from raw data to automated, intelligent decisions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
