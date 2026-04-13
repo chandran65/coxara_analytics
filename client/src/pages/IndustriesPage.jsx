@@ -21,9 +21,9 @@ const IndustriesPage = () => {
           <span className="gradient-text">Industries</span>
         </h1>
         <p className="text-xl text-secondary-600 leading-relaxed max-w-2xl mx-auto mb-8">
-          Explore our tailored solutions across Retail, Healthcare, Banking, and
-          more. This section is currently being updated with our latest case
-          studies and vertical-specific offerings.
+          Explore our tailored solutions across Retail & FMCG, Hospitality,
+          Healthcare, and Banking. This section is currently being updated with
+          our latest case studies and vertical-specific offerings.
         </p>
         <div className="inline-block px-6 py-3 bg-brand-purple/10 text-brand-purple font-semibold rounded-lg border border-brand-purple/20">
           🚀 Coming Soon

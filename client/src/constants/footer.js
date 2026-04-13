@@ -29,7 +29,7 @@ export const footerData = {
     ],
   },
   solutions: {
-    title: "Platforms",
+    title: "Products",
     links: [
       { label: "Data Studio", path: "/products#data-studio" },
       { label: "Experimentation Studio", path: "/products#experimentation-studio" },

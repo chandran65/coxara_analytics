@@ -680,7 +680,7 @@ const HeroSection = ({ isActive = true }) => {
             >
               <span className="badge">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-                AI-Powered Platform
+                AI-Powered Intelligence
               </span>
             </motion.div>
 

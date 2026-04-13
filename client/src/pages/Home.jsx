@@ -8,7 +8,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 import IndustriesSection from "../components/home/IndustriesSection";
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
 import MissionVisionSection from "../components/home/MissionVisionSection";
-import PlatformStudios from "../components/home/PlatformStudios";
+import ProductStudios from "../components/home/ProductStudios";
 import ResourcesSection from "../components/home/ResourcesSection";
 import { AnimatedSection, SectionHeading } from "../components/ui";
 
@@ -48,8 +48,8 @@ const Home = () => {
         {/* Product Section */}
         <ProductSection />
 
-        {/* Platform Studios (Services) */}
-        <PlatformStudios />
+        {/* Product Studios Grid */}
+        <ProductStudios />
 
         {/* Featured Case Study */}
         <FeaturedCaseStudy />

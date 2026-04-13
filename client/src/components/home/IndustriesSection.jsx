@@ -79,23 +79,9 @@ const IndustriesSection = () => {
   const industries = [
     {
       id: 1,
-      title: "CPG (Consumer Packaged Goods)",
+      title: "Retail & FMCG",
       description:
-        "Optimize supply chains, predict demand, and enhance brand loyalty with data-driven insights.",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-        />
-      ),
-    },
-    {
-      id: 2,
-      title: "Retail",
-      description:
-        "Personalize customer experiences, optimize inventory, and drive sales through advanced retail analytics.",
+        "Optimize supply chains, predict demand, and enhance brand loyalty with data-driven insights tailored for consumer markets.",
       icon: (
         <path
           strokeLinecap="round"
@@ -106,10 +92,24 @@ const IndustriesSection = () => {
       ),
     },
     {
-      id: 3,
-      title: "Pharma & Life Sciences",
+      id: 2,
+      title: "Hospitality",
       description:
-        "Accelerate drug discovery, optimize clinical trials, and improve patient outcomes with AI and analytics.",
+        "Enhance guest experiences and operational efficiency through advanced demand forecasting and personalized services.",
+      icon: (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+        />
+      ),
+    },
+    {
+      id: 3,
+      title: "Healthcare",
+      description:
+        "Accelerate clinical diagnostics, optimize patient care, and improve outcomes with AI-driven research and analytics.",
       icon: (
         <path
           strokeLinecap="round"
@@ -121,43 +121,15 @@ const IndustriesSection = () => {
     },
     {
       id: 4,
-      title: "Automotive",
+      title: "Banking",
       description:
-        "Drive innovation in autonomous driving, predictive maintenance, and smart manufacturing.",
+        "Strengthen security, optimize portfolios, and personalize financial services with proactive, enterprise-grade intelligence.",
       icon: (
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-        />
-      ),
-    },
-    {
-      id: 5,
-      title: "Manufacturing",
-      description:
-        "Enhance operational efficiency, reduce downtime, and ensure quality with Industry 4.0 solutions.",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        />
-      ),
-    },
-    {
-      id: 6,
-      title: "Education",
-      description:
-        "Transform learning experiences and administrative efficiency with data-driven educational technologies.",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 14l9-5-9-5-9 5 9 5z"
+          d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
         />
       ),
     },

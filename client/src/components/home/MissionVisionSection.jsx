@@ -128,7 +128,7 @@ const MissionVisionSection = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   To become the most trusted autonomous decision intelligence
-                  platform enabling real-time, optimized business outcomes.
+                  ecosystem enabling real-time, optimized business outcomes.
                 </motion.p>
               </div>
 
