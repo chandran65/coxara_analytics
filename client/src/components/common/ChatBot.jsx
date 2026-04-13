@@ -9,7 +9,7 @@ const BOT_KNOWLEDGE = [
       "Hello! 👋 Welcome to COXARA Analytics! I'm your AI assistant. I can help you learn about our data analytics services, solutions, industries we serve, and much more. What would you like to know?",
   },
   {
-    keywords: ["what", "who", "about", "coxara", "company", "tell", "overview"],
+    keywords: ["who are you", "what is coxara", "about coxara", "tell me about coxara", "company overview", "coxara analytics"],
     answer:
       "COXARA Analytics is a cutting-edge data intelligence platform specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
   },
@@ -24,9 +24,14 @@ const BOT_KNOWLEDGE = [
       "COXARA Analytics serves multiple industries:\n\n• 🏭 Manufacturing & Industry 4.0\n• 🏥 Healthcare & Life Sciences\n• 💰 BFSI (Banking, Finance & Insurance)\n• 🛒 Retail & E-Commerce\n• 🚚 Supply Chain & Logistics\n• ⚡ Energy & Utilities\n\nWe tailor analytics solutions to each sector's unique challenges.",
   },
   {
-    keywords: ["solution", "platform", "product", "tool"],
+    keywords: ["product", "coresight", "core sight", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
     answer:
-      "We offer several AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Want me to connect you with our team for a personalized demo?",
+      "Our flagship product is **COXARA CoreSight** — your Enterprise AI Co-Pilot! 🚀\n\nCoresight lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see CoreSight in action? Request a demo!",
+  },
+  {
+    keywords: ["solution", "platform", "tool", "offer", "what do you build"],
+    answer:
+      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **COXARA CoreSight** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
   },
   {
     keywords: ["contact", "reach", "email", "phone", "touch", "talk", "speak", "demo", "meet"],
