@@ -318,81 +318,98 @@ const BlogCard = ({ post, index }) => {
 };
 
 /* ─── Main Resources Page ─── */
+import { useState } from "react";
+
 const ResourcesPage = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const categories = [
+    "All",
+    "Case Studies",
+    "Resources",
+    "Webinars",
+    "Whitepapers",
+  ];
+
   const blogPosts = [
     {
       id: 1,
-      title: "Getting Started with Data Analytics: A Beginner's Guide",
-      category: "Tutorial",
+      title: "Optimizing Retail Chains: A Predictive Inventory Case Study",
+      category: "Case Studies",
       date: "November 5, 2025",
-      readTime: "8 min read",
+      readTime: "12 min read",
       excerpt:
-        "Learn the fundamentals of data analytics and how to leverage data for better business decisions. This comprehensive guide covers key concepts, tools, and best practices.",
-      author: "Data Analytics Team",
+        "How a leading retail brand reduced stockouts by 40% using COXARA's forecasting engine. Real data, real results, and actionable takeaways.",
+      author: "Analytics Team",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     },
     {
       id: 2,
-      title: "5 Key Performance Indicators Every Business Should Track",
-      category: "Best Practices",
+      title: "The 2026 Enterprise AI Readiness Framework",
+      category: "Whitepapers",
       date: "November 1, 2025",
-      readTime: "6 min read",
+      readTime: "25 min read",
       excerpt:
-        "Discover the essential KPIs that provide insights into your business health and performance. Learn how to measure, monitor, and optimize these critical metrics.",
-      author: "Business Intelligence Team",
+        "A comprehensive guide for CDOs on preparing data infrastructure for large-scale Generative AI deployment. Security, ethics, and scale.",
+      author: "Strategy Team",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     },
     {
       id: 3,
-      title: "The Future of AI in Business Analytics",
-      category: "Industry Insights",
+      title: "Webinar: Bridging the Gap Between Data and Decisions",
+      category: "Webinars",
       date: "October 28, 2025",
-      readTime: "10 min read",
+      readTime: "45 min watch",
       excerpt:
-        "Explore how artificial intelligence is revolutionizing business analytics. From predictive modeling to automated insights, discover what's next in AI-powered analytics.",
-      author: "Research Team",
+        "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions every day.",
+      author: "CoreSight Experts",
       image:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     },
     {
       id: 4,
-      title: "Customer Segmentation Strategies That Actually Work",
-      category: "Case Study",
+      title: "Data Visualization Toolkit for Executives",
+      category: "Resources",
       date: "October 25, 2025",
-      readTime: "7 min read",
+      readTime: "Downloaded 2k+ times",
       excerpt:
-        "Real-world examples of successful customer segmentation strategies. Learn how leading companies use data to understand and serve their customers better.",
-      author: "Marketing Analytics Team",
+        "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting and board meetings.",
+      author: "UX Team",
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
     },
     {
       id: 5,
-      title: "Building an Effective Dashboard: Design Principles",
-      category: "Tutorial",
+      title: "Healthcare Efficiency: Reducing Patient Wait Times with AI",
+      category: "Case Studies",
       date: "October 22, 2025",
       readTime: "9 min read",
       excerpt:
-        "Master the art of dashboard design with proven principles and techniques. Create visualizations that inform, engage, and drive action.",
-      author: "UX & Analytics Team",
+        "Discover how hospital networks use flow analytics to predict patient inflow and optimize staffing schedules in real-time.",
+      author: "Healthcare Team",
       image:
         "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
     },
     {
       id: 6,
-      title: "Data Privacy and Security in Analytics: What You Need to Know",
-      category: "Compliance",
+      title: "The Ethics of Autonomous Decision Systems",
+      category: "Whitepapers",
       date: "October 18, 2025",
-      readTime: "11 min read",
+      readTime: "18 min read",
       excerpt:
-        "Navigate the complex landscape of data privacy regulations. Learn best practices for maintaining security while leveraging analytics.",
+        "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
       author: "Compliance Team",
       image:
         "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
     },
   ];
+
+  const filteredPosts =
+    activeCategory === "All"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === activeCategory);
 
   return (
     <div className="min-h-screen">
@@ -401,9 +418,8 @@ const ResourcesPage = () => {
 
       {/* Main Content */}
       <div id="page-content">
-        {/* ─── Filter + Featured ─── */}
+        {/* ─── Filter + Blog Grid ─── */}
         <section className="glass-section py-16 sm:py-24 md:py-32">
-
           <div className="container-custom relative z-10">
             {/* Section header */}
             <motion.div
@@ -411,7 +427,7 @@ const ResourcesPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-14"
+              className="text-center mb-10"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -421,27 +437,53 @@ const ResourcesPage = () => {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-purple" />
                 <span className="text-xs font-bold text-brand-purple uppercase tracking-wider">
-                  Latest Articles
+                  Knowledge Hub
                 </span>
               </motion.div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900 mb-4">
-                Learn &{" "}
+                Explore Our{" "}
                 <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
-                  Grow
-                </span>{" "}
-                with Us
+                  Knowledge
+                </span>
               </h2>
-              <p className="text-secondary-500 text-lg max-w-2xl mx-auto">
-                Stay ahead with the latest trends, best practices, and expert
-                perspectives in data analytics.
-              </p>
+            </motion.div>
+
+            {/* Filter Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-2 mb-16"
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
+                    activeCategory === cat
+                      ? "bg-brand-purple text-white border-brand-purple shadow-lg shadow-brand-purple/20 scale-105"
+                      : "bg-white text-secondary-500 border-secondary-100 hover:border-brand-purple/30 hover:text-brand-purple"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </motion.div>
 
             {/* Blog grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-              {blogPosts.map((post, i) => (
-                <BlogCard key={post.id} post={post} index={i} />
-              ))}
+              {filteredPosts.length > 0 ? (
+                filteredPosts.map((post, i) => (
+                  <BlogCard key={post.id} post={post} index={i} />
+                ))
+              ) : (
+                <div className="col-span-full py-20 text-center">
+                  <p className="text-secondary-400">
+                    No resources found in this category yet.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </section>
