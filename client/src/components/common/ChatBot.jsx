@@ -337,7 +337,7 @@ export default function ChatBot() {
               transition={{ delay: 0.5 }}
               className="absolute right-16 bottom-3 bg-white rounded-xl shadow-lg shadow-secondary-200/40 border border-secondary-100 px-3 py-2 text-xs text-secondary-700 font-medium whitespace-nowrap pointer-events-none"
             >
-              Chat with Cova ✨
+              Chat with Yukti ✨
               <span className="absolute right-[-6px] top-1/2 -translate-y-1/2 border-y-[6px] border-y-transparent border-l-[6px] border-l-white" />
             </motion.div>
           )}

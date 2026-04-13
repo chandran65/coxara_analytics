@@ -14,7 +14,7 @@ import { AnimatedSection, SectionHeading } from "../components/ui";
 
 const Home = () => {
   const navigate = useNavigate();
-    const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
   const [heroActive, setHeroActive] = useState(true);
   useEffect(() => {
     const onScroll = () => {
@@ -31,8 +31,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-{/* Hero Section — sticky on desktop only; static on mobile to prevent scroll jank */}
-        <div className={isDesktop ? "sticky top-0 z-0" : "relative z-0"}>
+      {/* Hero Section — sticky on desktop only; static on mobile to prevent scroll jank */}
+      <div className={isDesktop ? "sticky top-0 z-0" : "relative z-0"}>
         <HeroSection isActive={heroActive} />
       </div>
 
@@ -41,11 +41,12 @@ const Home = () => {
         {/* About Section */}
         <AboutSection />
 
-        {/* Product Section */}
-        <ProductSection />
-
         {/* Mission & Vision */}
         <MissionVisionSection />
+
+
+        {/* Product Section */}
+        <ProductSection />
 
         {/* Platform Studios (Services) */}
         <PlatformStudios />
@@ -372,20 +373,20 @@ const Home = () => {
                                 (_, j) =>
                                   200 +
                                   rx *
-                                    Math.cos(
-                                      (j * 2 * Math.PI) / 36 +
-                                        (i * Math.PI) / 4,
-                                    ),
+                                  Math.cos(
+                                    (j * 2 * Math.PI) / 36 +
+                                    (i * Math.PI) / 4,
+                                  ),
                               ),
                               cy: Array.from(
                                 { length: 37 },
                                 (_, j) =>
                                   200 +
                                   ry *
-                                    Math.sin(
-                                      (j * 2 * Math.PI) / 36 +
-                                        (i * Math.PI) / 4,
-                                    ),
+                                  Math.sin(
+                                    (j * 2 * Math.PI) / 36 +
+                                    (i * Math.PI) / 4,
+                                  ),
                               ),
                             }}
                             transition={{
