@@ -9,7 +9,6 @@ import IndustriesSection from "../components/home/IndustriesSection";
 import CapabilitiesGrid from "../components/home/CapabilitiesGrid";
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
 import MissionVisionSection from "../components/home/MissionVisionSection";
-import ProductStudios from "../components/home/ProductStudios";
 import ResourcesSection from "../components/home/ResourcesSection";
 import { AnimatedSection, SectionHeading } from "../components/ui";
 
@@ -45,12 +44,8 @@ const Home = () => {
         {/* Mission & Vision */}
         <MissionVisionSection />
 
-
         {/* Product Section */}
         <ProductSection />
-
-        {/* Product Studios Grid */}
-        <ProductStudios />
 
         {/* Capabilities Grid */}
         <CapabilitiesGrid />
