@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useState, useEffect, useLayoutEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ChatBot from "../common/ChatBot";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -89,6 +90,7 @@ const Layout = () => {
       </main>
       <Footer />
       <ScrollToTop />
+      <ChatBot />
     </div>
   );
 };
