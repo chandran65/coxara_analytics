@@ -241,33 +241,64 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ── HubSpot CRM ─────────────────────────────────────────────────────
+  // After creating a FREE HubSpot account, replace these two values:
+  //   PORTAL_ID  → HubSpot Settings → Account Setup → Your Account
+  //   FORM_GUID  → HubSpot Marketing → Forms → your form → share URL
+  const HS_PORTAL = "245882390";
+  const HS_FORM   = "14cabc01-0de8-4d1f-8bf1-d6ebd5bce89c";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const [firstName, ...rest] = formData.name.trim().split(" ");
+    const lastName = rest.join(" ") || "";
+    let success = false;
+
+    // 1) HubSpot CRM — auto-creates Contact + notifies you
     try {
-      const res = await fetch("https://formspree.io/f/xvgozrvl", {
+      const hsRes = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields: [
+              { name: "firstname", value: firstName },
+              { name: "lastname",  value: lastName },
+              { name: "email",     value: formData.email },
+              { name: "phone",     value: formData.phone },
+              { name: "company",   value: formData.company },
+              { name: "message",   value: `Subject: ${formData.subject}\n\n${formData.message}` },
+            ],
+            context: {
+              pageUri: "https://www.coxara.co.in/company/contact",
+              pageName: "COXARA Analytics — Contact Page",
+            },
+          }),
+        }
+      );
+      if (hsRes.ok) success = true;
+    } catch { /* fall through */ }
+
+    // 2) Formspree — emails director@coxara.co.in as backup
+    try {
+      const fpRes = await fetch("https://formspree.io/f/xvgozrvl", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
-        }),
+        body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        alert("Something went wrong. Please email us directly at director@coxara.co.in");
-      }
-    } catch {
-      alert("Network error. Please email us directly at director@coxara.co.in");
-    } finally {
-      setIsSubmitting(false);
+      if (fpRes.ok) success = true;
+    } catch { /* ignore */ }
+
+    setIsSubmitting(false);
+    if (success) {
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
+      setTimeout(() => setSubmitted(false), 5000);
+    } else {
+      alert("Something went wrong. Please email us directly at director@coxara.co.in");
     }
   };
 
