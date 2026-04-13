@@ -241,14 +241,34 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://formspree.io/f/xvgozrvl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        alert("Something went wrong. Please email us directly at director@coxara.co.in");
+      }
+    } catch {
+      alert("Network error. Please email us directly at director@coxara.co.in");
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
-    }, 1500);
+    }
   };
 
   const inputClass = (field) =>
