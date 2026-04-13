@@ -187,7 +187,7 @@ const HeroSection = ({ isActive = true }) => {
     <section 
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full h-[110vh] max-h-[1080px] flex items-center overflow-hidden bg-[#fafafa]"
+      className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#fafafa] py-20"
     >
       {/* Premium Background Mesh */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -201,7 +201,7 @@ const HeroSection = ({ isActive = true }) => {
       {/* Main Layout Container */}
       <motion.div 
         style={{ opacity, scale }}
-        className="container-custom relative z-10 pt-20"
+        className="container-custom relative z-10 pt-16 pb-8 md:pt-20 md:pb-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Column */}
@@ -225,7 +225,7 @@ const HeroSection = ({ isActive = true }) => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.8rem] font-display font-light text-secondary-900 leading-[1.08] mb-10 tracking-tight"
+              className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[3.8rem] xl:text-[4.2rem] font-display font-light text-secondary-900 leading-[1.1] mb-10 tracking-tight"
             >
               Coxara:{" "}
               <span className="block font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-medium to-brand-accent mt-4">
@@ -275,21 +275,6 @@ const HeroSection = ({ isActive = true }) => {
                 Explore Products
               </button>
             </motion.div>
-
-            {/* Trusted by area hint */}
-            <motion.div 
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 0.8, duration: 1 }}
-               className="mt-16 pt-8 border-t border-secondary-100/60 max-w-lg"
-            >
-                <p className="text-[11px] font-bold text-secondary-400 uppercase tracking-widest mb-4">Enterprise Partners</p>
-                <div className="flex flex-wrap gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <span className="text-xl font-display font-bold text-secondary-900">RETAIL</span>
-                    <span className="text-xl font-display font-bold text-secondary-900">BFSI</span>
-                    <span className="text-xl font-display font-bold text-secondary-900">HIGH-TECH</span>
-                </div>
-            </motion.div>
           </motion.div>
 
           {/* Visual Column */}
@@ -306,23 +291,6 @@ const HeroSection = ({ isActive = true }) => {
 
       {/* Dynamic Floor Gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none z-20" />
-      
-      {/* Scroll Indicator */}
-      <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <div className="flex flex-col items-center gap-3">
-            <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-[0.2em]">Scroll to Discover</span>
-            <motion.div 
-                className="w-px h-12 bg-gradient-to-b from-brand-purple/60 to-transparent"
-                animate={{ height: [0, 48, 0], opacity: [0, 1, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-        </div>
-      </motion.div>
     </section>
   );
 };
