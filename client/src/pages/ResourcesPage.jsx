@@ -318,9 +318,12 @@ const BlogCard = ({ post, index }) => {
 };
 
 /* ─── Main Resources Page ─── */
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ResourcesPage = () => {
+  const { category } = useParams();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = [
@@ -330,6 +333,29 @@ const ResourcesPage = () => {
     "Webinars",
     "Whitepapers",
   ];
+
+  // Sync state with URL param
+  useEffect(() => {
+    if (category) {
+      // Convert slug back to Display Name (e.g. case-studies -> Case Studies)
+      const found = categories.find(
+        (c) => c.toLowerCase().replace(/\s+/g, "-") === category.toLowerCase()
+      );
+      if (found) {
+        setActiveCategory(found);
+      }
+    } else {
+      setActiveCategory("All");
+    }
+  }, [category]);
+
+  const handleCategoryChange = (cat) => {
+    if (cat === "All") {
+      navigate("/resources");
+    } else {
+      navigate(`/resources/${cat.toLowerCase().replace(/\s+/g, "-")}`);
+    }
+  };
 
   const blogPosts = [
     {
@@ -459,7 +485,7 @@ const ResourcesPage = () => {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => handleCategoryChange(cat)}
                   className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
                     activeCategory === cat
                       ? "bg-brand-purple text-white border-brand-purple shadow-lg shadow-brand-purple/20 scale-105"

@@ -85,6 +85,33 @@ export const navigationData = [
   {
     title: "Resource Hub",
     path: "/resources",
+    items: [
+      { label: "Our Content", isHeader: true },
+      {
+        label: "Case Studies",
+        path: "/resources/case-studies",
+        description: "Real-world success stories",
+        icon: "thought",
+      },
+      {
+        label: "Resources",
+        path: "/resources/resources",
+        description: "Tools and templates",
+        icon: "cube",
+      },
+      {
+        label: "Webinars",
+        path: "/resources/webinars",
+        description: "Video insights",
+        icon: "realtime",
+      },
+      {
+        label: "Whitepapers",
+        path: "/resources/whitepapers",
+        description: "Deep-dive guides",
+        icon: "report",
+      },
+    ],
   },
   {
     title: "Contact Us",

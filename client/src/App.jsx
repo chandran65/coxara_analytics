@@ -42,6 +42,7 @@ function App() {
 
           {/* Resources Routes */}
           <Route path="resources" element={<ResourcesPage />} />
+          <Route path="resources/:category" element={<ResourcesPage />} />
 
           {/* AiImage Route */}
           <Route path="aiimage" element={<PlaceholderPage title="AiImage" />} />
