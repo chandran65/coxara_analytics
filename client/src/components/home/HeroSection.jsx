@@ -228,8 +228,7 @@ const HeroSection = ({ isActive = true }) => {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[3.8rem] xl:text-[4.2rem] font-display font-light text-secondary-900 leading-[1.1] mb-10 tracking-tight"
             >
-              Coxara:{" "}
-              <span className="block font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-medium to-brand-accent mt-4">
+              <span className="block font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-medium to-brand-accent">
                 Own Your Data.
               </span>
               <span className="block italic font-light mt-2">Amplify Your Impact.</span>
