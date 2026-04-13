@@ -8,7 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import IndustriesPage from "./pages/IndustriesPage";
 import ServicesPage from "./pages/ServicesPage";
 import SolutionsPage from "./pages/SolutionsPage";
-import BiksPage from "./pages/BiksPage";
+
 import ResourcesPage from "./pages/ResourcesPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import ProductsPage from "./pages/ProductsPage";
@@ -38,8 +38,7 @@ function App() {
           {/* Products Routes */}
           <Route path="products" element={<ProductsPage />} />
 
-          {/* BIKS Routes */}
-          <Route path="biks" element={<BiksPage />} />
+
 
           {/* Resources Routes */}
           <Route path="resources" element={<ResourcesPage />} />

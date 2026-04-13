@@ -24,9 +24,9 @@ const BOT_KNOWLEDGE = [
       "COXARA Analytics serves multiple industries:\n\n• 🏭 Manufacturing & Industry 4.0\n• 🏥 Healthcare & Life Sciences\n• 💰 BFSI (Banking, Finance & Insurance)\n• 🛒 Retail & E-Commerce\n• 🚚 Supply Chain & Logistics\n• ⚡ Energy & Utilities\n\nWe tailor analytics solutions to each sector's unique challenges.",
   },
   {
-    keywords: ["solution", "platform", "product", "biks", "tool"],
+    keywords: ["solution", "platform", "product", "tool"],
     answer:
-      "Our flagship products include **BIKS** — our Business Intelligence & Knowledge System — and several AI-powered analytics platforms. We also offer customizable solutions tailored to your enterprise needs. Want me to connect you with our team for a personalized demo?",
+      "We offer several AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Want me to connect you with our team for a personalized demo?",
   },
   {
     keywords: ["contact", "reach", "email", "phone", "touch", "talk", "speak", "demo", "meet"],
@@ -90,9 +90,9 @@ const INITIAL_MESSAGES = [
 const QUICK_REPLIES = [
   "What services do you offer?",
   "Which industries do you serve?",
-  "Tell me about BIKS",
   "I'd like a demo",
   "Careers at Coxara",
+  "Tell me about your products",
 ];
 
 function findAnswer(input) {
