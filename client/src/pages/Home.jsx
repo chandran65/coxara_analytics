@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import HeroSection from "../components/home/HeroSection";
 import AboutSection from "../components/home/AboutSection";
+import ProductSection from "../components/home/ProductSection";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import IndustriesSection from "../components/home/IndustriesSection";
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
@@ -39,6 +40,9 @@ const Home = () => {
       <div className="relative z-10">
         {/* About Section */}
         <AboutSection />
+
+        {/* Product Section */}
+        <ProductSection />
 
         {/* Mission & Vision */}
         <MissionVisionSection />
