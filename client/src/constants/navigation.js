@@ -1,16 +1,7 @@
 export const navigationData = [
   {
-    title: "About",
-    path: "/company/about",
-    items: [
-      { label: "Company", isHeader: true },
-      {
-        label: "About Us",
-        path: "/company/about",
-        description: "Our mission, vision, and core values",
-        icon: "building",
-      },
-    ],
+    title: "Home",
+    path: "/",
   },
   {
     title: "Products",
