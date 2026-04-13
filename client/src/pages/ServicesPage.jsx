@@ -1,4 +1,4 @@
-﻿import { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
@@ -6,41 +6,17 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 /* ─────────────────────── Service Data ─────────────────────── */
 const services = [
   {
-    id: "engineering",
-    num: "01",
-    title: "Custom AI Development",
-    description:
-      "Build scalable, compliant AI solutions with custom foundation models and generative features designed specifically for your enterprise workflows.",
-    benefits: [
-      "Custom foundation model fine-tuning",
-      "Enterprise-grade security and compliance",
-      "Generative features integration at scale",
-      "End-to-end AI pipeline architecture",
-      "Seamless legacy system modernization",
-    ],
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-      />
-    ),
-    accent: "from-violet-600 to-indigo-500",
-    accentLight: "from-violet-50 to-indigo-50",
-  },
-  {
     id: "gen-ai",
-    num: "02",
-    title: "Generative AI",
+    num: "01",
+    title: "Generative AI & LLMs",
     description:
-      "Solve complex business problems using the power of AI—trained directly on your company's proprietary data. Accelerate creation using data-driven intelligence.",
+      "Harness the power of Custom Foundation Models and RAG systems trained on your proprietary data to drive content generation and knowledge discovery at scale.",
     benefits: [
-      "Automated report and creative content generation",
-      "Knowledge discovery and document analysis",
-      "Retrieval-Augmented Generation (RAG) pipelines",
-      "Natural language business assistants",
-      "Automated design and workflow orchestration",
+      "Custom Foundation Model Fine-tuning",
+      "Retrieval-Augmented Generation (RAG)",
+      "Automated Knowledge Discovery Systems",
+      "Proprietary Content Generation Engines",
+      "Enterprise-Grade Security & Compliance",
     ],
     icon: (
       <path
@@ -54,52 +30,76 @@ const services = [
     accentLight: "from-purple-50 to-fuchsia-50",
   },
   {
-    id: "data-science",
-    num: "03",
-    title: "Advanced Machine Learning",
+    id: "vision-ai",
+    num: "02",
+    title: "Computer Vision & Intelligence",
     description:
-      "Transform petabytes of raw data into strategic assets through precise predictive and prescriptive analytics tuned for your specific industry.",
+      "Transform visual data into real-time patterns. From facial analysis to manufacturing defect detection, we build vision systems that see beyond the surface.",
     benefits: [
-      "Predictive diagnosis and patient analytics",
-      "Demand forecasting and trend prediction",
-      "Smart automation for financial workflows",
-      "Real-time pattern recognition and anomaly detection",
-      "Risk forecasting and fraud detection",
+      "Real-time Pattern Recognition",
+      "Visual Quality Assurance (VQA)",
+      "Surveillance & Traffic Monitoring",
+      "Medical Image Analysis & Diagnosis",
+      "Behavioral & Crowd Intelligence",
     ],
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+      />
+    ),
+    accent: "from-blue-600 to-cyan-500",
+    accentLight: "from-blue-50 to-cyan-50",
+  },
+  {
+    id: "conversational-ai",
+    num: "03",
+    title: "Conversational AI Systems",
+    description:
+      "Build context-aware AI assistants and voice-to-insight platforms that communicate in enterprise-specific terminology and multi-regional languages.",
+    benefits: [
+      "LLM-powered Contextual Chatbots",
+      "Indic Language Voice Recognition",
+      "Voice-to-Insights Analytics (CoreSight)",
+      "Automated Transcription & Summarization",
+      "Sentimental & Intent Analysis",
+    ],
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
       />
     ),
     accent: "from-brand-purple to-brand-accent",
     accentLight: "from-brand-glow/30 to-brand-accent/10",
   },
   {
-    id: "training",
+    id: "strategic-consulting",
     num: "04",
-    title: "AI Consulting",
+    title: "Strategic AI Transformation",
     description:
-      "Future-proof your business with AI-first strategies. We provide readiness audits, identify high-value use cases, and deliver comprehensive roadmaps for transformation.",
+      "Future-proof your business with AI Business Ally strategies. We provide readiness audits, identify high-value use cases, and deliver roadmaps for autonomous growth.",
     benefits: [
-      "Enterprise AI readiness audits and workshops",
-      "High-value AI use case identification",
-      "Data strategy and infrastructure planning",
-      "Change management and technical upskilling",
-      "Risk mitigation and AI governance frameworks",
+      "Enterprise AI Readiness Audits",
+      "High-Value Use Case Identification",
+      "AI Governance & Compliance Frameworks",
+      "Custom Enterprise AI Roadmap",
+      "Managed AI Deployment & Scaling",
     ],
     icon: (
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
       />
     ),
-    accent: "from-indigo-600 to-violet-500",
-    accentLight: "from-indigo-50 to-violet-50",
+    accent: "from-violet-600 to-indigo-500",
+    accentLight: "from-violet-50 to-indigo-50",
   },
 ];
 

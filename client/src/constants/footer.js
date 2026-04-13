@@ -22,10 +22,10 @@ export const footerData = {
   services: {
     title: "Services",
     links: [
-      { label: "Custom AI Development", path: "/services#engineering" },
-      { label: "Generative AI", path: "/services#gen-ai" },
-      { label: "Advanced Machine Learning", path: "/services#data-science" },
-      { label: "AI Consulting", path: "/services#training" },
+      { label: "Generative AI & LLMs", path: "/services#gen-ai" },
+      { label: "Vision AI & Intelligence", path: "/services#vision-ai" },
+      { label: "Conversational Intelligence", path: "/services#conversational-ai" },
+      { label: "Strategic AI Consulting", path: "/services#strategic-consulting" },
     ],
   },
   solutions: {

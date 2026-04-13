@@ -16,7 +16,7 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["service", "offer", "provide", "capabilities", "do", "help"],
     answer:
-      "We offer a comprehensive suite of services:\n\n• 📊 **Business Intelligence & Dashboards**\n• 🤖 **AI/ML Model Development**\n• 🔮 **Predictive Analytics**\n• 🏭 **Industrial IoT Analytics**\n• ☁️ **Cloud Data Engineering**\n• 📈 **Data Strategy Consulting**\n\nVisit our Services page to explore each in detail!",
+      "Coxara Analytics offers a modern AI service suite:\n\n• 🪄 **Generative AI & LLMs** — Custom foundation models & RAG systems\n• 👁️ **Vision AI & Intelligence** — Pattern recognition & visual QA\n• 🎙️ **Conversational Systems** — Context-aware assistants & Voice-to-Insights\n• 🎯 **Strategic AI Transformation** — Readiness audits & growth roadmaps\n\nVisit our Services page for a deep dive into each capability!",
   },
   {
     keywords: ["industry", "sector", "vertical", "market", "domain", "speciali"],

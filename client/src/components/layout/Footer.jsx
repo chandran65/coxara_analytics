@@ -96,7 +96,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#F5F0FF] via-[#F8F5FF] to-[#F0EAFF] text-secondary-700 overflow-hidden">
+    <footer className="relative bg-[#F8F5FF] text-secondary-700 overflow-hidden">
       {/* Subtle gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
 
