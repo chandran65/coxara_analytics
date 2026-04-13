@@ -6,6 +6,7 @@ import AboutSection from "../components/home/AboutSection";
 import ProductSection from "../components/home/ProductSection";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import IndustriesSection from "../components/home/IndustriesSection";
+import CapabilitiesGrid from "../components/home/CapabilitiesGrid";
 import FeaturedCaseStudy from "../components/home/FeaturedCaseStudy";
 import MissionVisionSection from "../components/home/MissionVisionSection";
 import ProductStudios from "../components/home/ProductStudios";
@@ -50,6 +51,9 @@ const Home = () => {
 
         {/* Product Studios Grid */}
         <ProductStudios />
+
+        {/* Capabilities Grid */}
+        <CapabilitiesGrid />
 
         {/* Featured Case Study */}
         <FeaturedCaseStudy />
