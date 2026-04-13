@@ -206,11 +206,11 @@ const ResourcesHero = () => {
 const BlogCard = ({ post, index }) => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
   const categoryColors = {
+    "Case Studies": "from-fuchsia-500 to-pink-400",
+    Resources: "from-indigo-500 to-violet-400",
+    Webinars: "from-purple-500 to-brand-medium",
+    Whitepapers: "from-brand-purple to-indigo-600",
     Tutorial: "from-violet-500 to-purple-400",
-    "Best Practices": "from-indigo-500 to-violet-400",
-    "Industry Insights": "from-purple-500 to-fuchsia-400",
-    "Case Study": "from-fuchsia-500 to-pink-400",
-    Compliance: "from-blue-500 to-indigo-400",
   };
   const accent =
     categoryColors[post.category] || "from-brand-purple to-brand-accent";
