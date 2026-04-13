@@ -257,17 +257,17 @@ const AboutSection = () => {
           <AnimatedSection direction="right" delay={0.2}>
             <div className="space-y-6 text-center lg:text-left">
               <SectionHeading
-                badge="About Us"
+                badge="About COXARA Analytics"
                 title="Pioneering the Future of"
                 highlight="Intelligent Enterprise"
                 align="left"
               />
 
-              <div className="space-y-5 text-base md:text-lg text-secondary-600 leading-relaxed">
+              <div className="space-y-4 text-base md:text-lg text-secondary-600 leading-relaxed">
                 {[
-                  "We are a new-age analytics firm born in the era of Generative AI. Unlike traditional consultancies, we don't just analyze data; we build intelligent systems that learn, adapt, and drive autonomous decision-making.",
-                  "Our mission is to democratize access to advanced AI, enabling businesses of all sizes to harness the power of predictive intelligence and causal reasoning without the technical complexity.",
-                  "We are building the operating system for the modern enterprise—where data isn't just a report, but a dynamic engine of growth.",
+                  "COXARA Analytics is a new-age AI & data intelligence firm built for the era of Generative AI. We help enterprises move beyond static dashboards to dynamic, self-learning systems that drive real business decisions.",
+                  "We are the team behind CoreSight — our flagship Enterprise AI Co-Pilot that lets business leaders chat with their data in plain English. No SQL, no data prep, no guesswork. Just clear, verifiable answers backed by your actual data.",
+                  "Our mission: democratize advanced AI so businesses of every size can harness predictive intelligence and autonomous decision-making — without the technical complexity.",
                 ].map((text, i) => (
                   <motion.p
                     key={i}
@@ -281,70 +281,84 @@ const AboutSection = () => {
                 ))}
               </div>
 
+              {/* Stats row */}
+              <motion.div
+                className="grid grid-cols-3 gap-4 py-5 border-y border-secondary-100"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {[
+                  { value: "50+", label: "Enterprise Clients" },
+                  { value: "10+", label: "Industries Served" },
+                  { value: "96.8%", label: "AI Accuracy Rate" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <p className="text-xl md:text-2xl font-display font-bold gradient-text">{stat.value}</p>
+                    <p className="text-xs text-secondary-500 mt-0.5 font-medium">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+
               {/* Core Values */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 border-t border-secondary-100 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 {[
                   {
                     title: "Innovation First",
-                    desc: "Cutting-edge GenAI & ML solutions",
+                    desc: "Cutting-edge GenAI & ML at the core of everything we build",
                     bgColor: "bg-brand-purple/10",
                     textColor: "text-brand-purple",
-                    hoverBorder: "hover:border-brand-purple/30",
-                    hoverShadow: "hover:shadow-brand-purple/8",
                     icon: (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     ),
                   },
                   {
                     title: "Agile Delivery",
-                    desc: "Rapid prototyping & deployment",
+                    desc: "From proof-of-concept to production in weeks, not months",
                     bgColor: "bg-brand-accent/10",
                     textColor: "text-brand-accent",
-                    hoverBorder: "hover:border-brand-accent/30",
-                    hoverShadow: "hover:shadow-brand-accent/8",
                     icon: (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    ),
+                  },
+                  {
+                    title: "Data Integrity",
+                    desc: "Every insight is verifiable, traceable & auditable — zero hallucinations",
+                    bgColor: "bg-emerald-50",
+                    textColor: "text-emerald-600",
+                    icon: (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    ),
+                  },
+                  {
+                    title: "Enterprise Grade",
+                    desc: "Role-based security, cloud / on-prem / hybrid deployment ready",
+                    bgColor: "bg-indigo-50",
+                    textColor: "text-indigo-600",
+                    icon: (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     ),
                   },
                 ].map((val, i) => (
                   <motion.div
                     key={i}
-                    className={`group relative flex items-start gap-3 p-4 rounded-2xl glow-card-static overflow-hidden cursor-default`}
+                    className="group relative flex items-start gap-3 p-4 rounded-2xl glow-card-static overflow-hidden cursor-default"
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.15 }}
+                    transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
                     whileHover={{ y: -3, scale: 1.02 }}
                     style={{ willChange: "opacity, transform" }}
                   >
-                    {/* Hover gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                    <div
-                      className={`relative z-10 w-10 h-10 rounded-xl ${val.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <svg
-                        className={`w-5 h-5 ${val.textColor}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                    <div className={`relative z-10 w-10 h-10 rounded-xl ${val.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <svg className={`w-5 h-5 ${val.textColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {val.icon}
                       </svg>
                     </div>
                     <div className="relative z-10">
-                      <h4 className="font-bold text-secondary-900 group-hover:text-brand-purple transition-colors duration-300">
-                        {val.title}
-                      </h4>
+                      <h4 className="font-bold text-secondary-900 group-hover:text-brand-purple transition-colors duration-300">{val.title}</h4>
                       <p className="text-sm text-secondary-500">{val.desc}</p>
                     </div>
                   </motion.div>

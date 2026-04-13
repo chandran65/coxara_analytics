@@ -132,8 +132,8 @@ function formatText(text) {
 
 const TypingIndicator = () => (
   <div className="flex items-end gap-2 mb-3">
-    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-brand-purple to-brand-medium flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">
-      C
+    <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
+      <img src="/geometric_c_nodes.png" alt="Cova" className="w-5 h-5 object-contain" />
     </div>
     <div className="bg-white border border-secondary-100 rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
       <div className="flex gap-1.5 items-center h-4">
@@ -368,8 +368,8 @@ export default function ChatBot() {
               <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
 
-              <div className="relative w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">C</span>
+              <div className="relative w-10 h-10 rounded-full bg-white border-2 border-white/40 flex-shrink-0 overflow-hidden shadow-md">
+                <img src="/geometric_c_nodes.png" alt="COXARA" className="w-full h-full object-contain p-0.5" />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-white" />
               </div>
 
@@ -414,8 +414,8 @@ export default function ChatBot() {
                   className={`flex items-end gap-2 mb-3 ${msg.from === "user" ? "flex-row-reverse" : "flex-row"}`}
                 >
                   {msg.from === "bot" && (
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-brand-purple to-brand-medium flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">
-                      C
+                    <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
+                      <img src="/geometric_c_nodes.png" alt="Cova" className="w-5 h-5 object-contain" />
                     </div>
                   )}
                   <div

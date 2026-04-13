@@ -10,12 +10,6 @@ export const navigationData = [
         description: "Our mission, vision, and core values",
         icon: "building",
       },
-      {
-        label: "Meet Our People",
-        path: "/company/team",
-        description: "The leadership team and experts behind Coxara",
-        icon: "users",
-      },
     ],
   },
   {
