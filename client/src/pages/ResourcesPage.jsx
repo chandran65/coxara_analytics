@@ -1,5 +1,6 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useParams, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 /* ─── Hero Section ─── */
@@ -12,8 +13,41 @@ const ResourcesHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Insights", "&", "Resources"];
-  const specialWords = ["Insights", "Resources"];
+  const { category: urlCategory } = useParams();
+  
+  // Dynamic content map for individual "pages"
+  const categoryContent = {
+    all: {
+      badge: "Knowledge Hub",
+      title: "Insights & Resources",
+      desc: "Guides, thought leadership, and deep dives from our analytics experts — helping you stay ahead of the curve."
+    },
+    "case-studies": {
+      badge: "Success Stories",
+      title: "Real-World Impact",
+      desc: "Explore how COXARA transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
+    },
+    "resources": {
+      badge: "Toolkits",
+      title: "Executive Resources",
+      desc: "Curated templates, dashboard frameworks, and data strategy checklists to accelerate your digital transformation."
+    },
+    "webinars": {
+      badge: "Video Library",
+      title: "On-Demand Webinars",
+      desc: "Watch our technical leaders and product experts discuss the latest in AI, causal reasoning, and predictive analytics."
+    },
+    "whitepapers": {
+      badge: "Deep Dives",
+      title: "Strategic Whitepapers",
+      desc: "Comprehensive research papers on the architecture, ethics, and future of enterprise-grade intelligent systems."
+    }
+  };
+
+  const currentContent = categoryContent[urlCategory?.toLowerCase()] || categoryContent.all;
+
+  const words = currentContent.title.split(" ");
+  const specialWords = words.filter((w, i) => i === 0 || i === words.length - 1); // Highlight first and last words
 
   return (
     <section
@@ -147,12 +181,12 @@ const ResourcesHero = () => {
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              Knowledge Hub
+              {currentContent.badge}
             </span>
           </motion.div>
 
           {/* Word-by-word title */}
-          <h1 className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-8 pb-3">
+          <h1 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-8 pb-3 max-w-4xl">
             {words.map((word, i) => (
               <motion.span
                 key={i}
@@ -160,7 +194,7 @@ const ResourcesHero = () => {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{
                   duration: 0.6,
-                  delay: 0.3 + i * 0.12,
+                  delay: 0.1 + i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
@@ -178,11 +212,10 @@ const ResourcesHero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg sm:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            Guides, thought leadership, and deep dives from our analytics
-            experts — helping you stay ahead of the curve.
+            {currentContent.desc}
           </motion.p>
 
           {/* Decorative divider */}
@@ -318,9 +351,6 @@ const BlogCard = ({ post, index }) => {
 };
 
 /* ─── Main Resources Page ─── */
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-
 const ResourcesPage = () => {
   const { category } = useParams();
   const navigate = useNavigate();
@@ -498,19 +528,40 @@ const ResourcesPage = () => {
             </motion.div>
 
             {/* Blog grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-              {filteredPosts.length > 0 ? (
-                filteredPosts.map((post, i) => (
-                  <BlogCard key={post.id} post={post} index={i} />
-                ))
-              ) : (
-                <div className="col-span-full py-20 text-center">
-                  <p className="text-secondary-400">
-                    No resources found in this category yet.
-                  </p>
-                </div>
-              )}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeCategory}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"
+              >
+                {filteredPosts.length > 0 ? (
+                  filteredPosts.map((post, i) => (
+                    <BlogCard key={post.id} post={post} index={i} />
+                  ))
+                ) : (
+                  <div className="col-span-full py-32 text-center rounded-3xl border-2 border-dashed border-secondary-100 bg-secondary-50/30">
+                    <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-6">
+                      <svg className="w-8 h-8 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-secondary-900 mb-2">More {activeCategory} Coming Soon</h3>
+                    <p className="text-secondary-500 max-w-xs mx-auto mb-8">
+                      We're currently finalizing deep dives into this category. Check back shortly for our latest findings.
+                    </p>
+                    <button 
+                      onClick={() => navigate('/company/contact')}
+                      className="px-6 py-2.5 bg-brand-purple text-white font-bold rounded-full hover:scale-105 transition-transform"
+                    >
+                      Request a Custom Resource
+                    </button>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 
