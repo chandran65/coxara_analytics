@@ -13,10 +13,12 @@ export const footerData = {
   industries: {
     title: "Industries",
     links: [
-      { label: "Retail & FMCG", path: "/industries" },
-      { label: "Hospitality", path: "/industries" },
-      { label: "Healthcare", path: "/industries" },
-      { label: "Banking", path: "/industries" },
+      { label: "CPG", path: "/industries" },
+      { label: "Retail", path: "/industries" },
+      { label: "Pharma & Life Science", path: "/industries" },
+      { label: "Entertainment", path: "/industries" },
+      { label: "Manufacturing", path: "/industries" },
+      { label: "High-Tech", path: "/industries" },
     ],
   },
   services: {

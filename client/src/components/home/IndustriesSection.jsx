@@ -79,9 +79,23 @@ const IndustriesSection = () => {
   const industries = [
     {
       id: 1,
-      title: "Retail & FMCG",
+      title: "CPG",
       description:
-        "Optimize supply chains, predict demand, and enhance brand loyalty with data-driven insights tailored for consumer markets.",
+        "Optimize product life cycles, demand forecasting, and consumer insights for high-velocity goods.",
+      icon: (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+        />
+      ),
+    },
+    {
+      id: 2,
+      title: "Retail",
+      description:
+        "Personalize customer journeys and optimize multi-channel inventory with real-time analytics.",
       icon: (
         <path
           strokeLinecap="round"
@@ -92,24 +106,10 @@ const IndustriesSection = () => {
       ),
     },
     {
-      id: 2,
-      title: "Hospitality",
-      description:
-        "Enhance guest experiences and operational efficiency through advanced demand forecasting and personalized services.",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-        />
-      ),
-    },
-    {
       id: 3,
-      title: "Healthcare",
+      title: "Pharma & Life Science",
       description:
-        "Accelerate clinical diagnostics, optimize patient care, and improve outcomes with AI-driven research and analytics.",
+        "Accelerate drug discovery, clinical trials, and patient outcomes with AI-driven research.",
       icon: (
         <path
           strokeLinecap="round"
@@ -121,15 +121,43 @@ const IndustriesSection = () => {
     },
     {
       id: 4,
-      title: "Banking",
+      title: "Entertainment",
       description:
-        "Strengthen security, optimize portfolios, and personalize financial services with proactive, enterprise-grade intelligence.",
+        "Segment audiences and predict churn to drive engagement across digital media platforms.",
       icon: (
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M3 10h18M7 15h1m4 0h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+        />
+      ),
+    },
+    {
+      id: 5,
+      title: "Manufacturing",
+      description:
+        "Predictive maintenance and visual QA for smarter, more autonomous production lines.",
+      icon: (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+        />
+      ),
+    },
+    {
+      id: 6,
+      title: "High-Tech",
+      description:
+        "Scale innovation with agile intelligence and data-backed product development strategies.",
+      icon: (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
         />
       ),
     },
@@ -161,7 +189,7 @@ const IndustriesSection = () => {
         </AnimatedSection>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-16">
           {industries.map((industry, index) => (
             <AnimatedSection key={industry.id} delay={index * 0.08}>
               <FlipCard industry={industry} isTouchDevice={isTouchDevice} />

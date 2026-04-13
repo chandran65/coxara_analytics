@@ -21,7 +21,7 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["industry", "sector", "vertical", "market", "domain", "speciali"],
     answer:
-      "COXARA Analytics serves multiple industries:\n\n• 🏭 Manufacturing & Industry 4.0\n• 🏥 Healthcare & Life Sciences\n• 💰 BFSI (Banking, Finance & Insurance)\n• 🛒 Retail & E-Commerce\n• 🚚 Supply Chain & Logistics\n• ⚡ Energy & Utilities\n\nWe tailor analytics solutions to each sector's unique challenges.",
+      "COXARA Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
   },
   {
     keywords: ["product", "coresight", "core sight", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
