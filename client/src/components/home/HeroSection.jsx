@@ -689,22 +689,28 @@ const HeroSection = ({ isActive = true }) => {
               animate="visible"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-display font-light text-secondary-900 leading-[1.15] mb-6 sm:mb-8 tracking-wide"
             >
-              We are building the{" "}
+              Coxara:{" "}
               <span className="relative inline-block pb-2 mt-4 font-normal text-brand-purple">
-                operating system
+                Own Your Data.
               </span>{" "}
-              for the modern enterprise
+              Amplify Your Impact.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal"
+              className="text-base sm:text-lg md:text-xl text-secondary-500 leading-relaxed max-w-2xl mb-8 sm:mb-10 font-normal"
             >
-              Where data isn't just a report, but a dynamic engine of growth.
-              Empower your enterprise with AI-driven automation and intelligent
-              velocity.
+              Coxara partners with enterprises to build a supercharged
+              intelligence layer—a powerful blend of data assets, advanced
+              tools, and AI capabilities that independently collect, process,
+              and analyze data.
+              <br />
+              <br />
+              Together, we solve your toughest challenges while empowering you
+              to stay in control of your data, accelerate innovation, and gain a
+              lasting competitive edge.
             </motion.p>
 
             <motion.div

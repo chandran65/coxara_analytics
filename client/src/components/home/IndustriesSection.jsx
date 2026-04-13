@@ -181,10 +181,10 @@ const IndustriesSection = () => {
       <div className="container-custom relative z-10">
         <AnimatedSection>
           <SectionHeading
-            badge="Industries We Serve"
-            title="Expertise Across"
-            highlight="Multiple Sectors"
-            description="Delivering tailored data science solutions that address unique challenges in diverse industries worldwide."
+            badge="Tailored Solutions"
+            title="Analytics Services"
+            highlight="& Products"
+            description="Delivering specialized AI and data-driven intelligence for global enterprises across our core vertical markets."
           />
         </AnimatedSection>
 
