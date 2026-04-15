@@ -242,22 +242,63 @@ const ContactPage = () => {
   };
 
   // ── HubSpot CRM ─────────────────────────────────────────────────────
-  // After creating a FREE HubSpot account, replace these two values:
+  // Set VITE_HS_PORTAL and VITE_HS_FORM in your .env file.
   //   PORTAL_ID  → HubSpot Settings → Account Setup → Your Account
   //   FORM_GUID  → HubSpot Marketing → Forms → your form → share URL
-  const HS_PORTAL = "245882390";
-  const HS_FORM   = "14cabc01-0de8-4d1f-8bf1-d6ebd5bce89c";
+  const HS_PORTAL = import.meta.env.VITE_HS_PORTAL || "";
+  const HS_FORM   = import.meta.env.VITE_HS_FORM || "";
+
+  // ── Validation helpers ──────────────────────────────────────────────
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const PHONE_RE = /^[+]?[\d\s().-]{7,20}$/;
+  const MAX_FIELD  = 200;
+  const MAX_MSG    = 2000;
+
+  const [formError, setFormError] = useState("");
+  // Honeypot — invisible to real users, bots will fill it in
+  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError("");
+
+    // Anti-spam honeypot check
+    if (honeypot) return;
+
+    // Client-side validation
+    if (!formData.name.trim() || formData.name.length > MAX_FIELD) {
+      setFormError("Please enter a valid name (max 200 characters).");
+      return;
+    }
+    if (!EMAIL_RE.test(formData.email)) {
+      setFormError("Please enter a valid email address.");
+      return;
+    }
+    if (formData.phone && !PHONE_RE.test(formData.phone)) {
+      setFormError("Please enter a valid phone number.");
+      return;
+    }
+    if (!formData.subject.trim() || formData.subject.length > MAX_FIELD) {
+      setFormError("Please enter a subject (max 200 characters).");
+      return;
+    }
+    if (!formData.message.trim() || formData.message.length > MAX_MSG) {
+      setFormError("Please enter a message (max 2000 characters).");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const [firstName, ...rest] = formData.name.trim().split(" ");
     const lastName = rest.join(" ") || "";
     let success = false;
 
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "";
+
     // 1) HubSpot CRM — auto-creates Contact + notifies you
-    try {
+    if (!HS_PORTAL || !HS_FORM) {
+      // Skip HubSpot if not configured
+    } else try {
       const hsRes = await fetch(
         `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
         {
@@ -283,8 +324,10 @@ const ContactPage = () => {
     } catch { /* fall through */ }
 
     // 2) Formspree — emails director@coxara.co.in as backup
-    try {
-      const fpRes = await fetch("https://formspree.io/f/xvgozrvl", {
+    if (!formspreeId) {
+      // Skip Formspree if not configured
+    } else try {
+      const fpRes = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
@@ -467,6 +510,23 @@ const ContactPage = () => {
                   </div>
 
                   <form onSubmit={handleSubmit} className="relative space-y-6">
+                    {/* Honeypot anti-spam field — hidden from real users */}
+                    <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+                      <input
+                        type="text"
+                        name="website_url"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                      />
+                    </div>
+
+                    {formError && (
+                      <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+                        {formError}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <FormField label="Full Name" required delay={0.05}>
                         <input
@@ -477,6 +537,7 @@ const ContactPage = () => {
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
                           required
+                          maxLength={200}
                           className={inputClass("name")}
                           placeholder="John Doe"
                         />
@@ -532,6 +593,7 @@ const ContactPage = () => {
                         onFocus={() => setFocusedField("subject")}
                         onBlur={() => setFocusedField(null)}
                         required
+                        maxLength={200}
                         className={inputClass("subject")}
                         placeholder="How can we help?"
                       />
@@ -545,6 +607,7 @@ const ContactPage = () => {
                         onFocus={() => setFocusedField("message")}
                         onBlur={() => setFocusedField(null)}
                         required
+                        maxLength={2000}
                         rows={5}
                         className={`${inputClass("message")} resize-none`}
                         placeholder="Tell us about your project..."
