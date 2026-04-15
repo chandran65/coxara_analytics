@@ -6,9 +6,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { FolderOpen, Sparkles, Trophy, Clock, Plus, ArrowRight } from "lucide-react";
 
 interface Stats {
-  total_projects: number;
-  total_activities_completed: number;
-  total_models_trained: number;
+  projects_count: number;
+  activities_completed: number;
+  models_trained: number;
+  hours_learned: number;
+  average_accuracy: number;
   recent_activity: { name: string; count: number }[];
 }
 
@@ -90,10 +92,10 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Projects", value: stats?.total_projects || 0, icon: FolderOpen, color: "bg-indigo-50 text-indigo-600" },
-          { label: "Activities Done", value: stats?.total_activities_completed || 0, icon: Sparkles, color: "bg-purple-50 text-purple-600" },
-          { label: "Models Trained", value: stats?.total_models_trained || 0, icon: Trophy, color: "bg-amber-50 text-amber-600" },
-          { label: "Hours Learning", value: Math.round((stats?.total_activities_completed || 0) * 0.5), icon: Clock, color: "bg-emerald-50 text-emerald-600" },
+          { label: "Projects", value: stats?.projects_count || 0, icon: FolderOpen, color: "bg-indigo-50 text-indigo-600" },
+          { label: "Activities Done", value: stats?.activities_completed || 0, icon: Sparkles, color: "bg-purple-50 text-purple-600" },
+          { label: "Models Trained", value: stats?.models_trained || 0, icon: Trophy, color: "bg-amber-50 text-amber-600" },
+          { label: "Hours Learning", value: stats?.hours_learned || 0, icon: Clock, color: "bg-emerald-50 text-emerald-600" },
         ].map((stat) => {
           const Icon = stat.icon;
           return (

@@ -217,7 +217,7 @@ export default function ProjectDetail() {
                     <h3 className="font-medium text-slate-900">{ds.name}</h3>
                     <p className="text-sm text-slate-500">
                       {ds.dataset_type} &middot; {ds.sample_count} samples &middot;
-                      Classes: {JSON.parse(ds.classes || "[]").join(", ") || "none"}
+                      Classes: {(Array.isArray(ds.classes) ? ds.classes : []).join(", ") || "none"}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -252,7 +252,7 @@ export default function ProjectDetail() {
         <div className="space-y-3">
           {jobs.length > 0 ? (
             jobs.map((job) => {
-              const metrics = JSON.parse(job.metrics || "{}");
+              const metrics = typeof job.result === 'object' && job.result !== null ? job.result : {};
               return (
                 <div key={job.id} className="bg-white rounded-xl p-4 border border-slate-200">
                   <div className="flex items-center justify-between mb-2">

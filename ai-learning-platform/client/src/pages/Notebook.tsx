@@ -49,9 +49,9 @@ export default function Notebook() {
     updateCell(id, { running: true, output: "" });
     try {
       const res = await execAPI.run({ code: cell.code, language: "python", timeout: 10 });
-      const output = res.data.stderr
-        ? `${res.data.stdout || ""}${res.data.stderr}`
-        : res.data.stdout || "No output";
+      const output = res.data.error
+        ? `${res.data.output || ""}${res.data.error}`
+        : res.data.output || "No output";
       updateCell(id, { output, running: false });
     } catch {
       updateCell(id, { output: "Execution failed", running: false });

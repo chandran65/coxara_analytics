@@ -42,7 +42,7 @@ export default function BlockEditor() {
     setOutput("");
     try {
       const res = await execAPI.run({ code: generatedCode, language, timeout: 10 });
-      setOutput(res.data.stdout || res.data.stderr || "No output");
+      setOutput(res.data.output || res.data.error || "No output");
     } catch {
       setOutput("Execution failed");
     } finally {

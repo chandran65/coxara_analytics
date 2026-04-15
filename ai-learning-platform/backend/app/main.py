@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Literal
 from datetime import datetime, timedelta
 from contextlib import contextmanager
 import uuid, time, re, os, json, sqlite3
@@ -91,7 +91,7 @@ class UserRegister(BaseModel):
     email: str
     password: str = Field(..., min_length=8)
     full_name: str = Field(..., min_length=2)
-    role: str = "student"
+    role: Literal["student"] = "student"
     school_id: Optional[str] = None
 
 class UserLogin(BaseModel):
@@ -625,6 +625,8 @@ async def exec_code(req: ExecutionRequest, current_user: dict = Depends(get_curr
         ms = int((time.time() - t0) * 1000)
         exec_sessions[sid]["status"] = "completed"
         return {"session_id": sid, "status": "completed", "output": result.get("output"), "error": result.get("error"), "execution_time_ms": ms}
+    except HTTPException:
+        raise
     except Exception as e:
         return {"session_id": sid, "status": "error", "error": str(e), "execution_time_ms": int((time.time() - t0) * 1000)}
 
