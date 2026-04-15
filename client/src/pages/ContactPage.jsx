@@ -570,6 +570,7 @@ const ContactPage = () => {
                           className={inputClass("name")}
                           placeholder="John Doe"
                         />
+                        {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                       </FormField>
                       <FormField label="Email Address" required delay={0.1}>
                         <input
@@ -583,6 +584,7 @@ const ContactPage = () => {
                           className={inputClass("email")}
                           placeholder="john@company.com"
                         />
+                        {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                       </FormField>
                     </div>
 
@@ -598,6 +600,7 @@ const ContactPage = () => {
                           className={inputClass("phone")}
                           placeholder="+1 (555) 123-4567"
                         />
+                        {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
                       </FormField>
                       <FormField label="Company Name" delay={0.2}>
                         <input
@@ -626,6 +629,7 @@ const ContactPage = () => {
                         className={inputClass("subject")}
                         placeholder="How can we help?"
                       />
+                      {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
                     </FormField>
 
                     <FormField label="Message" required delay={0.3}>
@@ -641,6 +645,7 @@ const ContactPage = () => {
                         className={`${inputClass("message")} resize-none`}
                         placeholder="Tell us about your project..."
                       />
+                      {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
                     </FormField>
 
                     {/* Submit button */}
