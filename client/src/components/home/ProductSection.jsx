@@ -59,7 +59,7 @@ const ProductSection = () => {
                 align="left"
               />
               <p className="text-lg text-secondary-500 mt-6 mb-12 leading-relaxed">
-                <span className="font-bold text-secondary-900">CoreSight</span> is Roxbee's flagship product, built on our deep data engineering experience and designed to combine natural language intelligence with enterprise-scale analytics.
+                <span className="font-bold text-secondary-900">Roxbee</span> is Roxbee's flagship product, built on our deep data engineering experience and designed to combine natural language intelligence with enterprise-scale analytics.
               </p>
 
               <div className="space-y-8">
@@ -115,14 +115,14 @@ const ProductSection = () => {
                 
                 <img
                   src="/coresight_visual.png"
-                  alt="CoreSight Dashboard"
+                  alt="Roxbee Dashboard"
                   className="w-full h-auto object-cover"
                 />
                 
                 {/* Floating "AI Active" Badge */}
                 <div className="absolute top-8 right-8 bg-brand-purple text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  CoreSight AI Active
+                  Roxbee AI Active
                 </div>
               </motion.div>
 

@@ -24,14 +24,14 @@ const BOT_KNOWLEDGE = [
       "ROXBEE Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
   },
   {
-    keywords: ["product", "coresight", "core sight", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
+    keywords: ["product", "Roxbee", "Roxbee", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
     answer:
-      "Our flagship product is **ROXBEE CoreSight** — your Enterprise AI Co-Pilot! 🚀\n\nCoresight lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see CoreSight in action? Request a demo!",
+      "Our flagship product is **Roxbee**! 🚀\n\nRoxbee lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see Roxbee in action? Request a demo!",
   },
   {
     keywords: ["solution", "platform", "tool", "offer", "what do you build"],
     answer:
-      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **ROXBEE CoreSight** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
+      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **Roxbee** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
   },
   {
     keywords: ["contact", "reach", "email", "phone", "touch", "talk", "speak", "demo", "meet"],
@@ -87,7 +87,7 @@ const INITIAL_MESSAGES = [
   {
     id: 1,
     from: "bot",
-    text: "👋 Hi there! I'm **Roxbee Yukti**, your ROXBEE Analytics assistant.\n\nHow can I help you today? You can ask me about our services, industries, products, careers, or anything else!",
+    text: "👋 Hi there! I'm **Yukti**, your ROXBEE Analytics assistant.\n\nHow can I help you today? You can ask me about our services, industries, products, careers, or anything else!",
     time: new Date(),
   },
 ];
@@ -133,7 +133,7 @@ function formatText(text) {
 const TypingIndicator = () => (
   <div className="flex items-end gap-2 mb-3">
     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-      <img src="/yukti_avatar.png" alt="Roxbee Yukti" className="w-full h-full object-cover" />
+      <img src="/yukti_avatar.png" alt="Yukti" className="w-full h-full object-cover" />
     </div>
     <div className="bg-white border border-secondary-100 rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
       <div className="flex gap-1.5 items-center h-4">
@@ -375,7 +375,7 @@ export default function ChatBot() {
 
               <div className="flex-1 min-w-0">
                 <p className="text-white font-semibold text-sm leading-none">
-                  Roxbee Yukti
+                  Yukti
                 </p>
                 <p className="text-white/70 text-xs mt-1">
                   ROXBEE AI Assistant • Online
@@ -415,7 +415,7 @@ export default function ChatBot() {
                 >
                   {msg.from === "bot" && (
                     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-                      <img src="/yukti_avatar.png" alt="Roxbee Yukti" className="w-full h-full object-cover" />
+                      <img src="/yukti_avatar.png" alt="Yukti" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div

@@ -24,7 +24,7 @@ const products = [
     title: "Experimentation Studio",
     tags: ["Business Context", "Semantic AI", "Tailored"],
     description:
-      "CoreSight speaks your business language, aligning insights with your KPIs, metric definitions, and operating models.",
+      "Roxbee speaks your business language, aligning insights with your KPIs, metric definitions, and operating models.",
     icon: (
       <path
         strokeLinecap="round"

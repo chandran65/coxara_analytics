@@ -438,7 +438,7 @@ const ResourcesPage = () => {
       readTime: "45 min watch",
       excerpt:
         "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions every day.",
-      author: "CoreSight Experts",
+      author: "Roxbee Experts",
       image:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     },

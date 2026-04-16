@@ -11,7 +11,7 @@ const products = [
     title: "From Answers to Decisions",
     subtitle: "Actionable Insights · Context-Aware",
     description:
-      "CoreSight doesn't just answer questions - it drives decisions. Go beyond “what happened” to why it happened and what to do next. Designed for leaders who need clarity, not queries.",
+      "Roxbee doesn't just answer questions - it drives decisions. Go beyond “what happened” to why it happened and what to do next. Designed for leaders who need clarity, not queries.",
     features: [
       "Context-aware reasoning layer",
       "Understands complex business logic",
@@ -35,7 +35,7 @@ const products = [
     title: "Built for Business Context",
     subtitle: "Custom Models · Semantic AI",
     description:
-      "CoreSight speaks your business language, not generic AI responses. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
+      "Roxbee speaks your business language, not generic AI responses. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
     features: [
       "Dedicated Context Layer",
       "Captures custom business rules",
@@ -83,7 +83,7 @@ const products = [
     title: "Proactive Intelligence",
     subtitle: "Anomaly Detection · Foresight",
     description:
-      "CoreSight surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes to move from hindsight to foresight.",
+      "Roxbee surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes to move from hindsight to foresight.",
     features: [
       "Embedded anomaly detection",
       "Trend analysis across enterprise KPIs",
@@ -115,7 +115,7 @@ const products = [
     title: "Enterprise-Ready by Design",
     subtitle: "Secure · Scalable · Compliant",
     description:
-      "CoreSight integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
+      "Roxbee integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
     features: [
       "Secure, permission-aware data access",
       "Role-based access controls",
@@ -145,8 +145,8 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Roxbee", "CoreSight", "Enterprise", "Co-Pilot"];
-  const specialWords = ["CoreSight"];
+  const words = ["Roxbee", "Roxbee", "Enterprise", "Co-Pilot"];
+  const specialWords = ["Roxbee"];
 
   return (
     <section
@@ -280,7 +280,7 @@ const ProductsHero = () => {
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
-            Say goodbye to fragmented tools and data guesswork. CoreSight is Roxbee's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
+            Say goodbye to fragmented tools and data guesswork. Roxbee is Roxbee's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
           </motion.p>
 
           {/* Decorative divider */}
@@ -332,7 +332,7 @@ const DataStudioVisual = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
-        <span className="text-[10px] text-slate-500 ml-2 font-mono">coresight-query-engine</span>
+        <span className="text-[10px] text-slate-500 ml-2 font-mono">Roxbee-query-engine</span>
         <span className="ml-auto text-[9px] font-mono text-emerald-400 flex items-center gap-1">
           <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
           LIVE
@@ -1183,7 +1183,7 @@ const CTASection = () => (
             Ready to Transform Your Data Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Explore how Roxbee CoreSight can accelerate your analytics
+            Explore how Roxbee can accelerate your analytics
             from raw data to automated, intelligent decisions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">

@@ -62,7 +62,7 @@ const services = [
     benefits: [
       "LLM-powered Contextual Chatbots",
       "Indic Language Voice Recognition",
-      "Voice-to-Insights Analytics (CoreSight)",
+      "Voice-to-Insights Analytics (Roxbee)",
       "Automated Transcription & Summarization",
       "Sentimental & Intent Analysis",
     ],
