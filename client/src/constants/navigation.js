@@ -4,42 +4,8 @@ export const navigationData = [
     path: "/",
   },
   {
-    title: "Products",
+    title: "Roxbee",
     path: "/products",
-    items: [
-      { label: "Core AI Capabilities", isHeader: true },
-      {
-        label: "Answers to Decisions",
-        path: "/products#data-studio",
-        description: "Transform raw data into actionable insights",
-        icon: "thought",
-      },
-      {
-        label: "Business Context",
-        path: "/products#experimentation-studio",
-        description: "Semantic logic tailored to your specific metrics",
-        icon: "beaker",
-      },
-      {
-        label: "Data Backed Insights",
-        path: "/products#forecasting-studio",
-        description: "Verifiable results with end-to-end lineage",
-        icon: "report",
-      },
-      { label: "Enterprise Deployment", isHeader: true },
-      {
-        label: "Proactive Intelligence",
-        path: "/products#decision-automation",
-        description: "Anomaly detection and emerging risk alerts",
-        icon: "realtime",
-      },
-      {
-        label: "Enterprise Integration",
-        path: "/products#domain-intelligence",
-        description: "Deploy securely on Cloud, on-prem, or hybrid",
-        icon: "cube",
-      },
-    ],
   },
   {
     title: "Services",

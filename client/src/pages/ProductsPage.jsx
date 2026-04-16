@@ -8,10 +8,10 @@ const products = [
   {
     id: "data-studio",
     num: "01",
-    title: "From Answers to Decisions",
-    subtitle: "Actionable Insights · Context-Aware",
+    title: "Answers to Decisions",
+    subtitle: "Transform raw data into actionable insights",
     description:
-      "Roxbee doesn't just answer questions - it drives decisions. Go beyond “what happened” to why it happened and what to do next. Designed for leaders who need clarity, not queries.",
+      "Roxbee doesn't just answer questions - it drives decisions. Go beyond 'what happened' to why it happened and what to do next. Designed for leaders who need clarity, not queries.",
     features: [
       "Context-aware reasoning layer",
       "Understands complex business logic",
@@ -32,8 +32,8 @@ const products = [
   {
     id: "experimentation-studio",
     num: "02",
-    title: "Built for Business Context",
-    subtitle: "Custom Models · Semantic AI",
+    title: "Business Context",
+    subtitle: "Semantic logic tailored to your specific metrics",
     description:
       "Roxbee speaks your business language, not generic AI responses. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
     features: [
@@ -57,7 +57,7 @@ const products = [
     id: "forecasting-studio",
     num: "03",
     title: "Data Backed Insights",
-    subtitle: "Verifiable · Traceable · Auditable",
+    subtitle: "Verifiable results with end-to-end lineage",
     description:
       "Confidently present AI-driven insights in leadership meetings. No black-box answers. No hallucinated numbers - only verifiable results backed by traceable data logic.",
     features: [
@@ -81,7 +81,7 @@ const products = [
     id: "decision-automation",
     num: "04",
     title: "Proactive Intelligence",
-    subtitle: "Anomaly Detection · Foresight",
+    subtitle: "Anomaly detection and emerging risk alerts",
     description:
       "Roxbee surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes to move from hindsight to foresight.",
     features: [
@@ -112,8 +112,8 @@ const products = [
   {
     id: "domain-intelligence",
     num: "05",
-    title: "Enterprise-Ready by Design",
-    subtitle: "Secure · Scalable · Compliant",
+    title: "Enterprise Integration",
+    subtitle: "Deploy securely on Cloud, on-prem, or hybrid",
     description:
       "Roxbee integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
     features: [
@@ -145,7 +145,7 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Roxbee", "Enterprise", "Copilot"];
+  const words = ["Enterprise", "Copilot"];
   const specialWords = ["Roxbee"];
 
   return (
@@ -235,21 +235,21 @@ const ProductsHero = () => {
       >
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-8"
-          >
             <motion.div
-              className="w-2 h-2 rounded-full bg-brand-purple"
-              animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              Enterprise AI
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-8"
+            >
+              <img 
+                src="/product_name_logo.png" 
+                alt="Roxbee Logo" 
+                className="h-20 sm:h-24 md:h-32 mx-auto object-contain drop-shadow-2xl"
+              />
+            </motion.div>
+            <span className="text-sm font-semibold text-brand-purple tracking-wide px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full inline-block mb-8">
+              Enterprise AI Copilot
             </span>
-          </motion.div>
 
           {/* Word-by-word title */}
           <h1 className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-1 sm:gap-y-2 mb-6 sm:mb-8 pb-1">
