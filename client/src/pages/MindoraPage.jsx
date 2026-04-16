@@ -68,8 +68,9 @@ const MindoraPage = () => {
               <span className="text-sm font-bold tracking-wider uppercase">Intelligence, Unbound.</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-secondary-900 mb-8">
-              Where Young Minds <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Learn, Play & Build AI</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-secondary-900 mb-8 leading-tight">
+              <span className="block text-indigo-600 mb-2">Mindora AI Studio</span>
+              Where Young Minds <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 whitespace-nowrap">Innovate & Create</span>
             </h1>
             
             <p className="text-xl text-secondary-600 mb-12 leading-relaxed">

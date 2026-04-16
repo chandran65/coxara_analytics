@@ -145,7 +145,7 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Enterprise", "Copilot"];
+  const words = ["Roxbee", "Enterprise", "Copilot"];
   const specialWords = ["Roxbee"];
 
   return (
