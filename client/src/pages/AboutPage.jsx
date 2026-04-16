@@ -140,7 +140,8 @@ const keyPoints = [
   },
   {
     title: "Proven Solutions",
-    desc: "10+ successful projects across industries",
+    title: "Proven Solutions",
+    desc: "10+ active clients & 5+ industries served",
   },
   {
     title: "Innovation First",
@@ -194,7 +195,7 @@ const AboutPage = () => {
                   real-time decisions—no SQL or data prep required.
                 </p>
                 <p>
-                  With over a decade of experience across multiple industries,
+                  With experience across 5+ industries serving 10+ clients,
                   our commitment to excellence and cutting-edge technology enables 
                   us to tackle the most complex enterprise data challenges and 
                   deliver solutions that exceed expectations.
@@ -272,7 +273,7 @@ const AboutPage = () => {
                       Est.
                     </p>
                     <p className="text-2xl font-semibold text-secondary-900">
-                      2014
+                      2026
                     </p>
                   </div>
                 </div>

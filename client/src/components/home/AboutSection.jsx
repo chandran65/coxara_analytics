@@ -290,8 +290,8 @@ const AboutSection = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 {[
-                  { value: "50+", label: "Enterprise Clients" },
-                  { value: "10+", label: "Industries Served" },
+                  { value: "10+", label: "Global Clients" },
+                  { value: "5+", label: "Industries Served" },
                   { value: "96.8%", label: "AI Accuracy Rate" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
