@@ -457,27 +457,19 @@ const Home = () => {
                     }}
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-brand-purple/10 flex items-center justify-center">
-                        <svg
-                          className="w-3.5 h-3.5 text-brand-purple"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                          />
-                        </svg>
+                      <div className="w-10 h-10 rounded-lg bg-white/50 backdrop-blur-md flex items-center justify-center p-1 shadow-sm border border-brand-purple/10">
+                        <img 
+                          src="/geometric_c_nodes.png" 
+                          alt="Roxbee" 
+                          className="w-full h-full object-contain mix-blend-multiply"
+                        />
                       </div>
                       <div>
                         <p className="text-[11px] font-bold text-secondary-800">
-                          Enterprise AI
+                          Roxbee AI
                         </p>
                         <p className="text-[9px] text-brand-purple font-semibold">
-                          Production Ready
+                          Enterprise Ready
                         </p>
                       </div>
                     </div>

@@ -190,7 +190,7 @@ const AboutPage = () => {
                 </p>
                 <p>
                   Our flagship product, <strong className="text-brand-purple">Roxbee</strong>, serves as your Enterprise 
-                  AI Co-Pilot. It allows business users to seamlessly interact with complex datasets 
+                  AI Copilot. It allows business users to seamlessly interact with complex datasets 
                   using natural language, transforming distributed data and models into governed, 
                   real-time decisions—no SQL or data prep required.
                 </p>

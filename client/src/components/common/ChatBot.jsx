@@ -24,7 +24,7 @@ const BOT_KNOWLEDGE = [
       "COXARA Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
   },
   {
-    keywords: ["product", "Roxbee", "Roxbee", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
+    keywords: ["product", "Roxbee", "Roxbee", "enterprise copilot", "conversational ai", "chat with data", "natural language"],
     answer:
       "Our flagship product is **Roxbee**! 🚀\n\nRoxbee lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see Roxbee in action? Request a demo!",
   },

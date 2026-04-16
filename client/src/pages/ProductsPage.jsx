@@ -1,4 +1,4 @@
-﻿import { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
@@ -145,7 +145,7 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Roxbee", "Roxbee", "Enterprise", "Co-Pilot"];
+  const words = ["Roxbee", "Enterprise", "Copilot"];
   const specialWords = ["Roxbee"];
 
   return (
@@ -280,7 +280,7 @@ const ProductsHero = () => {
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
-            Say goodbye to fragmented tools and data guesswork. Roxbee is Roxbee's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
+            From fragmented data to coordinated decisions. Roxbee is a swarm intelligence–driven analytics platform that unifies distributed data, embeds governance, and enables natural language interaction—so business users can turn insights into action, instantly.
           </motion.p>
 
           {/* Decorative divider */}
@@ -1068,13 +1068,13 @@ const OverviewStrip = () => {
         >
           <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              AI Co-Pilot
+              AI Copilot
             </span>
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900">
             The Enterprise AI{" "}
             <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
-              Co-Pilot
+              Copilot
             </span>
           </h2>
         </motion.div>
