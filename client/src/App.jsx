@@ -12,6 +12,7 @@ import SolutionsPage from "./pages/SolutionsPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import ProductsPage from "./pages/ProductsPage";
+import MindoraPage from "./pages/MindoraPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
 
           {/* Products Routes */}
           <Route path="products" element={<ProductsPage />} />
+          <Route path="products/mindora" element={<MindoraPage />} />
 
 
 

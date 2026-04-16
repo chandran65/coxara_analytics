@@ -4,8 +4,22 @@ export const navigationData = [
     path: "/",
   },
   {
-    title: "Roxbee",
+    title: "Products",
     path: "/products",
+    items: [
+      {
+        label: "Roxbee",
+        path: "/products",
+        description: "Enterprise AI Copilot for Coordinated Decisions",
+        icon: "sparkle",
+      },
+      {
+        label: "Mindora AI Studio",
+        path: "/products/mindora",
+        description: "Where Young Minds Learn, Play & Build AI",
+        icon: "beaker",
+      },
+    ],
   },
   {
     title: "Services",

@@ -53,13 +53,13 @@ const ProductSection = () => {
           <AnimatedSection direction="left">
             <div className="max-w-xl">
               <SectionHeading
-                badge="Product"
+                badge="Products"
                 title="Our"
-                highlight="Product"
+                highlight="Products"
                 align="left"
               />
               <p className="text-lg text-secondary-500 mt-6 mb-12 leading-relaxed">
-                <span className="font-bold text-secondary-900">Coxara</span> is Roxbee's flagship product, built on our deep data engineering experience and designed to combine natural language intelligence with enterprise-scale analytics.
+                COXARA Analytics powers the next generation of intelligence. From <strong className="text-secondary-900">Roxbee</strong>, our flagship Enterprise AI Copilot, to <strong className="text-indigo-600">Mindora AI Studio</strong> for young learners, we build systems that turn complex data into human opportunity.
               </p>
 
               <div className="space-y-8">
