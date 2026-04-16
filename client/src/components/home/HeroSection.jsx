@@ -59,9 +59,21 @@ const HeroVisual = ({ mouseX, mouseY }) => {
       }}
       className="relative w-full aspect-square max-w-[320px] sm:max-w-[440px] md:max-w-[560px] mx-auto select-none rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(109,40,217,0.4)] border border-brand-purple/20 bg-brand-purple/5"
     >
-      <img src="/ai_human_visual.png" alt="Roxbee AI Intelligence" className="w-full h-full object-cover mix-blend-overlay" />
+      <motion.img 
+        src="/ai_human_visual.png" 
+        alt="Roxbee AI Intelligence" 
+        className="w-full h-full object-cover mix-blend-overlay"
+        animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/80 via-transparent to-brand-accent/20 mix-blend-multiply pointer-events-none" />
-      <img src="/ai_human_visual.png" alt="Roxbee AI Intelligence" className="absolute inset-0 w-full h-full object-cover opacity-80" />
+      <motion.img 
+        src="/ai_human_visual.png" 
+        alt="Roxbee AI Intelligence" 
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        animate={{ scale: [1, 1.08, 1], y: [0, -10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Floating dynamic status indicators */}
       <motion.div 

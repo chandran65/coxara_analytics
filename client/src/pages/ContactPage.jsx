@@ -315,7 +315,7 @@ const ContactPage = () => {
             ],
             context: {
               pageUri: "https://www.roxbee.co.in/company/contact",
-              pageName: "ROXBEE Analytics — Contact Page",
+              pageName: "COXARA Analytics — Contact Page",
             },
           }),
         }
@@ -323,7 +323,7 @@ const ContactPage = () => {
       if (hsRes.ok) success = true;
     } catch { /* fall through */ }
 
-    // 2) Formspree — emails director@roxbee.co.in as backup
+    // 2) Formspree — emails director@coxara.co.in as backup
     if (!formspreeId) {
       // Skip Formspree if not configured
     } else try {
@@ -341,7 +341,7 @@ const ContactPage = () => {
       setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);
     } else {
-      alert("Something went wrong. Please email us directly at director@roxbee.co.in");
+      alert("Something went wrong. Please email us directly at director@coxara.co.in");
     }
   };
 
@@ -362,8 +362,8 @@ const ContactPage = () => {
         />
       ),
       title: "Email Us",
-      content: "director@roxbee.co.in",
-      link: "mailto:director@roxbee.co.in",
+      content: "director@coxara.co.in",
+      link: "mailto:director@coxara.co.in",
       accent: "from-violet-600 to-purple-400",
     },
     {

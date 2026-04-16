@@ -25,7 +25,7 @@ const ResourcesHero = () => {
     "case-studies": {
       badge: "Success Stories",
       title: "Real-World Impact",
-      desc: "Explore how ROXBEE transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
+      desc: "Explore how COXARA transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
     },
     "blog": {
       badge: "Latest Insights",
@@ -401,7 +401,7 @@ const ResourcesPage = () => {
       date: "November 5, 2025",
       readTime: "12 min read",
       excerpt:
-        "How a leading retail brand reduced stockouts by 40% using ROXBEE's forecasting engine. Real data, real results, and actionable takeaways.",
+        "How a leading retail brand reduced stockouts by 40% using COXARA's forecasting engine. Real data, real results, and actionable takeaways.",
       author: "Analytics Team",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
