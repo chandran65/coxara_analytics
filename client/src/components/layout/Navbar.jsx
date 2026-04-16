@@ -538,28 +538,6 @@ const Navbar = () => {
               </div>
             ))}
 
-            {/* CTA Button */}
-            <div className="ml-4">
-              <Link
-                to="/company/contact"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-purple text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <span>Get in Touch</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -710,34 +688,7 @@ const Navbar = () => {
                 </motion.div>
               ))}
 
-              {/* Mobile CTA */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="px-4 py-4 mt-2 border-t border-secondary-100"
-              >
-                <Link
-                  to="/company/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-brand-purple text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all duration-300"
-                >
-                  Get in Touch
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-              </motion.div>
+
             </div>
           </motion.div>
         )}
