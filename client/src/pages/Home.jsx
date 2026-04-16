@@ -44,19 +44,6 @@ const Home = () => {
         {/* Mission & Vision */}
         <MissionVisionSection />
 
-        {/* Product Section */}
-        <ProductSection />
-
-        {/* Capabilities Grid */}
-        <CapabilitiesGrid />
-
-        {/* Featured Case Study */}
-        <FeaturedCaseStudy />
-
-
-        {/* Resources Section */}
-        <ResourcesSection />
-
         {/* Why Choose Us */}
         <section
           ref={whyRef}
@@ -163,7 +150,7 @@ const Home = () => {
               </AnimatedSection>
 
               <AnimatedSection direction="right" delay={0.2}>
-                <div className="relative w-full aspect-square max-w-lg mx-auto select-none">
+                <div className="relative w-full aspect-square max-lg mx-auto select-none">
                   {/* Background glow */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-brand-purple/8 to-brand-accent/5 rounded-full blur-[90px] scale-125" />
 
@@ -479,6 +466,19 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Product Section */}
+        <ProductSection />
+
+        {/* Capabilities Grid */}
+        <CapabilitiesGrid />
+
+        {/* Featured Case Study */}
+        <FeaturedCaseStudy />
+
+
+        {/* Resources Section */}
+        <ResourcesSection />
 
         {/* Final CTA Section */}
         <section className="py-20 md:py-28 glass-section-alt relative overflow-hidden">
