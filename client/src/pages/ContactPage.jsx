@@ -237,8 +237,27 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const [errors, setErrors] = useState({});
+  const [cooldown, setCooldown] = useState(false);
+
+  const validate = () => {
+    const errs = {};
+    if (!formData.name.trim()) errs.name = "Name is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      errs.email = "Please enter a valid email address";
+    if (formData.phone && !/^[+\d][\d\s()-]{6,19}$/.test(formData.phone))
+      errs.phone = "Please enter a valid phone number";
+    if (!formData.subject.trim()) errs.subject = "Subject is required";
+    if (!formData.message.trim()) errs.message = "Message is required";
+    if (formData.message.length > 5000) errs.message = "Message must be under 5000 characters";
+    return errs;
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (errors[e.target.name]) {
+      setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
+    }
   };
 
   // ── HubSpot CRM ─────────────────────────────────────────────────────
@@ -265,6 +284,13 @@ const ContactPage = () => {
     // Anti-spam honeypot check
     if (honeypot) return;
 
+    // Per-field validation
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     // Client-side validation
     if (!formData.name.trim() || formData.name.length > MAX_FIELD) {
       setFormError("Please enter a valid name (max 200 characters).");
@@ -287,7 +313,10 @@ const ContactPage = () => {
       return;
     }
 
+    if (cooldown) return;
     setIsSubmitting(true);
+    setCooldown(true);
+    setTimeout(() => setCooldown(false), 10000);
 
     const [firstName, ...rest] = formData.name.trim().split(" ");
     const lastName = rest.join(" ") || "";
@@ -541,6 +570,7 @@ const ContactPage = () => {
                           className={inputClass("name")}
                           placeholder="John Doe"
                         />
+                        {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                       </FormField>
                       <FormField label="Email Address" required delay={0.1}>
                         <input
@@ -554,6 +584,7 @@ const ContactPage = () => {
                           className={inputClass("email")}
                           placeholder="john@company.com"
                         />
+                        {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                       </FormField>
                     </div>
 
@@ -569,6 +600,7 @@ const ContactPage = () => {
                           className={inputClass("phone")}
                           placeholder="+1 (555) 123-4567"
                         />
+                        {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
                       </FormField>
                       <FormField label="Company Name" delay={0.2}>
                         <input
@@ -597,6 +629,7 @@ const ContactPage = () => {
                         className={inputClass("subject")}
                         placeholder="How can we help?"
                       />
+                      {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
                     </FormField>
 
                     <FormField label="Message" required delay={0.3}>
@@ -612,6 +645,7 @@ const ContactPage = () => {
                         className={`${inputClass("message")} resize-none`}
                         placeholder="Tell us about your project..."
                       />
+                      {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
                     </FormField>
 
                     {/* Submit button */}
