@@ -140,7 +140,7 @@ const Footer = () => {
               }}
             >
               <Link to="/" className="inline-block group mb-8">
-                <span className="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent transition-transform duration-300 group-hover:scale-105 inline-block">Coxara</span>
+                <span className="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent transition-transform duration-300 group-hover:scale-105 inline-block">COXARA ANALYTICS</span>
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
                 Transforming data into actionable insights with cutting-edge

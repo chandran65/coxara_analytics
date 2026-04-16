@@ -43,12 +43,30 @@ const ExpertiseCard = ({ title, description, category, type, icon }) => {
 const CapabilitiesGrid = () => {
   const items = [
     {
-      title: "Vision AI",
+      title: "Generative AI",
       category: "Technology",
       type: "Technology",
-      description: "See beyond the image. Automate facial, traffic, and medical analysis instantly.",
+      description: "Solve problems with the power of AI - trained on your company data.",
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      ),
+    },
+    {
+      title: "Vision & Text AI",
+      category: "Technology",
+      type: "Technology",
+      description: "Automate visual and text analysis instantly to unlock hidden insights.",
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      ),
+    },
+    {
+      title: "Speech AI",
+      category: "Technology",
+      type: "Technology",
+      description: "Convert voice to insights with recognition, modification, and analytics.",
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
       ),
     },
     {
@@ -61,55 +79,37 @@ const CapabilitiesGrid = () => {
       ),
     },
     {
-      title: "Generative AI",
-      category: "Technology",
-      type: "Technology",
-      description: "Solve problems with the power of AI - trained on your company data.",
-      icon: (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      ),
-    },
-    {
-      title: "Healthcare",
+      title: "Healthcare & Life Science",
       category: "Industry",
       type: "Industry",
-      description: "Transform patient care with AI-driven EHRs, personalized plans, and optimized revenue.",
+      description: "Accelerate drug discovery and transform patient care with personalized AI.",
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       ),
     },
     {
-      title: "Text AI",
-      category: "Technology",
-      type: "Technology",
-      description: "Unlock hidden insights. Automate reading and pattern discovery in documents.",
-      icon: (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      ),
-    },
-    {
-      title: "Retail & E-Commerce",
+      title: "Retail & CPG",
       category: "Industry",
       type: "Industry",
-      description: "Know your customer. Forecast demand and maximize lifetime value with AI.",
+      description: "Forecast demand and optimize paths for consumer and fast-moving goods.",
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       ),
     },
     {
-      title: "Speech AI",
-      category: "Technology",
-      type: "Technology",
-      description: "Listen smarter. Convert voice to insights with recognition, modification, and analytics.",
+      title: "High-Tech",
+      category: "Industry",
+      type: "Industry",
+      description: "Scale innovation with agile intelligence and data-backed product strategies.",
       icon: (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
       ),
     },
     {
       title: "Manufacturing",
       category: "Industry",
       type: "Industry",
-      description: "Spot defects, optimize warehouses, and automate visual QA with AI vision.",
+      description: "Spot defects and automate visual QA for smarter production lines.",
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       ),
@@ -134,7 +134,7 @@ const CapabilitiesGrid = () => {
       <div className="container-custom relative z-10">
         <AnimatedSection>
           <SectionHeading
-            badge="Our Capabilities"
+            badge="Capabilities & Solutions"
             title="Empowering Enterprise With"
             highlight="Intelligent AI"
             description="Proven expertise across functional technologies and vertical industries, delivering end-to-end intelligence."

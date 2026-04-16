@@ -182,22 +182,22 @@ const AboutPage = () => {
               <div className="space-y-4 text-lg text-secondary-600 leading-relaxed">
                 <p>
                   Founded with a vision to transform how businesses leverage
-                  data, we are a leading provider of comprehensive data science
-                  and machine learning solutions. Our team of expert data
-                  scientists, engineers, and consultants work tirelessly to
-                  deliver innovative solutions that drive real business value.
+                  data, <strong>Coxara Analytics</strong> is a swarm intelligence–driven 
+                  platform delivering comprehensive data science and machine learning solutions. 
+                  Our team of expert data scientists and engineers work tirelessly to
+                  turn complex data into actionable business value.
+                </p>
+                <p>
+                  Our flagship product, <strong className="text-brand-purple">Roxbee</strong>, serves as your Enterprise 
+                  AI Co-Pilot. It allows business users to seamlessly interact with complex datasets 
+                  using natural language, transforming distributed data and models into governed, 
+                  real-time decisions—no SQL or data prep required.
                 </p>
                 <p>
                   With over a decade of experience across multiple industries,
-                  we've helped hundreds of organizations unlock the power of
-                  their data through advanced analytics, predictive modeling, and
-                  AI-driven insights.
-                </p>
-                <p>
-                  Our commitment to excellence, combined with cutting-edge
-                  technology and deep domain expertise, enables us to tackle the
-                  most complex data challenges and deliver solutions that exceed
-                  expectations.
+                  our commitment to excellence and cutting-edge technology enables 
+                  us to tackle the most complex enterprise data challenges and 
+                  deliver solutions that exceed expectations.
                 </p>
               </div>
 
