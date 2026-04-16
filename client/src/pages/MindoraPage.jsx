@@ -20,9 +20,9 @@ const MindoraPage = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+        className="relative py-24 md:py-32 overflow-hidden bg-secondary-950 text-white"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(99,102,241,0.08)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(99,102,241,0.15)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.15)_0%,transparent_50%)]" />
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage: "radial-gradient(circle at 1px 1px, #6366f1 1.5px, transparent 0)",
@@ -31,58 +31,45 @@ const MindoraPage = () => {
         />
         {/* Animated Orbs */}
         <motion.div 
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-200/20 blur-[100px] rounded-full"
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full"
         />
-        <motion.div 
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200/20 blur-[100px] rounded-full"
-        />
+        
         <div className="container-custom relative z-10">
           <motion.div
             style={{ y: textY, opacity }}
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative mb-12 group"
+              className="relative mb-8 group"
             >
-              <div className="absolute -inset-10 bg-indigo-500/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="absolute -inset-10 bg-indigo-500/20 blur-[60px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
               <img 
-                src="/mindora_logo.png" 
-                alt="Mindora AI Studio Logo" 
-                className="w-36 h-36 md:w-52 md:h-52 mx-auto object-contain drop-shadow-[0_25px_40px_rgba(99,102,241,0.2)] hover:rotate-3 transition-transform duration-500 relative z-10"
+                src="/mindora_logo_hero.png" 
+                alt="Mindora AI Studio" 
+                className="w-full max-w-[500px] mx-auto object-contain drop-shadow-[0_0_50px_rgba(99,102,241,0.3)] hover:scale-[1.02] transition-transform duration-500 relative z-10 rounded-2xl shadow-2xl"
               />
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-8 shadow-sm"
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-xl text-secondary-300 mb-12 leading-relaxed max-w-2xl mx-auto"
             >
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="text-sm font-bold tracking-wider uppercase">Intelligence, Unbound.</span>
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-secondary-900 mb-8 leading-tight">
-              <span className="block text-indigo-600 mb-2">Mindora AI Studio</span>
-              Where Young Minds <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 whitespace-nowrap">Innovate & Create</span>
-            </h1>
-            
-            <p className="text-xl text-secondary-600 mb-12 leading-relaxed">
-              From your child’s <strong className="text-indigo-600">first line of code</strong> to building <strong className="text-purple-600">real AI projects</strong>, 
+              From your child’s <strong className="text-white">first line of code</strong> to building <strong className="text-indigo-300">real AI projects</strong>, 
               Mindora AI Studio makes learning fun, visual, and powerful.
-            </p>
+            </motion.p>
             
             <div className="flex flex-wrap items-center justify-center gap-6">
-              <button className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-lg shadow-indigo-200 hover:scale-105 transition-transform">
+              <button className="px-10 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-lg shadow-indigo-900/20 hover:scale-105 hover:bg-indigo-500 transition-all">
                 Start Learning
               </button>
-              <button className="px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full font-bold hover:bg-indigo-50 transition-colors">
+              <button className="px-10 py-4 border-2 border-white/20 text-white rounded-full font-bold hover:bg-white/10 transition-colors">
                 Try a Demo
               </button>
             </div>
