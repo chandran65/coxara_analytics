@@ -171,7 +171,8 @@ const ProductsHero = () => {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Dot grid */}
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,40,217,0.05)_0%,transparent_40%),radial-gradient(circle_at_80%_80%,rgba(124,58,237,0.05)_0%,transparent_40%)]" />
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -234,22 +235,33 @@ const ProductsHero = () => {
         }}
       >
         <div className="text-center max-w-5xl mx-auto">
-          {/* Badge */}
+          {/* Badge & Logo */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative mb-10 group inline-block"
             >
+              <div className="absolute -inset-10 bg-gradient-to-r from-brand-purple/20 via-brand-accent/20 to-brand-glow/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               <img 
                 src="/product_name_logo.png" 
                 alt="Roxbee Logo" 
-                className="h-20 sm:h-24 md:h-32 mx-auto object-contain drop-shadow-2xl"
+                className="h-28 sm:h-32 md:h-40 mx-auto object-contain drop-shadow-[0_20px_50px_rgba(109,40,217,0.3)] hover:scale-105 transition-transform duration-500 relative z-10"
               />
             </motion.div>
-            <span className="text-sm font-semibold text-brand-purple tracking-wide px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full inline-block mb-8">
-              Enterprise AI Copilot
-            </span>
+            <div className="flex justify-center mb-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="inline-flex items-center gap-2 px-6 py-2 bg-white/60 backdrop-blur-md border border-brand-purple/20 rounded-full shadow-sm hover:border-brand-purple/40 transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
+                <span className="text-[10px] sm:text-xs font-bold text-brand-purple tracking-[0.2em] uppercase">
+                  Enterprise AI Copilot
+                </span>
+              </motion.div>
+            </div>
 
           {/* Word-by-word title */}
           <h1 className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-1 sm:gap-y-2 mb-6 sm:mb-8 pb-1">

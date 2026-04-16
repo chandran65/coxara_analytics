@@ -22,11 +22,23 @@ const MindoraPage = () => {
         ref={heroRef}
         className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50"
       >
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(99,102,241,0.08)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, #6366f1 1px, transparent 0)",
-            backgroundSize: "40px 40px",
+            backgroundImage: "radial-gradient(circle at 1px 1px, #6366f1 1.5px, transparent 0)",
+            backgroundSize: "32px 32px",
           }}
+        />
+        {/* Animated Orbs */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-200/20 blur-[100px] rounded-full"
+        />
+        <motion.div 
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200/20 blur-[100px] rounded-full"
         />
         <div className="container-custom relative z-10">
           <motion.div
@@ -34,22 +46,23 @@ const MindoraPage = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative mb-12 group"
             >
+              <div className="absolute -inset-10 bg-indigo-500/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               <img 
                 src="/mindora_logo.png" 
                 alt="Mindora AI Studio Logo" 
-                className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain drop-shadow-xl"
+                className="w-36 h-36 md:w-52 md:h-52 mx-auto object-contain drop-shadow-[0_25px_40px_rgba(99,102,241,0.2)] hover:rotate-3 transition-transform duration-500 relative z-10"
               />
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-8 shadow-sm"
             >
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
               <span className="text-sm font-bold tracking-wider uppercase">Intelligence, Unbound.</span>
