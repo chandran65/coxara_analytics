@@ -257,7 +257,7 @@ const AboutSection = () => {
           <AnimatedSection direction="right" delay={0.2}>
             <div className="space-y-6 text-center lg:text-left">
               <SectionHeading
-                badge="About COXARA Analytics"
+                badge="About ROXBEE Analytics"
                 title="Pioneering the Future of"
                 highlight="Intelligent Enterprise"
                 align="left"
@@ -265,7 +265,7 @@ const AboutSection = () => {
 
               <div className="space-y-4 text-base md:text-lg text-secondary-600 leading-relaxed">
                 {[
-                  "COXARA Analytics is a new-age AI & data intelligence firm built for the era of Generative AI. We help enterprises move beyond static dashboards to dynamic, self-learning systems that drive real business decisions.",
+                  "ROXBEE Analytics is a new-age AI & data intelligence firm built for the era of Generative AI. We help enterprises move beyond static dashboards to dynamic, self-learning systems that drive real business decisions.",
                   "We are the team behind CoreSight — our flagship Enterprise AI Co-Pilot that lets business leaders chat with their data in plain English. No SQL, no data prep, no guesswork. Just clear, verifiable answers backed by your actual data.",
                   "Our mission: democratize advanced AI so businesses of every size can harness predictive intelligence and autonomous decision-making — without the technical complexity.",
                 ].map((text, i) => (

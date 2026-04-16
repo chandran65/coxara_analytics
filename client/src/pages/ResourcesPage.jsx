@@ -25,11 +25,16 @@ const ResourcesHero = () => {
     "case-studies": {
       badge: "Success Stories",
       title: "Real-World Impact",
-      desc: "Explore how COXARA transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
+      desc: "Explore how ROXBEE transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
     },
-    "resources": {
-      badge: "Toolkits",
-      title: "Executive Resources",
+    "blog": {
+      badge: "Latest Insights",
+      title: "The Intelligence Blog",
+      desc: "Expert perspectives on AI, data strategy, and the future of enterprise automation from our leading practitioners."
+    },
+    "toolkits": {
+      badge: "Executive Assets",
+      title: "Strategic Toolkits",
       desc: "Curated templates, dashboard frameworks, and data strategy checklists to accelerate your digital transformation."
     },
     "webinars": {
@@ -358,10 +363,11 @@ const ResourcesPage = () => {
 
   const categories = [
     "All",
+    "Blog",
     "Case Studies",
-    "Resources",
-    "Webinars",
     "Whitepapers",
+    "Webinars",
+    "Toolkits",
   ];
 
   // Sync state with URL param
@@ -395,7 +401,7 @@ const ResourcesPage = () => {
       date: "November 5, 2025",
       readTime: "12 min read",
       excerpt:
-        "How a leading retail brand reduced stockouts by 40% using COXARA's forecasting engine. Real data, real results, and actionable takeaways.",
+        "How a leading retail brand reduced stockouts by 40% using ROXBEE's forecasting engine. Real data, real results, and actionable takeaways.",
       author: "Analytics Team",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
@@ -414,6 +420,18 @@ const ResourcesPage = () => {
     },
     {
       id: 3,
+      title: "Navigating the Future: The Rise of Causal AI in Supply Chain",
+      category: "Blog",
+      date: "October 30, 2025",
+      readTime: "8 min read",
+      excerpt:
+        "Why standard predictive models are no longer enough. Learn how Causal AI identifies the 'why' behind supply chain disruptions to build true resilience.",
+      author: "Dr. Sarah Chen",
+      image:
+        "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=800&q=80",
+    },
+    {
+      id: 4,
       title: "Webinar: Bridging the Gap Between Data and Decisions",
       category: "Webinars",
       date: "October 28, 2025",
@@ -425,19 +443,19 @@ const ResourcesPage = () => {
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     },
     {
-      id: 4,
-      title: "Data Visualization Toolkit for Executives",
-      category: "Resources",
+      id: 5,
+      title: "Mastering Data Visualization: Executive Dashboard Toolkit",
+      category: "Toolkits",
       date: "October 25, 2025",
-      readTime: "Downloaded 2k+ times",
+      readTime: "Downloaded 5k+ times",
       excerpt:
         "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting and board meetings.",
-      author: "UX Team",
+      author: "UX Design Team",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     },
     {
-      id: 5,
+      id: 6,
       title: "Healthcare Efficiency: Reducing Patient Wait Times with AI",
       category: "Case Studies",
       date: "October 22, 2025",
@@ -449,16 +467,40 @@ const ResourcesPage = () => {
         "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
     },
     {
-      id: 6,
-      title: "The Ethics of Autonomous Decision Systems",
+      id: 7,
+      title: "Building Trust in AI: A Framework for Algorithmic Transparency",
       category: "Whitepapers",
       date: "October 18, 2025",
-      readTime: "18 min read",
+      readTime: "22 min read",
       excerpt:
         "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
       author: "Compliance Team",
       image:
         "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+    },
+    {
+      id: 8,
+      title: "5 Common Pitfalls in Enterprise Data Migration",
+      category: "Blog",
+      date: "October 15, 2025",
+      readTime: "6 min read",
+      excerpt:
+        "Migration isn't just about moving data—it's about maintaining integrity. Here are the top 5 mistakes we see and how to avoid them.",
+      author: "Jason Miller",
+      image:
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80",
+    },
+    {
+      id: 9,
+      title: "Unlocking Financial Agility with Real-time Forecasting",
+      category: "Case Studies",
+      date: "October 10, 2025",
+      readTime: "15 min read",
+      excerpt:
+        "Learn how a global fintech firm achieved 98% forecasting accuracy across multiple currencies using our proprietary neural network models.",
+      author: "Finance Solutions",
+      image:
+        "https://images.unsplash.com/photo-1611974717483-582855f7263c?w=800&q=80",
     },
   ];
 

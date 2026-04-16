@@ -145,7 +145,7 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Coxara", "CoreSight", "Enterprise", "Co-Pilot"];
+  const words = ["Roxbee", "CoreSight", "Enterprise", "Co-Pilot"];
   const specialWords = ["CoreSight"];
 
   return (
@@ -280,7 +280,7 @@ const ProductsHero = () => {
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
-            Say goodbye to fragmented tools and data guesswork. CoreSight is Coxara's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
+            Say goodbye to fragmented tools and data guesswork. CoreSight is Roxbee's secure, enterprise-grade conversational AI platform that lets business users chat with their data using natural language.
           </motion.p>
 
           {/* Decorative divider */}
@@ -1183,7 +1183,7 @@ const CTASection = () => (
             Ready to Transform Your Data Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Explore how Coxara CoreSight can accelerate your analytics
+            Explore how Roxbee CoreSight can accelerate your analytics
             from raw data to automated, intelligent decisions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">

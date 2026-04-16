@@ -59,7 +59,7 @@ const ProductSection = () => {
                 align="left"
               />
               <p className="text-lg text-secondary-500 mt-6 mb-12 leading-relaxed">
-                <span className="font-bold text-secondary-900">CoreSight</span> is Coxara's flagship product, built on our deep data engineering experience and designed to combine natural language intelligence with enterprise-scale analytics.
+                <span className="font-bold text-secondary-900">CoreSight</span> is Roxbee's flagship product, built on our deep data engineering experience and designed to combine natural language intelligence with enterprise-scale analytics.
               </p>
 
               <div className="space-y-8">

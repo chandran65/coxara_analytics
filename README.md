@@ -1,6 +1,6 @@
-# Coxara Analytics
+# Roxbee
 
-This repository contains the source code for the Coxara Analytics platform, including the NexiraOS application.
+This repository contains the source code for the Roxbee platform, including the NexiraOS application.
 
 ## Project Structure
 

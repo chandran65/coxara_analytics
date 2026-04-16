@@ -8,9 +8,30 @@ const resources = [
     title: "Whitepapers",
     description:
       "Deep-dive technical insights into data platforms, AI governance, experimentation science, and enterprise automation.",
-    cta: "Download Whitepaper",
+    cta: "Explore Whitepapers",
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    category: "whitepapers"
+  },
+  {
+    id: "case-studies",
+    title: "Case Studies",
+    description:
+      "Real-world success stories demonstrating how we solve complex data challenges and drive measurable business ROI.",
+    cta: "View Case Studies",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    category: "case-studies"
+  },
+  {
+    id: "blog",
+    title: "The Intelligence Blog",
+    description:
+      "Thought leadership and expert perspectives on the evolving landscape of AI and analytics infrastructure.",
+    cta: "Read Our Blog",
+    image:
+      "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=800&q=80",
+    category: "blog"
   },
 ];
 
@@ -33,7 +54,7 @@ const ResourcesSection = () => {
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 max-w-2xl mx-auto gap-8 lg:gap-10 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mt-16">
           {resources.map((resource, index) => (
             <AnimatedSection key={resource.id} delay={index * 0.15}>
               <motion.div
@@ -66,7 +87,7 @@ const ResourcesSection = () => {
                   </p>
                   <div>
                     <button
-                      onClick={() => navigate("/resources")}
+                      onClick={() => navigate(`/resources/${resource.category}`)}
                       className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-brand-purple/20 hover:scale-105"
                     >
                       {resource.cta}

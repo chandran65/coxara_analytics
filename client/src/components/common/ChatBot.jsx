@@ -6,32 +6,32 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["hello", "hi", "hey", "greet", "good morning", "good afternoon"],
     answer:
-      "Hello! 👋 Welcome to COXARA Analytics! I'm your AI assistant. I can help you learn about our data analytics services, solutions, industries we serve, and much more. What would you like to know?",
+      "Hello! 👋 Welcome to ROXBEE Analytics! I'm your AI assistant. I can help you learn about our data analytics services, solutions, industries we serve, and much more. What would you like to know?",
   },
   {
-    keywords: ["who are you", "what is coxara", "about coxara", "tell me about coxara", "company overview", "coxara analytics"],
+    keywords: ["who are you", "what is roxbee", "about roxbee", "tell me about roxbee", "company overview", "roxbee analytics"],
     answer:
-      "COXARA Analytics is a cutting-edge data intelligence platform specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
+      "ROXBEE Analytics is a cutting-edge data intelligence platform specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
   },
   {
     keywords: ["service", "offer", "provide", "capabilities", "do", "help"],
     answer:
-      "Coxara Analytics offers a modern AI service suite:\n\n• 🪄 **Generative AI & LLMs** — Custom foundation models & RAG systems\n• 👁️ **Vision AI & Intelligence** — Pattern recognition & visual QA\n• 🎙️ **Conversational Systems** — Context-aware assistants & Voice-to-Insights\n• 🎯 **Strategic AI Transformation** — Readiness audits & growth roadmaps\n\nVisit our Services page for a deep dive into each capability!",
+      "Roxbee offers a modern AI service suite:\n\n• 🪄 **Generative AI & LLMs** — Custom foundation models & RAG systems\n• 👁️ **Vision AI & Intelligence** — Pattern recognition & visual QA\n• 🎙️ **Conversational Systems** — Context-aware assistants & Voice-to-Insights\n• 🎯 **Strategic AI Transformation** — Readiness audits & growth roadmaps\n\nVisit our Services page for a deep dive into each capability!",
   },
   {
     keywords: ["industry", "sector", "vertical", "market", "domain", "speciali"],
     answer:
-      "COXARA Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
+      "ROXBEE Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
   },
   {
     keywords: ["product", "coresight", "core sight", "enterprise co-pilot", "conversational ai", "chat with data", "natural language"],
     answer:
-      "Our flagship product is **COXARA CoreSight** — your Enterprise AI Co-Pilot! 🚀\n\nCoresight lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see CoreSight in action? Request a demo!",
+      "Our flagship product is **ROXBEE CoreSight** — your Enterprise AI Co-Pilot! 🚀\n\nCoresight lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see CoreSight in action? Request a demo!",
   },
   {
     keywords: ["solution", "platform", "tool", "offer", "what do you build"],
     answer:
-      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **COXARA CoreSight** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
+      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **ROXBEE CoreSight** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
   },
   {
     keywords: ["contact", "reach", "email", "phone", "touch", "talk", "speak", "demo", "meet"],
@@ -41,7 +41,7 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["career", "job", "hire", "work", "join", "team", "openin", "recruit"],
     answer:
-      "We're always looking for passionate data enthusiasts! 🎯\n\nCheck out our **Careers page** for current openings in:\n• Data Science & ML Engineering\n• Full-Stack Development\n• Business Analytics\n• Cloud Architecture\n\nAre you interested in joining COXARA Analytics?",
+      "We're always looking for passionate data enthusiasts! 🎯\n\nCheck out our **Careers page** for current openings in:\n• Data Science & ML Engineering\n• Full-Stack Development\n• Business Analytics\n• Cloud Architecture\n\nAre you interested in joining ROXBEE Analytics?",
   },
   {
     keywords: ["price", "cost", "pricing", "plan", "package", "fee", "budget"],
@@ -56,7 +56,7 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["ai", "artificial", "machine learning", "ml", "llm", "gpt", "intelligence"],
     answer:
-      "AI & Machine Learning is at the heart of everything we do at COXARA! 🧠\n\nWe build custom ML models, integrate LLMs into business workflows, deploy computer vision pipelines, and create predictive systems that learn and adapt over time. What specific AI challenge are you looking to solve?",
+      "AI & Machine Learning is at the heart of everything we do at ROXBEE! 🧠\n\nWe build custom ML models, integrate LLMs into business workflows, deploy computer vision pipelines, and create predictive systems that learn and adapt over time. What specific AI challenge are you looking to solve?",
   },
   {
     keywords: ["data", "analytics", "insight", "report", "dashboard", "kpi", "metric"],
@@ -71,12 +71,12 @@ const BOT_KNOWLEDGE = [
   {
     keywords: ["thank", "thanks", "appreciate", "great", "awesome", "nice", "good"],
     answer:
-      "You're welcome! 😊 It's my pleasure to assist. Is there anything else you'd like to know about COXARA Analytics? I'm here to help!",
+      "You're welcome! 😊 It's my pleasure to assist. Is there anything else you'd like to know about ROXBEE Analytics? I'm here to help!",
   },
   {
     keywords: ["bye", "goodbye", "see you", "later", "exit", "close"],
     answer:
-      "Goodbye! 👋 Thank you for visiting COXARA Analytics. Feel free to chat anytime — we're always here to help you unlock the power of your data!",
+      "Goodbye! 👋 Thank you for visiting ROXBEE Analytics. Feel free to chat anytime — we're always here to help you unlock the power of your data!",
   },
 ];
 
@@ -87,7 +87,7 @@ const INITIAL_MESSAGES = [
   {
     id: 1,
     from: "bot",
-    text: "👋 Hi there! I'm **Coxara Yukti**, your COXARA Analytics assistant.\n\nHow can I help you today? You can ask me about our services, industries, products, careers, or anything else!",
+    text: "👋 Hi there! I'm **Roxbee Yukti**, your ROXBEE Analytics assistant.\n\nHow can I help you today? You can ask me about our services, industries, products, careers, or anything else!",
     time: new Date(),
   },
 ];
@@ -96,7 +96,7 @@ const QUICK_REPLIES = [
   "What services do you offer?",
   "Which industries do you serve?",
   "I'd like a demo",
-  "Careers at Coxara",
+  "Careers at Roxbee",
   "Tell me about your products",
 ];
 
@@ -133,7 +133,7 @@ function formatText(text) {
 const TypingIndicator = () => (
   <div className="flex items-end gap-2 mb-3">
     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-      <img src="/yukti_avatar.png" alt="Coxara Yukti" className="w-full h-full object-cover" />
+      <img src="/yukti_avatar.png" alt="Roxbee Yukti" className="w-full h-full object-cover" />
     </div>
     <div className="bg-white border border-secondary-100 rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
       <div className="flex gap-1.5 items-center h-4">
@@ -165,12 +165,12 @@ export default function ChatBot() {
 
   /* Auto-open after 3 seconds on first visit */
   useEffect(() => {
-    const alreadyOpened = sessionStorage.getItem("coxara_chat_opened");
+    const alreadyOpened = sessionStorage.getItem("roxbee_chat_opened");
     if (!alreadyOpened) {
       const timer = setTimeout(() => {
         setOpen(true);
         setHasAutoOpened(true);
-        sessionStorage.setItem("coxara_chat_opened", "1");
+        sessionStorage.setItem("roxbee_chat_opened", "1");
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -369,16 +369,16 @@ export default function ChatBot() {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
 
               <div className="relative w-10 h-10 rounded-full bg-white border-2 border-white/40 flex-shrink-0 overflow-hidden shadow-md">
-                <img src="/yukti_avatar.png" alt="COXARA" className="w-full h-full object-cover" />
+                <img src="/yukti_avatar.png" alt="ROXBEE" className="w-full h-full object-cover" />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-white" />
               </div>
 
               <div className="flex-1 min-w-0">
                 <p className="text-white font-semibold text-sm leading-none">
-                  Coxara Yukti
+                  Roxbee Yukti
                 </p>
                 <p className="text-white/70 text-xs mt-1">
-                  COXARA AI Assistant • Online
+                  ROXBEE AI Assistant • Online
                 </p>
               </div>
 
@@ -415,7 +415,7 @@ export default function ChatBot() {
                 >
                   {msg.from === "bot" && (
                     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-                      <img src="/yukti_avatar.png" alt="Coxara Yukti" className="w-full h-full object-cover" />
+                      <img src="/yukti_avatar.png" alt="Roxbee Yukti" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div
@@ -497,7 +497,7 @@ export default function ChatBot() {
               <p className="text-[10px] text-secondary-400">
                 Powered by{" "}
                 <span className="text-brand-purple font-semibold">
-                  COXARA Analytics
+                  ROXBEE Analytics
                 </span>
               </p>
             </div>

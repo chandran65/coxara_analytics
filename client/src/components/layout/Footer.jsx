@@ -140,11 +140,9 @@ const Footer = () => {
               }}
             >
               <Link to="/" className="inline-block group mb-8">
-                <img
-                  src="/geometric_c_nodes.png"
-                  alt="COXARA Analytics"
-                  className="h-20 sm:h-24 w-auto object-contain mix-blend-multiply opacity-95 transition-transform duration-300 group-hover:scale-105 group-hover:opacity-100"
-                />
+                <span className="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent transition-transform duration-300 group-hover:scale-105 inline-block">
+                  Roxbee
+                </span>
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
                 Transforming data into actionable insights with cutting-edge
@@ -276,7 +274,7 @@ const Footer = () => {
         >
           <div className="flex items-center justify-center">
             <p className="text-secondary-500 text-sm text-center">
-              © {currentYear} COXARA Analytics. All rights reserved.
+              © {currentYear} ROXBEE Analytics. All rights reserved.
             </p>
           </div>
         </motion.div>

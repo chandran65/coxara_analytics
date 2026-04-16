@@ -121,7 +121,7 @@ const HeroCarousel = () => {
                   <VoiceCloningVisual />
                 ) : (
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6 drop-shadow-2xl tracking-tight">
-                    {slide.title === "Coxara Analytics" ? (
+                    {slide.title === "Roxbee" ? (
                       <span className="bg-gradient-to-r from-white via-brand-glow to-brand-light bg-clip-text text-transparent">
                         {slide.title}
                       </span>
