@@ -321,13 +321,13 @@ const Navbar = () => {
               setActiveDropdown(null);
             }}
           >
-            <motion.span
-              className={`font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-accent ${isScrolled ? "text-2xl" : "text-3xl"}`}
+            <motion.img
+              src="/geometric_c_nodes.png"
+              alt="COXARA Analytics Logo"
+              className="h-full w-auto object-contain mix-blend-multiply pointer-events-none"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-            >
-              COXARA ANALYTICS
-            </motion.span>
+            />
           </Link>
 
           {/* Desktop Navigation */}
