@@ -36,6 +36,19 @@ const MindoraPage = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
+            >
+              <img 
+                src="/mindora_logo.png" 
+                alt="Mindora AI Studio Logo" 
+                className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain drop-shadow-xl"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
