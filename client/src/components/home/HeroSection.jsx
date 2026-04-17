@@ -72,23 +72,42 @@ const HeroVisual = ({ mouseX, mouseY }) => {
         rotateY: rotateY,
         perspective: 1000,
       }}
-      className="relative w-full aspect-square max-w-[320px] sm:max-w-[440px] md:max-w-[560px] mx-auto select-none rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(109,40,217,0.4)] border border-brand-purple/20 bg-brand-purple/5"
+      className="relative w-full aspect-square max-w-[320px] sm:max-w-[440px] md:max-w-[560px] mx-auto select-none"
     >
-      <motion.img
-        src="/ai_human_visual.png"
-        alt="Roxbee AI Intelligence"
-        className="w-full h-full object-cover mix-blend-overlay"
-        animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/80 via-transparent to-brand-accent/20 mix-blend-multiply pointer-events-none" />
-      <motion.img
-        src="/ai_human_visual.png"
-        alt="Roxbee AI Intelligence"
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
-        animate={{ scale: [1, 1.08, 1], y: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Soft glow behind the image for blending */}
+      <div className="absolute -inset-8 bg-gradient-to-br from-brand-purple/15 via-brand-accent/10 to-brand-glow/8 rounded-full blur-[60px] pointer-events-none" />
+
+      <div className="relative rounded-[3rem] overflow-hidden">
+        <motion.img
+          src="/ai_human_visual.png"
+          alt="Roxbee AI Intelligence"
+          className="w-full h-full object-cover mix-blend-overlay"
+          animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/80 via-transparent to-brand-accent/20 mix-blend-multiply pointer-events-none" />
+        <motion.img
+          src="/ai_human_visual.png"
+          alt="Roxbee AI Intelligence"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          animate={{ scale: [1, 1.08, 1], y: [0, -10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Edge fade overlays — blend image into the light background */}
+        <div className="absolute inset-0 pointer-events-none z-[5]">
+          {/* All edges fade */}
+          <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#fafafa]/70 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#fafafa]/70 to-transparent" />
+          <div className="absolute top-0 bottom-0 left-0 w-10 bg-gradient-to-r from-[#fafafa]/70 to-transparent" />
+          <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#fafafa]/70 to-transparent" />
+          {/* Corners extra softening */}
+          <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-[#fafafa]/60 to-transparent" />
+          <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#fafafa]/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#fafafa]/60 to-transparent" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#fafafa]/60 to-transparent" />
+        </div>
+      </div>
 
       {/* Floating dynamic status indicators */}
       <motion.div
