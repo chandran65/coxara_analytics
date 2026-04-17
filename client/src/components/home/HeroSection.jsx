@@ -143,7 +143,7 @@ const HeroSection = ({ isActive = true }) => {
     <section
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#fafafa] py-20"
+      className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#fafafa] pt-20 pb-20"
     >
       {/* Premium Background Mesh */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -155,7 +155,7 @@ const HeroSection = ({ isActive = true }) => {
       <FloatingGrid />
 
       {/* Main Layout Container */}
-      <div className="container-custom relative z-10 pt-16 pb-8 md:pt-20 md:pb-12">
+      <div className="container-custom relative z-10 pt-4 pb-8 md:pt-8 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Column */}
           <div>
