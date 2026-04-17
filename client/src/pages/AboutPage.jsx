@@ -114,7 +114,7 @@ const AboutHero = () => {
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
             Pioneering the future of data science and machine learning solutions
-            with a decade of proven expertise.
+            with deep domain expertise.
           </motion.p>
 
           <motion.div
@@ -140,7 +140,6 @@ const keyPoints = [
   },
   {
     title: "Proven Solutions",
-    title: "Proven Solutions",
     desc: "10+ active clients & 5+ industries served",
   },
   {
@@ -159,7 +158,7 @@ const AboutPage = () => {
       <AboutHero />
 
       {/* ── Company Info ── */}
-      <section className="glass-section py-20 md:py-28">
+      <section className="glass-section py-10 md:py-14">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Content */}
@@ -183,21 +182,24 @@ const AboutPage = () => {
               <div className="space-y-4 text-lg text-secondary-600 leading-relaxed">
                 <p>
                   Founded with a vision to transform how businesses leverage
-                  data, <strong>Coxara Analytics</strong> is a swarm intelligence–driven 
-                  platform delivering comprehensive data science and machine learning solutions. 
-                  Our team of expert data scientists and engineers work tirelessly to
-                  turn complex data into actionable business value.
+                  data, <strong>COXARA Analytics</strong> is an AI-first data
+                  intelligence company delivering comprehensive data science and
+                  machine learning solutions. Our team of expert data scientists
+                  and engineers work tirelessly to turn complex data into
+                  actionable business value.
                 </p>
                 <p>
-                  Our flagship product, <strong className="text-brand-purple">Roxbee</strong>, serves as your Enterprise 
-                  AI Copilot. It allows business users to seamlessly interact with complex datasets 
-                  using natural language, transforming distributed data and models into governed, 
-                  real-time decisions—no SQL or data prep required.
+                  Our flagship product,{" "}
+                  <strong className="text-brand-purple">Roxbee</strong>, serves
+                  as your Enterprise AI Copilot. It allows business users to
+                  seamlessly interact with complex datasets using natural
+                  language, transforming distributed data and models into
+                  governed, real-time decisions—no SQL or data prep required.
                 </p>
                 <p>
-                  With experience across 5+ industries serving 10+ clients,
-                  our commitment to excellence and cutting-edge technology enables 
-                  us to tackle the most complex enterprise data challenges and 
+                  With experience across 5+ industries serving 10+ clients, our
+                  commitment to excellence and cutting-edge technology enables
+                  us to tackle the most complex enterprise data challenges and
                   deliver solutions that exceed expectations.
                 </p>
               </div>
@@ -284,7 +286,7 @@ const AboutPage = () => {
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section className="glass-section-alt py-20 md:py-28">
+      <section className="glass-section-alt py-10 md:py-14">
         {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -310,8 +312,7 @@ const AboutPage = () => {
               Our Purpose
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-secondary-900">
-              Mission &{" "}
-              <span className="gradient-text">Vision</span>
+              Mission & <span className="gradient-text">Vision</span>
             </h2>
           </motion.div>
 
@@ -343,10 +344,9 @@ const AboutPage = () => {
                 Our Mission
               </h3>
               <p className="text-lg text-secondary-600 leading-relaxed">
-                To empower businesses worldwide with transformative data science
-                and machine learning solutions that drive innovation, efficiency,
-                and sustainable growth. We believe in making advanced analytics
-                accessible and actionable for organizations of all sizes.
+                Democratize advanced analytics, transform enterprise data into
+                predictive intelligence, and deliver measurable business impact
+                using AI-driven automation.
               </p>
             </motion.div>
 
@@ -383,10 +383,9 @@ const AboutPage = () => {
                 Our Vision
               </h3>
               <p className="text-lg text-secondary-600 leading-relaxed">
-                To be the global leader in democratizing AI and data science,
-                creating a future where every organization can harness the full
-                potential of their data to make intelligent, data-driven
-                decisions that shape a better tomorrow.
+                To become the most trusted autonomous decision intelligence
+                ecosystem—enabling real-time, optimized business outcomes for
+                organizations of every scale.
               </p>
             </motion.div>
           </div>

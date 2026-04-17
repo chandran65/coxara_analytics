@@ -52,7 +52,11 @@ const SolutionsHero = () => {
       </div>
       <motion.div
         className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24"
-        style={{ y: textY, opacity, minHeight: "min(calc(100vh - 80px), 700px)" }}
+        style={{
+          y: textY,
+          opacity,
+          minHeight: "min(calc(100vh - 80px), 700px)",
+        }}
       >
         <div className="text-center max-w-5xl mx-auto">
           <motion.div
@@ -77,7 +81,11 @@ const SolutionsHero = () => {
                 key={i}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3 + i * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
                   specialWords.includes(word)
                     ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-1"
@@ -276,7 +284,7 @@ const SolutionsPage = () => {
       </section>
 
       {/* ── Solutions Grid ── */}
-      <section className="glass-section-alt py-20 md:py-28">
+      <section className="glass-section-alt py-12 md:py-16">
         {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -354,7 +362,7 @@ const SolutionsPage = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="glass-section py-20 md:py-28">
+      <section className="glass-section py-12 md:py-16">
         <div className="container-custom">
           <div className="bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-3xl p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]" />

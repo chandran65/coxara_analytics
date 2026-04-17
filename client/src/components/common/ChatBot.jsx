@@ -9,9 +9,16 @@ const BOT_KNOWLEDGE = [
       "Hello! 👋 Welcome to COXARA Analytics! I'm your AI assistant. I can help you learn about our data analytics services, solutions, industries we serve, and much more. What would you like to know?",
   },
   {
-    keywords: ["who are you", "what is coxara", "about coxara", "tell me about coxara", "company overview", "roxbee analytics"],
+    keywords: [
+      "who are you",
+      "what is coxara",
+      "about coxara",
+      "tell me about coxara",
+      "company overview",
+      "roxbee analytics",
+    ],
     answer:
-      "COXARA Analytics is a cutting-edge data intelligence platform specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
+      "COXARA Analytics is a cutting-edge AI and data intelligence company specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
   },
   {
     keywords: ["service", "offer", "provide", "capabilities", "do", "help"],
@@ -19,12 +26,28 @@ const BOT_KNOWLEDGE = [
       "Coxara offers a modern AI service suite:\n\n• 🪄 **Generative AI & LLMs** — Custom foundation models & RAG systems\n• 👁️ **Vision AI & Intelligence** — Pattern recognition & visual QA\n• 🎙️ **Conversational Systems** — Context-aware assistants & Voice-to-Insights\n• 🎯 **Strategic AI Transformation** — Readiness audits & growth roadmaps\n\nVisit our Services page for a deep dive into each capability!",
   },
   {
-    keywords: ["industry", "sector", "vertical", "market", "domain", "speciali"],
+    keywords: [
+      "industry",
+      "sector",
+      "vertical",
+      "market",
+      "domain",
+      "speciali",
+    ],
     answer:
       "COXARA Analytics serves multiple core industries:\n\n• 📦 **CPG** — High-velocity consumer insights\n• 🛒 **Retail** — Omnichannel optimization\n• 💊 **Pharma & Life Science** — Research intelligence\n• 🎬 **Entertainment** — Audience & churn analytics\n• 🏭 **Manufacturing** — Predictive maintenance\n• 💻 **High-Tech** — Innovation at scale\n\nWe tailor our AI capabilities to the unique data challenges of each vertical.",
   },
   {
-    keywords: ["product", "Roxbee", "enterprise copilot", "conversational ai", "chat with data", "answers to decisions", "business context", "data backed insights"],
+    keywords: [
+      "product",
+      "Roxbee",
+      "enterprise copilot",
+      "conversational ai",
+      "chat with data",
+      "answers to decisions",
+      "business context",
+      "data backed insights",
+    ],
     answer:
       "Our flagship product is **Roxbee**! 🚀\n\nRoxbee lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see Roxbee in action? Request a demo!",
   },
@@ -34,12 +57,31 @@ const BOT_KNOWLEDGE = [
       "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **Roxbee** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
   },
   {
-    keywords: ["contact", "reach", "email", "phone", "touch", "talk", "speak", "demo", "meet"],
+    keywords: [
+      "contact",
+      "reach",
+      "email",
+      "phone",
+      "touch",
+      "talk",
+      "speak",
+      "demo",
+      "meet",
+    ],
     answer:
       "We'd love to hear from you! 📞\n\nYou can:\n• Visit our **Contact page** to fill out a quick form\n• Request a **free demo** of our platform\n• Our team typically responds within 24 hours\n\nShall I take you to the contact page?",
   },
   {
-    keywords: ["career", "job", "hire", "work", "join", "team", "openin", "recruit"],
+    keywords: [
+      "career",
+      "job",
+      "hire",
+      "work",
+      "join",
+      "team",
+      "openin",
+      "recruit",
+    ],
     answer:
       "We're always looking for passionate data enthusiasts! 🎯\n\nCheck out our **Careers page** for current openings in:\n• Data Science & ML Engineering\n• Full-Stack Development\n• Business Analytics\n• Cloud Architecture\n\nAre you interested in joining COXARA Analytics?",
   },
@@ -49,17 +91,41 @@ const BOT_KNOWLEDGE = [
       "Our pricing is flexible and tailored to your business size and needs. We offer:\n\n• 💼 Starter plans for SMBs\n• 🏢 Enterprise licensing\n• 🤝 Custom project-based pricing\n\nContact our sales team for a personalized quote that fits your budget!",
   },
   {
-    keywords: ["resource", "blog", "article", "learn", "document", "case study", "whitepaper"],
+    keywords: [
+      "resource",
+      "blog",
+      "article",
+      "learn",
+      "document",
+      "case study",
+      "whitepaper",
+    ],
     answer:
       "Explore our **Resources hub** for:\n• 📚 In-depth whitepapers\n• 📰 Industry blogs & articles\n• 🎥 Webinar recordings\n• 📋 Case studies\n\nStay ahead of the curve with our thought leadership content!",
   },
   {
-    keywords: ["ai", "artificial", "machine learning", "ml", "llm", "gpt", "intelligence"],
+    keywords: [
+      "ai",
+      "artificial",
+      "machine learning",
+      "ml",
+      "llm",
+      "gpt",
+      "intelligence",
+    ],
     answer:
       "AI & Machine Learning is at the heart of everything we do at COXARA! 🧠\n\nWe build custom ML models, integrate LLMs into business workflows, deploy computer vision pipelines, and create predictive systems that learn and adapt over time. What specific AI challenge are you looking to solve?",
   },
   {
-    keywords: ["data", "analytics", "insight", "report", "dashboard", "kpi", "metric"],
+    keywords: [
+      "data",
+      "analytics",
+      "insight",
+      "report",
+      "dashboard",
+      "kpi",
+      "metric",
+    ],
     answer:
       "Data analytics is our core strength! 📊\n\nWe transform raw data into:\n• Real-time dashboards & KPI tracking\n• Predictive models & forecasts\n• Automated reporting pipelines\n• Custom business intelligence tools\n\nWhat type of data challenge are you facing?",
   },
@@ -69,7 +135,15 @@ const BOT_KNOWLEDGE = [
       "We're cloud-agnostic and work across all major platforms:\n\n• ☁️ **AWS** — SageMaker, Redshift, Glue\n• 🔵 **Azure** — Synapse, ML Studio, Data Factory\n• 🟡 **GCP** — BigQuery, Vertex AI, Dataflow\n\nWe design robust, scalable cloud data architectures for enterprises.",
   },
   {
-    keywords: ["thank", "thanks", "appreciate", "great", "awesome", "nice", "good"],
+    keywords: [
+      "thank",
+      "thanks",
+      "appreciate",
+      "great",
+      "awesome",
+      "nice",
+      "good",
+    ],
     answer:
       "You're welcome! 😊 It's my pleasure to assist. Is there anything else you'd like to know about COXARA Analytics? I'm here to help!",
   },
@@ -122,7 +196,7 @@ function formatText(text) {
             <strong key={j}>{part.slice(2, -2)}</strong>
           ) : (
             <span key={j}>{part}</span>
-          )
+          ),
         )}
         {i < lines.length - 1 && <br />}
       </span>
@@ -133,7 +207,11 @@ function formatText(text) {
 const TypingIndicator = () => (
   <div className="flex items-end gap-2 mb-3">
     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-      <img src="/yukti_avatar.png" alt="Yukti" className="w-full h-full object-cover" />
+      <img
+        src="/yukti_avatar.png"
+        alt="Yukti"
+        className="w-full h-full object-cover"
+      />
     </div>
     <div className="bg-white border border-secondary-100 rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
       <div className="flex gap-1.5 items-center h-4">
@@ -369,7 +447,11 @@ export default function ChatBot() {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
 
               <div className="relative w-10 h-10 rounded-full bg-white border-2 border-white/40 flex-shrink-0 overflow-hidden shadow-md">
-                <img src="/yukti_avatar.png" alt="COXARA" className="w-full h-full object-cover" />
+                <img
+                  src="/yukti_avatar.png"
+                  alt="COXARA"
+                  className="w-full h-full object-cover"
+                />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-white" />
               </div>
 
@@ -415,7 +497,11 @@ export default function ChatBot() {
                 >
                   {msg.from === "bot" && (
                     <div className="w-7 h-7 rounded-full bg-white border border-secondary-100 flex-shrink-0 flex items-center justify-center shadow-sm overflow-hidden">
-                      <img src="/yukti_avatar.png" alt="Yukti" className="w-full h-full object-cover" />
+                      <img
+                        src="/yukti_avatar.png"
+                        alt="Yukti"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   )}
                   <div

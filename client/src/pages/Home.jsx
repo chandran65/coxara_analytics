@@ -47,7 +47,7 @@ const Home = () => {
         {/* Why Choose Us */}
         <section
           ref={whyRef}
-          className="py-24 md:py-32 glass-section relative overflow-hidden"
+          className="py-12 md:py-16 glass-section relative overflow-hidden"
         >
           <div
             className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -91,7 +91,7 @@ const Home = () => {
                         ),
                       },
                       {
-                        title: "Future Ready",
+                        title: "Future-Ready",
                         desc: "Leveraging the latest in AI and Machine Learning technologies.",
                         icon: (
                           <path
@@ -103,7 +103,7 @@ const Home = () => {
                         ),
                       },
                       {
-                        title: "Client Centric",
+                        title: "Client-Centric",
                         desc: "Tailored strategies that align with your specific business goals.",
                         icon: (
                           <path
@@ -357,20 +357,20 @@ const Home = () => {
                                 (_, j) =>
                                   200 +
                                   rx *
-                                  Math.cos(
-                                    (j * 2 * Math.PI) / 36 +
-                                    (i * Math.PI) / 4,
-                                  ),
+                                    Math.cos(
+                                      (j * 2 * Math.PI) / 36 +
+                                        (i * Math.PI) / 4,
+                                    ),
                               ),
                               cy: Array.from(
                                 { length: 37 },
                                 (_, j) =>
                                   200 +
                                   ry *
-                                  Math.sin(
-                                    (j * 2 * Math.PI) / 36 +
-                                    (i * Math.PI) / 4,
-                                  ),
+                                    Math.sin(
+                                      (j * 2 * Math.PI) / 36 +
+                                        (i * Math.PI) / 4,
+                                    ),
                               ),
                             }}
                             transition={{
@@ -445,9 +445,9 @@ const Home = () => {
                   >
                     <div className="flex items-center gap-2">
                       <div className="w-10 h-10 rounded-lg bg-white/50 backdrop-blur-md flex items-center justify-center p-1 shadow-sm border border-brand-purple/10">
-                        <img 
-                          src="/geometric_c_nodes.png" 
-                          alt="Roxbee" 
+                        <img
+                          src="/geometric_c_nodes.png"
+                          alt="Roxbee"
                           className="w-full h-full object-contain mix-blend-multiply"
                         />
                       </div>
@@ -476,12 +476,11 @@ const Home = () => {
         {/* Featured Case Study */}
         <FeaturedCaseStudy />
 
-
         {/* Resources Section */}
         <ResourcesSection />
 
         {/* Final CTA Section */}
-        <section className="py-20 md:py-28 glass-section-alt relative overflow-hidden">
+        <section className="py-10 md:py-14 glass-section-alt relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
           <div
             className="absolute inset-0 opacity-[0.01] pointer-events-none"
@@ -526,7 +525,9 @@ const Home = () => {
                     className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="relative z-10">Get in Touch</span>
+                    <span className="relative z-10">
+                      Schedule a Consultation
+                    </span>
                     <svg
                       className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
                       fill="none"

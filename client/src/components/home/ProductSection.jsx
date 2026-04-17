@@ -42,7 +42,7 @@ const ProductSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-white">
+    <section className="py-16 md:py-20 relative overflow-hidden bg-white">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/[0.03] rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-accent/[0.02] rounded-full blur-[70px] pointer-events-none" />
@@ -59,7 +59,12 @@ const ProductSection = () => {
                 align="left"
               />
               <p className="text-lg text-secondary-500 mt-6 mb-12 leading-relaxed">
-                COXARA Analytics powers the next generation of intelligence. From <strong className="text-secondary-900">Roxbee</strong>, our flagship Enterprise AI Copilot, to <strong className="text-indigo-600">Mindora AI Studio</strong> for young learners, we build systems that turn complex data into human opportunity.
+                COXARA Analytics powers the next generation of intelligence.
+                From <strong className="text-secondary-900">Roxbee</strong>, our
+                flagship Enterprise AI Copilot, to{" "}
+                <strong className="text-indigo-600">Mindora AI Studio</strong>{" "}
+                for young learners, we build systems that turn complex data into
+                human opportunity.
               </p>
 
               <div className="space-y-8">
@@ -108,17 +113,17 @@ const ProductSection = () => {
               >
                 {/* Visual Header Decoration */}
                 <div className="h-4 bg-secondary-50 border-b border-secondary-100 flex items-center px-4 gap-1.5">
-                   <div className="w-2 h-2 rounded-full bg-red-400/50" />
-                   <div className="w-2 h-2 rounded-full bg-amber-400/50" />
-                   <div className="w-2 h-2 rounded-full bg-emerald-400/50" />
+                  <div className="w-2 h-2 rounded-full bg-red-400/50" />
+                  <div className="w-2 h-2 rounded-full bg-amber-400/50" />
+                  <div className="w-2 h-2 rounded-full bg-emerald-400/50" />
                 </div>
-                
+
                 <img
                   src="/coresight_visual.png"
                   alt="Roxbee Dashboard"
                   className="w-full h-auto object-cover"
                 />
-                
+
                 {/* Floating "AI Active" Badge */}
                 <div className="absolute top-8 right-8 bg-brand-purple text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -126,7 +131,7 @@ const ProductSection = () => {
                 </div>
               </motion.div>
 
-              {/* Background gradient blobl behind the image */}
+              {/* Background gradient blob behind the image */}
               <div className="absolute -inset-10 bg-gradient-to-tr from-brand-purple/10 to-brand-accent/5 blur-[100px] -z-10 rounded-full" />
             </div>
           </AnimatedSection>

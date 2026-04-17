@@ -164,7 +164,7 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 glass-section relative overflow-hidden">
+    <section className="py-16 md:py-20 glass-section relative overflow-hidden">
       {/* Subtle background */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"

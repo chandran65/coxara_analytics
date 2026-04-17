@@ -278,7 +278,7 @@ const TeamPage = () => {
       ],
     },
     {
-      name: "Elakkiya B",
+      name: "Dr. Elakkiya B",
       designation: "Head - Learning & Development",
       bio: "Driving organizational excellence through continuous learning. Dr. Elakkiya leads our initiatives to foster talent and build a culture of innovation and growth.",
       expertise: [
@@ -297,7 +297,7 @@ const TeamPage = () => {
       {/* Main Content */}
       <div id="page-content">
         {/* About Our Team Section */}
-        <section className="glass-section py-16 sm:py-20 md:py-28">
+        <section className="glass-section py-12 sm:py-16 md:py-20">
           <div className="hidden sm:block">
             <OrbitalNetwork />
           </div>
@@ -383,7 +383,7 @@ const TeamPage = () => {
         </section>
 
         {/* Team Members Section — single unified grid */}
-        <section className="glass-section-alt py-16 sm:py-20 md:py-28">
+        <section className="glass-section-alt py-8 sm:py-12 md:py-16">
           {/* Dot pattern */}
           <div
             className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -421,7 +421,7 @@ const TeamPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="glass-section py-16 sm:py-20 md:py-28">
+        <section className="glass-section py-8 sm:py-12 md:py-16">
           <div className="container-custom">
             <AnimatedSection>
               <div className="relative bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl overflow-hidden">
@@ -496,7 +496,7 @@ const TeamPage = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-purple font-bold rounded-full hover:shadow-2xl transition-all duration-300"
                   >
-                    <span>Get in Touch</span>
+                    <span>Connect With Us</span>
                     <svg
                       className="w-5 h-5"
                       fill="none"

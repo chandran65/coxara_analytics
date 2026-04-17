@@ -232,7 +232,10 @@ const AboutSection = () => {
   const isInView = useInView(sectionRef, { amount: 0.1, margin: "200px" });
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 glass-section relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 glass-section relative overflow-hidden"
+    >
       {/* Subtle background pattern */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -295,8 +298,12 @@ const AboutSection = () => {
                   { value: "96.8%", label: "AI Accuracy Rate" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <p className="text-xl md:text-2xl font-display font-bold gradient-text">{stat.value}</p>
-                    <p className="text-xs text-secondary-500 mt-0.5 font-medium">{stat.label}</p>
+                    <p className="text-xl md:text-2xl font-display font-bold gradient-text">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-secondary-500 mt-0.5 font-medium">
+                      {stat.label}
+                    </p>
                   </div>
                 ))}
               </motion.div>
@@ -310,7 +317,12 @@ const AboutSection = () => {
                     bgColor: "bg-brand-purple/10",
                     textColor: "text-brand-purple",
                     icon: (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
                     ),
                   },
                   {
@@ -319,7 +331,12 @@ const AboutSection = () => {
                     bgColor: "bg-brand-accent/10",
                     textColor: "text-brand-accent",
                     icon: (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     ),
                   },
                   {
@@ -328,7 +345,12 @@ const AboutSection = () => {
                     bgColor: "bg-emerald-50",
                     textColor: "text-emerald-600",
                     icon: (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
                     ),
                   },
                   {
@@ -337,7 +359,12 @@ const AboutSection = () => {
                     bgColor: "bg-indigo-50",
                     textColor: "text-indigo-600",
                     icon: (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
                     ),
                   },
                 ].map((val, i) => (
@@ -352,13 +379,22 @@ const AboutSection = () => {
                     style={{ willChange: "opacity, transform" }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                    <div className={`relative z-10 w-10 h-10 rounded-xl ${val.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <svg className={`w-5 h-5 ${val.textColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div
+                      className={`relative z-10 w-10 h-10 rounded-xl ${val.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <svg
+                        className={`w-5 h-5 ${val.textColor}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         {val.icon}
                       </svg>
                     </div>
                     <div className="relative z-10">
-                      <h4 className="font-bold text-secondary-900 group-hover:text-brand-purple transition-colors duration-300">{val.title}</h4>
+                      <h4 className="font-bold text-secondary-900 group-hover:text-brand-purple transition-colors duration-300">
+                        {val.title}
+                      </h4>
                       <p className="text-sm text-secondary-500">{val.desc}</p>
                     </div>
                   </motion.div>
