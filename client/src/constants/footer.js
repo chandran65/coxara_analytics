@@ -15,7 +15,7 @@ export const footerData = {
     links: [
       { label: "CPG", path: "/industries" },
       { label: "Retail", path: "/industries" },
-      { label: "Pharma & Life Science", path: "/industries" },
+      { label: "Pharma & Life Sciences", path: "/industries" },
       { label: "Entertainment", path: "/industries" },
       { label: "Manufacturing", path: "/industries" },
       { label: "High-Tech", path: "/industries" },
@@ -26,18 +26,30 @@ export const footerData = {
     links: [
       { label: "Generative AI & LLMs", path: "/services#gen-ai" },
       { label: "Vision AI & Intelligence", path: "/services#vision-ai" },
-      { label: "Conversational Intelligence", path: "/services#conversational-ai" },
-      { label: "Strategic AI Consulting", path: "/services#strategic-consulting" },
+      {
+        label: "Conversational Intelligence",
+        path: "/services#conversational-ai",
+      },
+      {
+        label: "Strategic AI Transformation",
+        path: "/services#strategic-consulting",
+      },
     ],
   },
   solutions: {
-    title: "Products",
+    title: "Roxbee",
     links: [
-      { label: "Data Studio", path: "/products#data-studio" },
-      { label: "Experimentation Studio", path: "/products#experimentation-studio" },
-      { label: "Forecasting Studio", path: "/products#forecasting-studio" },
-      { label: "Decision Automation", path: "/products#decision-automation" },
-      { label: "Domain Intelligence", path: "/products#domain-intelligence" },
+      { label: "Answers to Decisions", path: "/products#answers-to-decisions" },
+      { label: "Business Context", path: "/products#business-context" },
+      { label: "Data-Backed Insights", path: "/products#data-backed-insights" },
+      {
+        label: "Proactive Intelligence",
+        path: "/products#proactive-intelligence",
+      },
+      {
+        label: "Enterprise Integration",
+        path: "/products#enterprise-integration",
+      },
     ],
   },
 };

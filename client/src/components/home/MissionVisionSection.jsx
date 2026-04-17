@@ -3,7 +3,7 @@ import { AnimatedSection } from "../ui";
 
 const MissionVisionSection = () => {
   return (
-    <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
+    <section className="py-12 md:py-16 glass-section-alt relative overflow-hidden">
       {/* Background decorations */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"

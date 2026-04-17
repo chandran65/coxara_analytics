@@ -34,7 +34,7 @@ const services = [
     num: "02",
     title: "Computer Vision & Intelligence",
     description:
-      "Transform visual data into real-time patterns. From facial analysis to manufacturing defect detection, we build vision systems that see beyond the surface.",
+      "Detect real-time patterns in visual data. From facial analysis to manufacturing defect detection, we build vision systems that see beyond the surface.",
     benefits: [
       "Real-time Pattern Recognition",
       "Visual Quality Assurance (VQA)",
@@ -58,13 +58,13 @@ const services = [
     num: "03",
     title: "Conversational AI Systems",
     description:
-      "Build context-aware AI assistants and voice-to-insight platforms that communicate in enterprise-specific terminology and multi-regional languages.",
+      "Build context-aware AI assistants and voice-to-insight platforms that communicate in enterprise-specific terminology and multiple regional languages.",
     benefits: [
       "LLM-powered Contextual Chatbots",
       "Indic Language Voice Recognition",
-      "Voice-to-Insights Analytics (Roxbee)",
+      "Voice-to-Insight Analytics (Roxbee)",
       "Automated Transcription & Summarization",
-      "Sentimental & Intent Analysis",
+      "Sentiment & Intent Analysis",
     ],
     icon: (
       <path
@@ -82,7 +82,7 @@ const services = [
     num: "04",
     title: "Strategic AI Transformation",
     description:
-      "Future-proof your business with AI Business Ally strategies. We provide readiness audits, identify high-value use cases, and deliver roadmaps for autonomous growth.",
+      "Future-proof your business with strategic AI advisory services. We provide readiness audits, identify high-value use cases, and deliver roadmaps for autonomous growth.",
     benefits: [
       "Enterprise AI Readiness Audits",
       "High-Value Use Case Identification",
@@ -292,9 +292,24 @@ const ServicesHero = () => {
 /* ── Engineering: Custom AI Development — Animated Architecture ── */
 const EngineeringVisual = () => {
   const layers = [
-    { label: "Data Layer", items: ["Ingestion", "ETL", "Lake"], color: "#3b82f6", y: 12 },
-    { label: "Model Layer", items: ["Training", "Fine-tune", "Eval"], color: "#8B5CF6", y: 52 },
-    { label: "Serve Layer", items: ["API", "Monitor", "Scale"], color: "#06b6d4", y: 92 },
+    {
+      label: "Data Layer",
+      items: ["Ingestion", "ETL", "Lake"],
+      color: "#3b82f6",
+      y: 12,
+    },
+    {
+      label: "Model Layer",
+      items: ["Training", "Fine-tune", "Eval"],
+      color: "#8B5CF6",
+      y: 52,
+    },
+    {
+      label: "Serve Layer",
+      items: ["API", "Monitor", "Scale"],
+      color: "#06b6d4",
+      y: 92,
+    },
   ];
 
   return (
@@ -306,16 +321,33 @@ const EngineeringVisual = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
-        <span className="text-[10px] text-slate-500 ml-2 font-mono">ai-architecture.yml</span>
+        <span className="text-[10px] text-slate-500 ml-2 font-mono">
+          ai-architecture.yml
+        </span>
         <div className="ml-auto flex gap-2">
-          <motion.span className="text-[8px] px-2 py-0.5 bg-violet-500/20 text-violet-300 rounded font-mono" animate={{ opacity: [1, 0.6, 1] }} transition={{ duration: 2, repeat: Infinity }}>v3.1.0</motion.span>
-          <span className="text-[8px] px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-mono">PROD</span>
+          <motion.span
+            className="text-[8px] px-2 py-0.5 bg-violet-500/20 text-violet-300 rounded font-mono"
+            animate={{ opacity: [1, 0.6, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            v3.1.0
+          </motion.span>
+          <span className="text-[8px] px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-mono">
+            PROD
+          </span>
         </div>
       </div>
 
       <div className="bg-[#1a1b2e] flex-1 p-4 relative">
         {/* Animated background grid */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, #8B5CF6 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #8B5CF6 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
+          }}
+        />
 
         {/* Architecture SVG */}
         <svg viewBox="0 0 240 130" className="w-full h-auto relative">
@@ -323,12 +355,23 @@ const EngineeringVisual = () => {
           {[0, 1].map((li) => (
             <motion.g key={li}>
               {[0, 1, 2].map((ci) => (
-                <motion.line key={ci}
-                  x1={40 + ci * 80} y1={layers[li].y + 28}
-                  x2={40 + ci * 80} y2={layers[li + 1].y}
-                  stroke={layers[li].color} strokeWidth="1" strokeDasharray="3,3" opacity="0.4"
-                  initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }} transition={{ delay: 0.5 + li * 0.3 + ci * 0.1, duration: 0.5 }}
+                <motion.line
+                  key={ci}
+                  x1={40 + ci * 80}
+                  y1={layers[li].y + 28}
+                  x2={40 + ci * 80}
+                  y2={layers[li + 1].y}
+                  stroke={layers[li].color}
+                  strokeWidth="1"
+                  strokeDasharray="3,3"
+                  opacity="0.4"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.5 + li * 0.3 + ci * 0.1,
+                    duration: 0.5,
+                  }}
                 />
               ))}
             </motion.g>
@@ -336,35 +379,95 @@ const EngineeringVisual = () => {
 
           {/* Data flow particles */}
           {[0, 1, 2].map((pi) => (
-            <motion.circle key={pi} r="2" fill="#a78bfa"
+            <motion.circle
+              key={pi}
+              r="2"
+              fill="#a78bfa"
               animate={{
                 cx: [40 + pi * 80, 40 + pi * 80, 40 + ((pi + 1) % 3) * 80],
                 cy: [layers[0].y + 14, layers[1].y + 14, layers[2].y + 14],
                 opacity: [0, 1, 1, 0],
               }}
-              transition={{ duration: 3, repeat: Infinity, delay: pi * 0.8, ease: "easeInOut" }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: pi * 0.8,
+                ease: "easeInOut",
+              }}
             />
           ))}
 
           {/* Layer groups */}
           {layers.map((layer, li) => (
-            <motion.g key={li} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 + li * 0.2, duration: 0.5 }}>
+            <motion.g
+              key={li}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 + li * 0.2, duration: 0.5 }}
+            >
               {/* Layer background */}
-              <rect x="4" y={layer.y} width="232" height="30" rx="8" fill={layer.color} opacity="0.08" stroke={layer.color} strokeWidth="0.5" strokeOpacity="0.2" />
+              <rect
+                x="4"
+                y={layer.y}
+                width="232"
+                height="30"
+                rx="8"
+                fill={layer.color}
+                opacity="0.08"
+                stroke={layer.color}
+                strokeWidth="0.5"
+                strokeOpacity="0.2"
+              />
 
               {/* Layer label */}
-              <text x="14" y={layer.y + 11} fill={layer.color} fontSize="7" fontWeight="700" opacity="0.7">{layer.label}</text>
+              <text
+                x="14"
+                y={layer.y + 11}
+                fill={layer.color}
+                fontSize="7"
+                fontWeight="700"
+                opacity="0.7"
+              >
+                {layer.label}
+              </text>
 
               {/* Items as boxes */}
               {layer.items.map((item, ci) => (
-                <motion.g key={ci}
+                <motion.g
+                  key={ci}
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + li * 0.2 + ci * 0.1, type: "spring", stiffness: 200 }}
+                  transition={{
+                    delay: 0.3 + li * 0.2 + ci * 0.1,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
                 >
-                  <rect x={15 + ci * 76} y={layer.y + 15} width="60" height="12" rx="3" fill={layer.color} opacity="0.15" stroke={layer.color} strokeWidth="0.7" strokeOpacity="0.4" />
-                  <text x={45 + ci * 76} y={layer.y + 23} textAnchor="middle" fill="white" fontSize="6.5" fontWeight="600" opacity="0.9">{item}</text>
+                  <rect
+                    x={15 + ci * 76}
+                    y={layer.y + 15}
+                    width="60"
+                    height="12"
+                    rx="3"
+                    fill={layer.color}
+                    opacity="0.15"
+                    stroke={layer.color}
+                    strokeWidth="0.7"
+                    strokeOpacity="0.4"
+                  />
+                  <text
+                    x={45 + ci * 76}
+                    y={layer.y + 23}
+                    textAnchor="middle"
+                    fill="white"
+                    fontSize="6.5"
+                    fontWeight="600"
+                    opacity="0.9"
+                  >
+                    {item}
+                  </text>
                 </motion.g>
               ))}
             </motion.g>
@@ -379,14 +482,17 @@ const EngineeringVisual = () => {
             { l: "Latency", v: "<50ms", c: "text-emerald-300", icon: "⚡" },
             { l: "Uptime", v: "99.9%", c: "text-amber-300", icon: "●" },
           ].map((m, i) => (
-            <motion.div key={i}
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 1.0 + i * 0.08, type: "spring" }}
               className="flex-1 text-center py-1.5 bg-white/[0.03] border border-white/5 rounded-lg hover:bg-white/[0.06] transition-colors duration-300"
             >
-              <div className={`text-[10px] font-bold ${m.c}`}>{m.icon} {m.v}</div>
+              <div className={`text-[10px] font-bold ${m.c}`}>
+                {m.icon} {m.v}
+              </div>
               <div className="text-[7px] text-slate-500">{m.l}</div>
             </motion.div>
           ))}
@@ -399,66 +505,141 @@ const EngineeringVisual = () => {
 /* ── Gen AI: RAG Pipeline Visualization ── */
 const GenAIVisual = () => {
   const ragSteps = [
-    { label: "Documents", detail: "PDFs, reports, knowledge base", icon: "📄", color: "bg-amber-50 border-amber-200 text-amber-700", accent: "bg-amber-400" },
-    { label: "Embedding", detail: "Vector encoding & chunking", icon: "🔢", color: "bg-violet-50 border-violet-200 text-violet-700", accent: "bg-violet-400" },
-    { label: "Retrieval", detail: "Semantic search across 4.2M vectors", icon: "🔍", color: "bg-blue-50 border-blue-200 text-blue-700", accent: "bg-blue-400" },
-    { label: "Generation", detail: "LLM synthesis with cited sources", icon: "✨", color: "bg-purple-50 border-purple-200 text-purple-700", accent: "bg-purple-400" },
+    {
+      label: "Documents",
+      detail: "PDFs, reports, knowledge base",
+      icon: "📄",
+      color: "bg-amber-50 border-amber-200 text-amber-700",
+      accent: "bg-amber-400",
+    },
+    {
+      label: "Embedding",
+      detail: "Vector encoding & chunking",
+      icon: "🔢",
+      color: "bg-violet-50 border-violet-200 text-violet-700",
+      accent: "bg-violet-400",
+    },
+    {
+      label: "Retrieval",
+      detail: "Semantic search across 4.2M vectors",
+      icon: "🔍",
+      color: "bg-blue-50 border-blue-200 text-blue-700",
+      accent: "bg-blue-400",
+    },
+    {
+      label: "Generation",
+      detail: "LLM synthesis with cited sources",
+      icon: "✨",
+      color: "bg-purple-50 border-purple-200 text-purple-700",
+      accent: "bg-purple-400",
+    },
   ];
 
   return (
     <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
       <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
-          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <svg
+            className="w-3.5 h-3.5 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
           </svg>
         </div>
-        <span className="text-[11px] font-bold text-secondary-700">RAG Pipeline</span>
+        <span className="text-[11px] font-bold text-secondary-700">
+          RAG Pipeline
+        </span>
         <div className="ml-auto flex items-center gap-1.5">
-          <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ scale: [1, 1.4, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-          <span className="text-[9px] text-emerald-600 font-medium">Active</span>
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+            animate={{ scale: [1, 1.4, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <span className="text-[9px] text-emerald-600 font-medium">
+            Active
+          </span>
         </div>
       </div>
 
       <div className="flex-1 p-4 relative">
         {/* Background flow particles */}
         {[...Array(4)].map((_, i) => (
-          <motion.div key={i} className="absolute w-6 h-6 rounded-full"
-            style={{ background: `radial-gradient(circle, ${['#f59e0b', '#8B5CF6', '#3b82f6', '#a855f7'][i]}15, transparent)`, left: `${20 + i * 20}%` }}
+          <motion.div
+            key={i}
+            className="absolute w-6 h-6 rounded-full"
+            style={{
+              background: `radial-gradient(circle, ${["#f59e0b", "#8B5CF6", "#3b82f6", "#a855f7"][i]}15, transparent)`,
+              left: `${20 + i * 20}%`,
+            }}
             animate={{ y: [-20, 250], opacity: [0, 0.5, 0] }}
-            transition={{ duration: 3 + i * 0.6, repeat: Infinity, delay: i * 0.7 }}
+            transition={{
+              duration: 3 + i * 0.6,
+              repeat: Infinity,
+              delay: i * 0.7,
+            }}
           />
         ))}
 
         {/* RAG flow steps */}
         <div className="space-y-2 relative">
           {ragSteps.map((step, i) => (
-            <motion.div key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -15 : 15, filter: "blur(3px)" }}
+            <motion.div
+              key={i}
+              initial={{
+                opacity: 0,
+                x: i % 2 === 0 ? -15 : 15,
+                filter: "blur(3px)",
+              }}
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ delay: 0.15 + i * 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                delay: 0.15 + i * 0.18,
+                duration: 0.5,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              <div className={`flex items-center gap-3 px-3 py-2.5 ${step.color} border rounded-xl relative overflow-hidden group hover:shadow-md transition-all duration-300`}>
+              <div
+                className={`flex items-center gap-3 px-3 py-2.5 ${step.color} border rounded-xl relative overflow-hidden group hover:shadow-md transition-all duration-300`}
+              >
                 {/* Animated accent bar */}
-                <motion.div className={`absolute left-0 top-0 bottom-0 w-[3px] ${step.accent}`}
-                  initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true }} transition={{ delay: 0.3 + i * 0.18, duration: 0.4 }}
+                <motion.div
+                  className={`absolute left-0 top-0 bottom-0 w-[3px] ${step.accent}`}
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.18, duration: 0.4 }}
                   style={{ transformOrigin: "top" }}
                 />
-                <motion.span className="text-base flex-shrink-0"
+                <motion.span
+                  className="text-base flex-shrink-0"
                   whileInView={{ rotate: [0, -10, 10, 0] }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 + i * 0.18, duration: 0.4 }}
-                >{step.icon}</motion.span>
+                >
+                  {step.icon}
+                </motion.span>
                 <div className="flex-1 min-w-0">
                   <div className="text-[10px] font-bold">{step.label}</div>
-                  <div className="text-[9px] opacity-70 truncate">{step.detail}</div>
+                  <div className="text-[9px] opacity-70 truncate">
+                    {step.detail}
+                  </div>
                 </div>
                 {i < ragSteps.length - 1 && (
-                  <motion.div className="flex flex-col gap-0.5 text-[8px] opacity-40"
+                  <motion.div
+                    className="flex flex-col gap-0.5 text-[8px] opacity-40"
                     animate={{ y: [0, 3, 0] }}
-                    transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.25 }}
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      delay: i * 0.25,
+                    }}
                   >
                     <span>↓</span>
                   </motion.div>
@@ -477,16 +658,23 @@ const GenAIVisual = () => {
           className="mt-3 px-3 py-2.5 bg-purple-50 border border-purple-200 rounded-xl relative overflow-hidden"
         >
           {/* Shimmer effect */}
-          <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-100/50 to-transparent"
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-100/50 to-transparent"
             animate={{ x: [-200, 300] }}
             transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 4 }}
           />
           <div className="relative">
             <div className="text-[9px] font-bold text-purple-700 mb-1 flex items-center gap-1">
-              <motion.span animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}>✨</motion.span>
+              <motion.span
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
+              >
+                ✨
+              </motion.span>
               Generated Response
             </div>
-            <motion.div className="text-[9px] text-purple-600 leading-relaxed"
+            <motion.div
+              className="text-[9px] text-purple-600 leading-relaxed"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
@@ -496,8 +684,24 @@ const GenAIVisual = () => {
               "Based on Q4 reports, retention improved by 12%..."
             </motion.div>
             <div className="flex gap-2 mt-1.5">
-              <motion.span className="text-[8px] text-purple-400" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.8 }}>📎 3 sources cited</motion.span>
-              <motion.span className="text-[8px] text-emerald-500" initial={{ opacity: 0, x: -5 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 2.0, type: "spring" }}>✓ Hallucination check passed</motion.span>
+              <motion.span
+                className="text-[8px] text-purple-400"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.8 }}
+              >
+                📎 3 sources cited
+              </motion.span>
+              <motion.span
+                className="text-[8px] text-emerald-500"
+                initial={{ opacity: 0, x: -5 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 2.0, type: "spring" }}
+              >
+                ✓ Hallucination check passed
+              </motion.span>
             </div>
           </div>
         </motion.div>
@@ -519,21 +723,27 @@ const DataScienceVisual = () => {
     <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
       <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 border-b border-secondary-100">
         <div className="flex items-center gap-2">
-          <motion.div className="w-2 h-2 rounded-full bg-brand-purple"
+          <motion.div
+            className="w-2 h-2 rounded-full bg-brand-purple"
             animate={{ scale: [1, 1.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">Neural Network</span>
+          <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
+            Neural Network
+          </span>
         </div>
         <div className="flex gap-1">
           {["Train", "Validate", "Predict"].map((t, i) => (
-            <motion.span key={t}
+            <motion.span
+              key={t}
               className={`text-[9px] px-2 py-0.5 rounded-md font-medium ${i === 2 ? "bg-brand-purple text-white" : "text-secondary-400 bg-secondary-50"}`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 + i * 0.1, type: "spring" }}
-            >{t}</motion.span>
+            >
+              {t}
+            </motion.span>
           ))}
         </div>
       </div>
@@ -542,7 +752,8 @@ const DataScienceVisual = () => {
       <div className="flex-1 px-3 py-3 relative">
         {/* Background glow */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div className="w-32 h-32 rounded-full bg-brand-purple/[0.04]"
+          <motion.div
+            className="w-32 h-32 rounded-full bg-brand-purple/[0.04]"
             animate={{ scale: [1, 1.3, 1], opacity: [0.04, 0.08, 0.04] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
@@ -566,12 +777,19 @@ const DataScienceVisual = () => {
                 const y1 = 10 + (a / (layer.nodes - 1 || 1)) * 100;
                 const y2 = 10 + (b / (nextLayer.nodes - 1 || 1)) * 100;
                 connections.push(
-                  <motion.line key={`${li}-${a}-${b}`}
-                    x1={layer.x} y1={y1} x2={nextLayer.x} y2={y2}
-                    stroke="url(#connGradient)" strokeWidth="0.7"
-                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }} transition={{ delay: 0.15 + li * 0.12 + a * 0.03 }}
-                  />
+                  <motion.line
+                    key={`${li}-${a}-${b}`}
+                    x1={layer.x}
+                    y1={y1}
+                    x2={nextLayer.x}
+                    y2={y2}
+                    stroke="url(#connGradient)"
+                    strokeWidth="0.7"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.15 + li * 0.12 + a * 0.03 }}
+                  />,
                 );
               }
             }
@@ -580,16 +798,40 @@ const DataScienceVisual = () => {
 
           {/* Multiple signal pulses */}
           {[
-            { path: [0, 1, 2, 3], cy: [30, 55, 35, 40], color: "#8B5CF6", delay: 0 },
-            { path: [0, 1, 2, 3], cy: [60, 30, 80, 70], color: "#a78bfa", delay: 1 },
-            { path: [0, 1, 2, 3], cy: [80, 85, 55, 40], color: "#c084fc", delay: 2 },
+            {
+              path: [0, 1, 2, 3],
+              cy: [30, 55, 35, 40],
+              color: "#8B5CF6",
+              delay: 0,
+            },
+            {
+              path: [0, 1, 2, 3],
+              cy: [60, 30, 80, 70],
+              color: "#a78bfa",
+              delay: 1,
+            },
+            {
+              path: [0, 1, 2, 3],
+              cy: [80, 85, 55, 40],
+              color: "#c084fc",
+              delay: 2,
+            },
           ].map((pulse, pi) => (
-            <motion.circle key={pi} r="3" fill={pulse.color} opacity="0.7"
+            <motion.circle
+              key={pi}
+              r="3"
+              fill={pulse.color}
+              opacity="0.7"
               animate={{
-                cx: pulse.path.map(i => layers[i].x),
+                cx: pulse.path.map((i) => layers[i].x),
                 cy: pulse.cy,
               }}
-              transition={{ duration: 2.5, repeat: Infinity, delay: pulse.delay, ease: "easeInOut" }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: pulse.delay,
+                ease: "easeInOut",
+              }}
             />
           ))}
 
@@ -600,26 +842,57 @@ const DataScienceVisual = () => {
               return (
                 <motion.g key={`n-${li}-${ni}`}>
                   {/* Activation glow */}
-                  <motion.circle cx={layer.x} cy={y} r="10" fill="#8B5CF6" opacity="0"
+                  <motion.circle
+                    cx={layer.x}
+                    cy={y}
+                    r="10"
+                    fill="#8B5CF6"
+                    opacity="0"
                     animate={{ opacity: [0, 0.15, 0], r: [8, 14, 8] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: li * 0.3 + ni * 0.15 }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: li * 0.3 + ni * 0.15,
+                    }}
                   />
-                  <motion.circle cx={layer.x} cy={y} r="6" fill="white" stroke="#6D28D9" strokeWidth="2"
-                    initial={{ scale: 0 }} whileInView={{ scale: 1 }}
+                  <motion.circle
+                    cx={layer.x}
+                    cy={y}
+                    r="6"
+                    fill="white"
+                    stroke="#6D28D9"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.1 + li * 0.1 + ni * 0.04, type: "spring", stiffness: 250 }}
+                    transition={{
+                      delay: 0.1 + li * 0.1 + ni * 0.04,
+                      type: "spring",
+                      stiffness: 250,
+                    }}
                   />
                 </motion.g>
               );
-            })
+            }),
           )}
 
           {/* Labels */}
           {layers.map((layer, i) => (
-            <motion.text key={i} x={layer.x} y={125} textAnchor="middle" fill="#9ca3af" fontSize="6" fontWeight="600"
-              initial={{ opacity: 0, y: 5 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: 0.6 + i * 0.1 }}
-            >{layer.label}</motion.text>
+            <motion.text
+              key={i}
+              x={layer.x}
+              y={125}
+              textAnchor="middle"
+              fill="#9ca3af"
+              fontSize="6"
+              fontWeight="600"
+              initial={{ opacity: 0, y: 5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 + i * 0.1 }}
+            >
+              {layer.label}
+            </motion.text>
           ))}
         </svg>
       </div>
@@ -627,11 +900,30 @@ const DataScienceVisual = () => {
       {/* Prediction metrics with animated bars */}
       <div className="grid grid-cols-3 gap-2 px-4 pb-3">
         {[
-          { label: "Accuracy", val: "96.8%", pct: 96.8, color: "bg-emerald-500", text: "text-emerald-600" },
-          { label: "F1 Score", val: "0.94", pct: 94, color: "bg-brand-purple", text: "text-brand-purple" },
-          { label: "Predictions", val: "1.2M/d", pct: 80, color: "bg-indigo-500", text: "text-indigo-600" },
+          {
+            label: "Accuracy",
+            val: "96.8%",
+            pct: 96.8,
+            color: "bg-emerald-500",
+            text: "text-emerald-600",
+          },
+          {
+            label: "F1 Score",
+            val: "0.94",
+            pct: 94,
+            color: "bg-brand-purple",
+            text: "text-brand-purple",
+          },
+          {
+            label: "Predictions",
+            val: "1.2M/d",
+            pct: 80,
+            color: "bg-indigo-500",
+            text: "text-indigo-600",
+          },
         ].map((s, i) => (
-          <motion.div key={i}
+          <motion.div
+            key={i}
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -641,11 +933,16 @@ const DataScienceVisual = () => {
             <div className={`text-[11px] font-bold ${s.text}`}>{s.val}</div>
             <div className="text-[7px] text-secondary-400 mb-1">{s.label}</div>
             <div className="mx-2 h-1 bg-secondary-100 rounded-full overflow-hidden">
-              <motion.div className={`h-full ${s.color} rounded-full`}
+              <motion.div
+                className={`h-full ${s.color} rounded-full`}
                 initial={{ width: 0 }}
                 whileInView={{ width: `${s.pct}%` }}
                 viewport={{ once: true }}
-                transition={{ delay: 1.0 + i * 0.12, duration: 0.8, ease: "easeOut" }}
+                transition={{
+                  delay: 1.0 + i * 0.12,
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
               />
             </div>
           </motion.div>
@@ -658,26 +955,60 @@ const DataScienceVisual = () => {
 /* ── Training/Consulting: Strategic Roadmap Timeline ── */
 const TrainingVisual = () => {
   const phases = [
-    { title: "AI Readiness Audit", duration: "Week 1-2", status: "complete", items: ["Data assessment", "Infra review", "Gap analysis"], color: "from-violet-500 to-purple-500", pct: 100 },
-    { title: "Use Case Discovery", duration: "Week 3-4", status: "complete", items: ["Opportunity mapping", "ROI estimation", "Prioritization"], color: "from-purple-500 to-fuchsia-500", pct: 100 },
-    { title: "Strategy & Roadmap", duration: "Week 5-8", status: "active", items: ["Architecture", "Impl. plan", "Governance"], color: "from-fuchsia-500 to-pink-500", pct: 65 },
-    { title: "Execution Support", duration: "Week 9+", status: "upcoming", items: ["Upskilling", "Pilot", "Change mgmt"], color: "from-indigo-500 to-violet-500", pct: 0 },
+    {
+      title: "AI Readiness Audit",
+      duration: "Week 1-2",
+      status: "complete",
+      items: ["Data assessment", "Infra review", "Gap analysis"],
+      color: "from-violet-500 to-purple-500",
+      pct: 100,
+    },
+    {
+      title: "Use Case Discovery",
+      duration: "Week 3-4",
+      status: "complete",
+      items: ["Opportunity mapping", "ROI estimation", "Prioritization"],
+      color: "from-purple-500 to-fuchsia-500",
+      pct: 100,
+    },
+    {
+      title: "Strategy & Roadmap",
+      duration: "Week 5-8",
+      status: "active",
+      items: ["Architecture", "Impl. plan", "Governance"],
+      color: "from-fuchsia-500 to-pink-500",
+      pct: 65,
+    },
+    {
+      title: "Execution Support",
+      duration: "Week 9+",
+      status: "upcoming",
+      items: ["Upskilling", "Pilot", "Change mgmt"],
+      color: "from-indigo-500 to-violet-500",
+      pct: 0,
+    },
   ];
 
   return (
     <div className="min-h-[280px] sm:min-h-[350px] relative flex flex-col select-none overflow-hidden">
       <div className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border-b border-secondary-100">
-        <motion.div className="w-2 h-2 rounded-full bg-brand-purple"
+        <motion.div
+          className="w-2 h-2 rounded-full bg-brand-purple"
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         />
-        <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">Transformation Roadmap</span>
-        <span className="ml-auto text-[9px] font-bold text-brand-purple bg-brand-purple/[0.07] px-2 py-0.5 rounded-full">4 Phases</span>
+        <span className="text-[10px] font-bold text-secondary-400 uppercase tracking-wider">
+          Transformation Roadmap
+        </span>
+        <span className="ml-auto text-[9px] font-bold text-brand-purple bg-brand-purple/[0.07] px-2 py-0.5 rounded-full">
+          4 Phases
+        </span>
       </div>
 
       <div className="flex-1 flex flex-col justify-center px-4 py-3 space-y-2.5 relative">
         {/* Connecting line on left */}
-        <motion.div className="absolute left-[30px] top-3 w-[2px] bg-gradient-to-b from-violet-300 via-fuchsia-300 to-indigo-200"
+        <motion.div
+          className="absolute left-[30px] top-3 w-[2px] bg-gradient-to-b from-violet-300 via-fuchsia-300 to-indigo-200"
           initial={{ height: 0 }}
           whileInView={{ height: "calc(100% - 1.5rem)" }}
           viewport={{ once: true }}
@@ -690,35 +1021,66 @@ const TrainingVisual = () => {
             initial={{ opacity: 0, x: -20, filter: "blur(3px)" }}
             whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 + i * 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              delay: 0.2 + i * 0.15,
+              duration: 0.5,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="flex items-start gap-3 relative"
           >
             <motion.div
               className={`w-8 h-8 bg-gradient-to-br ${phase.color} rounded-lg flex items-center justify-center text-white text-[10px] font-bold shadow-sm flex-shrink-0 relative z-10`}
-              whileInView={phase.status === "active" ? { scale: [1, 1.1, 1] } : {}}
+              whileInView={
+                phase.status === "active" ? { scale: [1, 1.1, 1] } : {}
+              }
               viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 1, repeat: phase.status === "active" ? Infinity : 0, repeatDelay: 2 }}
+              transition={{
+                delay: 0.8,
+                duration: 1,
+                repeat: phase.status === "active" ? Infinity : 0,
+                repeatDelay: 2,
+              }}
             >
               {phase.status === "complete" ? (
-                <motion.span initial={{ scale: 0, rotate: -180 }} whileInView={{ scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 + i * 0.15, type: "spring" }}>✓</motion.span>
+                <motion.span
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + i * 0.15, type: "spring" }}
+                >
+                  ✓
+                </motion.span>
               ) : phase.status === "active" ? (
-                <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>▶</motion.span>
-              ) : (i + 1)}
+                <motion.span
+                  animate={{ opacity: [1, 0.5, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  ▶
+                </motion.span>
+              ) : (
+                i + 1
+              )}
             </motion.div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-[10px] font-bold text-secondary-800">{phase.title}</span>
+                <span className="text-[10px] font-bold text-secondary-800">
+                  {phase.title}
+                </span>
                 <motion.span
                   className={`text-[8px] px-1.5 py-0.5 rounded font-medium ${
-                    phase.status === "complete" ? "bg-emerald-50 text-emerald-600" :
-                    phase.status === "active" ? "bg-violet-50 text-violet-600" :
-                    "bg-secondary-50 text-secondary-400"
+                    phase.status === "complete"
+                      ? "bg-emerald-50 text-emerald-600"
+                      : phase.status === "active"
+                        ? "bg-violet-50 text-violet-600"
+                        : "bg-secondary-50 text-secondary-400"
                   }`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + i * 0.15, type: "spring" }}
-                >{phase.duration}</motion.span>
+                >
+                  {phase.duration}
+                </motion.span>
               </div>
               {/* Progress bar */}
               <div className="h-1 bg-secondary-100 rounded-full mb-1.5 overflow-hidden">
@@ -727,18 +1089,29 @@ const TrainingVisual = () => {
                   initial={{ width: 0 }}
                   whileInView={{ width: `${phase.pct}%` }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + i * 0.15, duration: 0.8, ease: "easeOut" }}
+                  transition={{
+                    delay: 0.5 + i * 0.15,
+                    duration: 0.8,
+                    ease: "easeOut",
+                  }}
                 />
               </div>
               <div className="flex flex-wrap gap-1">
                 {phase.items.map((item, j) => (
-                  <motion.span key={j}
+                  <motion.span
+                    key={j}
                     initial={{ opacity: 0, scale: 0.7, y: 3 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.45 + i * 0.15 + j * 0.06, type: "spring", stiffness: 200 }}
+                    transition={{
+                      delay: 0.45 + i * 0.15 + j * 0.06,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
                     className="text-[8px] px-2 py-0.5 bg-secondary-50 border border-secondary-100 rounded text-secondary-500 hover:bg-secondary-100 transition-colors duration-200"
-                  >{item}</motion.span>
+                  >
+                    {item}
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -754,14 +1127,23 @@ const TrainingVisual = () => {
         transition={{ delay: 1.0, type: "spring", stiffness: 200 }}
         className="mx-4 mb-3 flex items-center gap-2 px-3 py-2 bg-indigo-50 border border-indigo-200/50 rounded-xl overflow-hidden relative"
       >
-        <motion.div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-400 to-violet-400"
+        <motion.div
+          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-400 to-violet-400"
           initial={{ width: 0 }}
           whileInView={{ width: "100%" }}
           viewport={{ once: true }}
           transition={{ delay: 1.3, duration: 1.2, ease: "easeOut" }}
         />
-        <motion.span className="text-sm" animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity }}>🎯</motion.span>
-        <span className="text-[10px] font-bold text-indigo-700">Avg. 6x ROI within first year</span>
+        <motion.span
+          className="text-sm"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          🎯
+        </motion.span>
+        <span className="text-[10px] font-bold text-indigo-700">
+          Avg. 6x ROI within first year
+        </span>
       </motion.div>
     </div>
   );
@@ -770,10 +1152,10 @@ const TrainingVisual = () => {
 const ServiceVisual = ({ service, index }) => {
   const isEven = index % 2 === 0;
   const visualMap = {
-    engineering: <EngineeringVisual />,
     "gen-ai": <GenAIVisual />,
-    "data-science": <DataScienceVisual />,
-    training: <TrainingVisual />,
+    "vision-ai": <DataScienceVisual />,
+    "conversational-ai": <EngineeringVisual />,
+    "strategic-consulting": <TrainingVisual />,
   };
 
   return (
@@ -808,7 +1190,7 @@ const ServiceSection = ({ service, index }) => {
   return (
     <section
       id={service.id}
-      className={`scroll-mt-24 py-16 sm:py-20 md:py-32 ${isEven ? 'glass-section' : 'glass-section-alt'}`}
+      className={`scroll-mt-24 py-8 sm:py-12 md:py-16 ${isEven ? "glass-section" : "glass-section-alt"}`}
     >
       {/* Subtle background for alternating sections */}
       {!isEven && (
@@ -909,8 +1291,7 @@ const OverviewStrip = () => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
 
   return (
-    <section className="glass-section py-14 sm:py-16 md:py-20">
-
+    <section className="glass-section py-10 sm:py-12 md:py-16">
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -1019,7 +1400,7 @@ const OverviewStrip = () => {
 
 /* ─────────────────────── CTA Section ─────────────────────── */
 const CTASection = () => (
-  <section className="glass-section py-16 sm:py-20 md:py-32">
+  <section className="glass-section py-8 sm:py-12 md:py-16">
     <div className="container-custom">
       <motion.div
         initial={{ opacity: 0, y: 30 }}

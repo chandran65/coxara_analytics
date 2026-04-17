@@ -227,7 +227,7 @@ const CareersPage = () => {
       {/* Main Content */}
       <div id="page-content" className="bg-white">
         {/* Why Join Us Section */}
-        <section className="py-16 md:py-16">
+        <section className="py-12 md:py-12">
           <div className="container-custom">
             <div className="text-center mb-12 lg:mb-16">
               <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
@@ -262,7 +262,7 @@ const CareersPage = () => {
         </section>
 
         {/* Application Form Section */}
-        <section className="py-16 md:py-16 bg-gradient-to-br from-white via-primary-50/30 to-white">
+        <section className="py-12 md:py-12 bg-gradient-to-br from-white via-primary-50/30 to-white">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Side - Image */}
@@ -467,7 +467,7 @@ const CareersPage = () => {
         </section>
 
         {/* Open Positions Section */}
-        <section className="py-16 md:py-16">
+        <section className="py-12 md:py-12">
           <div className="container-custom">
             <div className="text-center mb-12 lg:mb-16">
               <span className="inline-block px-4 py-2 bg-brand-purple/10 text-brand-purple font-semibold text-sm rounded-full border border-brand-purple/20 mb-4">
@@ -592,7 +592,7 @@ const CareersPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-16">
+        <section className="py-12 md:py-12">
           <div className="container-custom">
             <div className="bg-gradient-to-br from-brand-purple via-brand-medium to-brand-accent rounded-3xl p-8 md:p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_50%)]" />

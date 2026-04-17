@@ -3,7 +3,7 @@ import { AnimatedSection } from "../ui";
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
+    <section className="py-12 md:py-16 glass-section-alt relative overflow-hidden">
       {/* Subtle background */}
       <div
         className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -111,8 +111,8 @@ const FeaturedCaseStudy = () => {
                 {/* Floating testimonial card */}
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-xl p-6 rounded-xl border border-secondary-100 shadow-lg z-20 transform translate-y-0 opacity-100 lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-500">
                   <p className="text-secondary-700 font-medium text-sm leading-relaxed">
-                    "Roxbee transformed how we view our data. The
-                    insights were immediate and actionable."
+                    "Roxbee transformed how we view our data. The insights were
+                    immediate and actionable."
                   </p>
                   <p className="text-brand-purple text-sm mt-3 font-semibold">
                     — CTO, Global Retailer

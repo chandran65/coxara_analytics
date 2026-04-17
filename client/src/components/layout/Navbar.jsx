@@ -207,7 +207,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const isScrolled = scrollPosition > 20;
-  const safeNavHeight = navHeight || (isScrolled ? 72 : 80);
+  const safeNavHeight = navHeight || 80;
 
   useEffect(() => {
     if (isOpen) {
@@ -304,7 +304,7 @@ const Navbar = () => {
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out ${
         isScrolled
-          ? "py-3 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
+          ? "py-5 glass-navbar shadow-[0_1px_20px_rgba(0,0,0,0.04)] border-b border-secondary-100/50"
           : "py-5 bg-white/60 backdrop-blur-md border-b border-transparent"
       }`}
     >
@@ -313,9 +313,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            className={`flex-shrink-0 flex items-center group relative z-10 ${
-              isScrolled ? "h-14 w-auto" : "h-16 w-auto"
-            }`}
+            className="flex-shrink-0 flex items-center group relative z-10 h-16 w-auto"
             onClick={() => {
               setIsOpen(false);
               setActiveDropdown(null);
@@ -537,7 +535,6 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -687,8 +684,6 @@ const Navbar = () => {
                   )}
                 </motion.div>
               ))}
-
-
             </div>
           </motion.div>
         )}

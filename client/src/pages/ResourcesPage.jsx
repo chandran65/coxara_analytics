@@ -1,5 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
@@ -14,45 +19,48 @@ const ResourcesHero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const { category: urlCategory } = useParams();
-  
+
   // Dynamic content map for individual "pages"
   const categoryContent = {
     all: {
       badge: "Knowledge Hub",
       title: "Insights & Resources",
-      desc: "Guides, thought leadership, and deep dives from our analytics experts — helping you stay ahead of the curve."
+      desc: "Guides, thought leadership, and deep dives from our analytics experts — helping you stay ahead of the curve.",
     },
     "case-studies": {
       badge: "Success Stories",
       title: "Real-World Impact",
-      desc: "Explore how COXARA transforms raw data into massive ROI for our global clients across retail, healthcare, and finance."
+      desc: "Explore how COXARA Analytics transforms raw data into measurable ROI for our global clients across retail, healthcare, and finance.",
     },
-    "blog": {
+    blog: {
       badge: "Latest Insights",
       title: "The Intelligence Blog",
-      desc: "Expert perspectives on AI, data strategy, and the future of enterprise automation from our leading practitioners."
+      desc: "Expert perspectives on AI, data strategy, and the future of enterprise automation from our leading practitioners.",
     },
-    "toolkits": {
+    toolkits: {
       badge: "Executive Assets",
       title: "Strategic Toolkits",
-      desc: "Curated templates, dashboard frameworks, and data strategy checklists to accelerate your digital transformation."
+      desc: "Curated templates, dashboard frameworks, and data strategy checklists to accelerate your digital transformation.",
     },
-    "webinars": {
+    webinars: {
       badge: "Video Library",
       title: "On-Demand Webinars",
-      desc: "Watch our technical leaders and product experts discuss the latest in AI, causal reasoning, and predictive analytics."
+      desc: "Watch our technical leaders and product experts discuss the latest in AI, causal reasoning, and predictive analytics.",
     },
-    "whitepapers": {
+    whitepapers: {
       badge: "Deep Dives",
       title: "Strategic Whitepapers",
-      desc: "Comprehensive research papers on the architecture, ethics, and future of enterprise-grade intelligent systems."
-    }
+      desc: "Comprehensive research papers on the architecture, ethics, and future of enterprise-grade intelligent systems.",
+    },
   };
 
-  const currentContent = categoryContent[urlCategory?.toLowerCase()] || categoryContent.all;
+  const currentContent =
+    categoryContent[urlCategory?.toLowerCase()] || categoryContent.all;
 
   const words = currentContent.title.split(" ");
-  const specialWords = words.filter((w, i) => i === 0 || i === words.length - 1); // Highlight first and last words
+  const specialWords = words.filter(
+    (w, i) => i === 0 || i === words.length - 1,
+  ); // Highlight first and last words
 
   return (
     <section
@@ -375,7 +383,7 @@ const ResourcesPage = () => {
     if (category) {
       // Convert slug back to Display Name (e.g. case-studies -> Case Studies)
       const found = categories.find(
-        (c) => c.toLowerCase().replace(/\s+/g, "-") === category.toLowerCase()
+        (c) => c.toLowerCase().replace(/\s+/g, "-") === category.toLowerCase(),
       );
       if (found) {
         setActiveCategory(found);
@@ -517,7 +525,7 @@ const ResourcesPage = () => {
       {/* Main Content */}
       <div id="page-content">
         {/* ─── Filter + Blog Grid ─── */}
-        <section className="glass-section py-16 sm:py-24 md:py-32">
+        <section className="glass-section py-8 sm:py-12 md:py-16">
           <div className="container-custom relative z-10">
             {/* Section header */}
             <motion.div
@@ -571,7 +579,7 @@ const ResourcesPage = () => {
 
             {/* Blog grid */}
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={activeCategory}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -586,16 +594,29 @@ const ResourcesPage = () => {
                 ) : (
                   <div className="col-span-full py-32 text-center rounded-3xl border-2 border-dashed border-secondary-100 bg-secondary-50/30">
                     <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-6">
-                      <svg className="w-8 h-8 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      <svg
+                        className="w-8 h-8 text-secondary-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-secondary-900 mb-2">More {activeCategory} Coming Soon</h3>
+                    <h3 className="text-xl font-bold text-secondary-900 mb-2">
+                      More {activeCategory} Coming Soon
+                    </h3>
                     <p className="text-secondary-500 max-w-xs mx-auto mb-8">
-                      We're currently finalizing deep dives into this category. Check back shortly for our latest findings.
+                      We're currently finalizing deep dives into this category.
+                      Check back shortly for our latest findings.
                     </p>
-                    <button 
-                      onClick={() => navigate('/company/contact')}
+                    <button
+                      onClick={() => navigate("/company/contact")}
                       className="px-6 py-2.5 bg-brand-purple text-white font-bold rounded-full hover:scale-105 transition-transform"
                     >
                       Request a Custom Resource
@@ -608,7 +629,7 @@ const ResourcesPage = () => {
         </section>
 
         {/* ─── Newsletter Section ─── */}
-        <section className="glass-section-alt py-16 sm:py-24 md:py-32">
+        <section className="glass-section-alt py-8 sm:py-12 md:py-16">
           {/* Dot pattern */}
           <div
             className="absolute inset-0 opacity-[0.012] pointer-events-none"

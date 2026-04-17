@@ -47,7 +47,7 @@ const Home = () => {
         {/* Why Choose Us */}
         <section
           ref={whyRef}
-          className="py-24 md:py-32 glass-section relative overflow-hidden"
+          className="py-12 md:py-16 glass-section relative overflow-hidden"
         >
           <div
             className="absolute inset-0 opacity-[0.012] pointer-events-none"
@@ -91,7 +91,7 @@ const Home = () => {
                         ),
                       },
                       {
-                        title: "Future Ready",
+                        title: "Future-Ready",
                         desc: "Leveraging the latest in AI and Machine Learning technologies.",
                         icon: (
                           <path
@@ -103,7 +103,7 @@ const Home = () => {
                         ),
                       },
                       {
-                        title: "Client Centric",
+                        title: "Client-Centric",
                         desc: "Tailored strategies that align with your specific business goals.",
                         icon: (
                           <path
@@ -151,8 +151,9 @@ const Home = () => {
 
               <AnimatedSection direction="right" delay={0.2}>
                 <div className="relative w-full aspect-square max-lg mx-auto select-none">
-                  {/* Background glow */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-purple/8 to-brand-accent/5 rounded-full blur-[90px] scale-125" />
+                  {/* Layered atmospheric glow */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-purple/10 to-brand-accent/6 rounded-full blur-[100px] scale-125" />
+                  <div className="absolute top-1/4 right-1/4 w-1/2 h-1/2 bg-brand-medium/[0.07] rounded-full blur-[60px]" />
 
                   {whyInView && (
                     <svg
@@ -160,238 +161,740 @@ const Home = () => {
                       className="w-full h-full"
                       aria-hidden="true"
                     >
-                      {/* Rotating layered diamond/prism shapes */}
-                      <motion.g
+                      <defs>
+                        <radialGradient id="whyCore" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#A78BFA" />
+                          <stop offset="40%" stopColor="#8B5CF6" />
+                          <stop offset="100%" stopColor="#6D28D9" />
+                        </radialGradient>
+                        <radialGradient id="whyAura" cx="50%" cy="50%" r="50%">
+                          <stop
+                            offset="0%"
+                            stopColor="#8B5CF6"
+                            stopOpacity="0.3"
+                          />
+                          <stop
+                            offset="100%"
+                            stopColor="#6D28D9"
+                            stopOpacity="0"
+                          />
+                        </radialGradient>
+                        <linearGradient
+                          id="whyPanelFill"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="0%"
+                            stopColor="#6D28D9"
+                            stopOpacity="0.08"
+                          />
+                          <stop
+                            offset="100%"
+                            stopColor="#8B5CF6"
+                            stopOpacity="0.02"
+                          />
+                        </linearGradient>
+                        <filter id="whyNeon">
+                          <feGaussianBlur stdDeviation="5" result="blur" />
+                          <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                        <filter id="whySoft">
+                          <feGaussianBlur stdDeviation="2" result="blur" />
+                          <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      </defs>
+
+                      {/* ═══ Background tech dot-matrix grid ═══ */}
+                      {Array.from({ length: 17 }, (_, row) =>
+                        Array.from({ length: 17 }, (_, col) => {
+                          const x = 18 + col * 22.5;
+                          const y = 18 + row * 22.5;
+                          const dist = Math.hypot(x - 200, y - 200);
+                          if (dist > 180) return null;
+                          return (
+                            <circle
+                              key={`g-${row}-${col}`}
+                              cx={x}
+                              cy={y}
+                              r="0.6"
+                              fill="#8B5CF6"
+                              opacity={Math.max(
+                                0.015,
+                                0.055 * (1 - dist / 185),
+                              )}
+                            />
+                          );
+                        }),
+                      )}
+
+                      {/* ═══ Tech rings — circuit-trace pattern ═══ */}
+                      <motion.circle
+                        cx="200"
+                        cy="200"
+                        r="174"
+                        fill="none"
+                        stroke="#6D28D9"
+                        strokeWidth="0.5"
+                        strokeDasharray="1,5,8,5,1,12"
+                        opacity="0.12"
                         animate={{ rotate: 360 }}
                         transition={{
-                          duration: 80,
+                          duration: 100,
                           repeat: Infinity,
                           ease: "linear",
                         }}
                         style={{ transformOrigin: "200px 200px" }}
-                      >
-                        <motion.rect
-                          x="145"
-                          y="145"
-                          width="110"
-                          height="110"
-                          rx="4"
-                          fill="none"
-                          stroke="#6D28D9"
-                          strokeWidth="1"
-                          opacity="0.12"
-                          style={{
-                            transformOrigin: "200px 200px",
-                            transform: "rotate(45deg)",
-                          }}
-                          animate={{ opacity: [0.08, 0.18, 0.08] }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                        />
-                      </motion.g>
-
-                      <motion.g
+                      />
+                      <motion.circle
+                        cx="200"
+                        cy="200"
+                        r="164"
+                        fill="none"
+                        stroke="#8B5CF6"
+                        strokeWidth="0.3"
+                        strokeDasharray="16,3,2,3,8,3"
+                        opacity="0.08"
                         animate={{ rotate: -360 }}
+                        transition={{
+                          duration: 75,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        style={{ transformOrigin: "200px 200px" }}
+                      />
+                      <motion.circle
+                        cx="200"
+                        cy="200"
+                        r="155"
+                        fill="none"
+                        stroke="#C084FC"
+                        strokeWidth="0.25"
+                        strokeDasharray="3,10,1,10"
+                        opacity="0.06"
+                        animate={{ rotate: 360 }}
                         transition={{
                           duration: 55,
                           repeat: Infinity,
                           ease: "linear",
                         }}
                         style={{ transformOrigin: "200px 200px" }}
-                      >
-                        <motion.rect
-                          x="125"
-                          y="125"
-                          width="150"
-                          height="150"
-                          rx="6"
-                          fill="none"
-                          stroke="#8B5CF6"
-                          strokeWidth="0.8"
-                          opacity="0.1"
-                          style={{
-                            transformOrigin: "200px 200px",
-                            transform: "rotate(45deg)",
-                          }}
-                          animate={{ opacity: [0.06, 0.14, 0.06] }}
-                          transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            delay: 1,
-                          }}
-                        />
-                      </motion.g>
+                      />
 
+                      {/* ═══ Radar scanning sweep ═══ */}
                       <motion.g
                         animate={{ rotate: 360 }}
                         transition={{
-                          duration: 70,
+                          duration: 7,
                           repeat: Infinity,
                           ease: "linear",
                         }}
                         style={{ transformOrigin: "200px 200px" }}
                       >
-                        <motion.rect
-                          x="105"
-                          y="105"
-                          width="190"
-                          height="190"
-                          rx="8"
-                          fill="none"
-                          stroke="#6D28D9"
-                          strokeWidth="0.5"
-                          opacity="0.07"
-                          style={{
-                            transformOrigin: "200px 200px",
-                            transform: "rotate(45deg)",
-                          }}
+                        <path
+                          d="M200,200 L200,38 A162,162 0 0,1 340,120 Z"
+                          fill="url(#whyAura)"
+                          opacity="0.12"
                         />
                       </motion.g>
 
-                      {/* Constellation network nodes */}
-                      {[
-                        { cx: 200, cy: 120, r: 5 },
-                        { cx: 280, cy: 170, r: 4 },
-                        { cx: 300, cy: 260, r: 3.5 },
-                        { cx: 230, cy: 310, r: 4.5 },
-                        { cx: 130, cy: 290, r: 3 },
-                        { cx: 100, cy: 190, r: 4 },
-                        { cx: 160, cy: 155, r: 3 },
-                        { cx: 250, cy: 230, r: 3.5 },
-                      ].map((node, i) => (
-                        <motion.circle
-                          key={`node-${i}`}
-                          cx={node.cx}
-                          cy={node.cy}
-                          r={node.r}
-                          fill="#6D28D9"
-                          animate={{
-                            opacity: [0.15, 0.4, 0.15],
-                            r: [node.r, node.r + 1.5, node.r],
-                          }}
-                          transition={{
-                            duration: 3 + i * 0.5,
-                            repeat: Infinity,
-                            delay: i * 0.4,
-                          }}
+                      {/* ═══ Central diamond processor ═══ */}
+                      <motion.g
+                        animate={{ rotate: [0, 90, 180, 270, 360] }}
+                        transition={{
+                          duration: 40,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        style={{ transformOrigin: "200px 200px" }}
+                      >
+                        <rect
+                          x="177"
+                          y="177"
+                          width="46"
+                          height="46"
+                          rx="3"
+                          fill="url(#whyCore)"
+                          transform="rotate(45 200 200)"
+                          filter="url(#whyNeon)"
                         />
-                      ))}
-
-                      {/* Network connecting lines */}
-                      {[
-                        [200, 120, 280, 170],
-                        [280, 170, 300, 260],
-                        [300, 260, 230, 310],
-                        [230, 310, 130, 290],
-                        [130, 290, 100, 190],
-                        [100, 190, 200, 120],
-                        [200, 120, 250, 230],
-                        [100, 190, 250, 230],
-                        [160, 155, 280, 170],
-                        [160, 155, 130, 290],
-                      ].map(([x1, y1, x2, y2], i) => (
-                        <motion.line
-                          key={`conn-${i}`}
-                          x1={x1}
-                          y1={y1}
-                          x2={x2}
-                          y2={y2}
-                          stroke="#8B5CF6"
+                        <rect
+                          x="187"
+                          y="187"
+                          width="26"
+                          height="26"
+                          rx="1.5"
+                          fill="none"
+                          stroke="white"
                           strokeWidth="0.5"
-                          animate={{ opacity: [0.04, 0.12, 0.04] }}
-                          transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                          }}
+                          opacity="0.3"
+                          transform="rotate(45 200 200)"
                         />
-                      ))}
+                        <rect
+                          x="194"
+                          y="194"
+                          width="12"
+                          height="12"
+                          rx="0.5"
+                          fill="white"
+                          opacity="0.12"
+                          transform="rotate(45 200 200)"
+                        />
+                      </motion.g>
 
-                      {/* Central glowing orb */}
+                      {/* Central breathing aura */}
                       <motion.circle
                         cx="200"
                         cy="200"
-                        r="28"
-                        fill="url(#whyGrad)"
-                        animate={{ r: [28, 32, 28] }}
-                        transition={{
-                          duration: 5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      />
-                      <motion.circle
-                        cx="200"
-                        cy="200"
-                        r="42"
-                        fill="none"
-                        stroke="#6D28D9"
-                        strokeWidth="0.8"
-                        opacity="0.12"
+                        r="30"
+                        fill="url(#whyAura)"
                         animate={{
-                          r: [42, 48, 42],
-                          opacity: [0.12, 0.06, 0.12],
+                          r: [30, 42, 30],
+                          opacity: [0.45, 0.15, 0.45],
                         }}
                         transition={{
-                          duration: 6,
+                          duration: 3.5,
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
                       />
 
-                      {/* Orbiting particles along elliptical paths */}
-                      {[0, 1, 2, 3].map((i) => {
-                        const speed = 15 + i * 5;
-                        const rx = 110 + i * 20;
-                        const ry = 70 + i * 15;
+                      {/* ═══ 8 circuit traces radiating from center ═══ */}
+                      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+                        const rad = (angle * Math.PI) / 180;
+                        const x1 = 200 + 36 * Math.cos(rad);
+                        const y1 = 200 + 36 * Math.sin(rad);
+                        const x2 = 200 + 142 * Math.cos(rad);
+                        const y2 = 200 + 142 * Math.sin(rad);
                         return (
-                          <motion.circle
-                            key={`particle-${i}`}
-                            cx={200 + rx * Math.cos((i * Math.PI) / 4)}
-                            cy={200 + ry * Math.sin((i * Math.PI) / 4)}
-                            r="3"
-                            fill="#8B5CF6"
-                            opacity="0.35"
-                            animate={{
-                              cx: Array.from(
-                                { length: 37 },
-                                (_, j) =>
-                                  200 +
-                                  rx *
-                                  Math.cos(
-                                    (j * 2 * Math.PI) / 36 +
-                                    (i * Math.PI) / 4,
-                                  ),
-                              ),
-                              cy: Array.from(
-                                { length: 37 },
-                                (_, j) =>
-                                  200 +
-                                  ry *
-                                  Math.sin(
-                                    (j * 2 * Math.PI) / 36 +
-                                    (i * Math.PI) / 4,
-                                  ),
-                              ),
-                            }}
+                          <motion.line
+                            key={`trace-${i}`}
+                            x1={x1}
+                            y1={y1}
+                            x2={x2}
+                            y2={y2}
+                            stroke="#8B5CF6"
+                            strokeWidth={i % 2 === 0 ? "0.7" : "0.35"}
+                            strokeDasharray={i % 2 === 0 ? "6,4" : "2,6"}
+                            animate={{ opacity: [0.05, 0.18, 0.05] }}
                             transition={{
-                              duration: speed,
+                              duration: 3 + (i % 3),
                               repeat: Infinity,
-                              ease: "linear",
-                            }}
-                            style={{
-                              filter:
-                                "drop-shadow(0 0 4px rgba(139,92,246,0.4))",
+                              delay: i * 0.25,
                             }}
                           />
                         );
                       })}
 
-                      <defs>
-                        <radialGradient id="whyGrad" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#8B5CF6" />
-                          <stop offset="100%" stopColor="#6D28D9" />
-                        </radialGradient>
-                      </defs>
+                      {/* ═══ Ring junction nodes ═══ */}
+                      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+                        const rad = (angle * Math.PI) / 180;
+                        const cx = 200 + 157 * Math.cos(rad);
+                        const cy = 200 + 157 * Math.sin(rad);
+                        return (
+                          <motion.g key={`rn-${i}`}>
+                            <motion.circle
+                              cx={cx}
+                              cy={cy}
+                              r="5"
+                              fill="#6D28D9"
+                              opacity="0.12"
+                              animate={{
+                                r: [5, 7, 5],
+                                opacity: [0.08, 0.22, 0.08],
+                              }}
+                              transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                delay: i * 0.35,
+                              }}
+                            />
+                            <circle
+                              cx={cx}
+                              cy={cy}
+                              r="1.8"
+                              fill="#8B5CF6"
+                              opacity="0.45"
+                            />
+                          </motion.g>
+                        );
+                      })}
+
+                      {/* ═══ Holographic data panels ═══ */}
+
+                      {/* Top panel — Performance metrics */}
+                      <motion.g
+                        animate={{ y: [-2, 4, -2] }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <rect
+                          x="152"
+                          y="28"
+                          width="96"
+                          height="56"
+                          rx="5"
+                          fill="url(#whyPanelFill)"
+                          stroke="#8B5CF6"
+                          strokeWidth="0.5"
+                          opacity="0.75"
+                        />
+                        <rect
+                          x="156"
+                          y="32"
+                          width="88"
+                          height="10"
+                          rx="2"
+                          fill="#6D28D9"
+                          opacity="0.1"
+                        />
+                        <text
+                          x="162"
+                          y="40"
+                          fill="#6D28D9"
+                          fontSize="6"
+                          fontWeight="700"
+                          opacity="0.5"
+                        >
+                          PERFORMANCE
+                        </text>
+                        <text
+                          x="232"
+                          y="40"
+                          fill="#6D28D9"
+                          fontSize="7"
+                          fontWeight="800"
+                          opacity="0.45"
+                          textAnchor="end"
+                        >
+                          98.6%
+                        </text>
+                        {/* Mini bar chart */}
+                        {[0, 1, 2, 3, 4, 5, 6, 7].map((b) => {
+                          const h = 8 + Math.abs(Math.sin(b * 1.1 + 0.5)) * 16;
+                          return (
+                            <motion.rect
+                              key={`bar-${b}`}
+                              x={160 + b * 10}
+                              y={76 - h}
+                              width="6"
+                              height={h}
+                              rx="1"
+                              fill="#8B5CF6"
+                              animate={{
+                                opacity: [0.12, 0.35, 0.12],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: b * 0.12,
+                              }}
+                            />
+                          );
+                        })}
+                      </motion.g>
+
+                      {/* Right panel — Neural network mini viz */}
+                      <motion.g
+                        animate={{ x: [-2, 4, -2] }}
+                        transition={{
+                          duration: 5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 1,
+                        }}
+                      >
+                        <rect
+                          x="282"
+                          y="148"
+                          width="88"
+                          height="60"
+                          rx="5"
+                          fill="url(#whyPanelFill)"
+                          stroke="#8B5CF6"
+                          strokeWidth="0.5"
+                          opacity="0.75"
+                        />
+                        <rect
+                          x="286"
+                          y="152"
+                          width="80"
+                          height="10"
+                          rx="2"
+                          fill="#6D28D9"
+                          opacity="0.1"
+                        />
+                        <text
+                          x="292"
+                          y="160"
+                          fill="#6D28D9"
+                          fontSize="6"
+                          fontWeight="700"
+                          opacity="0.5"
+                        >
+                          NEURAL NET
+                        </text>
+                        {/* 2-layer network dots */}
+                        {[
+                          [296, 176],
+                          [312, 172],
+                          [328, 176],
+                          [344, 172],
+                          [296, 196],
+                          [312, 192],
+                          [328, 196],
+                          [344, 192],
+                        ].map(([cx, cy], n) => (
+                          <motion.circle
+                            key={`nn-${n}`}
+                            cx={cx}
+                            cy={cy}
+                            r="2.8"
+                            fill="#8B5CF6"
+                            animate={{ opacity: [0.12, 0.45, 0.12] }}
+                            transition={{
+                              duration: 1.8,
+                              repeat: Infinity,
+                              delay: n * 0.18,
+                            }}
+                          />
+                        ))}
+                        {/* network connections */}
+                        {[
+                          [0, 4],
+                          [0, 5],
+                          [1, 4],
+                          [1, 5],
+                          [1, 6],
+                          [2, 5],
+                          [2, 6],
+                          [2, 7],
+                          [3, 6],
+                          [3, 7],
+                        ].map(([a, b], ci) => {
+                          const pts = [
+                            [296, 176],
+                            [312, 172],
+                            [328, 176],
+                            [344, 172],
+                            [296, 196],
+                            [312, 192],
+                            [328, 196],
+                            [344, 192],
+                          ];
+                          return (
+                            <line
+                              key={`nnl-${ci}`}
+                              x1={pts[a][0]}
+                              y1={pts[a][1]}
+                              x2={pts[b][0]}
+                              y2={pts[b][1]}
+                              stroke="#8B5CF6"
+                              strokeWidth="0.4"
+                              opacity="0.12"
+                            />
+                          );
+                        })}
+                      </motion.g>
+
+                      {/* Bottom panel — Data pipeline sparkline */}
+                      <motion.g
+                        animate={{ y: [2, -4, 2] }}
+                        transition={{
+                          duration: 4.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 0.5,
+                        }}
+                      >
+                        <rect
+                          x="140"
+                          y="314"
+                          width="120"
+                          height="52"
+                          rx="5"
+                          fill="url(#whyPanelFill)"
+                          stroke="#8B5CF6"
+                          strokeWidth="0.5"
+                          opacity="0.75"
+                        />
+                        <rect
+                          x="144"
+                          y="318"
+                          width="112"
+                          height="10"
+                          rx="2"
+                          fill="#6D28D9"
+                          opacity="0.1"
+                        />
+                        <text
+                          x="150"
+                          y="326"
+                          fill="#6D28D9"
+                          fontSize="6"
+                          fontWeight="700"
+                          opacity="0.5"
+                        >
+                          DATA PIPELINE
+                        </text>
+                        {/* Sparkline */}
+                        <motion.path
+                          d="M150,354 L162,347 L174,350 L186,338 L198,343 L210,335 L222,340 L234,332 L246,337"
+                          fill="none"
+                          stroke="#8B5CF6"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          animate={{ opacity: [0.2, 0.5, 0.2] }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                          }}
+                        />
+                        <path
+                          d="M150,354 L162,347 L174,350 L186,338 L198,343 L210,335 L222,340 L234,332 L246,337 L246,360 L150,360 Z"
+                          fill="#8B5CF6"
+                          opacity="0.04"
+                        />
+                        <motion.circle
+                          cx="246"
+                          cy="337"
+                          r="2.5"
+                          fill="#C084FC"
+                          animate={{
+                            r: [2.5, 4, 2.5],
+                            opacity: [0.5, 1, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                          }}
+                        />
+                      </motion.g>
+
+                      {/* Left panel — System status */}
+                      <motion.g
+                        animate={{ x: [2, -4, 2] }}
+                        transition={{
+                          duration: 5.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 1.5,
+                        }}
+                      >
+                        <rect
+                          x="30"
+                          y="152"
+                          width="82"
+                          height="64"
+                          rx="5"
+                          fill="url(#whyPanelFill)"
+                          stroke="#8B5CF6"
+                          strokeWidth="0.5"
+                          opacity="0.75"
+                        />
+                        <rect
+                          x="34"
+                          y="156"
+                          width="74"
+                          height="10"
+                          rx="2"
+                          fill="#6D28D9"
+                          opacity="0.1"
+                        />
+                        <text
+                          x="40"
+                          y="164"
+                          fill="#6D28D9"
+                          fontSize="6"
+                          fontWeight="700"
+                          opacity="0.5"
+                        >
+                          SYSTEMS
+                        </text>
+                        {[
+                          { label: "Inference", y: 180 },
+                          { label: "Training", y: 192 },
+                          { label: "Pipeline", y: 204 },
+                        ].map((s, si) => (
+                          <g key={`st-${si}`}>
+                            <motion.circle
+                              cx="42"
+                              cy={s.y}
+                              r="2.2"
+                              fill="#34D399"
+                              animate={{
+                                opacity: [0.35, 0.85, 0.35],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: si * 0.5,
+                              }}
+                            />
+                            <text
+                              x="50"
+                              y={s.y + 2}
+                              fill="#6D28D9"
+                              fontSize="5.5"
+                              opacity="0.4"
+                            >
+                              {s.label}
+                            </text>
+                            <text
+                              x="104"
+                              y={s.y + 2}
+                              fill="#34D399"
+                              fontSize="5"
+                              fontWeight="700"
+                              opacity="0.45"
+                              textAnchor="end"
+                            >
+                              Active
+                            </text>
+                          </g>
+                        ))}
+                      </motion.g>
+
+                      {/* ═══ Data packets — outbound from center ═══ */}
+                      {[0, 90, 180, 270].map((angle, i) => {
+                        const rad = (angle * Math.PI) / 180;
+                        return (
+                          <motion.circle
+                            key={`pkt-${i}`}
+                            r="2.8"
+                            fill="#C084FC"
+                            animate={{
+                              cx: [
+                                200 + 36 * Math.cos(rad),
+                                200 + 142 * Math.cos(rad),
+                              ],
+                              cy: [
+                                200 + 36 * Math.sin(rad),
+                                200 + 142 * Math.sin(rad),
+                              ],
+                              opacity: [0, 0.9, 0.9, 0],
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              repeat: Infinity,
+                              delay: i * 0.7,
+                              ease: "easeInOut",
+                            }}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 5px rgba(192,132,252,0.65))",
+                            }}
+                          />
+                        );
+                      })}
+
+                      {/* Data packets — inbound on diagonal traces */}
+                      {[45, 135, 225, 315].map((angle, i) => {
+                        const rad = (angle * Math.PI) / 180;
+                        return (
+                          <motion.circle
+                            key={`pkt2-${i}`}
+                            r="2"
+                            fill="#8B5CF6"
+                            animate={{
+                              cx: [
+                                200 + 135 * Math.cos(rad),
+                                200 + 36 * Math.cos(rad),
+                              ],
+                              cy: [
+                                200 + 135 * Math.sin(rad),
+                                200 + 36 * Math.sin(rad),
+                              ],
+                              opacity: [0, 0.7, 0.7, 0],
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              delay: 1.2 + i * 0.65,
+                              ease: "easeInOut",
+                            }}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 4px rgba(139,92,246,0.55))",
+                            }}
+                          />
+                        );
+                      })}
+
+                      {/* ═══ Orbiting sentinel particles ═══ */}
+                      {[0, 1, 2].map((i) => (
+                        <motion.circle
+                          key={`orb-${i}`}
+                          r="2.2"
+                          fill={["#C084FC", "#8B5CF6", "#6D28D9"][i]}
+                          opacity="0.55"
+                          animate={{
+                            cx: Array.from(
+                              { length: 37 },
+                              (_, j) =>
+                                200 +
+                                158 *
+                                  Math.cos(
+                                    (j * 2 * Math.PI) / 36 +
+                                      (i * 2 * Math.PI) / 3,
+                                  ),
+                            ),
+                            cy: Array.from(
+                              { length: 37 },
+                              (_, j) =>
+                                200 +
+                                158 *
+                                  Math.sin(
+                                    (j * 2 * Math.PI) / 36 +
+                                      (i * 2 * Math.PI) / 3,
+                                  ),
+                            ),
+                          }}
+                          transition={{
+                            duration: 14,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          style={{
+                            filter: "drop-shadow(0 0 4px rgba(139,92,246,0.5))",
+                          }}
+                        />
+                      ))}
+
+                      {/* ═══ Ambient micro-particles ═══ */}
+                      {Array.from({ length: 24 }, (_, i) => {
+                        const angle = (i / 24) * 2 * Math.PI + 0.3;
+                        const r = 45 + ((i * 41 + 7) % 125);
+                        const cx = 200 + r * Math.cos(angle);
+                        const cy = 200 + r * Math.sin(angle);
+                        return (
+                          <motion.circle
+                            key={`dust-${i}`}
+                            cx={cx}
+                            cy={cy}
+                            r="0.8"
+                            fill="#C084FC"
+                            animate={{ opacity: [0, 0.25, 0] }}
+                            transition={{
+                              duration: 2.5 + (i % 4),
+                              repeat: Infinity,
+                              delay: (i % 10) * 0.3,
+                            }}
+                          />
+                        );
+                      })}
                     </svg>
                   )}
 
@@ -444,11 +947,11 @@ const Home = () => {
                     }}
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 rounded-lg bg-white/50 backdrop-blur-md flex items-center justify-center p-1 shadow-sm border border-brand-purple/10">
-                        <img 
-                          src="/geometric_c_nodes.png" 
-                          alt="Roxbee" 
-                          className="w-full h-full object-contain mix-blend-multiply"
+                      <div className="w-10 h-10 rounded-lg overflow-hidden shadow-sm border border-brand-purple/10">
+                        <img
+                          src="/Product Logo.png"
+                          alt="Roxbee"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
@@ -457,6 +960,44 @@ const Home = () => {
                         </p>
                         <p className="text-[9px] text-brand-purple font-semibold">
                           Enterprise Ready
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Floating badge - mid left */}
+                  <motion.div
+                    className="absolute top-[42%] left-[0%] bg-white/90 backdrop-blur-sm rounded-xl shadow-lg shadow-brand-purple/10 border border-secondary-100 px-3 py-2 z-10"
+                    animate={{ y: [2, -5, 2], x: [0, 4, 0] }}
+                    transition={{
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 2.5,
+                    }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-violet-50 flex items-center justify-center">
+                        <svg
+                          className="w-3 h-3 text-violet-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-secondary-800">
+                          6x ROI
+                        </p>
+                        <p className="text-[8px] text-secondary-400">
+                          Avg. Year 1
                         </p>
                       </div>
                     </div>
@@ -476,12 +1017,11 @@ const Home = () => {
         {/* Featured Case Study */}
         <FeaturedCaseStudy />
 
-
         {/* Resources Section */}
         <ResourcesSection />
 
         {/* Final CTA Section */}
-        <section className="py-20 md:py-28 glass-section-alt relative overflow-hidden">
+        <section className="py-10 md:py-14 glass-section-alt relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
           <div
             className="absolute inset-0 opacity-[0.01] pointer-events-none"
@@ -526,7 +1066,9 @@ const Home = () => {
                     className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-purple text-white text-base font-semibold rounded-full shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="relative z-10">Get in Touch</span>
+                    <span className="relative z-10">
+                      Schedule a Consultation
+                    </span>
                     <svg
                       className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
                       fill="none"

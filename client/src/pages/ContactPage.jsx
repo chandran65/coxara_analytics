@@ -169,10 +169,11 @@ const ContactHero = () => {
                   delay: 0.3 + i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${specialWords.includes(word)
-                  ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
-                  : "text-secondary-900"
-                  }`}
+                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold ${
+                  specialWords.includes(word)
+                    ? "bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent pb-3"
+                    : "text-secondary-900"
+                }`}
               >
                 {word}
               </motion.span>
@@ -246,13 +247,13 @@ const ContactPage = () => {
   //   PORTAL_ID  → HubSpot Settings → Account Setup → Your Account
   //   FORM_GUID  → HubSpot Marketing → Forms → your form → share URL
   const HS_PORTAL = import.meta.env.VITE_HS_PORTAL || "";
-  const HS_FORM   = import.meta.env.VITE_HS_FORM || "";
+  const HS_FORM = import.meta.env.VITE_HS_FORM || "";
 
   // ── Validation helpers ──────────────────────────────────────────────
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const PHONE_RE = /^[+]?[\d\s().-]{7,20}$/;
-  const MAX_FIELD  = 200;
-  const MAX_MSG    = 2000;
+  const MAX_FIELD = 200;
+  const MAX_MSG = 2000;
 
   const [formError, setFormError] = useState("");
   // Honeypot — invisible to real users, bots will fill it in
@@ -298,57 +299,79 @@ const ContactPage = () => {
     // 1) HubSpot CRM — auto-creates Contact + notifies you
     if (!HS_PORTAL || !HS_FORM) {
       // Skip HubSpot if not configured
-    } else try {
-      const hsRes = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fields: [
-              { name: "firstname", value: firstName },
-              { name: "lastname",  value: lastName },
-              { name: "email",     value: formData.email },
-              { name: "phone",     value: formData.phone },
-              { name: "company",   value: formData.company },
-              { name: "message",   value: `Subject: ${formData.subject}\n\n${formData.message}` },
-            ],
-            context: {
-              pageUri: "https://www.roxbee.co.in/company/contact",
-              pageName: "COXARA Analytics — Contact Page",
-            },
-          }),
-        }
-      );
-      if (hsRes.ok) success = true;
-    } catch { /* fall through */ }
+    } else
+      try {
+        const hsRes = await fetch(
+          `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              fields: [
+                { name: "firstname", value: firstName },
+                { name: "lastname", value: lastName },
+                { name: "email", value: formData.email },
+                { name: "phone", value: formData.phone },
+                { name: "company", value: formData.company },
+                {
+                  name: "message",
+                  value: `Subject: ${formData.subject}\n\n${formData.message}`,
+                },
+              ],
+              context: {
+                pageUri: "https://www.roxbee.co.in/company/contact",
+                pageName: "COXARA Analytics — Contact Page",
+              },
+            }),
+          },
+        );
+        if (hsRes.ok) success = true;
+      } catch {
+        /* fall through */
+      }
 
     // 2) Formspree — emails director@coxara.co.in as backup
     if (!formspreeId) {
       // Skip Formspree if not configured
-    } else try {
-      const fpRes = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (fpRes.ok) success = true;
-    } catch { /* ignore */ }
+    } else
+      try {
+        const fpRes = await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (fpRes.ok) success = true;
+      } catch {
+        /* ignore */
+      }
 
     setIsSubmitting(false);
     if (success) {
       setSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
+      });
       setTimeout(() => setSubmitted(false), 5000);
     } else {
-      alert("Something went wrong. Please email us directly at director@coxara.co.in");
+      alert(
+        "Something went wrong. Please email us directly at director@coxara.co.in",
+      );
     }
   };
 
   const inputClass = (field) =>
-    `w-full px-4 py-3.5 rounded-xl border-2 bg-white text-secondary-900 placeholder:text-secondary-300 transition-all duration-300 outline-none ${focusedField === field
-      ? "border-brand-purple shadow-[0_0_0_3px_rgba(124,58,237,0.1)]"
-      : "border-secondary-200 hover:border-secondary-300"
+    `w-full px-4 py-3.5 rounded-xl border-2 bg-white text-secondary-900 placeholder:text-secondary-300 transition-all duration-300 outline-none ${
+      focusedField === field
+        ? "border-brand-purple shadow-[0_0_0_3px_rgba(124,58,237,0.1)]"
+        : "border-secondary-200 hover:border-secondary-300"
     }`;
 
   const contactInfo = [
@@ -376,7 +399,7 @@ const ContactPage = () => {
         />
       ),
       title: "Call Us",
-      content: "+91- 7010439447",
+      content: "+91 7010439447",
       link: "tel:+917010439447",
       accent: "from-indigo-500 to-violet-400",
     },
@@ -399,7 +422,7 @@ const ContactPage = () => {
       ),
       title: "Visit Us",
       content:
-        "No:58,Marudhar Town, Phase-II, Perumalpattu, Tiruvallur-602024",
+        "No. 58, Marudhar Town, Phase-II, Perumalpattu, Tiruvallur - 602024",
       link: "https://maps.app.goo.gl/PMnRPv8DVY8Cx6FP7",
       accent: "from-purple-600 to-fuchsia-400",
     },
@@ -451,8 +474,7 @@ const ContactPage = () => {
       {/* Main Content */}
       <div id="page-content">
         {/* ─── Form + Contact Info ─── */}
-        <section className="glass-section py-16 sm:py-24 md:py-32">
-
+        <section className="glass-section py-8 sm:py-12 md:py-16">
           <div className="container-custom relative z-10">
             {/* Section header */}
             <motion.div
@@ -511,7 +533,14 @@ const ContactPage = () => {
 
                   <form onSubmit={handleSubmit} className="relative space-y-6">
                     {/* Honeypot anti-spam field — hidden from real users */}
-                    <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        left: "-9999px",
+                        top: "-9999px",
+                      }}
+                    >
                       <input
                         type="text"
                         name="website_url"
@@ -819,9 +848,9 @@ const ContactPage = () => {
                           {...(isTouchDevice
                             ? { whileTap: { scale: 0.9 } }
                             : {
-                              whileHover: { scale: 1.15, y: -2 },
-                              whileTap: { scale: 0.9 },
-                            })}
+                                whileHover: { scale: 1.15, y: -2 },
+                                whileTap: { scale: 0.9 },
+                              })}
                           className="w-10 h-10 rounded-xl bg-white border border-secondary-100 flex items-center justify-center text-secondary-400 hover:bg-gradient-to-br hover:from-brand-purple hover:to-brand-accent hover:text-white hover:border-transparent shadow-sm hover:shadow-md transition-all duration-200"
                           aria-label={social.name}
                         >

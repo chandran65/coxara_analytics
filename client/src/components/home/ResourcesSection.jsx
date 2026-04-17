@@ -11,7 +11,7 @@ const resources = [
     cta: "Explore Whitepapers",
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    category: "whitepapers"
+    category: "whitepapers",
   },
   {
     id: "case-studies",
@@ -21,7 +21,7 @@ const resources = [
     cta: "View Case Studies",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    category: "case-studies"
+    category: "case-studies",
   },
   {
     id: "blog",
@@ -31,7 +31,7 @@ const resources = [
     cta: "Read Our Blog",
     image:
       "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=800&q=80",
-    category: "blog"
+    category: "blog",
   },
 ];
 
@@ -39,7 +39,7 @@ const ResourcesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 md:py-32 glass-section-alt relative overflow-hidden">
+    <section className="py-12 md:py-16 glass-section-alt relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-purple/[0.06] rounded-full blur-[60px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-accent/[0.05] rounded-full blur-[50px] pointer-events-none" />
@@ -87,7 +87,9 @@ const ResourcesSection = () => {
                   </p>
                   <div>
                     <button
-                      onClick={() => navigate(`/resources/${resource.category}`)}
+                      onClick={() =>
+                        navigate(`/resources/${resource.category}`)
+                      }
                       className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-purple font-semibold rounded-full hover:bg-brand-purple hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-brand-purple/20 hover:scale-105"
                     >
                       {resource.cta}

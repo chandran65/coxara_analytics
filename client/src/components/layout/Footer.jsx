@@ -140,7 +140,11 @@ const Footer = () => {
               }}
             >
               <Link to="/" className="inline-block group mb-8">
-                <img src="/geometric_c_nodes.png" alt="COXARA Analytics Logo" className="h-10 w-auto object-contain mix-blend-multiply opacity-90 transition-transform duration-300 group-hover:scale-105 inline-block" />
+                <img
+                  src="/geometric_c_nodes.png"
+                  alt="COXARA Analytics Logo"
+                  className="h-16 w-auto object-contain mix-blend-multiply opacity-90 transition-transform duration-300 group-hover:scale-105 inline-block"
+                />
               </Link>
               <p className="text-secondary-500 text-sm leading-relaxed mb-8 max-w-xs">
                 Transforming data into actionable insights with cutting-edge
@@ -186,7 +190,7 @@ const Footer = () => {
                     />
                   </svg>
                   <div>
-                    <p>N0.58,Marudhar Town, Phase-II</p>
+                    <p>No. 58, Marudhar Town, Phase-II</p>
                     <p>Perumalpattu</p>
                     <p>Tiruvallur - 602024</p>
                   </div>
