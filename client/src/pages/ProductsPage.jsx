@@ -1555,6 +1555,11 @@ const OverviewStrip = () => {
           className="text-center mb-10 sm:mb-14"
         >
           <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
+            <img
+              src="/Product Logo.png"
+              alt="Roxbee"
+              className="w-5 h-5 rounded-full object-cover"
+            />
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
               AI Copilot
             </span>

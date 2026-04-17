@@ -58,7 +58,31 @@ const ProductSection = () => {
                 highlight="Products"
                 align="left"
               />
-              <p className="text-lg text-secondary-500 mt-6 mb-12 leading-relaxed">
+
+              {/* Roxbee product badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="inline-flex items-center gap-3 mt-6 mb-2 px-4 py-2.5 bg-gradient-to-r from-brand-purple/[0.05] to-brand-accent/[0.03] border border-brand-purple/12 rounded-2xl"
+              >
+                <img
+                  src="/Product Logo.png"
+                  alt="Roxbee"
+                  className="w-9 h-9 rounded-xl object-cover shadow-sm"
+                />
+                <div>
+                  <p className="text-sm font-bold text-secondary-900 leading-tight">
+                    Roxbee
+                  </p>
+                  <p className="text-[11px] text-brand-purple font-semibold">
+                    Enterprise AI Copilot
+                  </p>
+                </div>
+              </motion.div>
+
+              <p className="text-lg text-secondary-500 mt-4 mb-12 leading-relaxed">
                 COXARA Analytics powers the next generation of intelligence.
                 From <strong className="text-secondary-900">Roxbee</strong>, our
                 flagship Enterprise AI Copilot, to{" "}
@@ -126,6 +150,11 @@ const ProductSection = () => {
 
                 {/* Floating "AI Active" Badge */}
                 <div className="absolute top-8 right-8 bg-brand-purple text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
+                  <img
+                    src="/Product Logo.png"
+                    alt="Roxbee"
+                    className="w-5 h-5 rounded-full object-cover"
+                  />
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   Roxbee AI Active
                 </div>

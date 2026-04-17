@@ -1152,10 +1152,10 @@ const TrainingVisual = () => {
 const ServiceVisual = ({ service, index }) => {
   const isEven = index % 2 === 0;
   const visualMap = {
-    engineering: <EngineeringVisual />,
     "gen-ai": <GenAIVisual />,
-    "data-science": <DataScienceVisual />,
-    training: <TrainingVisual />,
+    "vision-ai": <DataScienceVisual />,
+    "conversational-ai": <EngineeringVisual />,
+    "strategic-consulting": <TrainingVisual />,
   };
 
   return (
