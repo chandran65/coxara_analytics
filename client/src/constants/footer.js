@@ -62,7 +62,7 @@ export const socialMediaLinks = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/company/coxara-analytics/posts/?feedView=all",
     icon: "linkedin",
   },
   {
