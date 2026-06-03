@@ -249,7 +249,7 @@ const ResourcesHero = () => {
 };
 
 /* ─── Blog Card ─── */
-const BlogCard = ({ post, index }) => {
+const BlogCard = ({ post, index, onClick }) => {
   const isTouchDevice = useMediaQuery("(hover: none) and (pointer: coarse)");
   const categoryColors = {
     "Case Studies": "from-fuchsia-500 to-pink-400",
@@ -277,7 +277,8 @@ const BlogCard = ({ post, index }) => {
           ? { whileTap: { scale: 0.98 } }
           : { whileHover: { y: -6 } })}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="glow-card group rounded-2xl overflow-hidden h-full flex flex-col relative"
+        onClick={onClick}
+        className="glow-card group rounded-2xl overflow-hidden h-full flex flex-col relative cursor-pointer text-left"
       >
         {/* Top accent line */}
         <div
@@ -339,7 +340,7 @@ const BlogCard = ({ post, index }) => {
 
             <motion.span
               {...(isTouchDevice ? {} : { whileHover: { x: 3 } })}
-              className="text-brand-purple font-bold text-xs flex items-center gap-1 cursor-pointer"
+              className="text-brand-purple font-bold text-xs flex items-center gap-1"
             >
               Read
               <svg
@@ -368,6 +369,7 @@ const ResourcesPage = () => {
   const { category } = useParams();
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const categories = [
     "All",
@@ -409,10 +411,48 @@ const ResourcesPage = () => {
       date: "November 5, 2025",
       readTime: "12 min read",
       excerpt:
-        "How a leading retail brand reduced stockouts by 40% using COXARA's forecasting engine. Real data, real results, and actionable takeaways.",
+        "How a leading retail brand reduced stockouts by 40% using Beacon's forecasting engine. Real data, real results, and actionable takeaways.",
       author: "Analytics Team",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      content: {
+        subtitle: "How a leading retail brand reduced stockouts by 40% using Beacon's forecasting engine.",
+        introduction: "In the fast-moving consumer goods (FMCG) and retail sectors, inventory management is the difference between profitability and failure. Holding too much stock locks up working capital; holding too little leads to lost sales and damaged customer loyalty.",
+        sections: [
+          {
+            title: "The Challenge",
+            paragraphs: [
+              "A major North American retail chain with over 450 locations struggled with demand forecasting. Traditional statistical models failed to account for hyper-local factors like sudden weather changes, neighborhood-specific events, and micro-economic shifts.",
+              "This led to recurring stockouts of high-margin seasonal items while slower-moving stock cluttered warehouse shelves."
+            ]
+          },
+          {
+            title: "The Solution",
+            paragraphs: [
+              "We integrated Beacon's predictive inventory engine with the retailer's ERP. The system processed 3+ years of historical transaction logs, weather histories, local calendar events, and real-time competitor pricing.",
+              "Using advanced multi-layered neural networks, Beacon calculated localized demand forecasts on a daily basis."
+            ],
+            bullets: [
+              "Real-time Data Integration: Ingesting live weather, local events, and traffic data streams.",
+              "Localized Demand Models: Generating unique demand curves for individual store locations.",
+              "Automated Reordering: Dynamic alerts sent to warehouse management to optimize dispatch timing."
+            ]
+          },
+          {
+            title: "The Results",
+            paragraphs: [
+              "Within the first quarter of deployment, the retailer saw a dramatic improvement in all core supply chain metrics.",
+              "By optimizing reorder points, the firm reduced its reliance on emergency logistics and lowered carbon emissions from logistics operations."
+            ],
+            bullets: [
+              "Stockout Reduction: A 40% drop in stockouts on high-demand, high-margin items.",
+              "Carrying Costs: 18% reduction in overall carrying costs through lean replenishment cycles.",
+              "Inventory Turnover: 25% increase in inventory turnover speed."
+            ]
+          }
+        ],
+        conclusion: "Predictive inventory forecasting is no longer a luxury—it is a core operational requirement. Beacon enables retail operations to transform from reactive crisis management into proactive, margin-optimizing engines."
+      }
     },
     {
       id: 2,
@@ -425,6 +465,34 @@ const ResourcesPage = () => {
       author: "Strategy Team",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      content: {
+        subtitle: "A comprehensive guide for CDOs on preparing data infrastructure for large-scale Generative AI deployment.",
+        introduction: "As Generative AI and agentic systems move from pilot projects to core business infrastructure, enterprise leaders face a critical decision. How do we build scalable AI environments without compromising security, data privacy, or compliance?",
+        sections: [
+          {
+            title: "Pillar 1: Unified Data Fabric",
+            paragraphs: [
+              "AI is only as good as the data it consumes. Enterprises must build unified, real-time data pipelines that clean, structure, and enrich siloed data before feeding it to Large Language Models.",
+              "Without a robust data governance foundation, LLM deployments will suffer from frequent hallucinations and poor context alignment."
+            ]
+          },
+          {
+            title: "Pillar 2: Agentic Orchestration",
+            paragraphs: [
+              "Moving from static chatbots to autonomous, goal-driven agents requires building self-correcting loops and sandbox execution layers.",
+              "The next wave of productivity will be unlocked by AI agents that can read, plan, call APIs, and execute tasks with human-in-the-loop oversight."
+            ]
+          },
+          {
+            title: "Pillar 3: Governance & Security",
+            paragraphs: [
+              "Deploying enterprise-grade AI requires strict role-based access control (RBAC), data masking for sensitive PII, and comprehensive audit logging to meet emerging global AI regulations (such as the EU AI Act).",
+              "Ensuring that enterprise data is never leaked into public training pools is the single most critical task for security leads."
+            ]
+          }
+        ],
+        conclusion: "Enterprise AI readiness is not just an engineering problem; it is a holistic data strategy challenge. By implementing these three pillars, CDOs can build systems that scale reliably and securely."
+      }
     },
     {
       id: 3,
@@ -437,6 +505,32 @@ const ResourcesPage = () => {
       author: "Dr. Sarah Chen",
       image:
         "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=800&q=80",
+      content: {
+        subtitle: "Why standard predictive models are no longer enough, and how Causal AI identifies the 'why' behind disruptions.",
+        introduction: "Predictive models tell you what might happen based on historical correlations. But in a volatile global market, correlations break down. Enter Causal AI: the next frontier of artificial intelligence that understands why things happen.",
+        sections: [
+          {
+            title: "Correlation vs. Causation",
+            paragraphs: [
+              "Standard AI might observe that whenever air freight costs spike, retail delivery delays increase. It concludes that air freight costs cause delays. Causal AI models the actual physical network: a port strike causes both the spike in air freight rates and the delivery delays.",
+              "By understanding root causes rather than simple statistical correlations, Causal AI enables businesses to design active interventions instead of just waiting to react."
+            ]
+          },
+          {
+            title: "Simulating the 'What-If'",
+            paragraphs: [
+              "Using Causal Directed Acyclic Graphs (DAGs), supply chain leaders can run simulations: 'What if we rerouted 15% of cargo to Savannah port?'",
+              "Causal AI provides high-confidence forecasts of outcomes under scenarios that have never occurred historically."
+            ],
+            bullets: [
+              "Scenario Modeling: Running multi-variant simulations to test infrastructure resilience.",
+              "Root Cause Analysis: Automatically tracing disruptions back to their origins.",
+              "Optimized Actions: Recommending actions that modify the causal path to prevent delays."
+            ]
+          }
+        ],
+        conclusion: "Transitioning your supply chain logic from correlation-based forecasting to causal reasoning is the key to building resilient, self-healing operational structures."
+      }
     },
     {
       id: 4,
@@ -449,6 +543,32 @@ const ResourcesPage = () => {
       author: "Beacon Experts",
       image:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      content: {
+        subtitle: "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions.",
+        introduction: "Despite investing millions in modern data stacks, many organizations still struggle to make data-driven decisions at the frontline. Why does this disconnect persist, and how can we bridge it?",
+        sections: [
+          {
+            title: "Key Topic: The Analytics Trap",
+            paragraphs: [
+              "Many businesses make the mistake of generating hundreds of dashboards, which leads to decision paralysis rather than clarity.",
+              "The goal should be to deliver actionable insights directly inside the tools that frontline employees use every single day."
+            ]
+          },
+          {
+            title: "Embedding Contextual Insights",
+            paragraphs: [
+              "Rather than expecting managers to search through Tableau or PowerBI, organizations should push contextual alerts into Slack, Salesforce, or Microsoft Teams.",
+              "For example, alerting a logistics lead when a shipment has a 70% probability of delay, along with three potential resolutions."
+            ],
+            bullets: [
+              "Actionable Alerts: Simple notifications with recommended options.",
+              "Natural Language Search: Empowering non-technical users to query database metrics via chat.",
+              "Standardized Metrics: Creating a single source of truth for all business definitions."
+            ]
+          }
+        ],
+        conclusion: "A true data culture is built on access, clarity, and action. Watch the full recorded webinar to learn how Beacon is helping enterprise teams democratize data."
+      }
     },
     {
       id: 5,
@@ -461,6 +581,31 @@ const ResourcesPage = () => {
       author: "UX Design Team",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      content: {
+        subtitle: "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting.",
+        introduction: "When presenting data to executive teams and board members, clarity is your ultimate metric. A cluttered dashboard raises more questions than it answers.",
+        sections: [
+          {
+            title: "Design Philosophy: Three Levels of Detail",
+            paragraphs: [
+              "An executive dashboard should be structured hierarchically. The most critical KPIs must be visible at a glance, with the ability to drill down into operational details only when needed."
+            ],
+            bullets: [
+              "Strategic View: High-level KPIs showing direction (e.g., ARR growth, Net Revenue Retention).",
+              "Tactical View: Middle-tier metrics highlighting progress (e.g., pipeline coverage, customer health scores).",
+              "Operational View: Detailed tables for granular troubleshooting and department leads."
+            ]
+          },
+          {
+            title: "Data Visualization Best Practices",
+            paragraphs: [
+              "Color should be used sparingly and deliberately. Avoid multi-colored dashboards; instead, use neutral tones (grays, dark blues) and save vibrant colors (red, green) for alerts and status changes.",
+              "Ensure layouts follow a natural reading order—from top-left (most critical summary) to bottom-right (supporting details)."
+            ]
+          }
+        ],
+        conclusion: "This toolkit includes standardized template files for Figma, PowerBI, and Tableau. Download the resource to begin elevating your organization's executive reports."
+      }
     },
     {
       id: 6,
@@ -473,6 +618,43 @@ const ResourcesPage = () => {
       author: "Healthcare Team",
       image:
         "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
+      content: {
+        subtitle: "Discover how hospital networks use flow analytics to predict patient inflow and optimize staffing schedules in real-time.",
+        introduction: "Emergency departments and out-patient clinics operate in environments of extreme variability. Accurately matching healthcare staffing to patient inflow is vital for both care quality and budget compliance.",
+        sections: [
+          {
+            title: "The Challenge",
+            paragraphs: [
+              "A regional hospital network faced patient wait times exceeding 4.5 hours during peak periods, leading to high staff burnout and patient dissatisfaction.",
+              "Traditional scheduling models relied on simple historical averages, which failed to predict surges driven by weather events, flu seasons, or regional holidays."
+            ]
+          },
+          {
+            title: "The Solution",
+            paragraphs: [
+              "We deployed a machine learning workflow that predicts patient volume by hours, days, and department.",
+              "By integrating historical intake logs, local epidemiological reports, and regional weather patterns, the system generates real-time staffing recommendations."
+            ],
+            bullets: [
+              "Volume Forecasting: Predicting surges 48 hours in advance with over 90% accuracy.",
+              "Dynamic Schedule Optimization: Assisting managers in aligning staff shifts to predicted demand spikes.",
+              "Resource Allocation: Optimizing bed availability and equipment locations."
+            ]
+          },
+          {
+            title: "The Results",
+            paragraphs: [
+              "Within six months, the hospital network saw significant improvements in patient throughput and operational performance."
+            ],
+            bullets: [
+              "Wait Time Reduction: A 35% drop in average emergency room wait times.",
+              "Staff Burnout Mitigation: 22% reduction in nurse scheduling conflicts and overtime costs.",
+              "Satisfaction: Significant improvement in patient satisfaction scores (HCAHPS)."
+            ]
+          }
+        ],
+        conclusion: "Using predictive analytics in healthcare is not just about cutting costs—it is about delivering faster, safer patient care when it is needed most."
+      }
     },
     {
       id: 7,
@@ -485,6 +667,34 @@ const ResourcesPage = () => {
       author: "Compliance Team",
       image:
         "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      content: {
+        subtitle: "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
+        introduction: "When an algorithm decides who gets a loan, how a medical patient is triaged, or which supply container is prioritized, 'black box' models are no longer acceptable.",
+        sections: [
+          {
+            title: "Pillar 1: Explainability (XAI)",
+            paragraphs: [
+              "Implementing techniques like SHAP (SHapley Additive exPlanations) and LIME to dissect why a deep neural network made a specific prediction.",
+              "Businesses must be able to explain the exact inputs and weighting factors that drove an automated decision to both auditors and customers."
+            ]
+          },
+          {
+            title: "Pillar 2: Bias Mitigation",
+            paragraphs: [
+              "Continuous testing of training datasets is required to detect and correct historical biases across protected classes.",
+              "By establishing automated bias testing pipelines, enterprises can ensure their algorithms adhere to fairness guidelines before code reaches production."
+            ]
+          },
+          {
+            title: "Pillar 3: Model Lineage & Auditing",
+            paragraphs: [
+              "Tracking every version of code, data features, and hyperparameters to ensure complete reproducibility.",
+              "Under audit conditions, organizations must demonstrate how their models behaved on a specific date in history, using exactly the dataset that was active then."
+            ]
+          }
+        ],
+        conclusion: "Algorithmic transparency is the key to building consumer and regulatory trust. Our whitepaper outlines a practical framework for compliance officers and engineering teams."
+      }
     },
     {
       id: 8,
@@ -497,6 +707,43 @@ const ResourcesPage = () => {
       author: "Jason Miller",
       image:
         "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80",
+      content: {
+        subtitle: "Migration isn't just about moving data—it's about maintaining integrity. Here are the top 5 mistakes we see.",
+        introduction: "Transitioning your on-premise data center or legacy cloud system to a modern architecture is a high-stakes operation. A minor oversight can corrupt years of historical records.",
+        sections: [
+          {
+            title: "1. Treating Migration as a Pure IT Project",
+            paragraphs: [
+              "Without business stakeholder alignment, you risk migrating data that nobody uses, while missing critical operational relationships. Engage department heads early."
+            ]
+          },
+          {
+            title: "2. Neglecting Data Cleansing",
+            paragraphs: [
+              "Migrating bad data to a faster database just results in making bad decisions faster. Cleanse, deduplicate, and standardize data before migration."
+            ]
+          },
+          {
+            title: "3. Lack of Phased Rollbacks",
+            paragraphs: [
+              "Implementing an 'all-at-once' cutover creates massive operational risk. Prefer parallel runs or phased migrations where possible."
+            ]
+          },
+          {
+            title: "4. Ignoring Schema Evolution",
+            paragraphs: [
+              "How schema changes over time can break downstream analytics dashboard connections. Define a schema versioning policy before moving."
+            ]
+          },
+          {
+            title: "5. Insufficient Security Auditing",
+            paragraphs: [
+              "Forgetting to update access controls and encryption parameters during data transfer can expose sensitive customer data."
+            ]
+          }
+        ],
+        conclusion: "By planning around these common failure modes, enterprises can execute seamless data migrations that establish a solid foundation for future AI initiatives."
+      }
     },
     {
       id: 9,
@@ -509,6 +756,38 @@ const ResourcesPage = () => {
       author: "Finance Solutions",
       image:
         "https://images.unsplash.com/photo-1611974717483-582855f7263c?w=800&q=80",
+      content: {
+        subtitle: "Learn how a global fintech firm achieved 98.4% forecasting accuracy across multiple currencies using our neural network models.",
+        introduction: "In the global financial markets, currency fluctuations, regulatory changes, and inflation require organizations to re-evaluate their financial forecast continuously.",
+        sections: [
+          {
+            title: "The Challenge",
+            paragraphs: [
+              "A global fintech corporation was spending 3 weeks every quarter reconciling international balances and predicting currency reserves, leaving them vulnerable to market moves.",
+              "Their spreadsheets were prone to errors, and their static forecasts became stale within days of completion."
+            ]
+          },
+          {
+            title: "The Solution",
+            paragraphs: [
+              "We deployed Beacon's real-time financial forecasting models. The platform processes transaction flows across 24 currencies, combining historical patterns with real-time financial market tickers.",
+              "This allowed the treasury team to monitor currency exposures and liquidity requirements in real-time."
+            ]
+          },
+          {
+            title: "The Results",
+            paragraphs: [
+              "By automating the data collection and model execution, the client dramatically reduced planning cycles."
+            ],
+            bullets: [
+              "Planning Time: Replaced the 3-week quarterly forecasting cycle with an automated, daily real-time forecast.",
+              "Accuracy: 98.4% forecasting accuracy achieved across major trading pairs.",
+              "Risk Mitigation: Prevented millions of dollars in currency exposure losses during sudden market shifts."
+            ]
+          }
+        ],
+        conclusion: "Real-time forecasting turns financial operations from a historical reporting department into a forward-looking strategic asset."
+      }
     },
   ];
 
@@ -589,7 +868,12 @@ const ResourcesPage = () => {
               >
                 {filteredPosts.length > 0 ? (
                   filteredPosts.map((post, i) => (
-                    <BlogCard key={post.id} post={post} index={i} />
+                    <BlogCard
+                      key={post.id}
+                      post={post}
+                      index={i}
+                      onClick={() => setSelectedPost(post)}
+                    />
                   ))
                 ) : (
                   <div className="col-span-full py-32 text-center rounded-3xl border-2 border-dashed border-secondary-100 bg-secondary-50/30">
@@ -754,6 +1038,148 @@ const ResourcesPage = () => {
           </div>
         </section>
       </div>
+
+      {/* Modal for displaying detailed content */}
+      <AnimatePresence>
+        {selectedPost && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedPost(null)}
+            className="fixed inset-0 bg-secondary-950/70 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl relative border border-secondary-100 flex flex-col max-h-[90vh]"
+            >
+              {/* Cover Image & Category */}
+              <div className="relative h-64 sm:h-72 overflow-hidden shrink-0">
+                <img
+                  src={selectedPost.image}
+                  alt={selectedPost.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/40 to-transparent" />
+                
+                {/* Close button */}
+                <button
+                  onClick={() => setSelectedPost(null)}
+                  className="absolute top-4 right-4 bg-white/80 hover:bg-white text-secondary-900 rounded-full p-2.5 shadow-md z-20 transition-all border border-secondary-200"
+                  aria-label="Close modal"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                {/* Category pill & Title */}
+                <div className="absolute bottom-6 left-6 right-6 z-10 text-left">
+                  <span className="px-3 py-1 bg-brand-purple text-white text-xs font-bold rounded-full mb-3 inline-block">
+                    {selectedPost.category}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white leading-tight">
+                    {selectedPost.title}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Content details scrollable area */}
+              <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 text-secondary-700 text-left">
+                {/* Author metadata */}
+                <div className="flex items-center justify-between pb-6 border-b border-secondary-100 text-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-gradient-to-br from-brand-purple to-brand-accent rounded-full flex items-center justify-center text-white font-bold">
+                      {selectedPost.author[0]}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-secondary-900 leading-none">
+                        {selectedPost.author}
+                      </p>
+                      <p className="text-xs text-secondary-400 mt-1">Author</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-medium text-secondary-900">{selectedPost.date}</p>
+                    <p className="text-xs text-secondary-400 mt-1">{selectedPost.readTime}</p>
+                  </div>
+                </div>
+
+                {/* Render Rich Content */}
+                {selectedPost.content && (
+                  <div className="prose prose-secondary max-w-none space-y-4">
+                    <p className="text-lg font-medium text-secondary-800 leading-relaxed italic border-l-4 border-brand-purple pl-4 py-1">
+                      {selectedPost.content.subtitle}
+                    </p>
+                    
+                    <p className="leading-relaxed">
+                      {selectedPost.content.introduction}
+                    </p>
+
+                    {selectedPost.content.sections.map((section, idx) => (
+                      <div key={idx} className="pt-4 space-y-3">
+                        <h4 className="text-lg font-bold text-secondary-900">
+                          {section.title}
+                        </h4>
+                        {section.paragraphs.map((p, pIdx) => (
+                          <p key={pIdx} className="leading-relaxed">
+                            {p}
+                          </p>
+                        ))}
+                        {section.bullets && (
+                          <ul className="list-disc list-inside pl-4 space-y-2 text-secondary-700">
+                            {section.bullets.map((b, bIdx) => (
+                              <li key={bIdx} className="leading-relaxed">
+                                <strong className="text-secondary-900">{b.split(":")[0]}:</strong>
+                                {b.substring(b.indexOf(":") === -1 ? 0 : b.indexOf(":") + 1)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+
+                    {selectedPost.content.conclusion && (
+                      <div className="pt-6 border-t border-secondary-100">
+                        <h4 className="text-lg font-bold text-secondary-900 mb-2">
+                          Summary & Next Steps
+                        </h4>
+                        <p className="leading-relaxed italic">
+                          {selectedPost.content.conclusion}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              <div className="bg-secondary-50 px-6 py-4 flex items-center justify-end border-t border-secondary-100 shrink-0">
+                <button
+                  onClick={() => setSelectedPost(null)}
+                  className="px-6 py-2.5 bg-brand-purple hover:bg-brand-medium text-white font-bold rounded-xl shadow-md transition-colors"
+                >
+                  Close Article
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
