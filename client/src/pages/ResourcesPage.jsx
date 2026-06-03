@@ -408,7 +408,7 @@ const ResourcesPage = () => {
       id: 1,
       title: "Optimizing Retail Chains: A Predictive Inventory Case Study",
       category: "Case Studies",
-      date: "November 5, 2025",
+      date: "February 15, 2026",
       readTime: "12 min read",
       excerpt:
         "How a leading retail brand reduced stockouts by 40% using Beacon's forecasting engine. Real data, real results, and actionable takeaways.",
@@ -458,7 +458,7 @@ const ResourcesPage = () => {
       id: 2,
       title: "The 2026 Enterprise AI Readiness Framework",
       category: "Whitepapers",
-      date: "November 1, 2025",
+      date: "February 10, 2026",
       readTime: "25 min read",
       excerpt:
         "A comprehensive guide for CDOs on preparing data infrastructure for large-scale Generative AI deployment. Security, ethics, and scale.",
@@ -498,7 +498,7 @@ const ResourcesPage = () => {
       id: 3,
       title: "Navigating the Future: The Rise of Causal AI in Supply Chain",
       category: "Blog",
-      date: "October 30, 2025",
+      date: "February 5, 2026",
       readTime: "8 min read",
       excerpt:
         "Why standard predictive models are no longer enough. Learn how Causal AI identifies the 'why' behind supply chain disruptions to build true resilience.",
@@ -536,7 +536,7 @@ const ResourcesPage = () => {
       id: 4,
       title: "Webinar: Bridging the Gap Between Data and Decisions",
       category: "Webinars",
-      date: "October 28, 2025",
+      date: "February 1, 2026",
       readTime: "45 min watch",
       excerpt:
         "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions every day.",
@@ -574,7 +574,7 @@ const ResourcesPage = () => {
       id: 5,
       title: "Mastering Data Visualization: Executive Dashboard Toolkit",
       category: "Toolkits",
-      date: "October 25, 2025",
+      date: "January 28, 2026",
       readTime: "Downloaded 5k+ times",
       excerpt:
         "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting and board meetings.",
@@ -611,7 +611,7 @@ const ResourcesPage = () => {
       id: 6,
       title: "Healthcare Efficiency: Reducing Patient Wait Times with AI",
       category: "Case Studies",
-      date: "October 22, 2025",
+      date: "January 22, 2026",
       readTime: "9 min read",
       excerpt:
         "Discover how hospital networks use flow analytics to predict patient inflow and optimize staffing schedules in real-time.",
@@ -660,7 +660,7 @@ const ResourcesPage = () => {
       id: 7,
       title: "Building Trust in AI: A Framework for Algorithmic Transparency",
       category: "Whitepapers",
-      date: "October 18, 2025",
+      date: "January 18, 2026",
       readTime: "22 min read",
       excerpt:
         "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
@@ -700,7 +700,7 @@ const ResourcesPage = () => {
       id: 8,
       title: "5 Common Pitfalls in Enterprise Data Migration",
       category: "Blog",
-      date: "October 15, 2025",
+      date: "January 15, 2026",
       readTime: "6 min read",
       excerpt:
         "Migration isn't just about moving data—it's about maintaining integrity. Here are the top 5 mistakes we see and how to avoid them.",
@@ -749,7 +749,7 @@ const ResourcesPage = () => {
       id: 9,
       title: "Unlocking Financial Agility with Real-time Forecasting",
       category: "Case Studies",
-      date: "October 10, 2025",
+      date: "January 10, 2026",
       readTime: "15 min read",
       excerpt:
         "Learn how a global fintech firm achieved 98% forecasting accuracy across multiple currencies using our proprietary neural network models.",
