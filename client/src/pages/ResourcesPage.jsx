@@ -413,8 +413,7 @@ const ResourcesPage = () => {
       excerpt:
         "How a leading retail brand reduced stockouts by 40% using Beacon's forecasting engine. Real data, real results, and actionable takeaways.",
       author: "Analytics Team",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      image: "/blog_dashboard.png",
       content: {
         subtitle: "How a leading retail brand reduced stockouts by 40% using Beacon's forecasting engine.",
         introduction: "In the fast-moving consumer goods (FMCG) and retail sectors, inventory management is the difference between profitability and failure. Holding too much stock locks up working capital; holding too little leads to lost sales and damaged customer loyalty.",
@@ -463,8 +462,7 @@ const ResourcesPage = () => {
       excerpt:
         "A comprehensive guide for CDOs on preparing data infrastructure for large-scale Generative AI deployment. Security, ethics, and scale.",
       author: "Strategy Team",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      image: "/blog_analytics.png",
       content: {
         subtitle: "A comprehensive guide for CDOs on preparing data infrastructure for large-scale Generative AI deployment.",
         introduction: "As Generative AI and agentic systems move from pilot projects to core business infrastructure, enterprise leaders face a critical decision. How do we build scalable AI environments without compromising security, data privacy, or compliance?",
@@ -503,8 +501,7 @@ const ResourcesPage = () => {
       excerpt:
         "Why standard predictive models are no longer enough. Learn how Causal AI identifies the 'why' behind supply chain disruptions to build true resilience.",
       author: "Dr. Sarah Chen",
-      image:
-        "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=800&q=80",
+      image: "/blog_ai.png",
       content: {
         subtitle: "Why standard predictive models are no longer enough, and how Causal AI identifies the 'why' behind disruptions.",
         introduction: "Predictive models tell you what might happen based on historical correlations. But in a volatile global market, correlations break down. Enter Causal AI: the next frontier of artificial intelligence that understands why things happen.",
@@ -541,8 +538,7 @@ const ResourcesPage = () => {
       excerpt:
         "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions every day.",
       author: "Beacon Experts",
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      image: "/blog_dashboard.png",
       content: {
         subtitle: "Watch our latest session on how to build a data culture that empowers frontline managers to make data-backed decisions.",
         introduction: "Despite investing millions in modern data stacks, many organizations still struggle to make data-driven decisions at the frontline. Why does this disconnect persist, and how can we bridge it?",
@@ -579,8 +575,7 @@ const ResourcesPage = () => {
       excerpt:
         "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting and board meetings.",
       author: "UX Design Team",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      image: "/blog_analytics.png",
       content: {
         subtitle: "A curated collection of dashboard templates and chart selection guides designed specifically for C-suite reporting.",
         introduction: "When presenting data to executive teams and board members, clarity is your ultimate metric. A cluttered dashboard raises more questions than it answers.",
@@ -616,8 +611,7 @@ const ResourcesPage = () => {
       excerpt:
         "Discover how hospital networks use flow analytics to predict patient inflow and optimize staffing schedules in real-time.",
       author: "Healthcare Team",
-      image:
-        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80",
+      image: "/blog_ai.png",
       content: {
         subtitle: "Discover how hospital networks use flow analytics to predict patient inflow and optimize staffing schedules in real-time.",
         introduction: "Emergency departments and out-patient clinics operate in environments of extreme variability. Accurately matching healthcare staffing to patient inflow is vital for both care quality and budget compliance.",
@@ -665,8 +659,7 @@ const ResourcesPage = () => {
       excerpt:
         "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
       author: "Compliance Team",
-      image:
-        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      image: "/blog_analytics.png",
       content: {
         subtitle: "Deep dive into the legal and ethical framework required when deploying AI systems that make financial or operational choices.",
         introduction: "When an algorithm decides who gets a loan, how a medical patient is triaged, or which supply container is prioritized, 'black box' models are no longer acceptable.",
@@ -705,8 +698,7 @@ const ResourcesPage = () => {
       excerpt:
         "Migration isn't just about moving data—it's about maintaining integrity. Here are the top 5 mistakes we see and how to avoid them.",
       author: "Jason Miller",
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80",
+      image: "/blog_dashboard.png",
       content: {
         subtitle: "Migration isn't just about moving data—it's about maintaining integrity. Here are the top 5 mistakes we see.",
         introduction: "Transitioning your on-premise data center or legacy cloud system to a modern architecture is a high-stakes operation. A minor oversight can corrupt years of historical records.",
@@ -754,8 +746,7 @@ const ResourcesPage = () => {
       excerpt:
         "Learn how a global fintech firm achieved 98% forecasting accuracy across multiple currencies using our proprietary neural network models.",
       author: "Finance Solutions",
-      image:
-        "https://images.unsplash.com/photo-1611974717483-582855f7263c?w=800&q=80",
+      image: "/blog_ai.png",
       content: {
         subtitle: "Learn how a global fintech firm achieved 98.4% forecasting accuracy across multiple currencies using our neural network models.",
         introduction: "In the global financial markets, currency fluctuations, regulatory changes, and inflation require organizations to re-evaluate their financial forecast continuously.",
