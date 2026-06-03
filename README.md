@@ -1,6 +1,6 @@
-# Roxbee
+# Beacon
 
-This repository contains the source code for the Roxbee platform, including the NexiraOS application.
+This repository contains the source code for the Beacon platform, including the NexiraOS application.
 
 ## Project Structure
 

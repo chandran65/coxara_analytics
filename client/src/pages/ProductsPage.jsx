@@ -11,7 +11,7 @@ const products = [
     title: "Answers to Decisions",
     subtitle: "Transform raw data into actionable insights",
     description:
-      "Roxbee doesn't just answer questions—it drives decisions. Go beyond 'what happened' to 'why it happened' and 'what to do next.' Designed for leaders who need clarity, not queries.",
+      "Beacon doesn't just answer questions—it drives decisions. Go beyond 'what happened' to 'why it happened' and 'what to do next.' Designed for leaders who need clarity, not queries.",
     features: [
       "Context-aware reasoning layer",
       "Understands complex business logic",
@@ -35,7 +35,7 @@ const products = [
     title: "Business Context",
     subtitle: "Semantic logic tailored to your specific metrics",
     description:
-      "Roxbee speaks your business language—not generic AI-speak. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
+      "Beacon speaks your business language—not generic AI-speak. It aligns insights with your KPIs, metric definitions, and operating models to eliminate misinterpretation.",
     features: [
       "Dedicated Context Layer",
       "Captures custom business rules",
@@ -83,7 +83,7 @@ const products = [
     title: "Proactive Intelligence",
     subtitle: "Anomaly detection and emerging risk alerts",
     description:
-      "Roxbee surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes—moving from hindsight to foresight.",
+      "Beacon surfaces what matters, not just what you ask. Identify emerging risks, anomalies, and opportunities before they impact outcomes—moving from hindsight to foresight.",
     features: [
       "Embedded anomaly detection",
       "Trend analysis across enterprise KPIs",
@@ -115,7 +115,7 @@ const products = [
     title: "Enterprise Integration",
     subtitle: "Deploy securely on Cloud, on-prem, or hybrid",
     description:
-      "Roxbee integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
+      "Beacon integrates seamlessly with enterprise governance, security, and compliance needs. Scale insights across teams without increasing operational risk.",
     features: [
       "Secure, permission-aware data access",
       "Role-based access controls",
@@ -145,8 +145,8 @@ const ProductsHero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  const words = ["Roxbee", "Enterprise", "Copilot"];
-  const specialWords = ["Roxbee"];
+  const words = ["Beacon", "Intelligence", "Platform"];
+  const specialWords = ["Beacon"];
 
   return (
     <section
@@ -245,7 +245,7 @@ const ProductsHero = () => {
             <div className="absolute -inset-10 bg-gradient-to-r from-brand-purple/20 via-brand-accent/20 to-brand-glow/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
             <img
               src="/product_name_logo.png"
-              alt="Roxbee Logo"
+              alt="Beacon Logo"
               className="h-28 sm:h-32 md:h-40 mx-auto object-contain drop-shadow-[0_20px_50px_rgba(109,40,217,0.3)] hover:scale-105 transition-transform duration-500 relative z-10"
             />
           </motion.div>
@@ -258,7 +258,7 @@ const ProductsHero = () => {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
               <span className="text-[10px] sm:text-xs font-bold text-brand-purple tracking-[0.2em] uppercase">
-                Enterprise AI Copilot
+                Enterprise Intelligence Platform
               </span>
             </motion.div>
           </div>
@@ -292,7 +292,7 @@ const ProductsHero = () => {
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-secondary-500 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0"
           >
-            From fragmented data to coordinated decisions. Roxbee is a swarm
+            From fragmented data to coordinated decisions. Beacon is a swarm
             intelligence–driven analytics platform that unifies distributed
             data, embeds governance, and enables natural language interaction—so
             business users can turn insights into action, instantly.
@@ -348,7 +348,7 @@ const DataStudioVisual = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
         <span className="text-[10px] text-slate-500 ml-2 font-mono">
-          Roxbee-query-engine
+          Beacon-query-engine
         </span>
         <span className="ml-auto text-[9px] font-mono text-emerald-400 flex items-center gap-1">
           <motion.div
@@ -1557,17 +1557,17 @@ const OverviewStrip = () => {
           <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-purple/[0.06] border border-brand-purple/15 rounded-full mb-6">
             <img
               src="/Product Logo.png"
-              alt="Roxbee"
+              alt="Beacon"
               className="w-5 h-5 rounded-full object-cover"
             />
             <span className="text-sm font-semibold text-brand-purple tracking-wide">
-              AI Copilot
+              Intelligence Platform
             </span>
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-secondary-900">
-            The Enterprise AI{" "}
+            The Enterprise{" "}
             <span className="bg-gradient-to-r from-brand-purple via-brand-accent to-brand-glow bg-clip-text text-transparent">
-              Copilot
+              Intelligence Platform
             </span>
           </h2>
         </motion.div>
@@ -1681,7 +1681,7 @@ const CTASection = () => (
             Ready to Transform Your Data Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Explore how Roxbee can accelerate your analytics from raw data to
+            Explore how Beacon can accelerate your analytics from raw data to
             automated, intelligent decisions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">

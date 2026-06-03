@@ -19,12 +19,12 @@ for file_name in files_to_update:
         with open(full_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        new_content = re.sub(r'CoreSight\b', 'Roxbee', content, flags=re.IGNORECASE)
-        new_content = re.sub(r'Core Sight\b', 'Roxbee', new_content, flags=re.IGNORECASE)
+        new_content = re.sub(r'CoreSight\b', 'Beacon', content, flags=re.IGNORECASE)
+        new_content = re.sub(r'Core Sight\b', 'Beacon', new_content, flags=re.IGNORECASE)
 
-        # To avoid cases where it says "Roxbee Roxbee" now
-        new_content = new_content.replace('Roxbee Roxbee', 'Roxbee')
-        new_content = new_content.replace('Roxbee Roxbee', 'Roxbee') # replace twice in case of 3
+        # To avoid cases where it says "Beacon Beacon" now
+        new_content = new_content.replace('Beacon Beacon', 'Beacon')
+        new_content = new_content.replace('Beacon Beacon', 'Beacon') # replace twice in case of 3
 
         if new_content != content:
             with open(full_path, 'w', encoding='utf-8') as f:

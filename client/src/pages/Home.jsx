@@ -950,13 +950,13 @@ const Home = () => {
                       <div className="w-10 h-10 rounded-lg overflow-hidden shadow-sm border border-brand-purple/10">
                         <img
                           src="/Product Logo.png"
-                          alt="Roxbee"
+                          alt="Beacon"
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
                         <p className="text-[11px] font-bold text-secondary-800">
-                          Roxbee AI
+                          Beacon
                         </p>
                         <p className="text-[9px] text-brand-purple font-semibold">
                           Enterprise Ready

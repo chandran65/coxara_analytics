@@ -59,7 +59,7 @@ const ProductSection = () => {
                 align="left"
               />
 
-              {/* Roxbee product badge */}
+              {/* Beacon product badge */}
               <motion.div
                 initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -69,23 +69,23 @@ const ProductSection = () => {
               >
                 <img
                   src="/Product Logo.png"
-                  alt="Roxbee"
+                  alt="Beacon"
                   className="w-9 h-9 rounded-xl object-cover shadow-sm"
                 />
                 <div>
                   <p className="text-sm font-bold text-secondary-900 leading-tight">
-                    Roxbee
+                    Beacon
                   </p>
                   <p className="text-[11px] text-brand-purple font-semibold">
-                    Enterprise AI Copilot
+                    Enterprise intelligence platform
                   </p>
                 </div>
               </motion.div>
 
               <p className="text-lg text-secondary-500 mt-4 mb-12 leading-relaxed">
                 COXARA Analytics powers the next generation of intelligence.
-                From <strong className="text-secondary-900">Roxbee</strong>, our
-                flagship Enterprise AI Copilot, to{" "}
+                From <strong className="text-secondary-900">Beacon</strong>, our
+                flagship Enterprise intelligence platform, to{" "}
                 <strong className="text-indigo-600">Mindora AI Studio</strong>{" "}
                 for young learners, we build systems that turn complex data into
                 human opportunity.
@@ -144,7 +144,7 @@ const ProductSection = () => {
 
                 <img
                   src="/coresight_visual.png"
-                  alt="Roxbee Dashboard"
+                  alt="Beacon Dashboard"
                   className="w-full h-auto object-cover"
                 />
 
@@ -152,11 +152,11 @@ const ProductSection = () => {
                 <div className="absolute top-8 right-8 bg-brand-purple text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
                   <img
                     src="/Product Logo.png"
-                    alt="Roxbee"
+                    alt="Beacon"
                     className="w-5 h-5 rounded-full object-cover"
                   />
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  Roxbee AI Active
+                  Beacon AI Active
                 </div>
               </motion.div>
 

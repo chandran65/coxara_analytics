@@ -189,9 +189,9 @@ const AboutPage = () => {
                   actionable business value.
                 </p>
                 <p>
-                  Our flagship product,{" "}
-                  <strong className="text-brand-purple">Roxbee</strong>, serves
-                  as your Enterprise AI Copilot. It allows business users to
+                  Our flagship platform,{" "}
+                  <strong className="text-brand-purple">Beacon</strong>, serves
+                  as your Enterprise intelligence platform. It allows business users to
                   seamlessly interact with complex datasets using natural
                   language, transforming distributed data and models into
                   governed, real-time decisions—no SQL or data prep required.

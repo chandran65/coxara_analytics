@@ -24,7 +24,7 @@ const products = [
     title: "Experimentation Studio",
     tags: ["Business Context", "Semantic AI", "Tailored"],
     description:
-      "Roxbee speaks your business language, aligning insights with your KPIs, metric definitions, and operating models.",
+      "Beacon speaks your business language, aligning insights with your KPIs, metric definitions, and operating models.",
     icon: (
       <path
         strokeLinecap="round"

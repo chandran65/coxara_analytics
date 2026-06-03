@@ -8,9 +8,9 @@ export const navigationData = [
     path: "/products",
     items: [
       {
-        label: "Roxbee",
+        label: "Beacon",
         path: "/products",
-        description: "Enterprise AI Copilot for Coordinated Decisions",
+        description: "Enterprise Intelligence Platform for Coordinated Decisions",
         icon: "sparkle",
       },
       {

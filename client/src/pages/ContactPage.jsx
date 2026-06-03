@@ -319,7 +319,7 @@ const ContactPage = () => {
                 },
               ],
               context: {
-                pageUri: "https://www.roxbee.co.in/company/contact",
+                pageUri: "https://www.beacon.co.in/company/contact",
                 pageName: "COXARA Analytics — Contact Page",
               },
             }),

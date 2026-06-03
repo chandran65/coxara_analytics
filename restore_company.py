@@ -14,26 +14,26 @@ def update_file(full_path):
 
     new_content = content
     # Titles and obvious company phrases
-    new_content = new_content.replace('ROXBEE Analytics', 'COXARA Analytics')
-    new_content = new_content.replace('Roxbee Analytics', 'Coxara Analytics')
-    new_content = new_content.replace('roxbee_chat_opened', 'coxara_chat_opened')
-    new_content = new_content.replace('director@roxbee.co.in', 'director@coxara.co.in')
+    new_content = new_content.replace('BEACON Analytics', 'COXARA Analytics')
+    new_content = new_content.replace('Beacon Analytics', 'Coxara Analytics')
+    new_content = new_content.replace('beacon_chat_opened', 'coxara_chat_opened')
+    new_content = new_content.replace('director@beacon.co.in', 'director@coxara.co.in')
     
-    # Navbar and Footer wordmark (span containing Roxbee)
-    new_content = re.sub(r'>\s*Roxbee\s*</span>', '>Coxara</span>', new_content)
+    # Navbar and Footer wordmark (span containing Beacon)
+    new_content = re.sub(r'>\s*Beacon\s*</span>', '>Coxara</span>', new_content)
     
-    # Chatbot specific lines where Roxbee meant the company
-    new_content = new_content.replace('Welcome to ROXBEE!', 'Welcome to COXARA!')
-    new_content = new_content.replace('about roxbee', 'about coxara')
-    new_content = new_content.replace('what is roxbee', 'what is coxara')
-    new_content = new_content.replace('tell me about roxbee', 'tell me about coxara')
-    new_content = new_content.replace('Roxbee offers', 'Coxara offers')
-    new_content = new_content.replace('Careers at Roxbee', 'Careers at Coxara')
-    new_content = new_content.replace('ROXBEE AI Assistant', 'COXARA AI Assistant')
+    # Chatbot specific lines where Beacon meant the company
+    new_content = new_content.replace('Welcome to BEACON!', 'Welcome to COXARA!')
+    new_content = new_content.replace('about beacon', 'about coxara')
+    new_content = new_content.replace('what is beacon', 'what is coxara')
+    new_content = new_content.replace('tell me about beacon', 'tell me about coxara')
+    new_content = new_content.replace('Beacon offers', 'Coxara offers')
+    new_content = new_content.replace('Careers at Beacon', 'Careers at Coxara')
+    new_content = new_content.replace('BEACON AI Assistant', 'COXARA AI Assistant')
     
-    # In AboutSection, etc, where ROXBEE is shouting
-    new_content = re.sub(r'\bROXBEE\b(?!\s*CoreSight)', 'COXARA', new_content)
-    # But wait, in Chatbot: "Our flagship product is Roxbee!"
+    # In AboutSection, etc, where BEACON is shouting
+    new_content = re.sub(r'\bBEACON\b(?!\s*CoreSight)', 'COXARA', new_content)
+    # But wait, in Chatbot: "Our flagship product is Beacon!"
     # I want to be extremely precise:
     
     if new_content != content:

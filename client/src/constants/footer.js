@@ -37,7 +37,7 @@ export const footerData = {
     ],
   },
   solutions: {
-    title: "Roxbee",
+    title: "Beacon",
     links: [
       { label: "Answers to Decisions", path: "/products#answers-to-decisions" },
       { label: "Business Context", path: "/products#business-context" },

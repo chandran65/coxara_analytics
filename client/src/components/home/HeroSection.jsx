@@ -80,7 +80,7 @@ const HeroVisual = ({ mouseX, mouseY }) => {
       <div className="relative rounded-[3rem] overflow-hidden">
         <motion.img
           src="/ai_human_visual.png"
-          alt="Roxbee AI Intelligence"
+          alt="Beacon AI Intelligence"
           className="w-full h-full object-cover mix-blend-overlay"
           animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -88,7 +88,7 @@ const HeroVisual = ({ mouseX, mouseY }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/80 via-transparent to-brand-accent/20 mix-blend-multiply pointer-events-none" />
         <motion.img
           src="/ai_human_visual.png"
-          alt="Roxbee AI Intelligence"
+          alt="Beacon AI Intelligence"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
           animate={{ scale: [1, 1.08, 1], y: [0, -10, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -202,7 +202,7 @@ const HeroSection = ({ isActive = true }) => {
               }}
               className="text-lg md:text-xl text-secondary-500 leading-relaxed max-w-2xl mb-12 font-normal"
             >
-              Roxbee—COXARA's flagship Enterprise AI Copilot—is a swarm
+              Beacon—COXARA's flagship Enterprise intelligence platform—is a swarm
               intelligence–driven platform where distributed data, models, and
               signals converge to produce coordinated, governed decisions in
               real time.

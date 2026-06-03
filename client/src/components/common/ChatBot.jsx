@@ -15,7 +15,7 @@ const BOT_KNOWLEDGE = [
       "about coxara",
       "tell me about coxara",
       "company overview",
-      "roxbee analytics",
+      "beacon analytics",
     ],
     answer:
       "COXARA Analytics is a cutting-edge AI and data intelligence company specializing in transforming complex data into actionable insights. We help enterprises harness the power of AI, machine learning, and advanced analytics to drive smarter decisions. 🚀",
@@ -40,8 +40,8 @@ const BOT_KNOWLEDGE = [
   {
     keywords: [
       "product",
-      "Roxbee",
-      "enterprise copilot",
+      "Beacon",
+      "enterprise intelligence platform",
       "conversational ai",
       "chat with data",
       "answers to decisions",
@@ -49,12 +49,12 @@ const BOT_KNOWLEDGE = [
       "data backed insights",
     ],
     answer:
-      "Our flagship product is **Roxbee**! 🚀\n\nRoxbee lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see Roxbee in action? Request a demo!",
+      "Our flagship platform is **Beacon**! 🚀\n\nBeacon lets business users chat with their data in plain English — no SQL, no data prep needed. Here's what it does:\n\n• 🧠 **Answers to Decisions** — Goes beyond 'what happened' to tell you why & what to do next\n• 🏷️ **Built for Business Context** — Speaks your KPIs, not generic AI jargon\n• 🔍 **Data-Backed Insights** — Fully traceable, auditable, no hallucinated numbers\n• 🚨 **Proactive Intelligence** — Surfaces anomalies & risks before they impact you\n• 🔐 **Enterprise-Ready** — Role-based access, cloud/on-prem/hybrid deployment\n\nWant to see Beacon in action? Request a demo!",
   },
   {
     keywords: ["solution", "platform", "tool", "offer", "what do you build"],
     answer:
-      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **Roxbee** — an enterprise conversational AI that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
+      "We offer AI-powered analytics platforms and customizable enterprise solutions tailored to your business needs. Our flagship is **Beacon** — an enterprise conversational AI and intelligence platform that lets you chat with your data. Want me to connect you with our team for a personalized demo?",
   },
   {
     keywords: [

@@ -20,14 +20,14 @@ const MindoraPage = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative py-16 md:py-20 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+        className="relative py-16 md:py-20 overflow-hidden bg-gradient-to-br from-pink-50 via-white to-fuchsia-50"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(99,102,241,0.08)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(236,72,153,0.08)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(217,70,239,0.08)_0%,transparent_50%)]" />
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, #6366f1 1.5px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, #ec4899 1.5px, transparent 0)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -35,12 +35,12 @@ const MindoraPage = () => {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-200/20 blur-[100px] rounded-full"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-200/20 blur-[100px] rounded-full"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200/20 blur-[100px] rounded-full"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-200/20 blur-[100px] rounded-full"
         />
         <div className="container-custom relative z-10">
           <motion.div
@@ -53,48 +53,48 @@ const MindoraPage = () => {
               transition={{ duration: 0.8 }}
               className="relative mb-12 group"
             >
-              <div className="absolute -inset-10 bg-indigo-500/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="absolute -inset-10 bg-pink-500/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               <img
                 src="/mindora_logo.png"
                 alt="Mindora AI Studio Logo"
-                className="w-36 h-36 md:w-52 md:h-52 mx-auto object-contain drop-shadow-[0_25px_40px_rgba(99,102,241,0.2)] hover:rotate-3 transition-transform duration-500 relative z-10"
+                className="w-36 h-36 md:w-52 md:h-52 mx-auto object-contain drop-shadow-[0_25px_40px_rgba(236,72,153,0.2)] hover:rotate-3 transition-transform duration-500 relative z-10"
               />
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-8 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-700 rounded-full mb-8 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
               <span className="text-sm font-bold tracking-wider uppercase">
                 Intelligence, Unbound.
               </span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-display font-bold text-secondary-900 mb-8 leading-tight">
-              <span className="block text-indigo-600 mb-2">
+              <span className="block text-pink-600 mb-2">
                 Mindora AI Studio
               </span>
               Where Young Minds{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 whitespace-nowrap">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-fuchsia-600 whitespace-nowrap">
                 Innovate & Create
               </span>
             </h1>
 
             <p className="text-xl text-secondary-600 mb-12 leading-relaxed max-w-2xl mx-auto">
               From your child’s{" "}
-              <strong className="text-indigo-600">first line of code</strong> to
+              <strong className="text-pink-600">first line of code</strong> to
               building{" "}
-              <strong className="text-purple-600">real AI projects</strong>,
+              <strong className="text-fuchsia-600">real AI projects</strong>,
               Mindora AI Studio makes learning fun, visual, and powerful.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-6">
-              <button className="px-10 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-lg shadow-indigo-200 hover:scale-105 transition-all">
+              <button className="px-10 py-4 bg-pink-600 text-white rounded-full font-bold shadow-lg shadow-pink-200 hover:scale-105 transition-all">
                 Start Learning
               </button>
-              <button className="px-10 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full font-bold hover:bg-indigo-50 transition-colors">
+              <button className="px-10 py-4 border-2 border-pink-600 text-pink-600 rounded-full font-bold hover:bg-pink-50 transition-colors">
                 Try a Demo
               </button>
             </div>
@@ -117,8 +117,8 @@ const MindoraPage = () => {
               {
                 age: "Ages 4–7",
                 level: "Early Explorers",
-                gradient: "from-blue-500 to-cyan-400",
-                bg: "bg-blue-50",
+                gradient: "from-rose-400 to-pink-500",
+                bg: "bg-rose-50/50",
                 items: [
                   "Learn through games, colors, and animations",
                   "Drag-and-drop coding blocks",
@@ -128,8 +128,8 @@ const MindoraPage = () => {
               {
                 age: "Ages 8–12",
                 level: "Young Creators",
-                gradient: "from-indigo-600 to-purple-500",
-                bg: "bg-indigo-50",
+                gradient: "from-pink-500 to-fuchsia-500",
+                bg: "bg-pink-50/50",
                 items: [
                   "Build games, animations, and simple AI projects",
                   "Learn problem-solving and structured thinking",
@@ -139,8 +139,8 @@ const MindoraPage = () => {
               {
                 age: "Ages 13–17",
                 level: "Future Innovators",
-                gradient: "from-purple-600 to-pink-500",
-                bg: "bg-purple-50",
+                gradient: "from-fuchsia-600 to-purple-600",
+                bg: "bg-fuchsia-50/50",
                 items: [
                   "Move from blocks to real coding (Python)",
                   "Build AI models, apps, and smart systems",
@@ -150,7 +150,7 @@ const MindoraPage = () => {
             ].map((group, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div
-                  className={`h-full group p-8 rounded-3xl ${group.bg} border border-transparent hover:border-indigo-200 transition-all duration-300`}
+                  className={`h-full group p-8 rounded-3xl ${group.bg} border border-transparent hover:border-pink-200 transition-all duration-300`}
                 >
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${group.gradient} flex items-center justify-center text-white text-2xl mb-6 shadow-lg`}
@@ -171,7 +171,7 @@ const MindoraPage = () => {
                         key={idx}
                         className="flex items-start gap-3 text-secondary-600"
                       >
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-400 shrink-0" />
                         <span className="text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
@@ -185,7 +185,7 @@ const MindoraPage = () => {
 
       {/* Capabilities Section */}
       <section className="py-16 bg-secondary-950 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,#312e81_0%,transparent_50%)] opacity-40 shrink-0" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,#701a75_0%,transparent_50%)] opacity-40 shrink-0" />
         <div className="container-custom relative z-10">
           <SectionHeading
             badge="What Kids Can Do"
@@ -198,7 +198,7 @@ const MindoraPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-16 items-center">
             <div className="space-y-12">
               <div className="flex gap-6 items-start group">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-indigo-500 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-pink-500 transition-colors">
                   🎨
                 </div>
                 <div>
@@ -211,7 +211,7 @@ const MindoraPage = () => {
               </div>
 
               <div className="flex gap-6 items-start group">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-purple-500 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-fuchsia-500 transition-colors">
                   🤖
                 </div>
                 <div>
@@ -224,7 +224,7 @@ const MindoraPage = () => {
               </div>
 
               <div className="flex gap-6 items-start group">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-pink-500 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl group-hover:bg-rose-500 transition-colors">
                   🧩
                 </div>
                 <div>
@@ -240,14 +240,14 @@ const MindoraPage = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full" />
+              <div className="absolute -inset-4 bg-pink-500/20 blur-3xl rounded-full" />
               <div className="relative bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl h-[400px] flex items-center justify-center overflow-hidden">
                 {/* Visual representation of an AI canvas */}
                 <div className="grid grid-cols-2 gap-4 w-full h-full opacity-60">
-                  <div className="bg-indigo-400/20 rounded-2xl border border-indigo-400/30 animate-pulse" />
-                  <div className="bg-purple-400/20 rounded-2xl border border-purple-400/30 animate-pulse delay-75" />
-                  <div className="bg-pink-400/20 rounded-2xl border border-pink-400/30 animate-pulse delay-150" />
-                  <div className="bg-cyan-400/20 rounded-2xl border border-cyan-400/30 animate-pulse delay-225" />
+                  <div className="bg-pink-400/20 rounded-2xl border border-pink-400/30 animate-pulse" />
+                  <div className="bg-fuchsia-400/20 rounded-2xl border border-fuchsia-400/30 animate-pulse delay-75" />
+                  <div className="bg-rose-400/20 rounded-2xl border border-rose-400/30 animate-pulse delay-150" />
+                  <div className="bg-pink-300/20 rounded-2xl border border-pink-300/30 animate-pulse delay-225" />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
@@ -270,7 +270,7 @@ const MindoraPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-center mb-16">
               Why Parents & Schools Choose{" "}
-              <span className="text-indigo-600">Mindora</span>
+              <span className="text-pink-600">Mindora</span>
             </h2>
 
             <div className="space-y-4">
@@ -286,7 +286,7 @@ const MindoraPage = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-4 p-6 bg-secondary-50 rounded-2xl border border-secondary-100 group hover:bg-indigo-50 hover:border-indigo-100 transition-all cursor-default"
+                  className="flex items-center gap-4 p-6 bg-secondary-50 rounded-2xl border border-secondary-100 group hover:bg-pink-50 hover:border-pink-100 transition-all cursor-default"
                 >
                   <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
                     ✓
@@ -302,8 +302,8 @@ const MindoraPage = () => {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-20 bg-indigo-600 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.4)_0%,transparent_70%)]" />
+      <section className="py-20 bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.4)_0%,transparent_70%)]" />
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -336,10 +336,10 @@ const MindoraPage = () => {
             build the future.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="px-10 py-5 bg-indigo-600 text-white rounded-full font-bold text-lg shadow-xl shadow-indigo-100 hover:scale-105 transition-all">
+            <button className="px-10 py-5 bg-pink-600 text-white rounded-full font-bold text-lg shadow-xl shadow-pink-100 hover:scale-105 transition-all">
               Get Started Now
             </button>
-            <button className="px-10 py-5 border-2 border-indigo-200 text-indigo-700 rounded-full font-bold text-lg hover:border-indigo-600 transition-all">
+            <button className="px-10 py-5 border-2 border-pink-200 text-pink-700 rounded-full font-bold text-lg hover:border-pink-600 transition-all">
               Book a Demo Class
             </button>
           </div>

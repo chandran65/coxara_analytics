@@ -26,10 +26,10 @@ for file_name in files_to_update:
         with open(full_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        new_content = content.replace('Coxara Analytics', 'Roxbee')
-        new_content = new_content.replace('Coxara', 'Roxbee')
-        new_content = new_content.replace('coxara', 'roxbee')
-        new_content = new_content.replace('COXARA', 'ROXBEE')
+        new_content = content.replace('Coxara Analytics', 'Beacon')
+        new_content = new_content.replace('Coxara', 'Beacon')
+        new_content = new_content.replace('coxara', 'beacon')
+        new_content = new_content.replace('COXARA', 'BEACON')
 
         if new_content != content:
             with open(full_path, 'w', encoding='utf-8') as f:

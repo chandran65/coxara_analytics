@@ -23,9 +23,9 @@ filesToUpdate.forEach(file => {
   const fullPath = path.join(basePath, file);
   if (fs.existsSync(fullPath)) {
     let content = fs.readFileSync(fullPath, 'utf8');
-    content = content.replace(/Coxara Analytics/g, 'Roxbee');
-    content = content.replace(/Coxara/g, 'Roxbee');
-    content = content.replace(/coxara/g, 'roxbee');
+    content = content.replace(/Coxara Analytics/g, 'Beacon');
+    content = content.replace(/Coxara/g, 'Beacon');
+    content = content.replace(/coxara/g, 'beacon');
     fs.writeFileSync(fullPath, content, 'utf8');
     console.log(`Updated ${file}`);
   }
